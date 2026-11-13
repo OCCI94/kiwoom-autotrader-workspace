@@ -1,0 +1,85 @@
+{
+  "schema": "official-business-theme-supplement-v1",
+  "created_at": "2026-11-01T11:40:54+09:00",
+  "metadata_only": true,
+  "scope": "theme_concentration_only",
+  "order_universe_authorization": false,
+  "classification_method": "공식 사업 내용에 근거한 보충 위험분류. pro6e 원문 분류나 가격 신호가 아님. 기존 유효 멤버십은 덮어쓰지 않음.",
+  "stocks": {
+    "002790": {
+      "name": "아모레퍼시픽홀딩스",
+      "sub_themes": ["화장품·지주"],
+      "review_method": "official_source_review",
+      "business_basis": "지주회사이며 2026년 1분기 연결 사업부문에서 화장품 부문 비중은 95%로 공시됨. 화장품 위험군으로 묶고 별도 지주회사 슬롯을 만들지 않음.",
+      "sources": [{
+        "authority": "official_disclosure",
+        "title": "아모레퍼시픽홀딩스 2026년 1분기 분기보고서 — 회사의 개요 및 사업의 내용",
+        "url": "https://kind.krx.co.kr/external/2026/05/15/001430/20260515003119/11013.htm",
+        "verified_at": "2026-11-01T11:40:54+09:00"
+      }]
+    },
+    "003220": {
+      "name": "대원제약",
+      "sub_themes": ["제약"],
+      "review_method": "official_source_review",
+      "business_basis": "공식 공시의 주사업은 의약품 제조 및 판매. DART 회사정보에서 종목코드 003220 및 의약품 제조업을 확인함.",
+      "sources": [{
+        "authority": "official_disclosure",
+        "title": "대원제약 2025년 사업보고서 — 사업의 내용",
+        "url": "https://kind.krx.co.kr/external/2026/03/18/002010/20260318009278/11011.htm",
+        "verified_at": "2026-11-01T11:40:54+09:00"
+      }, {
+        "authority": "official_disclosure",
+        "title": "DART DAEWON PHARM 회사정보 (003220)",
+        "url": "https://englishdart.fss.or.kr/dsbc001/selectPopup.ax?selectKey=00111999",
+        "verified_at": "2026-11-01T11:40:54+09:00"
+      }]
+    },
+    "003610": {
+      "name": "방림",
+      "sub_themes": ["섬유·직물"],
+      "review_method": "official_source_review",
+      "business_basis": "공식 사업보고서상 면방직물과 염색가공직물 제조·판매. 사업 근거 없는 정치·이벤트 테마는 부여하지 않음.",
+      "sources": [{
+        "authority": "official_disclosure",
+        "title": "방림 2025년 사업보고서 — 사업의 내용",
+        "url": "https://kind.krx.co.kr/external/2025/12/22/000269/20251222000801/11011.htm",
+        "verified_at": "2026-11-01T11:40:54+09:00"
+      }]
+    },
+    "010660": {
+      "name": "화천기계",
+      "sub_themes": ["기계·공작기계", "자동차·부품"],
+      "review_method": "official_source_review",
+      "business_basis": "공식 회사소개와 분기보고서에서 공작기계 및 자동차용 실린더블록 등 부품 사업을 확인함. 두 사업군 모두 집중도에 계산하며 재건·정치 테마로 확대 해석하지 않음.",
+      "sources": [{
+        "authority": "official_company",
+        "title": "화천기계 공식 회사소개 — 주요제품 공작기계·자동차부품",
+        "url": "https://hwacheon.com/ko/company/hwintro_partner_02.do",
+        "verified_at": "2026-11-01T11:40:54+09:00"
+      }, {
+        "authority": "official_disclosure",
+        "title": "화천기계 2026년 1분기 분기보고서 — 사업의 내용",
+        "url": "https://kind.krx.co.kr/external/2026/05/15/001807/20260515004018/11013.htm",
+        "verified_at": "2026-11-01T11:40:54+09:00"
+      }]
+    },
+    "053350": {
+      "name": "이니텍",
+      "sub_themes": ["보안·인증"],
+      "review_method": "official_source_review",
+      "business_basis": "공식 사업보고서와 회사소개에서 인증·암호화 기반 정보보안 솔루션을 확인함. 라온시큐어·안랩 등과 동일한 보안 집중도 위험군으로 계산함.",
+      "sources": [{
+        "authority": "official_disclosure",
+        "title": "이니텍 2025년 사업보고서 — 사업의 내용",
+        "url": "https://kind.krx.co.kr/external/2026/03/20/001689/20260320005903/11011.htm",
+        "verified_at": "2026-11-01T11:40:54+09:00"
+      }, {
+        "authority": "official_company",
+        "title": "이니텍 공식 홈페이지 — 정보보안 솔루션",
+        "url": "https://www.initech.com/html/index.html",
+        "verified_at": "2026-11-01T11:40:54+09:00"
+      }]
+    }
+  }
+}

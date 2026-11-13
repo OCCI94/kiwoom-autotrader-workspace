@@ -1,0 +1,18 @@
+11-09 01:59:05 tag=paper_L256_Kronos-small_mps model=NeoQuasar/Kronos-small@901c26c1 tok@0e011738 anchors=34 (20250602..20261012) done=0 S=10 T=0.6 top_p=0.9 L=256 H=10 device=mps threads=4 chunk=24 torch=2.15.0
+11-09 01:59:05 params model=24.7M tokenizer=4.0M
+11-09 02:04:50 anchor 20250602 (1/34) elig=212 344.9s maxrss=0.62GB eta=189.7min
+11-09 02:14:55 anchor 20250618 (2/34) elig=212 605.0s maxrss=0.62GB eta=322.7min
+11-09 02:25:15 anchor 20250702 (3/34) elig=212 619.7s maxrss=0.62GB eta=320.2min
+11-09 02:55:23 anchor 20250716 (4/34) elig=213 1807.6s maxrss=0.62GB eta=903.8min
+11-09 03:21:35 anchor 20250730 (5/34) elig=215 1572.2s maxrss=0.62GB eta=759.9min
+11-09 03:45:12 anchor 20250813 (6/34) elig=216 1417.1s maxrss=0.62GB eta=661.3min
+11-09 04:07:53 anchor 20250828 (7/34) elig=217 1360.2s maxrss=0.62GB eta=612.1min
+11-09 04:34:33 anchor 20250911 (8/34) elig=218 1600.6s maxrss=0.62GB eta=693.6min
+11-09 05:02:11 anchor 20250925 (9/34) elig=220 1657.2s maxrss=0.62GB eta=690.5min
+11-09 05:37:54 anchor 20251016 (10/34) elig=221 2143.4s maxrss=0.62GB eta=857.3min
+11-09 06:30:39 anchor 20251030 (11/34) elig=221 3165.1s maxrss=0.62GB eta=1213.3min
+11-09 07:22:39 anchor 20251113 (12/34) elig=220 3119.8s maxrss=0.62GB eta=1143.9min
+11-09 08:03:12 anchor 20251127 (13/34) elig=220 2432.1s maxrss=0.62GB eta=851.2min
+11-09 09:07:51 anchor 20251211 (14/34) elig=219 3879.4s maxrss=0.62GB eta=1293.1min
+11-09 09:07:51 deadline 08:30 KST reached; stopping before anchor 20251226
+11-09 09:07:51 done anchors=14 in 428.8 min -> /Users/tr-oh/Documents/Codex/kronos-eval-20261109/results/preds_paper_L256_Kronos-small_mps.csv

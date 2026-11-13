@@ -1,0 +1,198 @@
+{
+  "schema": "nov13-day1-preopen-readonly-check-v1",
+  "observed_at": "2026-11-12T17:45:03.011103+09:00",
+  "target_day": "2026-11-13",
+  "verdict": "CAUTION",
+  "reasons": [
+    "target_preopen_has_not_arrived",
+    "target_day_preopen_checkpoint_missing",
+    "target_day_watchdog_samples_missing_or_insufficient",
+    "target_day_pulse_or_control_log_missing"
+  ],
+  "target_preopen_current": false,
+  "checkpoint": {
+    "path": "/Users/tr-oh/Library/Application Support/KiwoomAutotrader/observability/watchdog/20261113.preopen.checkpoint.json",
+    "present": false,
+    "status": null,
+    "checks": {
+      "daily_cache_ready": null,
+      "vi_ready": null,
+      "calendar_ready": null,
+      "stream_ready": null,
+      "active_arms_14": null
+    }
+  },
+  "receiver_state": {
+    "path": "/Users/tr-oh/Library/Application Support/KiwoomAutotrader/telegram/state.json",
+    "observation_is_target_day": false,
+    "pid": 2130,
+    "pid_unchanged": true,
+    "status": "running",
+    "mode": "paper",
+    "maintenance_paused": false,
+    "maintenance_marker_present": false,
+    "published_at": "2026-11-12T17:45:02.286153+09:00",
+    "state_age_seconds": 0.725269,
+    "fresh_within_90_seconds": true,
+    "recording_ready": true,
+    "recorder_error_is_null": true,
+    "gap_count": 0,
+    "paper_experiment_enabled": true,
+    "active_arms_count": 14,
+    "active_arms": [
+      "EXP_R",
+      "EXP_A",
+      "EXP_B",
+      "EXP_B_TP",
+      "EXP_E",
+      "EXP_C",
+      "EXP_D",
+      "EXP_ETF_B",
+      "EXP_GDR",
+      "EXP_LDR",
+      "EXP_ORB_A",
+      "EXP_ORB_B",
+      "EXP_VSS",
+      "S5_steady_uptrend_vwap"
+    ],
+    "expected_14_arms_match": true
+  },
+  "watchdog_samples": {
+    "latest_two": [],
+    "available_count": 0,
+    "interval_seconds": null,
+    "interval_at_most_75_seconds": null
+  },
+  "receiver_pulse": {
+    "path": "/Users/tr-oh/Library/Application Support/KiwoomAutotrader/telegram/stability-audit/receiver-stability-20261113.jsonl",
+    "present": false,
+    "records": 0,
+    "first_observed_at": null,
+    "before_open": null,
+    "first_sequence": null,
+    "hash_chain_valid": null,
+    "single_run_id": null,
+    "all_expected_pid": null,
+    "all_coverage_failed_false": null,
+    "latest_ready": null,
+    "latest_at": null,
+    "manual_interventions": null
+  },
+  "registered_control_audit": {
+    "path": "/Users/tr-oh/Library/Application Support/KiwoomAutotrader/observability/control-audit-20261113.jsonl",
+    "present": false,
+    "records": 0,
+    "first_observed_at": null,
+    "before_open": null,
+    "first_sequence": null,
+    "hash_chain_valid": null,
+    "first_phase": null,
+    "registered_nonautomatic_actions": null
+  },
+  "protected_processes": {
+    "expected_pids": [
+      2130,
+      2217,
+      6543,
+      6544,
+      6557,
+      36535
+    ],
+    "observed": {
+      "2130": {
+        "pid": 2130,
+        "ppid": 1,
+        "lstart": "Thu Nov 12 17:25:53 2026"
+      },
+      "2217": {
+        "pid": 2217,
+        "ppid": 1,
+        "lstart": "Thu Nov 12 17:26:44 2026"
+      },
+      "6543": {
+        "pid": 6543,
+        "ppid": 1,
+        "lstart": "Tue Nov 10 17:33:32 2026"
+      },
+      "6544": {
+        "pid": 6544,
+        "ppid": 1,
+        "lstart": "Tue Nov 10 17:33:32 2026"
+      },
+      "6557": {
+        "pid": 6557,
+        "ppid": 6544,
+        "lstart": "Tue Nov 10 17:33:34 2026"
+      },
+      "36535": {
+        "pid": 36535,
+        "ppid": 36529,
+        "lstart": "Wed Nov 11 15:37:12 2026"
+      }
+    },
+    "missing_pids": [],
+    "ps_exit_code": 0
+  },
+  "ssd_volume": {
+    "mount_path": "/Volumes/AIStockData",
+    "mounted_independent_device": true,
+    "sentinel_present": true,
+    "expected_sentinel_matches": true
+  },
+  "file_metadata": {
+    "/Users/tr-oh/Library/Application Support/KiwoomAutotrader/telegram/state.json": {
+      "append_only": false,
+      "before": {
+        "st_size": 21670,
+        "st_mtime_ns": 1794473102298710352,
+        "inode": 29890479,
+        "device": 16777230
+      },
+      "after": {
+        "st_size": 21670,
+        "st_mtime_ns": 1794473102298710352,
+        "inode": 29890479,
+        "device": 16777230
+      },
+      "unchanged": true,
+      "sha256_of_read_bytes": "adf3407f9935ec87c520b1701578d1dbb2249f8c9738d4824847d4ed03782c58",
+      "final": {
+        "st_size": 21670,
+        "st_mtime_ns": 1794473102298710352,
+        "inode": 29890479,
+        "device": 16777230
+      },
+      "unchanged_before_final": true
+    },
+    "/Volumes/AIStockData/.ssd-volume-sentinel": {
+      "append_only": false,
+      "before": {
+        "st_size": 37,
+        "st_mtime_ns": 1793198503064288415,
+        "inode": 54,
+        "device": 16777242
+      },
+      "after": {
+        "st_size": 37,
+        "st_mtime_ns": 1793198503064288415,
+        "inode": 54,
+        "device": 16777242
+      },
+      "unchanged": true,
+      "sha256_of_read_bytes": "8acfe13a4618d29ed323161233aa0b8bd3261a2f5106c4736b63ac26f633f388",
+      "final": {
+        "st_size": 37,
+        "st_mtime_ns": 1793198503064288415,
+        "inode": 54,
+        "device": 16777242
+      },
+      "unchanged_before_final": true
+    }
+  },
+  "sqlite_opens": 0,
+  "broker_calls": 0,
+  "network_calls": 0,
+  "process_control_calls": 0,
+  "operating_path_writes": 0,
+  "only_written_scope": "workspace report"
+}

@@ -1,0 +1,302 @@
+{
+  "schema": "nov13-toss-risk-refresh-failure-and-source-repair-v1",
+  "observed_at": "2026-11-13T10:09:52.948783+09:00",
+  "status": "source_fixed_and_staged_not_deployed",
+  "cause": "MARKET_DATA_CHART_HTTP_429_RETRY_RESERVE_EXHAUSTED",
+  "incidents": [
+    {
+      "slot": "0950",
+      "review": {
+        "path": "/Volumes/AIStockData/ai-stock-research-data/s5-full-eligibility/20261113-095005827615/toss/review.json",
+        "sha256": "4c62374a39936158bad207e694e541fa4b6bd833cac3e62bd83dd481b244e4b7"
+      },
+      "result": {
+        "path": "/Users/tr-oh/Library/Application Support/KiwoomAutotrader/research-readonly/toss-evidence-refresh-claims/20261113-0950.result.json",
+        "sha256": "7c678d3ec8e4d443f4bd0fa03c0df7611cf73c8ba0f9bad0cf29c8641d5af8a6"
+      },
+      "archive_status": "stopped_no_retry",
+      "published_status": "error",
+      "published_reason": "TOSS_REVIEW_INCOMPLETE",
+      "collector_reason": "REQUEST_FAILED_NO_RETRY",
+      "request_count": 105,
+      "retries_used": 2,
+      "observed_base_symbols": 16,
+      "completed_at": "2026-11-13T09:52:07.105063+09:00",
+      "http_429": [
+        {
+          "file": {
+            "path": "/Volumes/AIStockData/ai-stock-research-data/s5-full-eligibility/20261113-095005827615/toss/0031-daily-003220.json",
+            "sha256": "56b7bf5b6ead27e017342a5aeaa95745befdf72d9ea2282520eb4a7050ea5a34"
+          },
+          "symbol": "003220",
+          "at": "2026-11-13T09:50:40.993661+09:00",
+          "hints": {
+            "group": "MARKET_DATA_CHART",
+            "limit": 20.0,
+            "remaining": 19.0,
+            "reset_seconds": 1.0
+          }
+        },
+        {
+          "file": {
+            "path": "/Volumes/AIStockData/ai-stock-research-data/s5-full-eligibility/20261113-095005827615/toss/0036-daily-097520.json",
+            "sha256": "c0a54699df08fe47bc0fb427e2ffc5a32fd79e4889bd91bcce8e3f3a7ad9eaa1"
+          },
+          "symbol": "097520",
+          "at": "2026-11-13T09:50:46.981382+09:00",
+          "hints": {
+            "group": "MARKET_DATA_CHART",
+            "limit": 20.0,
+            "remaining": 19.0,
+            "reset_seconds": 1.0
+          }
+        },
+        {
+          "file": {
+            "path": "/Volumes/AIStockData/ai-stock-research-data/s5-full-eligibility/20261113-095005827615/toss/0105-daily-150900.json",
+            "sha256": "0286bfbb83d16af09536d707452fbba0842bdafd7d889680e710605621b1471a"
+          },
+          "symbol": "150900",
+          "at": "2026-11-13T09:52:06.901713+09:00",
+          "hints": {
+            "group": "MARKET_DATA_CHART",
+            "limit": 20.0,
+            "remaining": 19.0,
+            "reset_seconds": 1.0
+          }
+        }
+      ]
+    },
+    {
+      "slot": "0950-recovery",
+      "review": {
+        "path": "/Volumes/AIStockData/ai-stock-research-data/s5-full-eligibility/20261113-095305252356/toss/review.json",
+        "sha256": "6aac445ddbd05aa1ed2a0436627e6fe278b270511c56ebea12390fa8960c338f"
+      },
+      "result": {
+        "path": "/Users/tr-oh/Library/Application Support/KiwoomAutotrader/research-readonly/toss-evidence-refresh-claims/20261113-0950-recovery.result.json",
+        "sha256": "39ed81f19197660a74776a59924a6be3c2643b09e225954b4553e80133216ad2"
+      },
+      "archive_status": "stopped_no_retry",
+      "published_status": "error",
+      "published_reason": "TOSS_REVIEW_INCOMPLETE",
+      "collector_reason": "REQUEST_FAILED_NO_RETRY",
+      "request_count": 161,
+      "retries_used": 2,
+      "observed_base_symbols": 23,
+      "completed_at": "2026-11-13T09:56:11.187990+09:00",
+      "http_429": [
+        {
+          "file": {
+            "path": "/Volumes/AIStockData/ai-stock-research-data/s5-full-eligibility/20261113-095305252356/toss/0111-daily-010660.json",
+            "sha256": "bedfc7b977261bd3f96d14018983a375b8ba3867eef7c652a37d969e16287f97"
+          },
+          "symbol": "010660",
+          "at": "2026-11-13T09:55:12.851760+09:00",
+          "hints": {
+            "group": "MARKET_DATA_CHART",
+            "limit": 20.0,
+            "remaining": 19.0,
+            "reset_seconds": 1.0
+          }
+        },
+        {
+          "file": {
+            "path": "/Volumes/AIStockData/ai-stock-research-data/s5-full-eligibility/20261113-095305252356/toss/0156-daily-222800.json",
+            "sha256": "10a08d942a1379bc882919b8b8b758aef160084a6c76c4ad14d0778b0afd2a8a"
+          },
+          "symbol": "222800",
+          "at": "2026-11-13T09:56:04.901180+09:00",
+          "hints": {
+            "group": "MARKET_DATA_CHART",
+            "limit": 20.0,
+            "remaining": 19.0,
+            "reset_seconds": 1.0
+          }
+        },
+        {
+          "file": {
+            "path": "/Volumes/AIStockData/ai-stock-research-data/s5-full-eligibility/20261113-095305252356/toss/0161-daily-211270.json",
+            "sha256": "5d2f5547026fc91aba7d268a01c433309d566d8564362faa00d10abb05dd9c51"
+          },
+          "symbol": "211270",
+          "at": "2026-11-13T09:56:10.862390+09:00",
+          "hints": {
+            "group": "MARKET_DATA_CHART",
+            "limit": 20.0,
+            "remaining": 19.0,
+            "reset_seconds": 1.0
+          }
+        }
+      ]
+    },
+    {
+      "slot": "1005",
+      "review": {
+        "path": "/Volumes/AIStockData/ai-stock-research-data/s5-full-eligibility/20261113-100505234528/toss/review.json",
+        "sha256": "94b3573e5d45afd639a973ac1f089e1352db21a7fc8bf30e42d1f98cf832a300"
+      },
+      "result": {
+        "path": "/Users/tr-oh/Library/Application Support/KiwoomAutotrader/research-readonly/toss-evidence-refresh-claims/20261113-1005.result.json",
+        "sha256": "ede91009ffcc526b692e1a84ff51908cbe699c55a127d832d753f659546035a2"
+      },
+      "archive_status": "stopped_no_retry",
+      "published_status": "error",
+      "published_reason": "TOSS_REVIEW_INCOMPLETE",
+      "collector_reason": "REQUEST_FAILED_NO_RETRY",
+      "request_count": 161,
+      "retries_used": 2,
+      "observed_base_symbols": 23,
+      "completed_at": "2026-11-13T10:08:12.299609+09:00",
+      "http_429": [
+        {
+          "file": {
+            "path": "/Volumes/AIStockData/ai-stock-research-data/s5-full-eligibility/20261113-100505234528/toss/0107-daily-053350.json",
+            "sha256": "05be5cf59ed8fdf226ebbcec4b3d4788e662293f095ca8cf9df014855cd6480f"
+          },
+          "symbol": "053350",
+          "at": "2026-11-13T10:07:08.724942+09:00",
+          "hints": {
+            "group": "MARKET_DATA_CHART",
+            "limit": 20.0,
+            "remaining": 19.0,
+            "reset_seconds": 1.0
+          }
+        },
+        {
+          "file": {
+            "path": "/Volumes/AIStockData/ai-stock-research-data/s5-full-eligibility/20261113-100505234528/toss/0156-daily-031980.json",
+            "sha256": "ce62389ff137467120350a76d53b3fe3eaab239fb04b95c9bade5534492f842d"
+          },
+          "symbol": "031980",
+          "at": "2026-11-13T10:08:05.988761+09:00",
+          "hints": {
+            "group": "MARKET_DATA_CHART",
+            "limit": 20.0,
+            "remaining": 19.0,
+            "reset_seconds": 1.0
+          }
+        },
+        {
+          "file": {
+            "path": "/Volumes/AIStockData/ai-stock-research-data/s5-full-eligibility/20261113-100505234528/toss/0161-daily-222800.json",
+            "sha256": "78af667d10e3ba6fd724a4e3681230b9d03305043bf2d853cbd7256dff1d2fbb"
+          },
+          "symbol": "222800",
+          "at": "2026-11-13T10:08:12.001822+09:00",
+          "hints": {
+            "group": "MARKET_DATA_CHART",
+            "limit": 20.0,
+            "remaining": 19.0,
+            "reset_seconds": 1.0
+          }
+        }
+      ]
+    }
+  ],
+  "separate_pre_dart_failure": [
+    {
+      "slot": "0935",
+      "review": {
+        "path": "/Volumes/AIStockData/ai-stock-research-data/s5-full-eligibility/20261113-093504545385/toss/review.json",
+        "sha256": "637c5b7b4e93686e642c38aeb9f34cd4f301d275c8eb3c50a5b2698ff1d234ff"
+      },
+      "result": {
+        "path": "/Users/tr-oh/Library/Application Support/KiwoomAutotrader/research-readonly/toss-evidence-refresh-claims/20261113-0935.result.json",
+        "sha256": "44de86c202738a7e98372a66a0ed21b0ec64626f71f9ee38a98d5b39fed719c0"
+      },
+      "collected": true,
+      "toss_attempts": 193,
+      "request_count_matches_toss": true,
+      "archived_dart_files": 0,
+      "after_review_file_seconds": 0.0543,
+      "phase": "after_toss_before_first_dart_request",
+      "exact_exception": null
+    },
+    {
+      "slot": "0935-recovery",
+      "review": {
+        "path": "/Volumes/AIStockData/ai-stock-research-data/s5-full-eligibility/20261113-093902632498/toss/review.json",
+        "sha256": "33257b4316fcb5a21a07bf759410bb36f0d0e1d3fd914f56f69a2e1740e4294e"
+      },
+      "result": {
+        "path": "/Users/tr-oh/Library/Application Support/KiwoomAutotrader/research-readonly/toss-evidence-refresh-claims/20261113-0935-recovery.result.json",
+        "sha256": "52005344a9ab007a545c1b16ad5e4eeedb917e2609ad21c46d9cb7f6d8a7eb7f"
+      },
+      "collected": true,
+      "toss_attempts": 193,
+      "request_count_matches_toss": true,
+      "archived_dart_files": 0,
+      "after_review_file_seconds": 0.0304,
+      "phase": "after_toss_before_first_dart_request",
+      "exact_exception": null
+    }
+  ],
+  "risk": {
+    "expires_at": "2026-11-13T09:53:28.612910+09:00",
+    "generated_at": "2026-11-13T08:53:28.612910+09:00",
+    "slot": "20261113-1005",
+    "promotions_blocked": true,
+    "latest_refresh_observed_at": "2026-11-13T10:08:12.300218+09:00"
+  },
+  "repair": {
+    "eligible_failure": "isolated wide-review daily candles HTTP 429 after both original retries, group and bounded cooldown verified, positive remaining capacity",
+    "max_deferred_symbols": 2,
+    "max_retries_per_request": 1,
+    "max_retries_per_review": 2,
+    "max_toss_attempts": 195,
+    "max_full_review_budget_calls": 400,
+    "deferred_risk_status": "HOLD",
+    "original_claims_reused": false,
+    "prior_expiry_extended": false,
+    "other_failures_abort": true,
+    "adds_stage_diagnostics_from_prepared_source": true,
+    "release": {
+      "path": "/Users/tr-oh/Documents/Codex/2026-10-26/new-chat/work/toss-risk-refresh-recovery-20261113/manifest.json",
+      "sha256": "9185d28cc26f4671b7597c58955bf412c48e9c72ad05e894ef54131b6a0a3b4c"
+    },
+    "package_sha256": "74ac6ad9276a1f0c8dde33b75635c970b166c02379561e9f9ab202df4a17f39d"
+  },
+  "verification": {
+    "staged": {
+      "path": "/Users/tr-oh/Documents/Codex/2026-10-26/new-chat/work/toss-risk-refresh-recovery-20261113/staged-isolated-tests.json",
+      "sha256": "26d3741f363934588ff4b787a241ffe6f3258012bdb4342848bbda89775773a0"
+    },
+    "staged_passed": 193,
+    "full_research": {
+      "path": "/Users/tr-oh/Documents/Codex/2026-10-26/new-chat/outputs/ai-stock-research/reports/2026-11-13/100748-full-research-isolated-suite.json",
+      "sha256": "b7949f5341639c31a5c1719fdda479a9bfbd4cbbc8d19d475202cf03c9386d64"
+    },
+    "full_research_passed": 2119,
+    "full_research_skipped": 1,
+    "full_research_failures": 0,
+    "full_research_errors": 0
+  },
+  "operating": {
+    "receiver_pid": 30100,
+    "receiver_status": "running",
+    "receiver_published_at": "2026-11-13T10:09:50.697280+09:00",
+    "stream_ready": true,
+    "installed_worker_source_hashes_unchanged": true,
+    "receiver_control_calls": 0,
+    "process_control_calls": 0,
+    "settings_writes": 0,
+    "live_ledger_opens": 0,
+    "orders": 0,
+    "new_toss_calls": 0,
+    "new_dart_calls": 0,
+    "new_kiwoom_calls": 0,
+    "operating_writes": 0
+  },
+  "deployment": {
+    "executed": false,
+    "claim_created": false,
+    "dated_tool_inapplicable": true,
+    "existing_tool_requires_stopped_receiver": true,
+    "requirements": [
+      "Toss-only guarded install for current date while preserving running receiver",
+      "separate exact production worker code deployment and restart approval",
+      "fresh successful refresh in next unused official slot"
+    ]
+  }
+}

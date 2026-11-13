@@ -1,0 +1,67 @@
+[   0.007] [MainThread] latest original id 103484 heads pointing at it (epoch prefix,count): [('9c4f4bf2', 1)]
+[   0.008] [MainThread] package file /private/tmp/claude-501/-Users-tr-oh-Documents-Codex/19c74650-f135-4115-84be-0fe546dfd7c5/scratchpad/alert-20261110/harness/pkgC/kiwoom_autotrader/trading/execution_log.py cooldown 600
+[   0.408] [MainThread] === PHASE 1 (reader holds 9 s): tracker tick start
+[   0.409] [MainThread] >> _historical_work_deferred
+[   1.353] [MainThread] << _historical_work_deferred 0.945 s 
+[   1.432] [MainThread] fake kt00009 response; notifying observer
+[   1.432] [MainThread] >> record_broker_observation
+[   1.434] [MainThread] >> persist_observation
+[   1.435] [MainThread] << persist_observation 0.001 s -> 'repeat'
+[   1.450] [watch] journal file size -> 8720
+[   2.350] [recovery] reader: pending-order scan done 2.342 s rows 2 ; holding read transaction 9.0 s
+[   6.742] [MainThread] !! _db block exit raised after 5.31 s UNDERLYING: OperationalError database is locked
+[   6.742] [MainThread] !! record_broker_observation raised after 5.31 s: ExecutionLogError 증권사 관측 원자료를 영구 기록하지 못했습니다.
+[   6.744] [MainThread] >> _closed_failed
+[   6.747] [watch] journal file size -> None
+[   9.254] [MainThread] << _closed_failed 2.51 s 
+[   9.254] [MainThread] >> _notify_reconciliation_error
+[   9.254] [MainThread] ALERT after 8.846 s: 자동매매 원장: 체결·잔고 확인 또는 파일 기록을 완료하지 못했습니다. 실제 체결을 추정해 기록하지 않았습니다.
+[   9.254] [MainThread] << _notify_reconciliation_error 0.0 s 
+[   9.254] [MainThread] === PHASE 1 (reader holds 9 s): tracker tick end 8.846 s; last_error set: 1
+[  11.351] [recovery] reader: read transaction closed after 11.343 s
+[  11.351] [MainThread] historical guard status {'deferred': False, 'basis': 'conservative_unverified_session', 'session_start': '2026-11-10T09:00:00+09:00', 'session_end': '2026-11-10T15:30:00+09:00', 'history_resume_at': '2026-11-10T15:40:00+09:00', 'protected_window': 'outside_protected_session'}
+[  11.758] [MainThread] === PHASE 1b (reader holds 9 s again, same message inside cooldown): tracker tick start
+[  11.758] [MainThread] >> _historical_work_deferred
+[  11.758] [MainThread] << _historical_work_deferred 0.0 s 
+[  11.763] [MainThread] fake kt00009 response; notifying observer
+[  11.763] [MainThread] >> record_broker_observation
+[  11.765] [MainThread] >> persist_observation
+[  11.765] [MainThread] << persist_observation 0.0 s -> 'repeat'
+[  11.789] [watch] journal file size -> 8720
+[  13.225] [recovery] reader: pending-order scan done 1.874 s rows 2 ; holding read transaction 9.0 s
+[  17.042] [MainThread] !! _db block exit raised after 5.278 s UNDERLYING: OperationalError database is locked
+[  17.042] [MainThread] !! record_broker_observation raised after 5.278 s: ExecutionLogError 증권사 관측 원자료를 영구 기록하지 못했습니다.
+[  17.043] [MainThread] >> _closed_failed
+[  17.058] [watch] journal file size -> None
+[  18.913] [MainThread] << _closed_failed 1.869 s 
+[  18.913] [MainThread] >> _notify_reconciliation_error
+[  18.913] [MainThread] << _notify_reconciliation_error 0.0 s 
+[  18.913] [MainThread] === PHASE 1b (reader holds 9 s again, same message inside cooldown): tracker tick end 7.155 s; last_error set: 1
+[  22.226] [recovery] reader: read transaction closed after 10.875 s
+[  22.227] [MainThread] historical guard status {'deferred': False, 'basis': 'conservative_unverified_session', 'session_start': '2026-11-10T09:00:00+09:00', 'session_end': '2026-11-10T15:30:00+09:00', 'history_resume_at': '2026-11-10T15:40:00+09:00', 'protected_window': 'outside_protected_session'}
+[  22.227] [MainThread] === PHASE 2 (no other thread): tracker tick start
+[  22.228] [MainThread] >> _historical_work_deferred
+[  22.228] [MainThread] << _historical_work_deferred 0.0 s 
+[  22.235] [MainThread] fake kt00009 response; notifying observer
+[  22.235] [MainThread] >> record_broker_observation
+[  22.238] [MainThread] >> persist_observation
+[  22.239] [MainThread] << persist_observation 0.001 s -> 'repeat'
+[  22.242] [MainThread] >> _materialize_history
+[  22.242] [MainThread] >> _historical_work_deferred
+[  22.242] [MainThread] << _historical_work_deferred 0.0 s 
+[  22.403] [MainThread] << _materialize_history 0.161 s 
+[  22.403] [MainThread] << record_broker_observation 0.168 s 
+[  22.404] [MainThread] >> _ingest
+[  22.406] [watch] journal file size -> 82592
+[  22.407] [MainThread] >> _historical_work_deferred
+[  22.407] [MainThread] << _historical_work_deferred 0.0 s 
+[  22.409] [MainThread] >> _materialize_history
+[  22.409] [MainThread] >> _historical_work_deferred
+[  22.409] [MainThread] << _historical_work_deferred 0.0 s 
+[  22.414] [MainThread] << _materialize_history 0.006 s 
+[  22.415] [MainThread] >> _historical_work_deferred
+[  22.415] [MainThread] << _historical_work_deferred 0.0 s 
+[  22.427] [watch] journal file size -> None
+[  22.541] [MainThread] << _ingest 0.138 s 
+[  22.542] [MainThread] === PHASE 2 (no other thread): tracker tick end 0.315 s; last_error set: 1
+[  22.601] [MainThread] kt00009 repeats for 20261104 stored after both phases: 1 ; alerts: 1

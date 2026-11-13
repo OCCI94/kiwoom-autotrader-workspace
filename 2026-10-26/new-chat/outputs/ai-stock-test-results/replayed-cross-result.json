@@ -1,0 +1,126 @@
+{
+  "environment": "deterministic_replay_not_broker_execution",
+  "passed": true,
+  "description": "외부 HTTP·Telegram·키체인과 시간을 대체한 결정적 재현입니다. 실제 증권사 체결·Telegram 전송 결과가 아닙니다.",
+  "scenario": [
+    "텔레그램 모의 로그인·기간/예산 등록·gdcrs/ddcrs 시작",
+    "완료봉 골든크로스 → 3주 지정가 매수 접수",
+    "매수 2주+1주 부분/전량 체결 재현",
+    "완료봉 데드크로스 → 보유 3주 시장가 매도 접수",
+    "매도 1주+2주 부분/전량 체결 재현",
+    "두 전략 중지",
+    "CSV 기반 장 마감 결산"
+  ],
+  "simulated_order_count": 2,
+  "simulated_fill_count": 4,
+  "simulated_final_held_quantity": 0,
+  "simulated_orders": [
+    {
+      "api_id": "kt10000",
+      "order_number": 24,
+      "body": {
+        "dmst_stex_tp": "KRX",
+        "stk_cd": "005930",
+        "ord_qty": "3",
+        "ord_uv": "400",
+        "trde_tp": "0",
+        "cond_uv": ""
+      },
+      "time": "2026-10-26T10:04:06.050000+09:00"
+    },
+    {
+      "api_id": "kt10001",
+      "order_number": 25,
+      "body": {
+        "dmst_stex_tp": "KRX",
+        "stk_cd": "005930",
+        "ord_qty": "3",
+        "ord_uv": "",
+        "trde_tp": "3",
+        "cond_uv": ""
+      },
+      "time": "2026-10-26T10:06:09.050000+09:00"
+    }
+  ],
+  "csv_file": "replayed-cross-fills.csv",
+  "verified_totals": {
+    "buy_principal_krw": "1200",
+    "sell_principal_krw": "320",
+    "realized_net_krw": "-884",
+    "sold_cost_basis_krw": "1200",
+    "return_on_sold_cost_basis": "-73.6667%",
+    "fee_and_tax_krw": "4",
+    "source": "fixture kt00009 executions and ka10072 costs; CSV rollup cross-checked against SQLite"
+  },
+  "verified": {
+    "actual_strategy_order_and_ledger_code": true,
+    "intents_and_signal_markers_durable_before_send": true,
+    "both_orders_paper_krx_only": true,
+    "fills_deduplicated_by_order_and_execution_id": true,
+    "csv_strategies": [
+      "gdcrs",
+      "gdcrs",
+      "ddcrs",
+      "ddcrs"
+    ],
+    "csv_observed_held_quantities": [
+      "2",
+      "3",
+      "2",
+      "0"
+    ],
+    "remaining_quantity_is_observed_holdings_not_order_remaining": true,
+    "stop_both_persisted_and_no_further_chart_requests": true,
+    "one_daily_summary": true,
+    "session_cleared_on_exit": true,
+    "real_network_calls": 0,
+    "real_keychain_calls": 0
+  },
+  "simulated_telegram": {
+    "environment": "simulated_messages_not_sent_to_telegram",
+    "commands": [
+      {
+        "simulated_kst_time": "10:03:05",
+        "text": "login paper"
+      },
+      {
+        "simulated_kst_time": "10:03:05",
+        "text": "gdcrs intv 1 3"
+      },
+      {
+        "simulated_kst_time": "10:03:05",
+        "text": "gdcrs add 005930 1200"
+      },
+      {
+        "simulated_kst_time": "10:03:05",
+        "text": "start gdcrs"
+      },
+      {
+        "simulated_kst_time": "10:03:05",
+        "text": "start ddcrs"
+      },
+      {
+        "simulated_kst_time": "10:06:45",
+        "text": "stop gdcrs"
+      },
+      {
+        "simulated_kst_time": "10:06:45",
+        "text": "stop ddcrs"
+      }
+    ],
+    "responses": [
+      "자동매매 프로그램을 시작했습니다. 텔레그램 명령 수신을 준비하고 모의투자에 자동 로그인합니다.",
+      "모의투자 로그인 성공. 매일 08:55(한국 시간)에 갱신합니다. 만료 시각(KST): 20300101090000.",
+      "모의투자 로그인 성공. 매일 08:55(한국 시간)에 갱신합니다. 만료 시각(KST): 20300101090000.",
+      "공유 이동평균 기간을 단기 1 / 장기 3로 저장했습니다. gdcrs·ddcrs가 같은 기간을 사용합니다.",
+      "1. 005930 · 예산 1,200원을 등록했습니다. start gdcrs로 감시를 켤 수 있습니다. 등록 명령으로 즉시 매수하지 않습니다.",
+      "골든크로스 감시를 켰습니다. 등록 종목의 새로운 완료봉 상향 교차에서 예산 매수를 시도합니다. 로그인·장 시간 조건을 확인하며, 첫 관측은 기준만 저장하고 이 시작 명령으로 즉시 매수하지 않습니다.",
+      "데드크로스 감시를 켰습니다. 로그인·장 시간·공유 이동평균 기간 조건에 따라 보유 종목을 감시하며, 하향 교차 조건이 충족되면 매도 주문을 시도합니다.",
+      "gdcrs · 005930 · 종료봉 10:03\n모의투자 매수 주문 접수 · KRX\n종목 005930 · 3주 · 지정가 400원\n주문번호 0000024\n접수 결과이며 실제 체결 여부는 확인하지 않았습니다.\n예산 1,200원 · 조회가/지정가 400원\n수량 3주 · 최대 매수대금 1,200원\n미사용 예산 0원\n조회한 현재가를 지정가로 제출했습니다. 미체결될 수 있습니다.\n수수료는 예산·매수대금 계산에서 제외되며, 총 출금액은 수수료만큼 늘어날 수 있습니다.",
+      "ddcrs · 005930 · 종료봉 10:05\n모의투자 매도 주문 접수 · KRX\n종목 005930 · 3주 · 시장가\n주문번호 0000025\n접수 결과이며 실제 체결 여부는 확인하지 않았습니다.",
+      "골든크로스 감시를 껐습니다.",
+      "데드크로스 감시를 껐습니다.",
+      "20261026 모의 자동매매 일일결산\n매수 합계 1200원 · 매도 합계 320원\n실현 순이익 -884 · 수익률 -73.6667%\n수익률 분모: 매도분 매입원가 1200원\n비용·수수료·세금 대사 완료\nlogs/20261026.csv"
+    ]
+  }
+}

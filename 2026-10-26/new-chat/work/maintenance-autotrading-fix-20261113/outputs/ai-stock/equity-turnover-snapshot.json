@@ -1,0 +1,212 @@
+{
+  "environment": "mock",
+  "queried_at_kst": "2026-10-26T10:30:00.279613+09:00",
+  "markets": [
+    "코스피",
+    "코스닥"
+  ],
+  "exchange": "통합",
+  "include_managed": true,
+  "exclude": [
+    "ETF",
+    "ETN",
+    "손실제한 ETN",
+    "변동성 ETN"
+  ],
+  "eligible_market_codes": [
+    "0",
+    "10"
+  ],
+  "preferred_shares": "included",
+  "classification_counts": {
+    "0": 2500,
+    "10": 1824,
+    "8": 1183,
+    "60": 368,
+    "70": 1,
+    "90": 8
+  },
+  "ranking_rows_scanned": 100,
+  "rows": [
+    {
+      "symbol": "000660",
+      "name": "SK하이닉스",
+      "market": "코스피",
+      "broker_rank": "1",
+      "turnover_million_krw": "2254727",
+      "turnover_100million_krw": "22547.27",
+      "rank": 1
+    },
+    {
+      "symbol": "005930",
+      "name": "삼성전자",
+      "market": "코스피",
+      "broker_rank": "2",
+      "turnover_million_krw": "1634837",
+      "turnover_100million_krw": "16348.37",
+      "rank": 2
+    },
+    {
+      "symbol": "009150",
+      "name": "삼성전기",
+      "market": "코스피",
+      "broker_rank": "9",
+      "turnover_million_krw": "374504",
+      "turnover_100million_krw": "3745.04",
+      "rank": 3
+    },
+    {
+      "symbol": "402340",
+      "name": "SK스퀘어",
+      "market": "코스피",
+      "broker_rank": "14",
+      "turnover_million_krw": "188842",
+      "turnover_100million_krw": "1888.42",
+      "rank": 4
+    },
+    {
+      "symbol": "006400",
+      "name": "삼성SDI",
+      "market": "코스피",
+      "broker_rank": "15",
+      "turnover_million_krw": "177511",
+      "turnover_100million_krw": "1775.11",
+      "rank": 5
+    },
+    {
+      "symbol": "108490",
+      "name": "로보티즈",
+      "market": "코스닥",
+      "broker_rank": "17",
+      "turnover_million_krw": "158553",
+      "turnover_100million_krw": "1585.53",
+      "rank": 6
+    },
+    {
+      "symbol": "328130",
+      "name": "루닛",
+      "market": "코스닥",
+      "broker_rank": "19",
+      "turnover_million_krw": "143012",
+      "turnover_100million_krw": "1430.12",
+      "rank": 7
+    },
+    {
+      "symbol": "028050",
+      "name": "삼성E&A",
+      "market": "코스피",
+      "broker_rank": "20",
+      "turnover_million_krw": "130848",
+      "turnover_100million_krw": "1308.48",
+      "rank": 8
+    },
+    {
+      "symbol": "005935",
+      "name": "삼성전자우",
+      "market": "코스피",
+      "broker_rank": "21",
+      "turnover_million_krw": "102795",
+      "turnover_100million_krw": "1027.95",
+      "rank": 9
+    },
+    {
+      "symbol": "036930",
+      "name": "주성엔지니어링",
+      "market": "코스닥",
+      "broker_rank": "22",
+      "turnover_million_krw": "94058",
+      "turnover_100million_krw": "940.58",
+      "rank": 10
+    },
+    {
+      "symbol": "0015M0",
+      "name": "디티에스",
+      "market": "코스닥",
+      "broker_rank": "24",
+      "turnover_million_krw": "86667",
+      "turnover_100million_krw": "866.67",
+      "rank": 11
+    },
+    {
+      "symbol": "0013Y0",
+      "name": "엠에스바이오",
+      "market": "코스닥",
+      "broker_rank": "25",
+      "turnover_million_krw": "83657",
+      "turnover_100million_krw": "836.57",
+      "rank": 12
+    },
+    {
+      "symbol": "079550",
+      "name": "LIG디펜스앤에어로스페이스",
+      "market": "코스피",
+      "broker_rank": "26",
+      "turnover_million_krw": "83243",
+      "turnover_100million_krw": "832.43",
+      "rank": 13
+    },
+    {
+      "symbol": "005380",
+      "name": "현대차",
+      "market": "코스피",
+      "broker_rank": "29",
+      "turnover_million_krw": "69251",
+      "turnover_100million_krw": "692.51",
+      "rank": 14
+    },
+    {
+      "symbol": "034020",
+      "name": "두산에너빌리티",
+      "market": "코스피",
+      "broker_rank": "30",
+      "turnover_million_krw": "68152",
+      "turnover_100million_krw": "681.52",
+      "rank": 15
+    },
+    {
+      "symbol": "0158S0",
+      "name": "엘리스",
+      "market": "코스닥",
+      "broker_rank": "34",
+      "turnover_million_krw": "56710",
+      "turnover_100million_krw": "567.1",
+      "rank": 16
+    },
+    {
+      "symbol": "0035S0",
+      "name": "빅웨이브로보틱스",
+      "market": "코스닥",
+      "broker_rank": "39",
+      "turnover_million_krw": "50760",
+      "turnover_100million_krw": "507.6",
+      "rank": 17
+    },
+    {
+      "symbol": "138360",
+      "name": "앤로보틱스",
+      "market": "코스닥",
+      "broker_rank": "40",
+      "turnover_million_krw": "49074",
+      "turnover_100million_krw": "490.74",
+      "rank": 18
+    },
+    {
+      "symbol": "456160",
+      "name": "지투지바이오",
+      "market": "코스닥",
+      "broker_rank": "41",
+      "turnover_million_krw": "48068",
+      "turnover_100million_krw": "480.68",
+      "rank": 19
+    },
+    {
+      "symbol": "396300",
+      "name": "HT로보틱스",
+      "market": "코스닥",
+      "broker_rank": "42",
+      "turnover_million_krw": "47504",
+      "turnover_100million_krw": "475.04",
+      "rank": 20
+    }
+  ]
+}

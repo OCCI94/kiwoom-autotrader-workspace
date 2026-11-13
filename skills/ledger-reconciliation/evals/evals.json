@@ -1,0 +1,36 @@
+[
+  {
+    "prompt": "오늘 장 마감했어. 원장이랑 키움 체결 내역 대조해서 잔고 불일치 있는지 봐줘.",
+    "expected_output": "라이브 원장을 건드리지 않고 .backup 또는 mode=ro로 사본을 만든 뒤 python3 scripts/reconcile.py --db <사본> --day <오늘> 을 실행한다. 보고 형식(요약 → 불일치 표 → 손익 표 → 미해결 목록)대로 쓰고, 불일치는 MISSING/UNRECONCILED로만 표시하며, 수수료 35bp·거래세 20bp·허용오차를 명시한다. 자동 수정·주문·재시작을 제안하지 않는다.",
+    "files": [],
+    "assertions": [
+      "copies the ledger or opens it with mode=ro before querying",
+      "runs scripts/reconcile.py with --db and --day",
+      "labels every discrepancy MISSING or UNRECONCILED",
+      "states commission and tax bps used",
+      "does not modify the ledger, place orders, or restart the bot"
+    ]
+  },
+  {
+    "prompt": "TTL 취소된 매수 9건이 settlement_unconfirmed 로 남아 있는데 증권사에서 취소 확인됐으면 그냥 정산 완료로 처리해도 되지?",
+    "expected_output": "취소 ACK·스트림 '확인' 이벤트·kt00009 취소행은 정산이 아니라고 설명한다. 원장 outcome이 cancellation_confirmed 이거나 paper_expired_order_certificates 가 있어야 확정이며, 그 전까지는 UNRECONCILED 로 보고하고 ack_releases_principal 이 false 이면 원금 예약도 해제된 것으로 보지 않는다. 원장을 고치지 않고 사람이 확인할 수단(다음 거래일 kt00009 재조회, 정산 사이드카 로그)을 제시한다.",
+    "files": [],
+    "assertions": [
+      "refuses to treat the cancel ACK as settlement",
+      "mentions cancellation_confirmed or the certificates table as the confirmation evidence",
+      "keeps the items labeled UNRECONCILED",
+      "does not edit the ledger"
+    ]
+  },
+  {
+    "prompt": "ka10074 실현손익이 -11,663원인데 내 계산이랑 다르다. 수수료랑 거래세 넣어서 다시 계산해줘.",
+    "expected_output": "왕복(FIFO, 종목×전략)별 총손익에서 매수·매도 수수료(bp, 절사)와 매도 거래세(bp, 절사)를 빼 순손익을 구하고 ka10074 의 매수·매도 금액, 수수료, 거래세, 실현손익과 차이를 표로 보인다. 미청산 매수의 수수료는 실현손익에서 제외됨을 설명하고, ka10072/ka10073/ka10074/스트림 수수료가 서로 수십 원 다르다는 모의서버 특성과 허용오차를 적는다. 거래세율의 2025~2026 맥락은 확인 필요로 표시한다.",
+    "files": [],
+    "assertions": [
+      "shows gross, commission, tax, net per round trip and totals",
+      "compares against ka10074 fields with explicit deltas",
+      "states the fee and tax parameters and marks tax-rate context as 확인 필요",
+      "does not force the ledger numbers to match the broker"
+    ]
+  }
+]

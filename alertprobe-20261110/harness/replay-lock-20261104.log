@@ -1,0 +1,42 @@
+[   0.025] >> _closed_economic_fingerprint
+[   0.027] >> _broker_observations_snapshot
+[   0.890] << _broker_observations_snapshot 0.862 s
+[   0.890] >> _closed_observation_facts
+[   0.891] << _closed_observation_facts 0.001 s
+[   2.955] << _closed_economic_fingerprint 2.93 s
+[   2.955] PHASE A fingerprint cold: 2.952 s unresolved=True fp_none=False
+[   2.956] >> _closed_economic_fingerprint
+[   2.956] >> _broker_observations_snapshot
+[   2.961] << _broker_observations_snapshot 0.005 s
+[   4.850] << _closed_economic_fingerprint 1.894 s
+[   4.850] PHASE A fingerprint warm: 1.895 s unresolved=True fp_none=False
+[   4.851] >> _closed_economic_fingerprint
+[   4.851] >> _broker_observations_snapshot
+[   4.856] << _broker_observations_snapshot 0.005 s
+[   6.720] << _closed_economic_fingerprint 1.87 s
+[   7.638] PHASE A _closed_due: 2.788 s due=True attempts={('paper', '20261104'): {'ok': True}}
+[   7.638] holder: BEGIN IMMEDIATE acquired; holding 9.0 s
+[   7.638] === PHASE B tick start; attempts {('paper', '20261104'): {'ok': True}}
+[   7.639] fake fetch done; notifying observer
+[   7.639] >> record_broker_observation
+[  12.790] !! persist_observation UNDERLYING: OperationalError database is locked after 5.15 s
+[  12.791] !! record_broker_observation raised after 5.151 s: ExecutionLogError 증권사 관측 원자료를 영구 기록하지 못했습니다.
+[  12.791] >> _closed_failed
+[  12.792] >> _closed_economic_fingerprint
+[  12.792] >> _broker_observations_snapshot
+[  12.819] << _broker_observations_snapshot 0.027 s
+[  14.756] << _closed_economic_fingerprint 1.964 s
+[  14.756] << _closed_failed 1.966 s
+[  14.756] ALERT after 7.118 s: 자동매매 원장: 체결·잔고 확인 또는 파일 기록을 완료하지 못했습니다. 실제 체결을 추정해 기록하지 않았습니다.
+[  14.756] === PHASE B tick end 7.118 s; last_error= '자동매매 원장: 체결·잔고 확인 또는 파일 기록을 완료하지 못했습니다. 실제 체결을 추정해 기록하지 않았습니다.' recon= {('paper', '20261104'): {'fingerprint': True, 'observed_at': datetime.datetime(2026, 11, 10, 8, 45, 29, 790640, tzinfo=zoneinfo.ZoneInfo(key='Asia/Seoul')), 'next_at': datetime.datetime(2026, 11, 10, 8, 50, 29, 790640, tzinfo=zoneinfo.ZoneInfo(key='Asia/Seoul')), 'level': 0, 'successful': False}}
+[  16.638] holder: released
+[  17.138] === PHASE C tick (no lock) start
+[  17.139] fake fetch done; notifying observer
+[  17.139] >> record_broker_observation
+[  17.304] << record_broker_observation 0.165 s
+[  17.304] >> _ingest
+[  17.311] >> _broker_observations_snapshot
+[  17.317] << _broker_observations_snapshot 0.006 s
+[  17.436] << _ingest 0.132 s
+[  17.436] === PHASE C tick end 0.298 s; last_error= None
+[  17.436] DONE alerts 1

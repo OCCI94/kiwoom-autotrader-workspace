@@ -1,0 +1,2 @@
+# Independent workbook-to-Markdown exporter only; no broker/runtime dependency.
+openpyxl>=3.1,<4

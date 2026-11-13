@@ -1,0 +1,3743 @@
+{
+  "schema_version": 1,
+  "tr_id": "ka10001",
+  "source": {
+    "workbook_filename": "키움 REST API 문서.xlsx",
+    "workbook_path": "/Users/tr-oh/Downloads/키움 REST API 문서.xlsx",
+    "sha256": "e0f222561db21f3f033ea2e21fdf1a30bb09f709069d8d311b697e384b8bc3eb",
+    "sheet": "ka10001",
+    "range": "A1:G76",
+    "source_rule": "사용자 제공 Excel 원문을 기준으로 작성. 원문 문자열·필수 여부·형식·길이·설명을 임의 수정하지 않음.",
+    "blank_rule": "명세 본문의 빈 값은 null 및 문서 미기재로 표시. source_cells/source_values에는 원문의 빈 문자열과 null을 구분해 보존.",
+    "merged_ranges": [
+      "A10:B10",
+      "A11:B11",
+      "A12:B12",
+      "A13:B13",
+      "A14:G14",
+      "A15:G15",
+      "A16:G16",
+      "A18:A21",
+      "A1:B1",
+      "A23:G23",
+      "A25:A27",
+      "A28:A72",
+      "A2:G2",
+      "A3:G3",
+      "A4:B4",
+      "A5:B5",
+      "A6:B6",
+      "A73:G73",
+      "A74:G74",
+      "A75:G75",
+      "A76:G76",
+      "A7:G7",
+      "A8:B8",
+      "A9:B9",
+      "C10:G10",
+      "C11:G11",
+      "C12:G12",
+      "C13:G13",
+      "C4:G4",
+      "C5:G5",
+      "C6:G6",
+      "C8:G8",
+      "C9:G9"
+    ]
+  },
+  "api_info": {
+    "menu_path": {
+      "value": "국내주식 > 종목정보 > 주식기본정보요청(ka10001)",
+      "status": "원문 기재",
+      "source_cell": "C4"
+    },
+    "name": {
+      "value": "주식기본정보요청",
+      "status": "원문 기재",
+      "source_cell": "C5"
+    },
+    "id": {
+      "value": "ka10001",
+      "status": "원문 기재",
+      "source_cell": "C6"
+    }
+  },
+  "basic_info": {
+    "method": {
+      "value": "POST",
+      "status": "원문 기재",
+      "source_cell": "C8"
+    },
+    "production_domain": {
+      "value": "https://api.kiwoom.com",
+      "status": "원문 기재",
+      "source_cell": "C9"
+    },
+    "paper_domain": {
+      "value": "https://mockapi.kiwoom.com",
+      "status": "원문 기재",
+      "source_cell": "C10"
+    },
+    "path": {
+      "value": "/api/dostk/stkinfo",
+      "status": "원문 기재",
+      "source_cell": "C11"
+    },
+    "format": {
+      "value": "JSON",
+      "status": "원문 기재",
+      "source_cell": "C12"
+    },
+    "content_type": {
+      "value": "application/json;charset=UTF-8",
+      "status": "원문 기재",
+      "source_cell": "C13"
+    }
+  },
+  "overview": {
+    "value": "종목 코드로 주식 기본 정보를 조회한다.",
+    "status": "원문 기재",
+    "source_cell": "A15"
+  },
+  "request": {
+    "headers": [
+      {
+        "section": "Header",
+        "source_row": 18,
+        "element": "api-id",
+        "korean_name": "TR명",
+        "type": "String",
+        "required": "Y",
+        "length": "10",
+        "description": "8자리 TR코드, ex) ka00001, usa10099",
+        "not_documented": {},
+        "source_values": {
+          "B18": "api-id",
+          "C18": "TR명",
+          "D18": "String",
+          "E18": "Y",
+          "F18": "10",
+          "G18": "8자리 TR코드, ex) ka00001, usa10099"
+        },
+        "example_value": null,
+        "example_value_status": "문서 미기재"
+      },
+      {
+        "section": "Header",
+        "source_row": 19,
+        "element": "authorization",
+        "korean_name": "접근토큰",
+        "type": "String",
+        "required": "Y",
+        "length": "1000",
+        "description": "토큰 지정시 토큰타입(\"Bearer\") 붙혀서 호출 \n 예) Bearer Egicyx...",
+        "not_documented": {},
+        "source_values": {
+          "B19": "authorization",
+          "C19": "접근토큰",
+          "D19": "String",
+          "E19": "Y",
+          "F19": "1000",
+          "G19": "토큰 지정시 토큰타입(\"Bearer\") 붙혀서 호출 \n 예) Bearer Egicyx..."
+        },
+        "example_value": null,
+        "example_value_status": "문서 미기재"
+      },
+      {
+        "section": "Header",
+        "source_row": 20,
+        "element": "cont-yn",
+        "korean_name": "연속조회여부",
+        "type": "String",
+        "required": "N",
+        "length": "1",
+        "description": "응답 Header의 연속조회여부값이 Y일 경우 다음데이터 요청시 응답 Header의 cont-yn값 세팅",
+        "not_documented": {},
+        "source_values": {
+          "B20": "cont-yn",
+          "C20": "연속조회여부",
+          "D20": "String",
+          "E20": "N",
+          "F20": "1",
+          "G20": "응답 Header의 연속조회여부값이 Y일 경우 다음데이터 요청시 응답 Header의 cont-yn값 세팅"
+        },
+        "example_value": null,
+        "example_value_status": "문서 미기재"
+      },
+      {
+        "section": "Header",
+        "source_row": 21,
+        "element": "next-key",
+        "korean_name": "연속조회키",
+        "type": "String",
+        "required": "N",
+        "length": "50",
+        "description": "응답 Header의 연속조회여부값이 Y일 경우 다음데이터 요청시 응답 Header의 next-key값 세팅",
+        "not_documented": {},
+        "source_values": {
+          "B21": "next-key",
+          "C21": "연속조회키",
+          "D21": "String",
+          "E21": "N",
+          "F21": "50",
+          "G21": "응답 Header의 연속조회여부값이 Y일 경우 다음데이터 요청시 응답 Header의 next-key값 세팅"
+        },
+        "example_value": null,
+        "example_value_status": "문서 미기재"
+      }
+    ],
+    "headers_status": "Header 표의 모든 필드 수록",
+    "body": [
+      {
+        "section": "Body",
+        "source_row": 22,
+        "element": "stk_cd",
+        "korean_name": "종목코드",
+        "type": "String",
+        "required": "Y",
+        "length": "20",
+        "description": "거래소별 종목코드\n(KRX:039490,NXT:039490_NX,SOR:039490_AL)",
+        "not_documented": {},
+        "source_values": {
+          "B22": "stk_cd",
+          "C22": "종목코드",
+          "D22": "String",
+          "E22": "Y",
+          "F22": "20",
+          "G22": "거래소별 종목코드\n(KRX:039490,NXT:039490_NX,SOR:039490_AL)"
+        },
+        "example_value": "005930",
+        "example_value_status": "원문 예시 기재"
+      }
+    ],
+    "header_example": null,
+    "header_example_status": "문서 미기재: Request Example은 Body JSON만 포함",
+    "body_example": {
+      "source_cell": "A74",
+      "original_text": "{\n    \"stk_cd\": \"005930\"\n}",
+      "original_json_valid": true,
+      "original_parse_error": null,
+      "parsed_original": {
+        "stk_cd": "005930"
+      }
+    }
+  },
+  "response": {
+    "headers": [
+      {
+        "section": "Header",
+        "source_row": 25,
+        "element": "api-id",
+        "korean_name": "TR명",
+        "type": "String",
+        "required": "Y",
+        "length": "10",
+        "description": "8자리 TR코드, ex) ka00001, usa10099",
+        "not_documented": {},
+        "source_values": {
+          "B25": "api-id",
+          "C25": "TR명",
+          "D25": "String",
+          "E25": "Y",
+          "F25": "10",
+          "G25": "8자리 TR코드, ex) ka00001, usa10099"
+        },
+        "example_value": null,
+        "example_value_status": "문서 미기재"
+      },
+      {
+        "section": "Header",
+        "source_row": 26,
+        "element": "cont-yn",
+        "korean_name": "연속조회여부",
+        "type": "String",
+        "required": "N",
+        "length": "1",
+        "description": "다음 데이터가 있을시 Y값 전달",
+        "not_documented": {},
+        "source_values": {
+          "B26": "cont-yn",
+          "C26": "연속조회여부",
+          "D26": "String",
+          "E26": "N",
+          "F26": "1",
+          "G26": "다음 데이터가 있을시 Y값 전달"
+        },
+        "example_value": null,
+        "example_value_status": "문서 미기재"
+      },
+      {
+        "section": "Header",
+        "source_row": 27,
+        "element": "next-key",
+        "korean_name": "연속조회키",
+        "type": "String",
+        "required": "N",
+        "length": "50",
+        "description": "다음 데이터가 있을시 다음 키값 전달",
+        "not_documented": {},
+        "source_values": {
+          "B27": "next-key",
+          "C27": "연속조회키",
+          "D27": "String",
+          "E27": "N",
+          "F27": "50",
+          "G27": "다음 데이터가 있을시 다음 키값 전달"
+        },
+        "example_value": null,
+        "example_value_status": "문서 미기재"
+      }
+    ],
+    "headers_status": "Header 표의 모든 필드 수록",
+    "body": [
+      {
+        "section": "Body",
+        "source_row": 28,
+        "element": "stk_cd",
+        "korean_name": "종목코드",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "거래소별 종목코드",
+        "not_documented": {},
+        "source_values": {
+          "B28": "stk_cd",
+          "C28": "종목코드",
+          "D28": "String",
+          "E28": "N",
+          "F28": "20",
+          "G28": "거래소별 종목코드"
+        },
+        "example_value": "005930",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 29,
+        "element": "stk_nm",
+        "korean_name": "종목명",
+        "type": "String",
+        "required": "N",
+        "length": "40",
+        "description": "stk_cd의 종목명",
+        "not_documented": {},
+        "source_values": {
+          "B29": "stk_nm",
+          "C29": "종목명",
+          "D29": "String",
+          "E29": "N",
+          "F29": "40",
+          "G29": "stk_cd의 종목명"
+        },
+        "example_value": "삼성전자",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 30,
+        "element": "setl_mm",
+        "korean_name": "결산월",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "결산월 숫자만 출력",
+        "not_documented": {},
+        "source_values": {
+          "B30": "setl_mm",
+          "C30": "결산월",
+          "D30": "String",
+          "E30": "N",
+          "F30": "20",
+          "G30": "결산월 숫자만 출력"
+        },
+        "example_value": "12",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 31,
+        "element": "fav",
+        "korean_name": "액면가",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "단위: 원",
+        "not_documented": {},
+        "source_values": {
+          "B31": "fav",
+          "C31": "액면가",
+          "D31": "String",
+          "E31": "N",
+          "F31": "20",
+          "G31": "단위: 원"
+        },
+        "example_value": "5000",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 32,
+        "element": "cap",
+        "korean_name": "자본금",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "단위: 억원",
+        "not_documented": {},
+        "source_values": {
+          "B32": "cap",
+          "C32": "자본금",
+          "D32": "String",
+          "E32": "N",
+          "F32": "20",
+          "G32": "단위: 억원"
+        },
+        "example_value": "1311",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 33,
+        "element": "flo_stk",
+        "korean_name": "상장주식",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "단위: 천원",
+        "not_documented": {},
+        "source_values": {
+          "B33": "flo_stk",
+          "C33": "상장주식",
+          "D33": "String",
+          "E33": "N",
+          "F33": "20",
+          "G33": "단위: 천원"
+        },
+        "example_value": "25527",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 34,
+        "element": "crd_rt",
+        "korean_name": "신용비율",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "단위: %, 부호 포함 소수점 둘째 자리까지 포맷된 백분율",
+        "not_documented": {},
+        "source_values": {
+          "B34": "crd_rt",
+          "C34": "신용비율",
+          "D34": "String",
+          "E34": "N",
+          "F34": "20",
+          "G34": "단위: %, 부호 포함 소수점 둘째 자리까지 포맷된 백분율"
+        },
+        "example_value": "+0.08",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 35,
+        "element": "oyr_hgst",
+        "korean_name": "연중최고",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "단위: 원, 부호가 포함된 숫자",
+        "not_documented": {},
+        "source_values": {
+          "B35": "oyr_hgst",
+          "C35": "연중최고",
+          "D35": "String",
+          "E35": "N",
+          "F35": "20",
+          "G35": "단위: 원, 부호가 포함된 숫자"
+        },
+        "example_value": "+181400",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 36,
+        "element": "oyr_lwst",
+        "korean_name": "연중최저",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "단위: 원, 부호가 포함된 숫자",
+        "not_documented": {},
+        "source_values": {
+          "B36": "oyr_lwst",
+          "C36": "연중최저",
+          "D36": "String",
+          "E36": "N",
+          "F36": "20",
+          "G36": "단위: 원, 부호가 포함된 숫자"
+        },
+        "example_value": "-91200",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 37,
+        "element": "mac",
+        "korean_name": "시가총액",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "단위: 억원",
+        "not_documented": {},
+        "source_values": {
+          "B37": "mac",
+          "C37": "시가총액",
+          "D37": "String",
+          "E37": "N",
+          "F37": "20",
+          "G37": "단위: 억원"
+        },
+        "example_value": "24352",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 38,
+        "element": "mac_wght",
+        "korean_name": "시가총액비중",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "※ 데이터 제공 검토중",
+        "not_documented": {},
+        "source_values": {
+          "B38": "mac_wght",
+          "C38": "시가총액비중",
+          "D38": "String",
+          "E38": "N",
+          "F38": "20",
+          "G38": "※ 데이터 제공 검토중"
+        },
+        "example_value": "",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 39,
+        "element": "for_exh_rt",
+        "korean_name": "외인소진률",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "단위: %, 부호 포함 소수점 둘째 자리까지 포맷된 백분율",
+        "not_documented": {},
+        "source_values": {
+          "B39": "for_exh_rt",
+          "C39": "외인소진률",
+          "D39": "String",
+          "E39": "N",
+          "F39": "20",
+          "G39": "단위: %, 부호 포함 소수점 둘째 자리까지 포맷된 백분율"
+        },
+        "example_value": "0.00",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 40,
+        "element": "repl_pric",
+        "korean_name": "대용가",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "단위: 원",
+        "not_documented": {},
+        "source_values": {
+          "B40": "repl_pric",
+          "C40": "대용가",
+          "D40": "String",
+          "E40": "N",
+          "F40": "20",
+          "G40": "단위: 원"
+        },
+        "example_value": "66780",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 41,
+        "element": "per",
+        "korean_name": "PER",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "주가수익비율\n\n[ 주의 ] PER, ROE 값들은 외부벤더사에서 제공되는 데이터이며 일주일에 한번 또는 실적발표 시즌에 업데이트 됨",
+        "not_documented": {},
+        "source_values": {
+          "B41": "per",
+          "C41": "PER",
+          "D41": "String",
+          "E41": "N",
+          "F41": "20",
+          "G41": "주가수익비율\n\n[ 주의 ] PER, ROE 값들은 외부벤더사에서 제공되는 데이터이며 일주일에 한번 또는 실적발표 시즌에 업데이트 됨"
+        },
+        "example_value": "",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 42,
+        "element": "eps",
+        "korean_name": "EPS",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "주당순이익",
+        "not_documented": {},
+        "source_values": {
+          "B42": "eps",
+          "C42": "EPS",
+          "D42": "String",
+          "E42": "N",
+          "F42": "20",
+          "G42": "주당순이익"
+        },
+        "example_value": "",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 43,
+        "element": "roe",
+        "korean_name": "ROE",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "자기자본이익률\n\n[ 주의 ]  PER, ROE 값들은 외부벤더사에서 제공되는 데이터이며 일주일에 한번 또는 실적발표 시즌에 업데이트 됨",
+        "not_documented": {},
+        "source_values": {
+          "B43": "roe",
+          "C43": "ROE",
+          "D43": "String",
+          "E43": "N",
+          "F43": "20",
+          "G43": "자기자본이익률\n\n[ 주의 ]  PER, ROE 값들은 외부벤더사에서 제공되는 데이터이며 일주일에 한번 또는 실적발표 시즌에 업데이트 됨"
+        },
+        "example_value": "",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 44,
+        "element": "pbr",
+        "korean_name": "PBR",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "주가순자산비율",
+        "not_documented": {},
+        "source_values": {
+          "B44": "pbr",
+          "C44": "PBR",
+          "D44": "String",
+          "E44": "N",
+          "F44": "20",
+          "G44": "주가순자산비율"
+        },
+        "example_value": "",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 45,
+        "element": "ev",
+        "korean_name": "EV",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "기업가치",
+        "not_documented": {},
+        "source_values": {
+          "B45": "ev",
+          "C45": "EV",
+          "D45": "String",
+          "E45": "N",
+          "F45": "20",
+          "G45": "기업가치"
+        },
+        "example_value": "",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 46,
+        "element": "bps",
+        "korean_name": "BPS",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "주당순자산가치",
+        "not_documented": {},
+        "source_values": {
+          "B46": "bps",
+          "C46": "BPS",
+          "D46": "String",
+          "E46": "N",
+          "F46": "20",
+          "G46": "주당순자산가치"
+        },
+        "example_value": "-75300",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 47,
+        "element": "sale_amt",
+        "korean_name": "매출액",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "단위: 억원",
+        "not_documented": {},
+        "source_values": {
+          "B47": "sale_amt",
+          "C47": "매출액",
+          "D47": "String",
+          "E47": "N",
+          "F47": "20",
+          "G47": "단위: 억원"
+        },
+        "example_value": "0",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 48,
+        "element": "bus_pro",
+        "korean_name": "영업이익",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "단위: 억원",
+        "not_documented": {},
+        "source_values": {
+          "B48": "bus_pro",
+          "C48": "영업이익",
+          "D48": "String",
+          "E48": "N",
+          "F48": "20",
+          "G48": "단위: 억원"
+        },
+        "example_value": "0",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 49,
+        "element": "cup_nga",
+        "korean_name": "당기순이익",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "단위: 억원",
+        "not_documented": {},
+        "source_values": {
+          "B49": "cup_nga",
+          "C49": "당기순이익",
+          "D49": "String",
+          "E49": "N",
+          "F49": "20",
+          "G49": "단위: 억원"
+        },
+        "example_value": "0",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 50,
+        "element": "250hgst",
+        "korean_name": "250최고",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "단위: 원, 부호가 포함된 숫자",
+        "not_documented": {},
+        "source_values": {
+          "B50": "250hgst",
+          "C50": "250최고",
+          "D50": "String",
+          "E50": "N",
+          "F50": "20",
+          "G50": "단위: 원, 부호가 포함된 숫자"
+        },
+        "example_value": "+124000",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 51,
+        "element": "250lwst",
+        "korean_name": "250최저",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "단위: 원, 부호가 포함된 숫자",
+        "not_documented": {},
+        "source_values": {
+          "B51": "250lwst",
+          "C51": "250최저",
+          "D51": "String",
+          "E51": "N",
+          "F51": "20",
+          "G51": "단위: 원, 부호가 포함된 숫자"
+        },
+        "example_value": "-66800",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 52,
+        "element": "high_pric",
+        "korean_name": "고가",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "단위: 원, 부호가 포함된 숫자",
+        "not_documented": {},
+        "source_values": {
+          "B52": "high_pric",
+          "C52": "고가",
+          "D52": "String",
+          "E52": "N",
+          "F52": "20",
+          "G52": "단위: 원, 부호가 포함된 숫자"
+        },
+        "example_value": "95400",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 53,
+        "element": "open_pric",
+        "korean_name": "시가",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "단위: 원, 부호가 포함된 숫자",
+        "not_documented": {},
+        "source_values": {
+          "B53": "open_pric",
+          "C53": "시가",
+          "D53": "String",
+          "E53": "N",
+          "F53": "20",
+          "G53": "단위: 원, 부호가 포함된 숫자"
+        },
+        "example_value": "-0",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 54,
+        "element": "low_pric",
+        "korean_name": "저가",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "단위: 원, 부호가 포함된 숫자",
+        "not_documented": {},
+        "source_values": {
+          "B54": "low_pric",
+          "C54": "저가",
+          "D54": "String",
+          "E54": "N",
+          "F54": "20",
+          "G54": "단위: 원, 부호가 포함된 숫자"
+        },
+        "example_value": "0",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 55,
+        "element": "upl_pric",
+        "korean_name": "상한가",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "단위: 원, 부호가 포함된 숫자",
+        "not_documented": {},
+        "source_values": {
+          "B55": "upl_pric",
+          "C55": "상한가",
+          "D55": "String",
+          "E55": "N",
+          "F55": "20",
+          "G55": "단위: 원, 부호가 포함된 숫자"
+        },
+        "example_value": "20241016",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 56,
+        "element": "lst_pric",
+        "korean_name": "하한가",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "단위: 원, 부호가 포함된 숫자",
+        "not_documented": {},
+        "source_values": {
+          "B56": "lst_pric",
+          "C56": "하한가",
+          "D56": "String",
+          "E56": "N",
+          "F56": "20",
+          "G56": "단위: 원, 부호가 포함된 숫자"
+        },
+        "example_value": "-47.41",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 57,
+        "element": "base_pric",
+        "korean_name": "기준가",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "단위: 원",
+        "not_documented": {},
+        "source_values": {
+          "B57": "base_pric",
+          "C57": "기준가",
+          "D57": "String",
+          "E57": "N",
+          "F57": "20",
+          "G57": "단위: 원"
+        },
+        "example_value": "20231024",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 58,
+        "element": "exp_cntr_pric",
+        "korean_name": "예상체결가",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "단위: 원",
+        "not_documented": {},
+        "source_values": {
+          "B58": "exp_cntr_pric",
+          "C58": "예상체결가",
+          "D58": "String",
+          "E58": "N",
+          "F58": "20",
+          "G58": "단위: 원"
+        },
+        "example_value": "+26.69",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 59,
+        "element": "exp_cntr_qty",
+        "korean_name": "예상체결수량",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "단위: 1주",
+        "not_documented": {},
+        "source_values": {
+          "B59": "exp_cntr_qty",
+          "C59": "예상체결수량",
+          "D59": "String",
+          "E59": "N",
+          "F59": "20",
+          "G59": "단위: 1주"
+        },
+        "example_value": "95400",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 60,
+        "element": "250hgst_pric_dt",
+        "korean_name": "250최고가일",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "YYYYMMDD",
+        "not_documented": {},
+        "source_values": {
+          "B60": "250hgst_pric_dt",
+          "C60": "250최고가일",
+          "D60": "String",
+          "E60": "N",
+          "F60": "20",
+          "G60": "YYYYMMDD"
+        },
+        "example_value": "3",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 61,
+        "element": "250hgst_pric_pre_rt",
+        "korean_name": "250최고가대비율",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "단위: %, 부호 포함 소수점 둘째 자리까지 포맷된 백분율",
+        "not_documented": {},
+        "source_values": {
+          "B61": "250hgst_pric_pre_rt",
+          "C61": "250최고가대비율",
+          "D61": "String",
+          "E61": "N",
+          "F61": "20",
+          "G61": "단위: %, 부호 포함 소수점 둘째 자리까지 포맷된 백분율"
+        },
+        "example_value": "0",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 62,
+        "element": "250lwst_pric_dt",
+        "korean_name": "250최저가일",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "YYYYMMDD",
+        "not_documented": {},
+        "source_values": {
+          "B62": "250lwst_pric_dt",
+          "C62": "250최저가일",
+          "D62": "String",
+          "E62": "N",
+          "F62": "20",
+          "G62": "YYYYMMDD"
+        },
+        "example_value": "0.00",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 63,
+        "element": "250lwst_pric_pre_rt",
+        "korean_name": "250최저가대비율",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "단위: %, 부호 포함 소수점 둘째 자리까지 포맷된 백분율",
+        "not_documented": {},
+        "source_values": {
+          "B63": "250lwst_pric_pre_rt",
+          "C63": "250최저가대비율",
+          "D63": "String",
+          "E63": "N",
+          "F63": "20",
+          "G63": "단위: %, 부호 포함 소수점 둘째 자리까지 포맷된 백분율"
+        },
+        "example_value": "0",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 64,
+        "element": "cur_prc",
+        "korean_name": "현재가",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "단위: 원, 부호가 포함된 숫자",
+        "not_documented": {},
+        "source_values": {
+          "B64": "cur_prc",
+          "C64": "현재가",
+          "D64": "String",
+          "E64": "N",
+          "F64": "20",
+          "G64": "단위: 원, 부호가 포함된 숫자"
+        },
+        "example_value": "0.00",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 65,
+        "element": "pre_sig",
+        "korean_name": "대비기호",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "1: 상한가, 2:상승, 3:보합, 4:하한가, 5:하락",
+        "not_documented": {},
+        "source_values": {
+          "B65": "pre_sig",
+          "C65": "대비기호",
+          "D65": "String",
+          "E65": "N",
+          "F65": "20",
+          "G65": "1: 상한가, 2:상승, 3:보합, 4:하한가, 5:하락"
+        },
+        "example_value": "",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 66,
+        "element": "pred_pre",
+        "korean_name": "전일대비",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "단위: 원, 부호가 포함된 숫자",
+        "not_documented": {},
+        "source_values": {
+          "B66": "pred_pre",
+          "C66": "전일대비",
+          "D66": "String",
+          "E66": "N",
+          "F66": "20",
+          "G66": "단위: 원, 부호가 포함된 숫자"
+        },
+        "example_value": "",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 67,
+        "element": "flu_rt",
+        "korean_name": "등락율",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "단위: %, 부호 포함 소수점 둘째 자리까지 포맷된 백분율",
+        "not_documented": {},
+        "source_values": {
+          "B67": "flu_rt",
+          "C67": "등락율",
+          "D67": "String",
+          "E67": "N",
+          "F67": "20",
+          "G67": "단위: %, 부호 포함 소수점 둘째 자리까지 포맷된 백분율"
+        },
+        "example_value": "0",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 68,
+        "element": "trde_qty",
+        "korean_name": "거래량",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "단위: 1주",
+        "not_documented": {},
+        "source_values": {
+          "B68": "trde_qty",
+          "C68": "거래량",
+          "D68": "String",
+          "E68": "N",
+          "F68": "20",
+          "G68": "단위: 1주"
+        },
+        "example_value": "0",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 69,
+        "element": "trde_pre",
+        "korean_name": "거래대비",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "단위: %, 부호 포함 소수점 둘째 자리까지 포맷된 백분율",
+        "not_documented": {},
+        "source_values": {
+          "B69": "trde_pre",
+          "C69": "거래대비",
+          "D69": "String",
+          "E69": "N",
+          "F69": "20",
+          "G69": "단위: %, 부호 포함 소수점 둘째 자리까지 포맷된 백분율"
+        },
+        "example_value": "0",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 70,
+        "element": "fav_unit",
+        "korean_name": "액면가단위",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "원",
+        "not_documented": {},
+        "source_values": {
+          "B70": "fav_unit",
+          "C70": "액면가단위",
+          "D70": "String",
+          "E70": "N",
+          "F70": "20",
+          "G70": "원"
+        },
+        "example_value": "0",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 71,
+        "element": "dstr_stk",
+        "korean_name": "유통주식",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "단위: 1주",
+        "not_documented": {},
+        "source_values": {
+          "B71": "dstr_stk",
+          "C71": "유통주식",
+          "D71": "String",
+          "E71": "N",
+          "F71": "20",
+          "G71": "단위: 1주"
+        },
+        "example_value": "0",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 72,
+        "element": "dstr_rt",
+        "korean_name": "유통비율",
+        "type": "String",
+        "required": "N",
+        "length": "20",
+        "description": "단위: %, 부호 포함 소수점 첫째 자리까지 포맷된 백분율",
+        "not_documented": {},
+        "source_values": {
+          "B72": "dstr_rt",
+          "C72": "유통비율",
+          "D72": "String",
+          "E72": "N",
+          "F72": "20",
+          "G72": "단위: %, 부호 포함 소수점 첫째 자리까지 포맷된 백분율"
+        },
+        "example_value": "0",
+        "example_value_status": "원문 예시 기재"
+      }
+    ],
+    "fields_in_example_only": [
+      {
+        "element": "return_code",
+        "example_value": 0,
+        "observed_json_type": "number",
+        "type": null,
+        "required": null,
+        "length": null,
+        "description": null,
+        "specification_status": "문서 미기재: 응답 예시에만 있고 응답 필드 표에는 없음",
+        "source_cell": "A76"
+      },
+      {
+        "element": "return_msg",
+        "example_value": "정상적으로 처리되었습니다",
+        "observed_json_type": "string",
+        "type": null,
+        "required": null,
+        "length": null,
+        "description": null,
+        "specification_status": "문서 미기재: 응답 예시에만 있고 응답 필드 표에는 없음",
+        "source_cell": "A76"
+      }
+    ],
+    "header_example": null,
+    "header_example_status": "문서 미기재: Response Example은 Body JSON만 포함",
+    "body_example": {
+      "source_cell": "A76",
+      "original_text": "{\n    \"stk_cd\": \"005930\",\n    \"stk_nm\": \"삼성전자\",\n    \"setl_mm\": \"12\",\n    \"fav\": \"5000\",\n    \"cap\": \"1311\",\n    \"flo_stk\": \"25527\",\n    \"crd_rt\": \"+0.08\",\n    \"oyr_hgst\": \"+181400\",\n    \"oyr_lwst\": \"-91200\",\n    \"mac\": \"24352\",\n    \"mac_wght\": \"\",\n    \"for_exh_rt\": \"0.00\",\n    \"repl_pric\": \"66780\",\n    \"per\": \"\",\n    \"eps\": \"\",\n    \"roe\": \"\",\n    \"pbr\": \"\",\n    \"ev\": \"\",\n    \"bps\": \"-75300\",\n    \"sale_amt\": \"0\",\n    \"bus_pro\": \"0\",\n    \"cup_nga\": \"0\",\n    \"250hgst\": \"+124000\",\n    \"250lwst\": \"-66800\",\n    \"high_pric\": \"95400\",\n    \"open_pric\": \"-0\",\n    \"low_pric\": \"0\",\n    \"upl_pric\": \"20241016\",\n    \"lst_pric\": \"-47.41\",\n    \"base_pric\": \"20231024\",\n    \"exp_cntr_pric\": \"+26.69\",\n    \"exp_cntr_qty\": \"95400\",\n    \"250hgst_pric_dt\": \"3\",\n    \"250hgst_pric_pre_rt\": \"0\",\n    \"250lwst_pric_dt\": \"0.00\",\n    \"250lwst_pric_pre_rt\": \"0\",\n    \"cur_prc\": \"0.00\",\n    \"pre_sig\": \"\",\n    \"pred_pre\": \"\",\n    \"flu_rt\": \"0\",\n    \"trde_qty\": \"0\",\n    \"trde_pre\": \"0\",\n    \"fav_unit\": \"0\",\n    \"dstr_stk\": \"0\",\n    \"dstr_rt\": \"0\",\n    \"return_code\": 0,\n    \"return_msg\": \"정상적으로 처리되었습니다\"\n}",
+      "original_json_valid": true,
+      "original_parse_error": null,
+      "parsed_original": {
+        "stk_cd": "005930",
+        "stk_nm": "삼성전자",
+        "setl_mm": "12",
+        "fav": "5000",
+        "cap": "1311",
+        "flo_stk": "25527",
+        "crd_rt": "+0.08",
+        "oyr_hgst": "+181400",
+        "oyr_lwst": "-91200",
+        "mac": "24352",
+        "mac_wght": "",
+        "for_exh_rt": "0.00",
+        "repl_pric": "66780",
+        "per": "",
+        "eps": "",
+        "roe": "",
+        "pbr": "",
+        "ev": "",
+        "bps": "-75300",
+        "sale_amt": "0",
+        "bus_pro": "0",
+        "cup_nga": "0",
+        "250hgst": "+124000",
+        "250lwst": "-66800",
+        "high_pric": "95400",
+        "open_pric": "-0",
+        "low_pric": "0",
+        "upl_pric": "20241016",
+        "lst_pric": "-47.41",
+        "base_pric": "20231024",
+        "exp_cntr_pric": "+26.69",
+        "exp_cntr_qty": "95400",
+        "250hgst_pric_dt": "3",
+        "250hgst_pric_pre_rt": "0",
+        "250lwst_pric_dt": "0.00",
+        "250lwst_pric_pre_rt": "0",
+        "cur_prc": "0.00",
+        "pre_sig": "",
+        "pred_pre": "",
+        "flu_rt": "0",
+        "trde_qty": "0",
+        "trde_pre": "0",
+        "fav_unit": "0",
+        "dstr_stk": "0",
+        "dstr_rt": "0",
+        "return_code": 0,
+        "return_msg": "정상적으로 처리되었습니다"
+      },
+      "corrected_text": null,
+      "parsed_corrected": null,
+      "corrections": [],
+      "correction_note": "원문 JSON은 문법상 유효합니다. 설명과 불일치하는 예시 값도 임의로 교정하지 않았습니다."
+    }
+  },
+  "usage": {
+    "basis": "아래 순서는 원문 기본정보·필드 설명·예시를 조합한 사용 안내이며 원문에 없는 서버 동작을 추가하지 않음.",
+    "urls": {
+      "production": "https://api.kiwoom.com/api/dostk/stkinfo",
+      "paper": "https://mockapi.kiwoom.com/api/dostk/stkinfo",
+      "derivation": "C9/C10 도메인과 C11 URL을 결합"
+    },
+    "steps": [
+      {
+        "step": 1,
+        "text": "조회할 환경의 도메인과 /api/dostk/stkinfo를 결합하고 POST JSON 요청을 구성합니다.",
+        "source_cells": [
+          "C8",
+          "C9",
+          "C10",
+          "C11",
+          "C12",
+          "C13"
+        ]
+      },
+      {
+        "step": 2,
+        "text": "필수 Header인 api-id와 authorization을 지정합니다. API ID는 ka10001이며 접근토큰 앞에 Bearer를 붙입니다.",
+        "source_cells": [
+          "C6",
+          "B18",
+          "E18",
+          "B19",
+          "E19",
+          "G19"
+        ]
+      },
+      {
+        "step": 3,
+        "text": "필수 Body String 필드 stk_cd에 거래소별 종목코드를 넣습니다. 원문은 KRX:039490, NXT:039490_NX, SOR:039490_AL을 예시로 듭니다.",
+        "source_cells": [
+          "B22",
+          "D22",
+          "E22",
+          "G22"
+        ]
+      },
+      {
+        "step": 4,
+        "text": "응답 Header의 cont-yn이 Y이면 다음 요청의 cont-yn과 next-key에 응답 Header 값을 설정합니다.",
+        "source_cells": [
+          "G20",
+          "G21",
+          "G26",
+          "G27"
+        ]
+      }
+    ]
+  },
+  "pagination": {
+    "documented": true,
+    "status": "Header 설명에 연속조회 방법 기재",
+    "request_cont_yn": {
+      "description": "응답 Header의 연속조회여부값이 Y일 경우 다음데이터 요청시 응답 Header의 cont-yn값 세팅",
+      "source_cell": "G20"
+    },
+    "request_next_key": {
+      "description": "응답 Header의 연속조회여부값이 Y일 경우 다음데이터 요청시 응답 Header의 next-key값 세팅",
+      "source_cell": "G21"
+    },
+    "response_cont_yn": {
+      "description": "다음 데이터가 있을시 Y값 전달",
+      "source_cell": "G26"
+    },
+    "response_next_key": {
+      "description": "다음 데이터가 있을시 다음 키값 전달",
+      "source_cell": "G27"
+    },
+    "first_request_defaults": null,
+    "page_size": null,
+    "maximum_pages": null,
+    "missing_rules_status": "최초 요청의 cont-yn/next-key 기본값, 페이지 크기, 최대 페이지 수는 문서 미기재"
+  },
+  "success_and_errors": {
+    "success_example": {
+      "return_code": 0,
+      "return_msg": "정상적으로 처리되었습니다",
+      "source_cell": "A76",
+      "status": "응답 예시에서 확인한 값. 모든 성공 조건을 정의한 규칙은 문서 미기재."
+    },
+    "http_success_status": null,
+    "http_success_status_status": "문서 미기재",
+    "error_example": null,
+    "error_codes": null,
+    "error_conditions": null,
+    "error_status": "이 TR 시트와 실제 참조 항목에는 오류 예시·오류 조건·오류 코드 명세 미기재. 오류코드 시트에 대한 직접 참조 없음."
+  },
+  "document_notes": [
+    {
+      "text": "※ 데이터 제공 검토중",
+      "source_cell": "G38"
+    },
+    {
+      "text": "주가수익비율\n\n[ 주의 ] PER, ROE 값들은 외부벤더사에서 제공되는 데이터이며 일주일에 한번 또는 실적발표 시즌에 업데이트 됨",
+      "source_cell": "G41"
+    },
+    {
+      "text": "자기자본이익률\n\n[ 주의 ]  PER, ROE 값들은 외부벤더사에서 제공되는 데이터이며 일주일에 한번 또는 실적발표 시즌에 업데이트 됨",
+      "source_cell": "G43"
+    }
+  ],
+  "ambiguities_and_example_limits": [
+    {
+      "topic": "flo_stk 단위",
+      "source_cells": [
+        "C33",
+        "G33"
+      ],
+      "original_description": "단위: 천원",
+      "detail": "필드명은 상장주식이지만 원문 단위는 천원입니다. 단위가 모호하므로 임의로 주/천주로 교정하거나 수량 환산하지 않았습니다."
+    },
+    {
+      "topic": "TR 코드 길이 설명",
+      "source_cells": [
+        "F18",
+        "G18",
+        "F25",
+        "G25"
+      ],
+      "detail": "Length는 문자열 10이며 설명에는 8자리 TR코드와 ka00001, usa10099 예시가 함께 있습니다. 원문의 길이 설명을 그대로 보존했습니다."
+    },
+    {
+      "topic": "날짜 예시와 형식 불일치",
+      "source_cells": [
+        "G60",
+        "G62",
+        "A76"
+      ],
+      "detail": "날짜 필드 설명은 YYYYMMDD이지만 예시의 250hgst_pric_dt는 3, 250lwst_pric_dt는 0.00입니다. 예시 값을 수정하거나 실제 값으로 사용하지 않습니다."
+    },
+    {
+      "topic": "응답 예시의 값 정합성",
+      "source_cells": [
+        "G55",
+        "G56",
+        "G57",
+        "G58",
+        "A76"
+      ],
+      "detail": "가격 필드 설명과 예시 값의 의미가 맞지 않을 수 있습니다(예: upl_pric=20241016, lst_pric=-47.41, base_pric=20231024, exp_cntr_pric=+26.69). 원문 예시는 그대로 보존하며 교정값을 추측하지 않습니다."
+    },
+    {
+      "topic": "빈 값",
+      "source_cell": "A76",
+      "detail": "여러 숫자 관련 String 필드가 빈 문자열인 예시입니다. 빈 값을 0으로 해석하는 규칙은 문서에 없습니다."
+    },
+    {
+      "topic": "반환 코드",
+      "source_cell": "A76",
+      "detail": "return_code와 return_msg는 예시에만 있고 응답 필드 표에는 없습니다. 타입·필수 여부·길이를 추정하여 필드 표에 추가하지 않았습니다."
+    }
+  ],
+  "not_documented": {
+    "rate_limit": null,
+    "rate_limit_status": "문서 미기재",
+    "timeout": null,
+    "timeout_status": "문서 미기재",
+    "retry_policy": null,
+    "retry_policy_status": "문서 미기재",
+    "length_unit": null,
+    "length_unit_status": "Length 수치의 단위가 byte인지 문자 수인지는 문서 미기재",
+    "field_type_semantics": null,
+    "field_type_semantics_status": "String의 구체적 인코딩·null/빈 문자열 처리 규칙은 문서 미기재"
+  },
+  "implementation_choices": {
+    "status": "프로젝트 구현 규칙은 문서 명세와 별개이며 이 파일에서는 강제하지 않음",
+    "token_storage": null,
+    "renewal_schedule": null,
+    "expires_dt_timezone": null,
+    "numeric_parsing": null,
+    "notes": "원문에 없는 토큰 보관·갱신 시각·시간대·수치 변환 규칙은 별도 구현에서 결정해야 합니다."
+  },
+  "references": {
+    "links": [
+      {
+        "cell": "A1",
+        "value": "◀ API 리스트 이동",
+        "hyperlink": {
+          "target": "#'API 리스트'!A1",
+          "location": null,
+          "display": null,
+          "tooltip": null
+        }
+      }
+    ],
+    "referenced_sheets_checked": [
+      {
+        "sheet": "API 리스트",
+        "role": "A1의 목록 이동 링크. 대상 TR의 대응 행 확인.",
+        "source_cells": [
+          {
+            "cell": "A14",
+            "value": "12"
+          },
+          {
+            "cell": "B14",
+            "value": "ka10001"
+          },
+          {
+            "cell": "C14",
+            "value": "주식기본정보요청"
+          },
+          {
+            "cell": "D14",
+            "value": "국내주식"
+          },
+          {
+            "cell": "E14",
+            "value": "종목정보"
+          },
+          {
+            "cell": "F14",
+            "value": "/api/dostk/stkinfo"
+          },
+          {
+            "cell": "G14",
+            "value": "이동",
+            "hyperlink": {
+              "target": "#'ka10001'!A2",
+              "location": null,
+              "display": null,
+              "tooltip": null
+            }
+          }
+        ]
+      }
+    ],
+    "common_specification_sheet_references": [],
+    "common_reference_status": "두 TR 시트의 링크·수식·주석을 확인했습니다. 목록 이동 링크 외에 공통 명세/오류코드 시트로 연결되는 참조는 없습니다.",
+    "formulas": [],
+    "comments": []
+  },
+  "coverage": {
+    "source_cell_count": 532,
+    "source_nonempty_cell_count": 366,
+    "source_empty_string_cell_count": 0,
+    "request_field_count": 5,
+    "response_field_count": 48,
+    "request_header_count": 4,
+    "request_body_count": 1,
+    "response_header_count": 3,
+    "response_body_count": 45,
+    "response_example_only_field_count": 2,
+    "policy": "표 필드는 빠짐없이 포함. source_cells는 시트 사용 범위의 빈 셀과 병합 셀까지 모두 포함."
+  },
+  "source_cells": [
+    {
+      "cell": "A1",
+      "value": "◀ API 리스트 이동",
+      "hyperlink": {
+        "target": "#'API 리스트'!A1",
+        "location": null,
+        "display": null,
+        "tooltip": null
+      }
+    },
+    {
+      "cell": "B1",
+      "value": null
+    },
+    {
+      "cell": "C1",
+      "value": null
+    },
+    {
+      "cell": "D1",
+      "value": null
+    },
+    {
+      "cell": "E1",
+      "value": null
+    },
+    {
+      "cell": "F1",
+      "value": null
+    },
+    {
+      "cell": "G1",
+      "value": null
+    },
+    {
+      "cell": "A2",
+      "value": "키움 REST API"
+    },
+    {
+      "cell": "B2",
+      "value": null
+    },
+    {
+      "cell": "C2",
+      "value": null
+    },
+    {
+      "cell": "D2",
+      "value": null
+    },
+    {
+      "cell": "E2",
+      "value": null
+    },
+    {
+      "cell": "F2",
+      "value": null
+    },
+    {
+      "cell": "G2",
+      "value": null
+    },
+    {
+      "cell": "A3",
+      "value": "API 정보"
+    },
+    {
+      "cell": "B3",
+      "value": null
+    },
+    {
+      "cell": "C3",
+      "value": null
+    },
+    {
+      "cell": "D3",
+      "value": null
+    },
+    {
+      "cell": "E3",
+      "value": null
+    },
+    {
+      "cell": "F3",
+      "value": null
+    },
+    {
+      "cell": "G3",
+      "value": null
+    },
+    {
+      "cell": "A4",
+      "value": "메뉴 위치"
+    },
+    {
+      "cell": "B4",
+      "value": null
+    },
+    {
+      "cell": "C4",
+      "value": "국내주식 > 종목정보 > 주식기본정보요청(ka10001)"
+    },
+    {
+      "cell": "D4",
+      "value": null
+    },
+    {
+      "cell": "E4",
+      "value": null
+    },
+    {
+      "cell": "F4",
+      "value": null
+    },
+    {
+      "cell": "G4",
+      "value": null
+    },
+    {
+      "cell": "A5",
+      "value": "API 명"
+    },
+    {
+      "cell": "B5",
+      "value": null
+    },
+    {
+      "cell": "C5",
+      "value": "주식기본정보요청"
+    },
+    {
+      "cell": "D5",
+      "value": null
+    },
+    {
+      "cell": "E5",
+      "value": null
+    },
+    {
+      "cell": "F5",
+      "value": null
+    },
+    {
+      "cell": "G5",
+      "value": null
+    },
+    {
+      "cell": "A6",
+      "value": "API ID"
+    },
+    {
+      "cell": "B6",
+      "value": null
+    },
+    {
+      "cell": "C6",
+      "value": "ka10001"
+    },
+    {
+      "cell": "D6",
+      "value": null
+    },
+    {
+      "cell": "E6",
+      "value": null
+    },
+    {
+      "cell": "F6",
+      "value": null
+    },
+    {
+      "cell": "G6",
+      "value": null
+    },
+    {
+      "cell": "A7",
+      "value": "기본정보"
+    },
+    {
+      "cell": "B7",
+      "value": null
+    },
+    {
+      "cell": "C7",
+      "value": null
+    },
+    {
+      "cell": "D7",
+      "value": null
+    },
+    {
+      "cell": "E7",
+      "value": null
+    },
+    {
+      "cell": "F7",
+      "value": null
+    },
+    {
+      "cell": "G7",
+      "value": null
+    },
+    {
+      "cell": "A8",
+      "value": "Method"
+    },
+    {
+      "cell": "B8",
+      "value": null
+    },
+    {
+      "cell": "C8",
+      "value": "POST"
+    },
+    {
+      "cell": "D8",
+      "value": null
+    },
+    {
+      "cell": "E8",
+      "value": null
+    },
+    {
+      "cell": "F8",
+      "value": null
+    },
+    {
+      "cell": "G8",
+      "value": null
+    },
+    {
+      "cell": "A9",
+      "value": "운영 도메인"
+    },
+    {
+      "cell": "B9",
+      "value": null
+    },
+    {
+      "cell": "C9",
+      "value": "https://api.kiwoom.com"
+    },
+    {
+      "cell": "D9",
+      "value": null
+    },
+    {
+      "cell": "E9",
+      "value": null
+    },
+    {
+      "cell": "F9",
+      "value": null
+    },
+    {
+      "cell": "G9",
+      "value": null
+    },
+    {
+      "cell": "A10",
+      "value": "모의투자 도메인"
+    },
+    {
+      "cell": "B10",
+      "value": null
+    },
+    {
+      "cell": "C10",
+      "value": "https://mockapi.kiwoom.com"
+    },
+    {
+      "cell": "D10",
+      "value": null
+    },
+    {
+      "cell": "E10",
+      "value": null
+    },
+    {
+      "cell": "F10",
+      "value": null
+    },
+    {
+      "cell": "G10",
+      "value": null
+    },
+    {
+      "cell": "A11",
+      "value": "URL"
+    },
+    {
+      "cell": "B11",
+      "value": null
+    },
+    {
+      "cell": "C11",
+      "value": "/api/dostk/stkinfo"
+    },
+    {
+      "cell": "D11",
+      "value": null
+    },
+    {
+      "cell": "E11",
+      "value": null
+    },
+    {
+      "cell": "F11",
+      "value": null
+    },
+    {
+      "cell": "G11",
+      "value": null
+    },
+    {
+      "cell": "A12",
+      "value": "Format"
+    },
+    {
+      "cell": "B12",
+      "value": null
+    },
+    {
+      "cell": "C12",
+      "value": "JSON"
+    },
+    {
+      "cell": "D12",
+      "value": null
+    },
+    {
+      "cell": "E12",
+      "value": null
+    },
+    {
+      "cell": "F12",
+      "value": null
+    },
+    {
+      "cell": "G12",
+      "value": null
+    },
+    {
+      "cell": "A13",
+      "value": "Content-Type"
+    },
+    {
+      "cell": "B13",
+      "value": null
+    },
+    {
+      "cell": "C13",
+      "value": "application/json;charset=UTF-8"
+    },
+    {
+      "cell": "D13",
+      "value": null
+    },
+    {
+      "cell": "E13",
+      "value": null
+    },
+    {
+      "cell": "F13",
+      "value": null
+    },
+    {
+      "cell": "G13",
+      "value": null
+    },
+    {
+      "cell": "A14",
+      "value": "개요"
+    },
+    {
+      "cell": "B14",
+      "value": null
+    },
+    {
+      "cell": "C14",
+      "value": null
+    },
+    {
+      "cell": "D14",
+      "value": null
+    },
+    {
+      "cell": "E14",
+      "value": null
+    },
+    {
+      "cell": "F14",
+      "value": null
+    },
+    {
+      "cell": "G14",
+      "value": null
+    },
+    {
+      "cell": "A15",
+      "value": "종목 코드로 주식 기본 정보를 조회한다."
+    },
+    {
+      "cell": "B15",
+      "value": null
+    },
+    {
+      "cell": "C15",
+      "value": null
+    },
+    {
+      "cell": "D15",
+      "value": null
+    },
+    {
+      "cell": "E15",
+      "value": null
+    },
+    {
+      "cell": "F15",
+      "value": null
+    },
+    {
+      "cell": "G15",
+      "value": null
+    },
+    {
+      "cell": "A16",
+      "value": "Request"
+    },
+    {
+      "cell": "B16",
+      "value": null
+    },
+    {
+      "cell": "C16",
+      "value": null
+    },
+    {
+      "cell": "D16",
+      "value": null
+    },
+    {
+      "cell": "E16",
+      "value": null
+    },
+    {
+      "cell": "F16",
+      "value": null
+    },
+    {
+      "cell": "G16",
+      "value": null
+    },
+    {
+      "cell": "A17",
+      "value": "구분"
+    },
+    {
+      "cell": "B17",
+      "value": "Element"
+    },
+    {
+      "cell": "C17",
+      "value": "한글명"
+    },
+    {
+      "cell": "D17",
+      "value": "Type"
+    },
+    {
+      "cell": "E17",
+      "value": "Required"
+    },
+    {
+      "cell": "F17",
+      "value": "Length"
+    },
+    {
+      "cell": "G17",
+      "value": "Description"
+    },
+    {
+      "cell": "A18",
+      "value": "Header"
+    },
+    {
+      "cell": "B18",
+      "value": "api-id"
+    },
+    {
+      "cell": "C18",
+      "value": "TR명"
+    },
+    {
+      "cell": "D18",
+      "value": "String"
+    },
+    {
+      "cell": "E18",
+      "value": "Y"
+    },
+    {
+      "cell": "F18",
+      "value": "10"
+    },
+    {
+      "cell": "G18",
+      "value": "8자리 TR코드, ex) ka00001, usa10099"
+    },
+    {
+      "cell": "A19",
+      "value": null
+    },
+    {
+      "cell": "B19",
+      "value": "authorization"
+    },
+    {
+      "cell": "C19",
+      "value": "접근토큰"
+    },
+    {
+      "cell": "D19",
+      "value": "String"
+    },
+    {
+      "cell": "E19",
+      "value": "Y"
+    },
+    {
+      "cell": "F19",
+      "value": "1000"
+    },
+    {
+      "cell": "G19",
+      "value": "토큰 지정시 토큰타입(\"Bearer\") 붙혀서 호출 \n 예) Bearer Egicyx..."
+    },
+    {
+      "cell": "A20",
+      "value": null
+    },
+    {
+      "cell": "B20",
+      "value": "cont-yn"
+    },
+    {
+      "cell": "C20",
+      "value": "연속조회여부"
+    },
+    {
+      "cell": "D20",
+      "value": "String"
+    },
+    {
+      "cell": "E20",
+      "value": "N"
+    },
+    {
+      "cell": "F20",
+      "value": "1"
+    },
+    {
+      "cell": "G20",
+      "value": "응답 Header의 연속조회여부값이 Y일 경우 다음데이터 요청시 응답 Header의 cont-yn값 세팅"
+    },
+    {
+      "cell": "A21",
+      "value": null
+    },
+    {
+      "cell": "B21",
+      "value": "next-key"
+    },
+    {
+      "cell": "C21",
+      "value": "연속조회키"
+    },
+    {
+      "cell": "D21",
+      "value": "String"
+    },
+    {
+      "cell": "E21",
+      "value": "N"
+    },
+    {
+      "cell": "F21",
+      "value": "50"
+    },
+    {
+      "cell": "G21",
+      "value": "응답 Header의 연속조회여부값이 Y일 경우 다음데이터 요청시 응답 Header의 next-key값 세팅"
+    },
+    {
+      "cell": "A22",
+      "value": "Body"
+    },
+    {
+      "cell": "B22",
+      "value": "stk_cd"
+    },
+    {
+      "cell": "C22",
+      "value": "종목코드"
+    },
+    {
+      "cell": "D22",
+      "value": "String"
+    },
+    {
+      "cell": "E22",
+      "value": "Y"
+    },
+    {
+      "cell": "F22",
+      "value": "20"
+    },
+    {
+      "cell": "G22",
+      "value": "거래소별 종목코드\n(KRX:039490,NXT:039490_NX,SOR:039490_AL)"
+    },
+    {
+      "cell": "A23",
+      "value": "Response"
+    },
+    {
+      "cell": "B23",
+      "value": null
+    },
+    {
+      "cell": "C23",
+      "value": null
+    },
+    {
+      "cell": "D23",
+      "value": null
+    },
+    {
+      "cell": "E23",
+      "value": null
+    },
+    {
+      "cell": "F23",
+      "value": null
+    },
+    {
+      "cell": "G23",
+      "value": null
+    },
+    {
+      "cell": "A24",
+      "value": "구분"
+    },
+    {
+      "cell": "B24",
+      "value": "Element"
+    },
+    {
+      "cell": "C24",
+      "value": "한글명"
+    },
+    {
+      "cell": "D24",
+      "value": "Type"
+    },
+    {
+      "cell": "E24",
+      "value": "Required"
+    },
+    {
+      "cell": "F24",
+      "value": "Length"
+    },
+    {
+      "cell": "G24",
+      "value": "Description"
+    },
+    {
+      "cell": "A25",
+      "value": "Header"
+    },
+    {
+      "cell": "B25",
+      "value": "api-id"
+    },
+    {
+      "cell": "C25",
+      "value": "TR명"
+    },
+    {
+      "cell": "D25",
+      "value": "String"
+    },
+    {
+      "cell": "E25",
+      "value": "Y"
+    },
+    {
+      "cell": "F25",
+      "value": "10"
+    },
+    {
+      "cell": "G25",
+      "value": "8자리 TR코드, ex) ka00001, usa10099"
+    },
+    {
+      "cell": "A26",
+      "value": null
+    },
+    {
+      "cell": "B26",
+      "value": "cont-yn"
+    },
+    {
+      "cell": "C26",
+      "value": "연속조회여부"
+    },
+    {
+      "cell": "D26",
+      "value": "String"
+    },
+    {
+      "cell": "E26",
+      "value": "N"
+    },
+    {
+      "cell": "F26",
+      "value": "1"
+    },
+    {
+      "cell": "G26",
+      "value": "다음 데이터가 있을시 Y값 전달"
+    },
+    {
+      "cell": "A27",
+      "value": null
+    },
+    {
+      "cell": "B27",
+      "value": "next-key"
+    },
+    {
+      "cell": "C27",
+      "value": "연속조회키"
+    },
+    {
+      "cell": "D27",
+      "value": "String"
+    },
+    {
+      "cell": "E27",
+      "value": "N"
+    },
+    {
+      "cell": "F27",
+      "value": "50"
+    },
+    {
+      "cell": "G27",
+      "value": "다음 데이터가 있을시 다음 키값 전달"
+    },
+    {
+      "cell": "A28",
+      "value": "Body"
+    },
+    {
+      "cell": "B28",
+      "value": "stk_cd"
+    },
+    {
+      "cell": "C28",
+      "value": "종목코드"
+    },
+    {
+      "cell": "D28",
+      "value": "String"
+    },
+    {
+      "cell": "E28",
+      "value": "N"
+    },
+    {
+      "cell": "F28",
+      "value": "20"
+    },
+    {
+      "cell": "G28",
+      "value": "거래소별 종목코드"
+    },
+    {
+      "cell": "A29",
+      "value": null
+    },
+    {
+      "cell": "B29",
+      "value": "stk_nm"
+    },
+    {
+      "cell": "C29",
+      "value": "종목명"
+    },
+    {
+      "cell": "D29",
+      "value": "String"
+    },
+    {
+      "cell": "E29",
+      "value": "N"
+    },
+    {
+      "cell": "F29",
+      "value": "40"
+    },
+    {
+      "cell": "G29",
+      "value": "stk_cd의 종목명"
+    },
+    {
+      "cell": "A30",
+      "value": null
+    },
+    {
+      "cell": "B30",
+      "value": "setl_mm"
+    },
+    {
+      "cell": "C30",
+      "value": "결산월"
+    },
+    {
+      "cell": "D30",
+      "value": "String"
+    },
+    {
+      "cell": "E30",
+      "value": "N"
+    },
+    {
+      "cell": "F30",
+      "value": "20"
+    },
+    {
+      "cell": "G30",
+      "value": "결산월 숫자만 출력"
+    },
+    {
+      "cell": "A31",
+      "value": null
+    },
+    {
+      "cell": "B31",
+      "value": "fav"
+    },
+    {
+      "cell": "C31",
+      "value": "액면가"
+    },
+    {
+      "cell": "D31",
+      "value": "String"
+    },
+    {
+      "cell": "E31",
+      "value": "N"
+    },
+    {
+      "cell": "F31",
+      "value": "20"
+    },
+    {
+      "cell": "G31",
+      "value": "단위: 원"
+    },
+    {
+      "cell": "A32",
+      "value": null
+    },
+    {
+      "cell": "B32",
+      "value": "cap"
+    },
+    {
+      "cell": "C32",
+      "value": "자본금"
+    },
+    {
+      "cell": "D32",
+      "value": "String"
+    },
+    {
+      "cell": "E32",
+      "value": "N"
+    },
+    {
+      "cell": "F32",
+      "value": "20"
+    },
+    {
+      "cell": "G32",
+      "value": "단위: 억원"
+    },
+    {
+      "cell": "A33",
+      "value": null
+    },
+    {
+      "cell": "B33",
+      "value": "flo_stk"
+    },
+    {
+      "cell": "C33",
+      "value": "상장주식"
+    },
+    {
+      "cell": "D33",
+      "value": "String"
+    },
+    {
+      "cell": "E33",
+      "value": "N"
+    },
+    {
+      "cell": "F33",
+      "value": "20"
+    },
+    {
+      "cell": "G33",
+      "value": "단위: 천원"
+    },
+    {
+      "cell": "A34",
+      "value": null
+    },
+    {
+      "cell": "B34",
+      "value": "crd_rt"
+    },
+    {
+      "cell": "C34",
+      "value": "신용비율"
+    },
+    {
+      "cell": "D34",
+      "value": "String"
+    },
+    {
+      "cell": "E34",
+      "value": "N"
+    },
+    {
+      "cell": "F34",
+      "value": "20"
+    },
+    {
+      "cell": "G34",
+      "value": "단위: %, 부호 포함 소수점 둘째 자리까지 포맷된 백분율"
+    },
+    {
+      "cell": "A35",
+      "value": null
+    },
+    {
+      "cell": "B35",
+      "value": "oyr_hgst"
+    },
+    {
+      "cell": "C35",
+      "value": "연중최고"
+    },
+    {
+      "cell": "D35",
+      "value": "String"
+    },
+    {
+      "cell": "E35",
+      "value": "N"
+    },
+    {
+      "cell": "F35",
+      "value": "20"
+    },
+    {
+      "cell": "G35",
+      "value": "단위: 원, 부호가 포함된 숫자"
+    },
+    {
+      "cell": "A36",
+      "value": null
+    },
+    {
+      "cell": "B36",
+      "value": "oyr_lwst"
+    },
+    {
+      "cell": "C36",
+      "value": "연중최저"
+    },
+    {
+      "cell": "D36",
+      "value": "String"
+    },
+    {
+      "cell": "E36",
+      "value": "N"
+    },
+    {
+      "cell": "F36",
+      "value": "20"
+    },
+    {
+      "cell": "G36",
+      "value": "단위: 원, 부호가 포함된 숫자"
+    },
+    {
+      "cell": "A37",
+      "value": null
+    },
+    {
+      "cell": "B37",
+      "value": "mac"
+    },
+    {
+      "cell": "C37",
+      "value": "시가총액"
+    },
+    {
+      "cell": "D37",
+      "value": "String"
+    },
+    {
+      "cell": "E37",
+      "value": "N"
+    },
+    {
+      "cell": "F37",
+      "value": "20"
+    },
+    {
+      "cell": "G37",
+      "value": "단위: 억원"
+    },
+    {
+      "cell": "A38",
+      "value": null
+    },
+    {
+      "cell": "B38",
+      "value": "mac_wght"
+    },
+    {
+      "cell": "C38",
+      "value": "시가총액비중"
+    },
+    {
+      "cell": "D38",
+      "value": "String"
+    },
+    {
+      "cell": "E38",
+      "value": "N"
+    },
+    {
+      "cell": "F38",
+      "value": "20"
+    },
+    {
+      "cell": "G38",
+      "value": "※ 데이터 제공 검토중"
+    },
+    {
+      "cell": "A39",
+      "value": null
+    },
+    {
+      "cell": "B39",
+      "value": "for_exh_rt"
+    },
+    {
+      "cell": "C39",
+      "value": "외인소진률"
+    },
+    {
+      "cell": "D39",
+      "value": "String"
+    },
+    {
+      "cell": "E39",
+      "value": "N"
+    },
+    {
+      "cell": "F39",
+      "value": "20"
+    },
+    {
+      "cell": "G39",
+      "value": "단위: %, 부호 포함 소수점 둘째 자리까지 포맷된 백분율"
+    },
+    {
+      "cell": "A40",
+      "value": null
+    },
+    {
+      "cell": "B40",
+      "value": "repl_pric"
+    },
+    {
+      "cell": "C40",
+      "value": "대용가"
+    },
+    {
+      "cell": "D40",
+      "value": "String"
+    },
+    {
+      "cell": "E40",
+      "value": "N"
+    },
+    {
+      "cell": "F40",
+      "value": "20"
+    },
+    {
+      "cell": "G40",
+      "value": "단위: 원"
+    },
+    {
+      "cell": "A41",
+      "value": null
+    },
+    {
+      "cell": "B41",
+      "value": "per"
+    },
+    {
+      "cell": "C41",
+      "value": "PER"
+    },
+    {
+      "cell": "D41",
+      "value": "String"
+    },
+    {
+      "cell": "E41",
+      "value": "N"
+    },
+    {
+      "cell": "F41",
+      "value": "20"
+    },
+    {
+      "cell": "G41",
+      "value": "주가수익비율\n\n[ 주의 ] PER, ROE 값들은 외부벤더사에서 제공되는 데이터이며 일주일에 한번 또는 실적발표 시즌에 업데이트 됨"
+    },
+    {
+      "cell": "A42",
+      "value": null
+    },
+    {
+      "cell": "B42",
+      "value": "eps"
+    },
+    {
+      "cell": "C42",
+      "value": "EPS"
+    },
+    {
+      "cell": "D42",
+      "value": "String"
+    },
+    {
+      "cell": "E42",
+      "value": "N"
+    },
+    {
+      "cell": "F42",
+      "value": "20"
+    },
+    {
+      "cell": "G42",
+      "value": "주당순이익"
+    },
+    {
+      "cell": "A43",
+      "value": null
+    },
+    {
+      "cell": "B43",
+      "value": "roe"
+    },
+    {
+      "cell": "C43",
+      "value": "ROE"
+    },
+    {
+      "cell": "D43",
+      "value": "String"
+    },
+    {
+      "cell": "E43",
+      "value": "N"
+    },
+    {
+      "cell": "F43",
+      "value": "20"
+    },
+    {
+      "cell": "G43",
+      "value": "자기자본이익률\n\n[ 주의 ]  PER, ROE 값들은 외부벤더사에서 제공되는 데이터이며 일주일에 한번 또는 실적발표 시즌에 업데이트 됨"
+    },
+    {
+      "cell": "A44",
+      "value": null
+    },
+    {
+      "cell": "B44",
+      "value": "pbr"
+    },
+    {
+      "cell": "C44",
+      "value": "PBR"
+    },
+    {
+      "cell": "D44",
+      "value": "String"
+    },
+    {
+      "cell": "E44",
+      "value": "N"
+    },
+    {
+      "cell": "F44",
+      "value": "20"
+    },
+    {
+      "cell": "G44",
+      "value": "주가순자산비율"
+    },
+    {
+      "cell": "A45",
+      "value": null
+    },
+    {
+      "cell": "B45",
+      "value": "ev"
+    },
+    {
+      "cell": "C45",
+      "value": "EV"
+    },
+    {
+      "cell": "D45",
+      "value": "String"
+    },
+    {
+      "cell": "E45",
+      "value": "N"
+    },
+    {
+      "cell": "F45",
+      "value": "20"
+    },
+    {
+      "cell": "G45",
+      "value": "기업가치"
+    },
+    {
+      "cell": "A46",
+      "value": null
+    },
+    {
+      "cell": "B46",
+      "value": "bps"
+    },
+    {
+      "cell": "C46",
+      "value": "BPS"
+    },
+    {
+      "cell": "D46",
+      "value": "String"
+    },
+    {
+      "cell": "E46",
+      "value": "N"
+    },
+    {
+      "cell": "F46",
+      "value": "20"
+    },
+    {
+      "cell": "G46",
+      "value": "주당순자산가치"
+    },
+    {
+      "cell": "A47",
+      "value": null
+    },
+    {
+      "cell": "B47",
+      "value": "sale_amt"
+    },
+    {
+      "cell": "C47",
+      "value": "매출액"
+    },
+    {
+      "cell": "D47",
+      "value": "String"
+    },
+    {
+      "cell": "E47",
+      "value": "N"
+    },
+    {
+      "cell": "F47",
+      "value": "20"
+    },
+    {
+      "cell": "G47",
+      "value": "단위: 억원"
+    },
+    {
+      "cell": "A48",
+      "value": null
+    },
+    {
+      "cell": "B48",
+      "value": "bus_pro"
+    },
+    {
+      "cell": "C48",
+      "value": "영업이익"
+    },
+    {
+      "cell": "D48",
+      "value": "String"
+    },
+    {
+      "cell": "E48",
+      "value": "N"
+    },
+    {
+      "cell": "F48",
+      "value": "20"
+    },
+    {
+      "cell": "G48",
+      "value": "단위: 억원"
+    },
+    {
+      "cell": "A49",
+      "value": null
+    },
+    {
+      "cell": "B49",
+      "value": "cup_nga"
+    },
+    {
+      "cell": "C49",
+      "value": "당기순이익"
+    },
+    {
+      "cell": "D49",
+      "value": "String"
+    },
+    {
+      "cell": "E49",
+      "value": "N"
+    },
+    {
+      "cell": "F49",
+      "value": "20"
+    },
+    {
+      "cell": "G49",
+      "value": "단위: 억원"
+    },
+    {
+      "cell": "A50",
+      "value": null
+    },
+    {
+      "cell": "B50",
+      "value": "250hgst"
+    },
+    {
+      "cell": "C50",
+      "value": "250최고"
+    },
+    {
+      "cell": "D50",
+      "value": "String"
+    },
+    {
+      "cell": "E50",
+      "value": "N"
+    },
+    {
+      "cell": "F50",
+      "value": "20"
+    },
+    {
+      "cell": "G50",
+      "value": "단위: 원, 부호가 포함된 숫자"
+    },
+    {
+      "cell": "A51",
+      "value": null
+    },
+    {
+      "cell": "B51",
+      "value": "250lwst"
+    },
+    {
+      "cell": "C51",
+      "value": "250최저"
+    },
+    {
+      "cell": "D51",
+      "value": "String"
+    },
+    {
+      "cell": "E51",
+      "value": "N"
+    },
+    {
+      "cell": "F51",
+      "value": "20"
+    },
+    {
+      "cell": "G51",
+      "value": "단위: 원, 부호가 포함된 숫자"
+    },
+    {
+      "cell": "A52",
+      "value": null
+    },
+    {
+      "cell": "B52",
+      "value": "high_pric"
+    },
+    {
+      "cell": "C52",
+      "value": "고가"
+    },
+    {
+      "cell": "D52",
+      "value": "String"
+    },
+    {
+      "cell": "E52",
+      "value": "N"
+    },
+    {
+      "cell": "F52",
+      "value": "20"
+    },
+    {
+      "cell": "G52",
+      "value": "단위: 원, 부호가 포함된 숫자"
+    },
+    {
+      "cell": "A53",
+      "value": null
+    },
+    {
+      "cell": "B53",
+      "value": "open_pric"
+    },
+    {
+      "cell": "C53",
+      "value": "시가"
+    },
+    {
+      "cell": "D53",
+      "value": "String"
+    },
+    {
+      "cell": "E53",
+      "value": "N"
+    },
+    {
+      "cell": "F53",
+      "value": "20"
+    },
+    {
+      "cell": "G53",
+      "value": "단위: 원, 부호가 포함된 숫자"
+    },
+    {
+      "cell": "A54",
+      "value": null
+    },
+    {
+      "cell": "B54",
+      "value": "low_pric"
+    },
+    {
+      "cell": "C54",
+      "value": "저가"
+    },
+    {
+      "cell": "D54",
+      "value": "String"
+    },
+    {
+      "cell": "E54",
+      "value": "N"
+    },
+    {
+      "cell": "F54",
+      "value": "20"
+    },
+    {
+      "cell": "G54",
+      "value": "단위: 원, 부호가 포함된 숫자"
+    },
+    {
+      "cell": "A55",
+      "value": null
+    },
+    {
+      "cell": "B55",
+      "value": "upl_pric"
+    },
+    {
+      "cell": "C55",
+      "value": "상한가"
+    },
+    {
+      "cell": "D55",
+      "value": "String"
+    },
+    {
+      "cell": "E55",
+      "value": "N"
+    },
+    {
+      "cell": "F55",
+      "value": "20"
+    },
+    {
+      "cell": "G55",
+      "value": "단위: 원, 부호가 포함된 숫자"
+    },
+    {
+      "cell": "A56",
+      "value": null
+    },
+    {
+      "cell": "B56",
+      "value": "lst_pric"
+    },
+    {
+      "cell": "C56",
+      "value": "하한가"
+    },
+    {
+      "cell": "D56",
+      "value": "String"
+    },
+    {
+      "cell": "E56",
+      "value": "N"
+    },
+    {
+      "cell": "F56",
+      "value": "20"
+    },
+    {
+      "cell": "G56",
+      "value": "단위: 원, 부호가 포함된 숫자"
+    },
+    {
+      "cell": "A57",
+      "value": null
+    },
+    {
+      "cell": "B57",
+      "value": "base_pric"
+    },
+    {
+      "cell": "C57",
+      "value": "기준가"
+    },
+    {
+      "cell": "D57",
+      "value": "String"
+    },
+    {
+      "cell": "E57",
+      "value": "N"
+    },
+    {
+      "cell": "F57",
+      "value": "20"
+    },
+    {
+      "cell": "G57",
+      "value": "단위: 원"
+    },
+    {
+      "cell": "A58",
+      "value": null
+    },
+    {
+      "cell": "B58",
+      "value": "exp_cntr_pric"
+    },
+    {
+      "cell": "C58",
+      "value": "예상체결가"
+    },
+    {
+      "cell": "D58",
+      "value": "String"
+    },
+    {
+      "cell": "E58",
+      "value": "N"
+    },
+    {
+      "cell": "F58",
+      "value": "20"
+    },
+    {
+      "cell": "G58",
+      "value": "단위: 원"
+    },
+    {
+      "cell": "A59",
+      "value": null
+    },
+    {
+      "cell": "B59",
+      "value": "exp_cntr_qty"
+    },
+    {
+      "cell": "C59",
+      "value": "예상체결수량"
+    },
+    {
+      "cell": "D59",
+      "value": "String"
+    },
+    {
+      "cell": "E59",
+      "value": "N"
+    },
+    {
+      "cell": "F59",
+      "value": "20"
+    },
+    {
+      "cell": "G59",
+      "value": "단위: 1주"
+    },
+    {
+      "cell": "A60",
+      "value": null
+    },
+    {
+      "cell": "B60",
+      "value": "250hgst_pric_dt"
+    },
+    {
+      "cell": "C60",
+      "value": "250최고가일"
+    },
+    {
+      "cell": "D60",
+      "value": "String"
+    },
+    {
+      "cell": "E60",
+      "value": "N"
+    },
+    {
+      "cell": "F60",
+      "value": "20"
+    },
+    {
+      "cell": "G60",
+      "value": "YYYYMMDD"
+    },
+    {
+      "cell": "A61",
+      "value": null
+    },
+    {
+      "cell": "B61",
+      "value": "250hgst_pric_pre_rt"
+    },
+    {
+      "cell": "C61",
+      "value": "250최고가대비율"
+    },
+    {
+      "cell": "D61",
+      "value": "String"
+    },
+    {
+      "cell": "E61",
+      "value": "N"
+    },
+    {
+      "cell": "F61",
+      "value": "20"
+    },
+    {
+      "cell": "G61",
+      "value": "단위: %, 부호 포함 소수점 둘째 자리까지 포맷된 백분율"
+    },
+    {
+      "cell": "A62",
+      "value": null
+    },
+    {
+      "cell": "B62",
+      "value": "250lwst_pric_dt"
+    },
+    {
+      "cell": "C62",
+      "value": "250최저가일"
+    },
+    {
+      "cell": "D62",
+      "value": "String"
+    },
+    {
+      "cell": "E62",
+      "value": "N"
+    },
+    {
+      "cell": "F62",
+      "value": "20"
+    },
+    {
+      "cell": "G62",
+      "value": "YYYYMMDD"
+    },
+    {
+      "cell": "A63",
+      "value": null
+    },
+    {
+      "cell": "B63",
+      "value": "250lwst_pric_pre_rt"
+    },
+    {
+      "cell": "C63",
+      "value": "250최저가대비율"
+    },
+    {
+      "cell": "D63",
+      "value": "String"
+    },
+    {
+      "cell": "E63",
+      "value": "N"
+    },
+    {
+      "cell": "F63",
+      "value": "20"
+    },
+    {
+      "cell": "G63",
+      "value": "단위: %, 부호 포함 소수점 둘째 자리까지 포맷된 백분율"
+    },
+    {
+      "cell": "A64",
+      "value": null
+    },
+    {
+      "cell": "B64",
+      "value": "cur_prc"
+    },
+    {
+      "cell": "C64",
+      "value": "현재가"
+    },
+    {
+      "cell": "D64",
+      "value": "String"
+    },
+    {
+      "cell": "E64",
+      "value": "N"
+    },
+    {
+      "cell": "F64",
+      "value": "20"
+    },
+    {
+      "cell": "G64",
+      "value": "단위: 원, 부호가 포함된 숫자"
+    },
+    {
+      "cell": "A65",
+      "value": null
+    },
+    {
+      "cell": "B65",
+      "value": "pre_sig"
+    },
+    {
+      "cell": "C65",
+      "value": "대비기호"
+    },
+    {
+      "cell": "D65",
+      "value": "String"
+    },
+    {
+      "cell": "E65",
+      "value": "N"
+    },
+    {
+      "cell": "F65",
+      "value": "20"
+    },
+    {
+      "cell": "G65",
+      "value": "1: 상한가, 2:상승, 3:보합, 4:하한가, 5:하락"
+    },
+    {
+      "cell": "A66",
+      "value": null
+    },
+    {
+      "cell": "B66",
+      "value": "pred_pre"
+    },
+    {
+      "cell": "C66",
+      "value": "전일대비"
+    },
+    {
+      "cell": "D66",
+      "value": "String"
+    },
+    {
+      "cell": "E66",
+      "value": "N"
+    },
+    {
+      "cell": "F66",
+      "value": "20"
+    },
+    {
+      "cell": "G66",
+      "value": "단위: 원, 부호가 포함된 숫자"
+    },
+    {
+      "cell": "A67",
+      "value": null
+    },
+    {
+      "cell": "B67",
+      "value": "flu_rt"
+    },
+    {
+      "cell": "C67",
+      "value": "등락율"
+    },
+    {
+      "cell": "D67",
+      "value": "String"
+    },
+    {
+      "cell": "E67",
+      "value": "N"
+    },
+    {
+      "cell": "F67",
+      "value": "20"
+    },
+    {
+      "cell": "G67",
+      "value": "단위: %, 부호 포함 소수점 둘째 자리까지 포맷된 백분율"
+    },
+    {
+      "cell": "A68",
+      "value": null
+    },
+    {
+      "cell": "B68",
+      "value": "trde_qty"
+    },
+    {
+      "cell": "C68",
+      "value": "거래량"
+    },
+    {
+      "cell": "D68",
+      "value": "String"
+    },
+    {
+      "cell": "E68",
+      "value": "N"
+    },
+    {
+      "cell": "F68",
+      "value": "20"
+    },
+    {
+      "cell": "G68",
+      "value": "단위: 1주"
+    },
+    {
+      "cell": "A69",
+      "value": null
+    },
+    {
+      "cell": "B69",
+      "value": "trde_pre"
+    },
+    {
+      "cell": "C69",
+      "value": "거래대비"
+    },
+    {
+      "cell": "D69",
+      "value": "String"
+    },
+    {
+      "cell": "E69",
+      "value": "N"
+    },
+    {
+      "cell": "F69",
+      "value": "20"
+    },
+    {
+      "cell": "G69",
+      "value": "단위: %, 부호 포함 소수점 둘째 자리까지 포맷된 백분율"
+    },
+    {
+      "cell": "A70",
+      "value": null
+    },
+    {
+      "cell": "B70",
+      "value": "fav_unit"
+    },
+    {
+      "cell": "C70",
+      "value": "액면가단위"
+    },
+    {
+      "cell": "D70",
+      "value": "String"
+    },
+    {
+      "cell": "E70",
+      "value": "N"
+    },
+    {
+      "cell": "F70",
+      "value": "20"
+    },
+    {
+      "cell": "G70",
+      "value": "원"
+    },
+    {
+      "cell": "A71",
+      "value": null
+    },
+    {
+      "cell": "B71",
+      "value": "dstr_stk"
+    },
+    {
+      "cell": "C71",
+      "value": "유통주식"
+    },
+    {
+      "cell": "D71",
+      "value": "String"
+    },
+    {
+      "cell": "E71",
+      "value": "N"
+    },
+    {
+      "cell": "F71",
+      "value": "20"
+    },
+    {
+      "cell": "G71",
+      "value": "단위: 1주"
+    },
+    {
+      "cell": "A72",
+      "value": null
+    },
+    {
+      "cell": "B72",
+      "value": "dstr_rt"
+    },
+    {
+      "cell": "C72",
+      "value": "유통비율"
+    },
+    {
+      "cell": "D72",
+      "value": "String"
+    },
+    {
+      "cell": "E72",
+      "value": "N"
+    },
+    {
+      "cell": "F72",
+      "value": "20"
+    },
+    {
+      "cell": "G72",
+      "value": "단위: %, 부호 포함 소수점 첫째 자리까지 포맷된 백분율"
+    },
+    {
+      "cell": "A73",
+      "value": "Request Example"
+    },
+    {
+      "cell": "B73",
+      "value": null
+    },
+    {
+      "cell": "C73",
+      "value": null
+    },
+    {
+      "cell": "D73",
+      "value": null
+    },
+    {
+      "cell": "E73",
+      "value": null
+    },
+    {
+      "cell": "F73",
+      "value": null
+    },
+    {
+      "cell": "G73",
+      "value": null
+    },
+    {
+      "cell": "A74",
+      "value": "{\n    \"stk_cd\": \"005930\"\n}"
+    },
+    {
+      "cell": "B74",
+      "value": null
+    },
+    {
+      "cell": "C74",
+      "value": null
+    },
+    {
+      "cell": "D74",
+      "value": null
+    },
+    {
+      "cell": "E74",
+      "value": null
+    },
+    {
+      "cell": "F74",
+      "value": null
+    },
+    {
+      "cell": "G74",
+      "value": null
+    },
+    {
+      "cell": "A75",
+      "value": "Response Example"
+    },
+    {
+      "cell": "B75",
+      "value": null
+    },
+    {
+      "cell": "C75",
+      "value": null
+    },
+    {
+      "cell": "D75",
+      "value": null
+    },
+    {
+      "cell": "E75",
+      "value": null
+    },
+    {
+      "cell": "F75",
+      "value": null
+    },
+    {
+      "cell": "G75",
+      "value": null
+    },
+    {
+      "cell": "A76",
+      "value": "{\n    \"stk_cd\": \"005930\",\n    \"stk_nm\": \"삼성전자\",\n    \"setl_mm\": \"12\",\n    \"fav\": \"5000\",\n    \"cap\": \"1311\",\n    \"flo_stk\": \"25527\",\n    \"crd_rt\": \"+0.08\",\n    \"oyr_hgst\": \"+181400\",\n    \"oyr_lwst\": \"-91200\",\n    \"mac\": \"24352\",\n    \"mac_wght\": \"\",\n    \"for_exh_rt\": \"0.00\",\n    \"repl_pric\": \"66780\",\n    \"per\": \"\",\n    \"eps\": \"\",\n    \"roe\": \"\",\n    \"pbr\": \"\",\n    \"ev\": \"\",\n    \"bps\": \"-75300\",\n    \"sale_amt\": \"0\",\n    \"bus_pro\": \"0\",\n    \"cup_nga\": \"0\",\n    \"250hgst\": \"+124000\",\n    \"250lwst\": \"-66800\",\n    \"high_pric\": \"95400\",\n    \"open_pric\": \"-0\",\n    \"low_pric\": \"0\",\n    \"upl_pric\": \"20241016\",\n    \"lst_pric\": \"-47.41\",\n    \"base_pric\": \"20231024\",\n    \"exp_cntr_pric\": \"+26.69\",\n    \"exp_cntr_qty\": \"95400\",\n    \"250hgst_pric_dt\": \"3\",\n    \"250hgst_pric_pre_rt\": \"0\",\n    \"250lwst_pric_dt\": \"0.00\",\n    \"250lwst_pric_pre_rt\": \"0\",\n    \"cur_prc\": \"0.00\",\n    \"pre_sig\": \"\",\n    \"pred_pre\": \"\",\n    \"flu_rt\": \"0\",\n    \"trde_qty\": \"0\",\n    \"trde_pre\": \"0\",\n    \"fav_unit\": \"0\",\n    \"dstr_stk\": \"0\",\n    \"dstr_rt\": \"0\",\n    \"return_code\": 0,\n    \"return_msg\": \"정상적으로 처리되었습니다\"\n}"
+    },
+    {
+      "cell": "B76",
+      "value": null
+    },
+    {
+      "cell": "C76",
+      "value": null
+    },
+    {
+      "cell": "D76",
+      "value": null
+    },
+    {
+      "cell": "E76",
+      "value": null
+    },
+    {
+      "cell": "F76",
+      "value": null
+    },
+    {
+      "cell": "G76",
+      "value": null
+    }
+  ],
+  "documented_codes": {
+    "request_stk_cd": {
+      "source_cell": "G22",
+      "original_description": "거래소별 종목코드\n(KRX:039490,NXT:039490_NX,SOR:039490_AL)"
+    },
+    "response_pre_sig": {
+      "source_cell": "G65",
+      "original_description": "1: 상한가, 2:상승, 3:보합, 4:하한가, 5:하락",
+      "values": [
+        {
+          "value": "1",
+          "meaning": "상한가"
+        },
+        {
+          "value": "2",
+          "meaning": "상승"
+        },
+        {
+          "value": "3",
+          "meaning": "보합"
+        },
+        {
+          "value": "4",
+          "meaning": "하한가"
+        },
+        {
+          "value": "5",
+          "meaning": "하락"
+        }
+      ]
+    }
+  }
+}

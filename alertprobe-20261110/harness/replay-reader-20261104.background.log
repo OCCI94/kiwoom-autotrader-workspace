@@ -1,0 +1,32 @@
+[   0.012] [MainThread] latest original id 103484 heads pointing at it (epoch prefix,count): [('9c4f4bf2', 1)]
+[   0.014] [recovery] recovery step _prior_days start (read-only connection, BEGIN, pending-order scan)
+[   0.556] [MainThread] === PHASE 1 (recovery read step running): tracker tick start
+[   0.562] [MainThread] fake kt00009 response; notifying observer
+[   0.562] [MainThread] >> record_broker_observation
+[   0.603] [MainThread] >> persist_observation
+[   0.607] [MainThread] << persist_observation 0.003 s -> 'repeat'
+[   0.645] [watch] journal file size -> 8720
+[   9.965] [recovery] recovery step _prior_days done 9.951 s days= ['20261104']
+[   9.974] [MainThread] >> _materialize_history
+[  10.010] [watch] journal file size -> None
+[  10.980] [MainThread] << _materialize_history 1.006 s 
+[  10.981] [MainThread] << record_broker_observation 10.418 s 
+[  10.982] [MainThread] >> _ingest
+[  10.999] [MainThread] >> _materialize_history
+[  11.024] [MainThread] << _materialize_history 0.025 s 
+[  14.961] [MainThread] << _ingest 3.979 s 
+[  14.961] [MainThread] === PHASE 1 (recovery read step running): tracker tick end 14.405 s; last_error set: False
+[  14.961] [MainThread] === PHASE 2 (no other thread): tracker tick start
+[  14.961] [MainThread] fake kt00009 response; notifying observer
+[  14.961] [MainThread] >> record_broker_observation
+[  14.967] [MainThread] >> persist_observation
+[  14.969] [MainThread] << persist_observation 0.002 s -> 'repeat'
+[  14.970] [MainThread] >> _materialize_history
+[  14.991] [MainThread] << _materialize_history 0.02 s 
+[  14.991] [MainThread] << record_broker_observation 0.029 s 
+[  14.991] [MainThread] >> _ingest
+[  15.003] [MainThread] >> _materialize_history
+[  15.024] [MainThread] << _materialize_history 0.02 s 
+[  15.614] [MainThread] << _ingest 0.622 s 
+[  15.614] [MainThread] === PHASE 2 (no other thread): tracker tick end 0.653 s; last_error set: False
+[  15.748] [MainThread] kt00009 repeats for 20261104 stored after both phases: 2 ; alerts: 0

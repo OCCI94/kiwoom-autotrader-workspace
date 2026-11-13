@@ -1,0 +1,34 @@
+{
+  "completed_at": "2026-10-26T07:11:05.112029+00:00",
+  "local_change_verified": true,
+  "functional_pass": true,
+  "tests": {
+    "passed": 969,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runtime": "3.12.14"
+  },
+  "source_stable_during_tests": true,
+  "modified_file_count": 10,
+  "added_file_count": 23,
+  "performance_verified": false,
+  "authoritative_history_complete": false,
+  "historical_import_verified": false,
+  "synthetic_history_import_verified": true,
+  "real_encrypted_history": "DEFERRED_BY_USER",
+  "current_account_verified": false,
+  "api_connected_for_this_change": false,
+  "deployed": false,
+  "new_runtime_observed": false,
+  "readiness_state": "UNKNOWN",
+  "visual_render_verified": false,
+  "visual_render_note": "Static HTML tests passed; browser file URL preview was rejected by browser URL security policy. No bypass attempted.",
+  "limitations": [
+    "Historical references at all 53 old paths are unavailable.",
+    "No legacy strategy reconstruction or performance claims from old summaries.",
+    "Full evaluation recorder, clock proof, official-session calendar and old benchmark reproduction remain outside verified scope.",
+    "The real encrypted history schema/adapter is unverified and actual history was not imported.",
+    "Current source was updated; running installed services were not deployed or restarted."
+  ]
+}

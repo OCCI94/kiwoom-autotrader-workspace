@@ -1,0 +1,9 @@
+
+##### 20261104: ticks=435 receipts=840 {'evaluated_exit': 183, 's5_evaluated': 94, 'evaluated': 563}
+  09:10~15:10 ticks n=95: dur med=23.1 p90=31.7 | pre-batch med=12.1 p90=17.1 | batch span med=7.1 | post med=2.6
+
+##### 20261105: ticks=891 receipts=1188 {'evaluated_exit': 1188}
+  09:10~15:10 ticks n=277: dur med=72.3 p90=84.2 | pre-batch med=63.9 p90=74.7 | batch span med=6.5 | post med=0.0
+
+##### 20261106: ticks=648 receipts=792 {'evaluated_exit': 792}
+  09:10~15:10 ticks n=185: dur med=115.2 p90=127.0 | pre-batch med=103.9 p90=112.2 | batch span med=9.9 | post med=0.0

@@ -1,0 +1,54 @@
+Jev optional pre-scoring and fast local fallback — 2026-11-01
+
+This is a new integration. No earlier jev_news_client.py was present in this
+application/research/work tree. Historical 250–400 ms connection costs and
+compatibility with an unknown older Jev client have not been measured or claimed.
+
+Primary contract checked:
+https://docs.typesafe.ai/api/system-one
+https://docs.typesafe.ai/primitives/noul
+https://docs.typesafe.ai/models
+Architectural reference (not copied):
+https://github.com/buberlo/jev-trader
+
+Wire: POST https://api.typesafe.ai/v1/systemone; Bearer credential, state, named
+questions. Model pinned jev-1.14.0. Each requested dimension is a Noul statement:
+answers.<name>.type=noul and .noul in [0,1]. Unexpected model/type/shape, boolean
+probabilities, nonfinite values or missing dimensions are rejected. No SDK or
+external source is included. Credentials read from TYPESAFE_API_KEY or supplied
+in memory; never placed in repr/log/output.
+
+Fast fields: price_vwap_bps, five_minute_slope_bps, spread_bps, ask_bid_ratio,
+foreign_net_qty, institution_net_qty, short_amount_share, catalyst_direction,
+catalyst_relevance, catalyst_evidence, catalyst_importance. Unobserved fields
+remain null. The numeric state is bounded to399 ASCII bytes. This is not an
+unverified guarantee about an unpublished vendor tokenizer. Fixed questions add
+input; actual input token counts are recorded when returned by the API.
+
+Fast questions estimate toxic_flow, quote_environment and momentum_quality.
+News questions estimate direction (positive-catalyst probability), relevance,
+evidence and importance. These are model probabilities, not Korean-market win
+rates or verified disclosure-risk clearance. Missing scores have no fabricated
+probability. They do not authorize an order or override deterministic risk gates.
+
+The default transport is a fresh non-redirecting HTTPS request. Optional TLS
+Keep-Alive reuses one verified connection. A dead connection fails that request;
+only a later independent evaluation may reconnect. No POST automatic retries.
+All HTTP passes through queued_open with an explicit private bounded HTTPQueue
+and private limiter, so it does not consume the Kiwoom shared queue/rate file.
+The old queued_open default has not changed. The private default is conservative
+2 requests/second; actual TypeSafe quotas are organization-specific.
+
+AsyncJevDecision owns one daemon with a bounded queue. submit is upstream work,
+lookup is an immutable O(1) exact(session,symbol,snapshot,kind) cache read with no
+network, file I/O, writer-lock acquisition or queue wait. Results finishing after
+the300 ms deadline are discarded. Missing key, pending request, stale epoch,
+expired TTL, changed session/state or transport failure immediately return the
+existing deterministic fallback with probabilities=null. Cache expiry checks
+wall time and monotonic lifetime. Late work cannot replace a newer generation.
+This design removes Jev waiting from the order path; it is not a hard real-time
+OS guarantee and does not skip final broker/ledger reconciliation.
+
+DNS/TLS/socket completion may exceed the application deadline on some systems;
+it stays in a background thread and the result is rejected when late. Measured
+local cache-lookup latency and actual network latency must be reported separately.

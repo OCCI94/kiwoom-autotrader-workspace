@@ -1,0 +1,1737 @@
+{
+  "schema": "offline-app-module-suite-v2",
+  "started_at": "2026-11-13T08:17:09.962471+09:00",
+  "completed_at": "2026-11-13T08:19:04.690233+09:00",
+  "module_count": 245,
+  "full_suite": true,
+  "source_unchanged_after": true,
+  "tests": 3218,
+  "skipped": 0,
+  "failures": 0,
+  "guard": "isolated HOME, external TCP/DNS blocked, Unix sockets restricted to test temp dirs, Security framework and launchctl/security/osascript/open blocked",
+  "results": [
+    {
+      "file": "test_account_report.py",
+      "status": "passed",
+      "tests": 18,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_anchored_dataset_cache.py",
+      "status": "passed",
+      "tests": 4,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_autoconnect.py",
+      "status": "passed",
+      "tests": 21,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_b3_entry.py",
+      "status": "passed",
+      "tests": 5,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_b3_ledger.py",
+      "status": "passed",
+      "tests": 20,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_b3_monitor.py",
+      "status": "passed",
+      "tests": 52,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_b3_settings.py",
+      "status": "passed",
+      "tests": 4,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_balance_refresh_schedule.py",
+      "status": "passed",
+      "tests": 6,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_bar_capture_time.py",
+      "status": "passed",
+      "tests": 3,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_broker_exit_only.py",
+      "status": "passed",
+      "tests": 10,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_broker_observation_repeats.py",
+      "status": "passed",
+      "tests": 8,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_budget_buy.py",
+      "status": "passed",
+      "tests": 22,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_budget_tick_price.py",
+      "status": "passed",
+      "tests": 12,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_cancellation_ledger_integration.py",
+      "status": "passed",
+      "tests": 15,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_cancellation_prior_day_publication.py",
+      "status": "passed",
+      "tests": 7,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_cancellation_settlement.py",
+      "status": "passed",
+      "tests": 29,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_cancellation_settlement_bootstrap.py",
+      "status": "passed",
+      "tests": 12,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_cancellation_settlement_production_labels.py",
+      "status": "passed",
+      "tests": 7,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_candidate_c_terminal_gate.py",
+      "status": "passed",
+      "tests": 2,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_candidate_tracks.py",
+      "status": "passed",
+      "tests": 16,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_catalyst_pre_scoring.py",
+      "status": "passed",
+      "tests": 28,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_channel_provenance.py",
+      "status": "passed",
+      "tests": 3,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_channel_storage_external.py",
+      "status": "passed",
+      "tests": 9,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_channel_store.py",
+      "status": "passed",
+      "tests": 27,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_cli.py",
+      "status": "passed",
+      "tests": 4,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_closed_day_backoff.py",
+      "status": "passed",
+      "tests": 19,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_closed_ledger_calendar.py",
+      "status": "passed",
+      "tests": 5,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_closed_reconciliation_work_guard.py",
+      "status": "passed",
+      "tests": 12,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_collector_failure_diagnostics.py",
+      "status": "passed",
+      "tests": 3,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_collector_reconnect.py",
+      "status": "passed",
+      "tests": 4,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_command_scheduler.py",
+      "status": "passed",
+      "tests": 21,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_concurrent_position_limit.py",
+      "status": "passed",
+      "tests": 9,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_control_audit.py",
+      "status": "passed",
+      "tests": 13,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_cost_query_cutoff.py",
+      "status": "passed",
+      "tests": 10,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_credentials.py",
+      "status": "passed",
+      "tests": 23,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_cross_baseline_warning.py",
+      "status": "passed",
+      "tests": 5,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_cross_commands.py",
+      "status": "passed",
+      "tests": 22,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_cross_data_health.py",
+      "status": "passed",
+      "tests": 3,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_cross_end_to_end.py",
+      "status": "passed",
+      "tests": 1,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_cross_latest_gap.py",
+      "status": "passed",
+      "tests": 4,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_cross_monitor.py",
+      "status": "passed",
+      "tests": 24,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_cross_rollover.py",
+      "status": "passed",
+      "tests": 11,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_decision_evidence.py",
+      "status": "passed",
+      "tests": 14,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_deploy_handoff_runtime.py",
+      "status": "passed",
+      "tests": 21,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_dynamic_candidates.py",
+      "status": "passed",
+      "tests": 19,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_dynamic_monitor.py",
+      "status": "passed",
+      "tests": 12,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_dynamic_s1_evidence.py",
+      "status": "passed",
+      "tests": 10,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_dynamic_s1_exit.py",
+      "status": "passed",
+      "tests": 8,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_dynamic_s1_monitor.py",
+      "status": "passed",
+      "tests": 13,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_entry_time_window.py",
+      "status": "passed",
+      "tests": 13,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_epoch_handle_buy_e2e.py",
+      "status": "passed",
+      "tests": 2,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_equity_rankings.py",
+      "status": "passed",
+      "tests": 16,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_execution_accounting.py",
+      "status": "passed",
+      "tests": 24,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_execution_log.py",
+      "status": "passed",
+      "tests": 38,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_execution_log_cache.py",
+      "status": "passed",
+      "tests": 13,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_execution_log_error_notice_cooldown.py",
+      "status": "passed",
+      "tests": 3,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_execution_stream.py",
+      "status": "passed",
+      "tests": 28,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_execution_stream_storage_recovery.py",
+      "status": "passed",
+      "tests": 11,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_executions.py",
+      "status": "passed",
+      "tests": 20,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_exp_d_exit_safety_contract.py",
+      "status": "passed",
+      "tests": 19,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_exp_d_late_exit_recovery.py",
+      "status": "passed",
+      "tests": 19,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_expired_order_v2_repeats.py",
+      "status": "passed",
+      "tests": 9,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_export_tr_docs.py",
+      "status": "passed",
+      "tests": 8,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_extended_listener.py",
+      "status": "passed",
+      "tests": 8,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_extended_overnight_exit_draft.py",
+      "status": "passed",
+      "tests": 17,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_external_audit_monitor_guards.py",
+      "status": "passed",
+      "tests": 17,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_external_legacy_recovery.py",
+      "status": "passed",
+      "tests": 10,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_external_order_guard.py",
+      "status": "passed",
+      "tests": 5,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_external_safety_paths.py",
+      "status": "passed",
+      "tests": 25,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_external_storage.py",
+      "status": "passed",
+      "tests": 9,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_fast_decision_pipeline.py",
+      "status": "passed",
+      "tests": 5,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_fee_equivalent.py",
+      "status": "passed",
+      "tests": 6,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_golden_budget_guard.py",
+      "status": "passed",
+      "tests": 13,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_golden_cross.py",
+      "status": "passed",
+      "tests": 23,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_golden_daily_entry_limit.py",
+      "status": "passed",
+      "tests": 62,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_golden_entry_reasons.py",
+      "status": "passed",
+      "tests": 55,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_golden_listener.py",
+      "status": "passed",
+      "tests": 12,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_golden_reentry_guard.py",
+      "status": "passed",
+      "tests": 56,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_history_import.py",
+      "status": "passed",
+      "tests": 20,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_http_queue.py",
+      "status": "passed",
+      "tests": 30,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_http_research_priority.py",
+      "status": "passed",
+      "tests": 8,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_http_routing.py",
+      "status": "passed",
+      "tests": 2,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_ip_integration.py",
+      "status": "passed",
+      "tests": 11,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_jev_credentials.py",
+      "status": "passed",
+      "tests": 15,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_jev_fast_decision.py",
+      "status": "passed",
+      "tests": 18,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_kiwoom.py",
+      "status": "passed",
+      "tests": 10,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_kt00018_rate_limit.py",
+      "status": "passed",
+      "tests": 8,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_legacy_candle_catalog.py",
+      "status": "passed",
+      "tests": 5,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_legacy_order_flow.py",
+      "status": "passed",
+      "tests": 20,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_legacy_order_flow_review.py",
+      "status": "passed",
+      "tests": 14,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_listener_checkpoint_bound.py",
+      "status": "passed",
+      "tests": 5,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_listener_failure_diagnostics.py",
+      "status": "passed",
+      "tests": 2,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_listener_stop_orders.py",
+      "status": "passed",
+      "tests": 11,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_listener_tracker_checkpoint.py",
+      "status": "passed",
+      "tests": 9,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_login_listener.py",
+      "status": "passed",
+      "tests": 20,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_login_session.py",
+      "status": "passed",
+      "tests": 32,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_maintenance_cutover.py",
+      "status": "passed",
+      "tests": 13,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_maintenance_expiry_resolution.py",
+      "status": "passed",
+      "tests": 16,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_maintenance_reconciliation.py",
+      "status": "passed",
+      "tests": 11,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_maintenance_reconciliation_cross_day.py",
+      "status": "passed",
+      "tests": 15,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_maintenance_repairs_20261113.py",
+      "status": "passed",
+      "tests": 7,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_maintenance_stage_handoff.py",
+      "status": "passed",
+      "tests": 7,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_message_dataset_incremental.py",
+      "status": "passed",
+      "tests": 19,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_message_dataset_ssd.py",
+      "status": "passed",
+      "tests": 9,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_message_export_storage.py",
+      "status": "passed",
+      "tests": 17,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_message_factors.py",
+      "status": "passed",
+      "tests": 22,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_minute_chart.py",
+      "status": "passed",
+      "tests": 6,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_minute_chart_pacing.py",
+      "status": "passed",
+      "tests": 11,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_monday_hybrid_wiring.py",
+      "status": "passed",
+      "tests": 5,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_monitor_listener.py",
+      "status": "passed",
+      "tests": 10,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_multi_b3.py",
+      "status": "passed",
+      "tests": 7,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_multi_b3_ledger.py",
+      "status": "passed",
+      "tests": 13,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_multi_strategy.py",
+      "status": "passed",
+      "tests": 25,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_multi_strategy_chart.py",
+      "status": "passed",
+      "tests": 2,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_multi_strategy_entry_evidence.py",
+      "status": "passed",
+      "tests": 2,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_multi_strategy_epoch_review.py",
+      "status": "passed",
+      "tests": 14,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_multi_strategy_evidence.py",
+      "status": "passed",
+      "tests": 9,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_multi_strategy_exit_ledger.py",
+      "status": "passed",
+      "tests": 11,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_multi_strategy_flat_candidate.py",
+      "status": "passed",
+      "tests": 4,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_multi_strategy_input_diagnostics.py",
+      "status": "passed",
+      "tests": 11,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_multi_strategy_ownership_review.py",
+      "status": "passed",
+      "tests": 10,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_multi_strategy_pool_dormant.py",
+      "status": "passed",
+      "tests": 18,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_multi_strategy_settings.py",
+      "status": "passed",
+      "tests": 12,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_no_trade_gap.py",
+      "status": "passed",
+      "tests": 8,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_observed_bar_window.py",
+      "status": "passed",
+      "tests": 5,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_offline_audit.py",
+      "status": "passed",
+      "tests": 21,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_offline_cli_routing.py",
+      "status": "passed",
+      "tests": 3,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_order_book.py",
+      "status": "passed",
+      "tests": 14,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_order_maintenance_guard.py",
+      "status": "passed",
+      "tests": 5,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_order_tracking.py",
+      "status": "passed",
+      "tests": 18,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_orders.py",
+      "status": "passed",
+      "tests": 22,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_balance_snapshot.py",
+      "status": "passed",
+      "tests": 6,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_cross_guards.py",
+      "status": "passed",
+      "tests": 4,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_experiment_admission.py",
+      "status": "passed",
+      "tests": 9,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_experiment_calendar_history.py",
+      "status": "passed",
+      "tests": 4,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_experiment_control_floor.py",
+      "status": "passed",
+      "tests": 5,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_experiment_disclosure.py",
+      "status": "passed",
+      "tests": 4,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_experiment_evaluation_receipts.py",
+      "status": "passed",
+      "tests": 3,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_experiment_extended_monitor.py",
+      "status": "passed",
+      "tests": 5,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_experiment_extended_rules.py",
+      "status": "passed",
+      "tests": 24,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_experiment_input_readiness.py",
+      "status": "passed",
+      "tests": 9,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_experiment_input_repairs.py",
+      "status": "passed",
+      "tests": 10,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_experiment_inputs.py",
+      "status": "passed",
+      "tests": 10,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_experiment_ledger_recovery.py",
+      "status": "passed",
+      "tests": 19,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_experiment_listener.py",
+      "status": "passed",
+      "tests": 15,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_experiment_monitor.py",
+      "status": "passed",
+      "tests": 21,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_experiment_monitor_dispatch_e2e.py",
+      "status": "passed",
+      "tests": 1,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_experiment_overnight_cap.py",
+      "status": "passed",
+      "tests": 9,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_experiment_owned_edge.py",
+      "status": "passed",
+      "tests": 8,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_experiment_policy.py",
+      "status": "passed",
+      "tests": 16,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_experiment_prior_limit.py",
+      "status": "passed",
+      "tests": 7,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_experiment_recovery.py",
+      "status": "passed",
+      "tests": 10,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_experiment_rules.py",
+      "status": "passed",
+      "tests": 25,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_experiment_s5.py",
+      "status": "passed",
+      "tests": 17,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_experiment_s5_dispatch_e2e.py",
+      "status": "passed",
+      "tests": 1,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_experiment_s5_fairness.py",
+      "status": "passed",
+      "tests": 3,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_experiment_s5_observation.py",
+      "status": "passed",
+      "tests": 8,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_experiment_s5_policy.py",
+      "status": "passed",
+      "tests": 8,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_experiment_s5_realized.py",
+      "status": "passed",
+      "tests": 3,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_experiment_scheduler.py",
+      "status": "passed",
+      "tests": 17,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_experiment_signal_logging.py",
+      "status": "passed",
+      "tests": 1,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_experiment_special_allocation.py",
+      "status": "passed",
+      "tests": 5,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_experiment_theme_metadata.py",
+      "status": "passed",
+      "tests": 4,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_experiment_throughput_proposal.py",
+      "status": "passed",
+      "tests": 9,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_experiment_vi_paging_draft.py",
+      "status": "passed",
+      "tests": 11,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_funnel.py",
+      "status": "passed",
+      "tests": 30,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_hot_policy.py",
+      "status": "passed",
+      "tests": 6,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_multi_strategy_cap.py",
+      "status": "passed",
+      "tests": 12,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_policy.py",
+      "status": "passed",
+      "tests": 24,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_policy_defaults.py",
+      "status": "passed",
+      "tests": 1,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_prior_day_recovery.py",
+      "status": "passed",
+      "tests": 7,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_reconciliation.py",
+      "status": "passed",
+      "tests": 42,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_paper_strategy_context.py",
+      "status": "passed",
+      "tests": 20,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_post_sell_report_cutoff.py",
+      "status": "passed",
+      "tests": 5,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_post_sell_report_pending.py",
+      "status": "passed",
+      "tests": 12,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_prearmed_account_index.py",
+      "status": "passed",
+      "tests": 9,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_prearmed_decision.py",
+      "status": "passed",
+      "tests": 14,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_prearmed_monitor.py",
+      "status": "passed",
+      "tests": 5,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_prearmed_risk.py",
+      "status": "passed",
+      "tests": 9,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_preorder_reconciliation_evidence.py",
+      "status": "passed",
+      "tests": 3,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_prior_closed_flat_epoch.py",
+      "status": "passed",
+      "tests": 14,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_profit_decomposition.py",
+      "status": "passed",
+      "tests": 6,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_profit_period_reprojection.py",
+      "status": "passed",
+      "tests": 12,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_public_ip.py",
+      "status": "passed",
+      "tests": 14,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_rank_batch.py",
+      "status": "passed",
+      "tests": 22,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_rank_command.py",
+      "status": "passed",
+      "tests": 9,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_ranking.py",
+      "status": "passed",
+      "tests": 12,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_rankings_api.py",
+      "status": "passed",
+      "tests": 16,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_realized_generation.py",
+      "status": "passed",
+      "tests": 20,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_receiver_health.py",
+      "status": "passed",
+      "tests": 6,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_recovery_balance_witness.py",
+      "status": "passed",
+      "tests": 4,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_remaining_buy_budget.py",
+      "status": "passed",
+      "tests": 15,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_research_contracts.py",
+      "status": "passed",
+      "tests": 21,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_research_pagination.py",
+      "status": "passed",
+      "tests": 6,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_runtime_deployment_guard.py",
+      "status": "passed",
+      "tests": 18,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_s2_momentum_gate.py",
+      "status": "passed",
+      "tests": 7,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_s5_boundary_scheduler.py",
+      "status": "passed",
+      "tests": 15,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_s5_bounded_gap_order_evidence.py",
+      "status": "passed",
+      "tests": 6,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_s5_diagnostic_details.py",
+      "status": "passed",
+      "tests": 9,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_s5_execution_safety.py",
+      "status": "passed",
+      "tests": 11,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_s5_ledger_roundtrip.py",
+      "status": "passed",
+      "tests": 6,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_s5_required_short_evidence.py",
+      "status": "passed",
+      "tests": 7,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_s5_source_bound_evidence.py",
+      "status": "passed",
+      "tests": 12,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_s5_sparse_order_evidence.py",
+      "status": "passed",
+      "tests": 7,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_s5_supply_risk.py",
+      "status": "passed",
+      "tests": 11,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_search_listener.py",
+      "status": "passed",
+      "tests": 4,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_session_quality.py",
+      "status": "passed",
+      "tests": 18,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_settings.py",
+      "status": "passed",
+      "tests": 15,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_settings_commands.py",
+      "status": "passed",
+      "tests": 9,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_settings_resource_compat.py",
+      "status": "passed",
+      "tests": 4,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_shared_research_server.py",
+      "status": "passed",
+      "tests": 24,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_simulation.py",
+      "status": "passed",
+      "tests": 22,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_single_index.py",
+      "status": "passed",
+      "tests": 8,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_single_index_cli.py",
+      "status": "passed",
+      "tests": 4,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_ssd_mount_guard.py",
+      "status": "passed",
+      "tests": 3,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_stability_audit.py",
+      "status": "passed",
+      "tests": 7,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_stability_metrics.py",
+      "status": "passed",
+      "tests": 9,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_steady_uptrend_vwap.py",
+      "status": "passed",
+      "tests": 32,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_stock_info.py",
+      "status": "passed",
+      "tests": 20,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_stock_names.py",
+      "status": "passed",
+      "tests": 21,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_strategy_signal_log.py",
+      "status": "passed",
+      "tests": 3,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_telegram.py",
+      "status": "passed",
+      "tests": 17,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_telegram_account.py",
+      "status": "passed",
+      "tests": 26,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_telegram_account_credentials.py",
+      "status": "passed",
+      "tests": 10,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_telegram_account_service.py",
+      "status": "passed",
+      "tests": 9,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_telegram_account_setup.py",
+      "status": "passed",
+      "tests": 19,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_telegram_collector.py",
+      "status": "passed",
+      "tests": 21,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_telegram_credentials.py",
+      "status": "passed",
+      "tests": 19,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_telegram_dynamic_candidates.py",
+      "status": "passed",
+      "tests": 14,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_telegram_listener.py",
+      "status": "passed",
+      "tests": 26,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_telegram_service.py",
+      "status": "passed",
+      "tests": 15,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_telegram_setup.py",
+      "status": "passed",
+      "tests": 24,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_theme_concentration.py",
+      "status": "passed",
+      "tests": 18,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_theme_supplement.py",
+      "status": "passed",
+      "tests": 12,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_three_million_paper_caps.py",
+      "status": "passed",
+      "tests": 12,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_toss_candidate_feed.py",
+      "status": "passed",
+      "tests": 9,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_tracker_diagnostics.py",
+      "status": "passed",
+      "tests": 18,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_ttl_settlement_listener_log.py",
+      "status": "passed",
+      "tests": 7,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_unfilled_buy_ttl.py",
+      "status": "passed",
+      "tests": 42,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_unfilled_buy_ttl_close_window.py",
+      "status": "passed",
+      "tests": 6,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_unfilled_sell_auction.py",
+      "status": "passed",
+      "tests": 13,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_websocket_engine.py",
+      "status": "passed",
+      "tests": 24,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_websocket_listener.py",
+      "status": "passed",
+      "tests": 15,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_windows_support.py",
+      "status": "passed",
+      "tests": 17,
+      "skipped": 0,
+      "error_tail": null
+    },
+    {
+      "file": "test_ws_profit_refresh.py",
+      "status": "passed",
+      "tests": 8,
+      "skipped": 0,
+      "error_tail": null
+    }
+  ],
+  "source_manifest": {
+    "path": "/Users/tr-oh/Documents/Codex/reports/2026-11-13/app-tests-isolated-provenance-081709962471-source-manifest.json",
+    "verification_copy_path": "/Users/tr-oh/Documents/Codex/2026-10-26/new-chat/work/maintenance-autotrading-fix-20261113/verification/app-tests-isolated-provenance-081709962471-source-manifest.json",
+    "sha256": "5e41df2b387ad87a1ba24e6a3c3c51aa97c2d16eb3f6640c4304ac4adcff2417"
+  },
+  "candidate_source_root": "/Users/tr-oh/Documents/Codex/2026-10-26/new-chat/work/maintenance-autotrading-fix-20261113/outputs/ai-stock",
+  "errors": 0,
+  "controller_exit_code": 0
+}

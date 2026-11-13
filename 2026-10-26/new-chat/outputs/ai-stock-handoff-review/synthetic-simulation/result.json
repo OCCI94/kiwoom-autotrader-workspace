@@ -1,0 +1,349 @@
+{
+  "mode": "offline_simulation",
+  "execution_assumptions": {
+    "fill_model": "next_observed_bar_open_full_fill",
+    "signal_price_is_fill_price": false,
+    "fee_bps_per_side": "5",
+    "slippage_bps_per_side": "10",
+    "cost_status": "assumed_not_broker_confirmed",
+    "tax_modelled": false,
+    "partial_fills_modelled": false,
+    "queue_priority_modelled": false,
+    "depth_and_liquidity_modelled": false,
+    "missing_candle_gap_modelled": false,
+    "timestamp_semantics": "input_candle_label_not_broker_fill_time",
+    "point_in_time_availability_verified": false,
+    "actual_account_performance": false
+  },
+  "denominators": {
+    "unique_input_bars": 68,
+    "duplicate_input_bars": 0,
+    "signals": 12,
+    "simulated_fills": 10,
+    "rejected_orders": 0,
+    "pending_unfilled_orders": 2
+  },
+  "bars_processed": 68,
+  "duplicates_skipped": 0,
+  "signals": [
+    {
+      "market": "KR",
+      "exchange": "KRX",
+      "symbol": "DEMO_KR",
+      "timestamp": "2026-01-14T07:00:00+00:00",
+      "side": "BUY",
+      "quantity": 1,
+      "currency": "KRW",
+      "reason": "bullish_sma_cross_with_volume"
+    },
+    {
+      "market": "US",
+      "exchange": "NASDAQ",
+      "symbol": "DEMO_US",
+      "timestamp": "2026-01-14T21:00:00+00:00",
+      "side": "BUY",
+      "quantity": 1,
+      "currency": "USD",
+      "reason": "bullish_sma_cross_with_volume"
+    },
+    {
+      "market": "KR",
+      "exchange": "KRX",
+      "symbol": "DEMO_KR",
+      "timestamp": "2026-01-21T07:00:00+00:00",
+      "side": "SELL",
+      "quantity": 1,
+      "currency": "KRW",
+      "reason": "bearish_sma_cross"
+    },
+    {
+      "market": "US",
+      "exchange": "NASDAQ",
+      "symbol": "DEMO_US",
+      "timestamp": "2026-01-21T21:00:00+00:00",
+      "side": "SELL",
+      "quantity": 1,
+      "currency": "USD",
+      "reason": "bearish_sma_cross"
+    },
+    {
+      "market": "KR",
+      "exchange": "KRX",
+      "symbol": "DEMO_KR",
+      "timestamp": "2026-01-28T07:00:00+00:00",
+      "side": "BUY",
+      "quantity": 1,
+      "currency": "KRW",
+      "reason": "bullish_sma_cross_with_volume"
+    },
+    {
+      "market": "US",
+      "exchange": "NASDAQ",
+      "symbol": "DEMO_US",
+      "timestamp": "2026-01-28T21:00:00+00:00",
+      "side": "BUY",
+      "quantity": 1,
+      "currency": "USD",
+      "reason": "bullish_sma_cross_with_volume"
+    },
+    {
+      "market": "KR",
+      "exchange": "KRX",
+      "symbol": "DEMO_KR",
+      "timestamp": "2026-02-04T07:00:00+00:00",
+      "side": "SELL",
+      "quantity": 1,
+      "currency": "KRW",
+      "reason": "bearish_sma_cross"
+    },
+    {
+      "market": "US",
+      "exchange": "NASDAQ",
+      "symbol": "DEMO_US",
+      "timestamp": "2026-02-04T21:00:00+00:00",
+      "side": "SELL",
+      "quantity": 1,
+      "currency": "USD",
+      "reason": "bearish_sma_cross"
+    },
+    {
+      "market": "KR",
+      "exchange": "KRX",
+      "symbol": "DEMO_KR",
+      "timestamp": "2026-02-12T07:00:00+00:00",
+      "side": "BUY",
+      "quantity": 1,
+      "currency": "KRW",
+      "reason": "bullish_sma_cross_with_volume"
+    },
+    {
+      "market": "US",
+      "exchange": "NASDAQ",
+      "symbol": "DEMO_US",
+      "timestamp": "2026-02-12T21:00:00+00:00",
+      "side": "BUY",
+      "quantity": 1,
+      "currency": "USD",
+      "reason": "bullish_sma_cross_with_volume"
+    },
+    {
+      "market": "KR",
+      "exchange": "KRX",
+      "symbol": "DEMO_KR",
+      "timestamp": "2026-02-19T07:00:00+00:00",
+      "side": "SELL",
+      "quantity": 1,
+      "currency": "KRW",
+      "reason": "bearish_sma_cross"
+    },
+    {
+      "market": "US",
+      "exchange": "NASDAQ",
+      "symbol": "DEMO_US",
+      "timestamp": "2026-02-19T21:00:00+00:00",
+      "side": "SELL",
+      "quantity": 1,
+      "currency": "USD",
+      "reason": "bearish_sma_cross"
+    }
+  ],
+  "fills": [
+    {
+      "market": "KR",
+      "exchange": "KRX",
+      "symbol": "DEMO_KR",
+      "timestamp": "2026-01-15T07:00:00+00:00",
+      "side": "BUY",
+      "quantity": 1,
+      "currency": "KRW",
+      "signal_timestamp": "2026-01-14T07:00:00+00:00",
+      "price": "51551.500",
+      "notional": "51551.500",
+      "fee": "25.7757500",
+      "execution": "next_bar_open"
+    },
+    {
+      "market": "US",
+      "exchange": "NASDAQ",
+      "symbol": "DEMO_US",
+      "timestamp": "2026-01-15T21:00:00+00:00",
+      "side": "BUY",
+      "quantity": 1,
+      "currency": "USD",
+      "signal_timestamp": "2026-01-14T21:00:00+00:00",
+      "price": "103.103",
+      "notional": "103.103",
+      "fee": "0.0515515",
+      "execution": "next_bar_open"
+    },
+    {
+      "market": "KR",
+      "exchange": "KRX",
+      "symbol": "DEMO_KR",
+      "timestamp": "2026-01-22T07:00:00+00:00",
+      "side": "SELL",
+      "quantity": 1,
+      "currency": "KRW",
+      "signal_timestamp": "2026-01-21T07:00:00+00:00",
+      "price": "50449.500",
+      "notional": "50449.500",
+      "fee": "25.2247500",
+      "execution": "next_bar_open"
+    },
+    {
+      "market": "US",
+      "exchange": "NASDAQ",
+      "symbol": "DEMO_US",
+      "timestamp": "2026-01-22T21:00:00+00:00",
+      "side": "SELL",
+      "quantity": 1,
+      "currency": "USD",
+      "signal_timestamp": "2026-01-21T21:00:00+00:00",
+      "price": "100.899",
+      "notional": "100.899",
+      "fee": "0.0504495",
+      "execution": "next_bar_open"
+    },
+    {
+      "market": "KR",
+      "exchange": "KRX",
+      "symbol": "DEMO_KR",
+      "timestamp": "2026-01-29T07:00:00+00:00",
+      "side": "BUY",
+      "quantity": 1,
+      "currency": "KRW",
+      "signal_timestamp": "2026-01-28T07:00:00+00:00",
+      "price": "51551.500",
+      "notional": "51551.500",
+      "fee": "25.7757500",
+      "execution": "next_bar_open"
+    },
+    {
+      "market": "US",
+      "exchange": "NASDAQ",
+      "symbol": "DEMO_US",
+      "timestamp": "2026-01-29T21:00:00+00:00",
+      "side": "BUY",
+      "quantity": 1,
+      "currency": "USD",
+      "signal_timestamp": "2026-01-28T21:00:00+00:00",
+      "price": "103.103",
+      "notional": "103.103",
+      "fee": "0.0515515",
+      "execution": "next_bar_open"
+    },
+    {
+      "market": "KR",
+      "exchange": "KRX",
+      "symbol": "DEMO_KR",
+      "timestamp": "2026-02-05T07:00:00+00:00",
+      "side": "SELL",
+      "quantity": 1,
+      "currency": "KRW",
+      "signal_timestamp": "2026-02-04T07:00:00+00:00",
+      "price": "50449.500",
+      "notional": "50449.500",
+      "fee": "25.2247500",
+      "execution": "next_bar_open"
+    },
+    {
+      "market": "US",
+      "exchange": "NASDAQ",
+      "symbol": "DEMO_US",
+      "timestamp": "2026-02-05T21:00:00+00:00",
+      "side": "SELL",
+      "quantity": 1,
+      "currency": "USD",
+      "signal_timestamp": "2026-02-04T21:00:00+00:00",
+      "price": "100.899",
+      "notional": "100.899",
+      "fee": "0.0504495",
+      "execution": "next_bar_open"
+    },
+    {
+      "market": "KR",
+      "exchange": "KRX",
+      "symbol": "DEMO_KR",
+      "timestamp": "2026-02-13T07:00:00+00:00",
+      "side": "BUY",
+      "quantity": 1,
+      "currency": "KRW",
+      "signal_timestamp": "2026-02-12T07:00:00+00:00",
+      "price": "49549.500",
+      "notional": "49549.500",
+      "fee": "24.7747500",
+      "execution": "next_bar_open"
+    },
+    {
+      "market": "US",
+      "exchange": "NASDAQ",
+      "symbol": "DEMO_US",
+      "timestamp": "2026-02-13T21:00:00+00:00",
+      "side": "BUY",
+      "quantity": 1,
+      "currency": "USD",
+      "signal_timestamp": "2026-02-12T21:00:00+00:00",
+      "price": "99.099",
+      "notional": "99.099",
+      "fee": "0.0495495",
+      "execution": "next_bar_open"
+    }
+  ],
+  "rejections": [],
+  "pending_orders": [
+    {
+      "market": "KR",
+      "exchange": "KRX",
+      "symbol": "DEMO_KR",
+      "timestamp": "2026-02-19T07:00:00+00:00",
+      "side": "SELL",
+      "quantity": 1,
+      "currency": "KRW",
+      "reason": "bearish_sma_cross"
+    },
+    {
+      "market": "US",
+      "exchange": "NASDAQ",
+      "symbol": "DEMO_US",
+      "timestamp": "2026-02-19T21:00:00+00:00",
+      "side": "SELL",
+      "quantity": 1,
+      "currency": "USD",
+      "reason": "bearish_sma_cross"
+    }
+  ],
+  "cash": {
+    "KRW": "948119.7242500",
+    "USD": "9896.2394485"
+  },
+  "positions": [
+    {
+      "market": "KR",
+      "exchange": "KRX",
+      "symbol": "DEMO_KR",
+      "quantity": 1,
+      "last_price": "46000",
+      "currency": "KRW",
+      "market_value": "46000"
+    },
+    {
+      "market": "US",
+      "exchange": "NASDAQ",
+      "symbol": "DEMO_US",
+      "quantity": 1,
+      "last_price": "92",
+      "currency": "USD",
+      "market_value": "92"
+    }
+  ],
+  "equity": {
+    "KRW": "994119.7242500",
+    "USD": "9988.2394485"
+  },
+  "data_source": "synthetic_demo",
+  "limitations": [
+    "오프라인 가상 체결이며 키움 모의계좌 주문과 다릅니다.",
+    "실제 호가 단위, 부분 체결, 유동성, 휴장일, 세금, 환전은 모델링하지 않습니다.",
+    "수수료와 슬리피지는 설정한 예제 가정입니다. 통화별 자산은 합산하지 않습니다."
+  ]
+}

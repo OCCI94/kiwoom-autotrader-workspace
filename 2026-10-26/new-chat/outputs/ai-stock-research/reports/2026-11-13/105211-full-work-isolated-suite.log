@@ -1,0 +1,69 @@
+STDOUT
+{"prepared": true, "files": 10, "secret_matches": 0}
+
+STDERR
+..AI Stock data unavailable: missing
+..Usage: ai_stock_ssd_mount.py [-- COMMAND [ARG ...]]
+......................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................E.............FF............................................................................................................................................................................E....................................................................................................................................................................................................................................s.....s...................s...............s.........ss.[2026-11-13 10:54:55 KST] pid=33711 telegram_collector_launcher phase=monitor_storage code=storage_unavailable
+.[2026-11-13 10:54:55 KST] pid=33711 telegram_collector_launcher phase=preflight_storage code=storage_unavailable exit_code=75
+...............................................
+======================================================================
+ERROR: test_collection_new_natural_claim_permitted_old_claim_immutable (test_deploy_toss_recovery_20261113.TossDeploymentTests.test_collection_new_natural_claim_permitted_old_claim_immutable)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/wk-ta73gnuo/work/test_deploy_toss_recovery_20261113.py", line 269, in test_collection_new_natural_claim_permitted_old_claim_immutable
+    result=self.run_apply();self.assertEqual(result['status'],'single_worker_started')
+           ^^^^^^^^^^^^^^^^
+  File "/private/tmp/wk-ta73gnuo/work/test_deploy_toss_recovery_20261113.py", line 151, in run_apply
+    return d.execute(self.approval, self.plan, self.services, now=self.clock, audit_factory=kwargs.pop('audit_factory', self.audit), **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/wk-ta73gnuo/work/deploy_toss_recovery_20261113.py", line 462, in execute
+    idle_between_claims(services, moment(clock()))
+  File "/private/tmp/wk-ta73gnuo/work/deploy_toss_recovery_20261113.py", line 447, in idle_between_claims
+    if moment(claim['request_deadline']) > now:
+              ~~~~~^^^^^^^^^^^^^^^^^^^^
+KeyError: 'request_deadline'
+
+======================================================================
+ERROR: test_quant_leader_shadow_compare (unittest.loader._FailedTest.test_quant_leader_shadow_compare)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_quant_leader_shadow_compare
+Traceback (most recent call last):
+  File "/Users/tr-oh/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tr-oh/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/private/tmp/wk-ta73gnuo/work/test_quant_leader_shadow_compare.py", line 7, in <module>
+    import quant_leader_shadow_compare as shadow
+  File "/private/tmp/wk-ta73gnuo/work/quant_leader_shadow_compare.py", line 30, in <module>
+    from leader_autotrading_formulas import (
+ModuleNotFoundError: No module named 'leader_autotrading_formulas'
+
+
+======================================================================
+FAIL: test_unapproved_zero_claim_audit_controls (test_deploy_toss_recovery_20261113.TossDeploymentTests.test_unapproved_zero_claim_audit_controls)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/wk-ta73gnuo/work/test_deploy_toss_recovery_20261113.py", line 165, in test_unapproved_zero_claim_audit_controls
+    self.assertFalse((self.base/'research-readonly/toss-code-deployment-claims').exists()); self.assertEqual(self.audits, [])
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_unused_recovery_bucket_blocks_before_claim (test_deploy_toss_recovery_20261113.TossDeploymentTests.test_unused_recovery_bucket_blocks_before_claim)
+----------------------------------------------------------------------
+deploy_toss_recovery_20261113.Error: TOSS_PRIOR_RECORD_CHANGED:collection_results
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/private/tmp/wk-ta73gnuo/work/test_deploy_toss_recovery_20261113.py", line 197, in test_unused_recovery_bucket_blocks_before_claim
+    with self.assertRaisesRegex(d.Error, 'TOSS_CURRENT_RECOVERY_BUCKET_NOT_FINISHED'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "TOSS_CURRENT_RECOVERY_BUCKET_NOT_FINISHED" does not match "TOSS_PRIOR_RECORD_CHANGED:collection_results"
+
+----------------------------------------------------------------------
+Ran 1026 tests in 162.692s
+
+FAILED (failures=2, errors=2, skipped=6)

@@ -1,0 +1,30 @@
+[   0.007] [MainThread] latest original id 103484 heads pointing at it (epoch prefix,count): [('9c4f4bf2', 1)]
+[   0.410] [MainThread] === PHASE 1 (recovery read step running): tracker tick start
+[   0.411] [MainThread] fake kt00009 response; notifying observer
+[   0.412] [MainThread] >> record_broker_observation
+[   0.434] [MainThread] >> persist_observation
+[   0.435] [MainThread] << persist_observation 0.001 s -> 'repeat'
+[   0.450] [watch] journal file size -> 8720
+[   2.196] [recovery] reader: pending-order scan done 2.188 s rows 2 ; holding read transaction 9.0 s
+[   5.606] [MainThread] !! _db block exit raised after 5.194 s UNDERLYING: OperationalError database is locked
+[   5.606] [MainThread] !! record_broker_observation raised after 5.194 s: ExecutionLogError 증권사 관측 원자료를 영구 기록하지 못했습니다.
+[   5.607] [MainThread] >> _closed_failed
+[   5.610] [watch] journal file size -> None
+[   8.090] [MainThread] << _closed_failed 2.484 s 
+[   8.090] [MainThread] ALERT after 7.68 s: 자동매매 원장: 체결·잔고 확인 또는 파일 기록을 완료하지 못했습니다. 실제 체결을 추정해 기록하지 않았습니다.
+[   8.090] [MainThread] === PHASE 1 (recovery read step running): tracker tick end 7.681 s; last_error set: True
+[  11.196] [recovery] reader: read transaction closed after 11.189 s
+[  11.197] [MainThread] === PHASE 2 (no other thread): tracker tick start
+[  11.197] [MainThread] fake kt00009 response; notifying observer
+[  11.197] [MainThread] >> record_broker_observation
+[  11.201] [MainThread] >> persist_observation
+[  11.202] [MainThread] << persist_observation 0.001 s -> 'repeat'
+[  11.206] [MainThread] >> _materialize_history
+[  11.362] [MainThread] << _materialize_history 0.156 s 
+[  11.362] [MainThread] << record_broker_observation 0.165 s 
+[  11.362] [MainThread] >> _ingest
+[  11.365] [MainThread] >> _materialize_history
+[  11.368] [MainThread] << _materialize_history 0.003 s 
+[  11.484] [MainThread] << _ingest 0.122 s 
+[  11.484] [MainThread] === PHASE 2 (no other thread): tracker tick end 0.288 s; last_error set: False
+[  11.545] [MainThread] kt00009 repeats for 20261104 stored after both phases: 1 ; alerts: 1

@@ -1,0 +1,15 @@
+{
+  "protocol_id": "handoff-code-audit-v1",
+  "hypothesis": "완료봉·시점계약 코드의 무결성 재검증",
+  "as_of": "2026-10-26T16:00:00+09:00",
+  "market": "KR",
+  "currency": "KRW",
+  "universe": "코드와 합성 시험만; 실제 종목 표본 없음",
+  "selection": "research 계약 모듈 및 회귀 테스트",
+  "planned_trials": 1,
+  "cost_assumptions": "거래 성과를 계산하지 않음; 비용 가정 없음",
+  "limitations": [
+    "시점 사전등록이 아닌 실행 후 무결성 검증",
+    "실제 계좌 성과·PIT·성능 미검증"
+  ]
+}

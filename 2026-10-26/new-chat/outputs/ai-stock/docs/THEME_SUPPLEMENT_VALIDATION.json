@@ -1,0 +1,191 @@
+{
+  "verified_at": "2026-11-01T11:43:51.540823+09:00",
+  "source_taxonomy_sha256": "dfa6df1fd4201dca601792bf299fff2f91e8eb4f007ef3f581dd7ad50ba860f4",
+  "source_supplement_sha256": "c931ff98cf7370a7f6b157274c6777e4a2b47406e6c1c8ca6af2f0aa2754a959",
+  "base_count": 25,
+  "classified_count": 25,
+  "supplement_count": 5,
+  "runtime_modified": false,
+  "rows": [
+    {
+      "symbol": "003220",
+      "theme_families": [
+        "제약"
+      ],
+      "source": "supplement"
+    },
+    {
+      "symbol": "097520",
+      "theme_families": [
+        "메타버스",
+        "자율주행라이다"
+      ],
+      "source": "pro6e"
+    },
+    {
+      "symbol": "072950",
+      "theme_families": [
+        "광전송"
+      ],
+      "source": "pro6e"
+    },
+    {
+      "symbol": "030530",
+      "theme_families": [
+        "로봇",
+        "반도체 전공정"
+      ],
+      "source": "pro6e"
+    },
+    {
+      "symbol": "128940",
+      "theme_families": [
+        "비만 신약",
+        "제약"
+      ],
+      "source": "pro6e"
+    },
+    {
+      "symbol": "293490",
+      "theme_families": [
+        "게임"
+      ],
+      "source": "pro6e"
+    },
+    {
+      "symbol": "042510",
+      "theme_families": [
+        "보안"
+      ],
+      "source": "pro6e"
+    },
+    {
+      "symbol": "053800",
+      "theme_families": [
+        "보안"
+      ],
+      "source": "pro6e"
+    },
+    {
+      "symbol": "263860",
+      "theme_families": [
+        "보안"
+      ],
+      "source": "pro6e"
+    },
+    {
+      "symbol": "232680",
+      "theme_families": [
+        "로봇"
+      ],
+      "source": "pro6e"
+    },
+    {
+      "symbol": "011200",
+      "theme_families": [
+        "해운"
+      ],
+      "source": "pro6e"
+    },
+    {
+      "symbol": "042940",
+      "theme_families": [
+        "건설"
+      ],
+      "source": "pro6e"
+    },
+    {
+      "symbol": "340450",
+      "theme_families": [
+        "바이오"
+      ],
+      "source": "pro6e"
+    },
+    {
+      "symbol": "456010",
+      "theme_families": [
+        "보안"
+      ],
+      "source": "pro6e"
+    },
+    {
+      "symbol": "158430",
+      "theme_families": [
+        "보안",
+        "스테이블"
+      ],
+      "source": "pro6e"
+    },
+    {
+      "symbol": "002790",
+      "theme_families": [
+        "화장품"
+      ],
+      "source": "supplement"
+    },
+    {
+      "symbol": "003610",
+      "theme_families": [
+        "섬유"
+      ],
+      "source": "supplement"
+    },
+    {
+      "symbol": "434480",
+      "theme_families": [
+        "보안"
+      ],
+      "source": "pro6e"
+    },
+    {
+      "symbol": "150900",
+      "theme_families": [
+        "보안"
+      ],
+      "source": "pro6e"
+    },
+    {
+      "symbol": "053350",
+      "theme_families": [
+        "보안"
+      ],
+      "source": "supplement"
+    },
+    {
+      "symbol": "010660",
+      "theme_families": [
+        "기계",
+        "자동차"
+      ],
+      "source": "supplement"
+    },
+    {
+      "symbol": "328130",
+      "theme_families": [
+        "헬스케어"
+      ],
+      "source": "pro6e"
+    },
+    {
+      "symbol": "033780",
+      "theme_families": [
+        "식품"
+      ],
+      "source": "pro6e"
+    },
+    {
+      "symbol": "326030",
+      "theme_families": [
+        "바이오"
+      ],
+      "source": "pro6e"
+    },
+    {
+      "symbol": "263750",
+      "theme_families": [
+        "게임"
+      ],
+      "source": "pro6e"
+    }
+  ]
+}

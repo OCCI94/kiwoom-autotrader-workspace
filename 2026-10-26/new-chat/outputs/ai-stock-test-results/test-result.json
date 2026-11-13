@@ -1,0 +1,422 @@
+{
+  "tested_at": "2026-10-26T15:16:16.114859+09:00",
+  "regression_tests_passed": 890,
+  "natural_market_signal_test": {
+    "environment": "actual_kiwoom_paper_and_telegram",
+    "symbol": "005930",
+    "phase": "strategy_stopped_during_test",
+    "day": "20261026",
+    "started_at": "2026-10-26T14:39:36.381846+09:00",
+    "budget": 225225,
+    "original_periods": [
+      5,
+      20
+    ],
+    "paper_mode_confirmed": true,
+    "telegram_both_started": true,
+    "round_trip_complete": false,
+    "final_orders": [],
+    "final_fills": [],
+    "strategies_off": true,
+    "settings_restored": true
+  },
+  "reproduced_broker_rejection": {
+    "return_code": 20,
+    "detail": "RC4003: 모의투자 호가단위 오류",
+    "observed_current_price": 213750,
+    "verified_krx_displayed_limit": 213500
+  },
+  "fixes": [
+    "Check external stop before dispatch and both crossover order sends.",
+    "For a quote outside the common KRX grid, confirm an actual recent KRX displayed price at or below the quote; retain quote-based quantity."
+  ],
+  "controlled_signal_actual_paper_test": {
+    "environment": "synthetic_candle_actual_kiwoom_paper_api",
+    "synthetic_candle": true,
+    "synthetic_quote": false,
+    "actual_paper_http_and_telegram": true,
+    "symbol": "005930",
+    "budget": 225225,
+    "started_at": "2026-10-26T15:09:40.596938+09:00",
+    "status": "listener_finished",
+    "max_seconds": 420,
+    "operator_must_restore_settings_and_resume_normal_service": true,
+    "day": "20261026",
+    "preflight_paper_holdings": 0,
+    "preflight_paper_pending": 0,
+    "t0": "2026-10-26T15:10:00+09:00",
+    "expected_gold_observation": "2026-10-26T15:11:00+09:00",
+    "expected_death_observation": "2026-10-26T15:14:00+09:00",
+    "exit_code": 0,
+    "finished_at": "2026-10-26T15:15:14.087141+09:00",
+    "strategies_off": true,
+    "orders": [
+      {
+        "day": "20261026",
+        "mode": "paper",
+        "ord_no": "172508",
+        "symbol": "005930",
+        "side": "buy",
+        "strategy": "gdcrs",
+        "quantity": 1,
+        "registered_at": "2026-10-26T15:11:02.332106+09:00"
+      },
+      {
+        "day": "20261026",
+        "mode": "paper",
+        "ord_no": "173387",
+        "symbol": "005930",
+        "side": "sell",
+        "strategy": "ddcrs",
+        "quantity": 1,
+        "registered_at": "2026-10-26T15:14:05.152306+09:00"
+      }
+    ],
+    "fills": [
+      {
+        "day": "20261026",
+        "mode": "paper",
+        "ord_no": "172508",
+        "fill_no": "172508",
+        "symbol": "005930",
+        "name": "삼성전자",
+        "side": "buy",
+        "moment": "15:11:02",
+        "price": "213000",
+        "quantity": 1,
+        "strategy": "gdcrs",
+        "remaining": "1",
+        "holdings_at": "2026-10-26T15:11:07.130085+09:00",
+        "holdings_status": "조회시점 보유수량(체결순간 수량 아님)"
+      },
+      {
+        "day": "20261026",
+        "mode": "paper",
+        "ord_no": "173387",
+        "fill_no": "173387",
+        "symbol": "005930",
+        "name": "삼성전자",
+        "side": "sell",
+        "moment": "15:14:05",
+        "price": "213000",
+        "quantity": 1,
+        "strategy": "ddcrs",
+        "remaining": "0",
+        "holdings_at": "2026-10-26T15:14:09.488670+09:00",
+        "holdings_status": "조회시점 보유수량(체결순간 수량 아님)"
+      }
+    ],
+    "unresolved_intents": 0
+  },
+  "controlled_driver": {
+    "environment": "actual_kiwoom_paper_and_telegram",
+    "signal_source": "synthetic_completed_candles",
+    "symbol": "005930",
+    "phase": "actual_paper_round_trip_complete",
+    "day": "20261026",
+    "started_at": "2026-10-26T15:10:23.369736+09:00",
+    "budget": 225225,
+    "original_periods": [
+      5,
+      20
+    ],
+    "paper_mode_confirmed": true,
+    "telegram_both_started": true,
+    "orders": [
+      {
+        "scope": "default",
+        "day": "20261026",
+        "mode": "paper",
+        "ord_no": "172508",
+        "symbol": "005930",
+        "side": "buy",
+        "strategy": "gdcrs",
+        "quantity": 1,
+        "registered_at": "2026-10-26T15:11:02.332106+09:00"
+      },
+      {
+        "scope": "default",
+        "day": "20261026",
+        "mode": "paper",
+        "ord_no": "173387",
+        "symbol": "005930",
+        "side": "sell",
+        "strategy": "ddcrs",
+        "quantity": 1,
+        "registered_at": "2026-10-26T15:14:05.152306+09:00"
+      }
+    ],
+    "fills": [
+      {
+        "scope": "default",
+        "day": "20261026",
+        "mode": "paper",
+        "ord_no": "172508",
+        "fill_no": "172508",
+        "symbol": "005930",
+        "name": "삼성전자",
+        "side": "buy",
+        "moment": "15:11:02",
+        "price": "213000",
+        "quantity": 1,
+        "strategy": "gdcrs",
+        "remaining": "1",
+        "holdings_at": "2026-10-26T15:11:07.130085+09:00",
+        "holdings_status": "조회시점 보유수량(체결순간 수량 아님)"
+      },
+      {
+        "scope": "default",
+        "day": "20261026",
+        "mode": "paper",
+        "ord_no": "173387",
+        "fill_no": "173387",
+        "symbol": "005930",
+        "name": "삼성전자",
+        "side": "sell",
+        "moment": "15:14:05",
+        "price": "213000",
+        "quantity": 1,
+        "strategy": "ddcrs",
+        "remaining": "0",
+        "holdings_at": "2026-10-26T15:14:09.488670+09:00",
+        "holdings_status": "조회시점 보유수량(체결순간 수량 아님)"
+      }
+    ],
+    "round_trip_complete": true,
+    "final_orders": [
+      {
+        "scope": "default",
+        "day": "20261026",
+        "mode": "paper",
+        "ord_no": "172508",
+        "symbol": "005930",
+        "side": "buy",
+        "strategy": "gdcrs",
+        "quantity": 1,
+        "registered_at": "2026-10-26T15:11:02.332106+09:00"
+      },
+      {
+        "scope": "default",
+        "day": "20261026",
+        "mode": "paper",
+        "ord_no": "173387",
+        "symbol": "005930",
+        "side": "sell",
+        "strategy": "ddcrs",
+        "quantity": 1,
+        "registered_at": "2026-10-26T15:14:05.152306+09:00"
+      }
+    ],
+    "final_fills": [
+      {
+        "scope": "default",
+        "day": "20261026",
+        "mode": "paper",
+        "ord_no": "172508",
+        "fill_no": "172508",
+        "symbol": "005930",
+        "name": "삼성전자",
+        "side": "buy",
+        "moment": "15:11:02",
+        "price": "213000",
+        "quantity": 1,
+        "strategy": "gdcrs",
+        "remaining": "1",
+        "holdings_at": "2026-10-26T15:11:07.130085+09:00",
+        "holdings_status": "조회시점 보유수량(체결순간 수량 아님)"
+      },
+      {
+        "scope": "default",
+        "day": "20261026",
+        "mode": "paper",
+        "ord_no": "173387",
+        "fill_no": "173387",
+        "symbol": "005930",
+        "name": "삼성전자",
+        "side": "sell",
+        "moment": "15:14:05",
+        "price": "213000",
+        "quantity": 1,
+        "strategy": "ddcrs",
+        "remaining": "0",
+        "holdings_at": "2026-10-26T15:14:09.488670+09:00",
+        "holdings_status": "조회시점 보유수량(체결순간 수량 아님)"
+      }
+    ],
+    "strategies_off": true,
+    "settings_restored": true
+  },
+  "actual_order_responses": [
+    {
+      "environment": "synthetic_candle_actual_kiwoom_paper_api",
+      "observed_at": "2026-10-26T15:11:02.331291+09:00",
+      "mode": "paper",
+      "side": "buy",
+      "symbol": "005930",
+      "quantity": "1",
+      "limit_price": "213000",
+      "return_code": 0,
+      "return_msg_sanitized": "모의투자 매수주문완료"
+    },
+    {
+      "environment": "synthetic_candle_actual_kiwoom_paper_api",
+      "observed_at": "2026-10-26T15:14:05.150145+09:00",
+      "mode": "paper",
+      "side": "sell",
+      "symbol": "005930",
+      "quantity": "1",
+      "limit_price": null,
+      "return_code": 0,
+      "return_msg_sanitized": "모의투자 매도주문완료"
+    }
+  ],
+  "all_actual_paper_test_fills_including_diagnostic_and_cleanup": [
+    {
+      "day": "20261026",
+      "mode": "paper",
+      "ord_no": "164780",
+      "fill_no": "164780",
+      "symbol": "005930",
+      "name": "삼성전자",
+      "side": "buy",
+      "moment": "14:47:37",
+      "price": "214500",
+      "quantity": 1,
+      "strategy": "paper_e2e_diagnostic",
+      "remaining": "1",
+      "holdings_status": "조회시점 보유수량(체결순간 수량 아님)"
+    },
+    {
+      "day": "20261026",
+      "mode": "paper",
+      "ord_no": "165387",
+      "fill_no": "165387",
+      "symbol": "005930",
+      "name": "삼성전자",
+      "side": "sell",
+      "moment": "14:49:45",
+      "price": "214500",
+      "quantity": 1,
+      "strategy": "paper_e2e_cleanup",
+      "remaining": "0",
+      "holdings_status": "조회시점 보유수량(체결순간 수량 아님)"
+    },
+    {
+      "day": "20261026",
+      "mode": "paper",
+      "ord_no": "172508",
+      "fill_no": "172508",
+      "symbol": "005930",
+      "name": "삼성전자",
+      "side": "buy",
+      "moment": "15:11:02",
+      "price": "213000",
+      "quantity": 1,
+      "strategy": "gdcrs",
+      "remaining": "1",
+      "holdings_status": "조회시점 보유수량(체결순간 수량 아님)"
+    },
+    {
+      "day": "20261026",
+      "mode": "paper",
+      "ord_no": "173387",
+      "fill_no": "173387",
+      "symbol": "005930",
+      "name": "삼성전자",
+      "side": "sell",
+      "moment": "15:14:05",
+      "price": "213000",
+      "quantity": 1,
+      "strategy": "ddcrs",
+      "remaining": "0",
+      "holdings_status": "조회시점 보유수량(체결순간 수량 아님)"
+    }
+  ],
+  "rejected_intents_not_exchange_cancellations": [
+    {
+      "side": "buy",
+      "symbol": "005930",
+      "quantity": 1,
+      "strategy": "gdcrs",
+      "created_at": "2026-10-26T14:44:03.178284+09:00",
+      "state": "cancelled",
+      "reason": "rejected"
+    },
+    {
+      "side": "buy",
+      "symbol": "005930",
+      "quantity": 1,
+      "strategy": "gdcrs",
+      "created_at": "2026-10-26T14:56:02.642172+09:00",
+      "state": "cancelled",
+      "reason": "rejected"
+    }
+  ],
+  "real_csv_file": "actual-paper-20261026.csv",
+  "real_csv_rows": 4,
+  "deterministic_replay_file": "replayed-cross-result.json",
+  "real_eod_summary_tested": false,
+  "eod_summary_verified_in_replay": true,
+  "final_holdings_observation": [
+    {
+      "mode": "paper",
+      "observed_at": "2026-10-26T15:16:06.071581+09:00",
+      "positions": "{}"
+    }
+  ],
+  "final_settings": {
+    "gdcrs_enabled": false,
+    "ddcrs_enabled": false,
+    "gdcrs_short_period": 5,
+    "gdcrs_long_period": 20,
+    "gdcrs_stocks": []
+  },
+  "normal_service": {
+    "installed": true,
+    "loaded": true,
+    "running": true,
+    "pid": 13458
+  },
+  "channel_collector": {
+    "installed": true,
+    "loaded": true,
+    "running": true,
+    "pid": 13324
+  },
+  "runtime_source_match": true,
+  "price_grid_reference": "https://regulation.krx.co.kr/contents/RGL/03/03010100/RGL03010100T3.jsp",
+  "fresh_broker_account_check": {
+    "observed_at": "2026-10-26T15:15:12.184296+09:00",
+    "mode": "paper",
+    "holdings_empty": true,
+    "pending_order_count": 0,
+    "automatic_fills_confirmed_by_broker": [
+      {
+        "order_number": "172508",
+        "fill_number": "172508",
+        "side": "buy",
+        "price": "213000",
+        "quantity": 1,
+        "time": "15:11:02"
+      },
+      {
+        "order_number": "173387",
+        "fill_number": "173387",
+        "side": "sell",
+        "price": "213000",
+        "quantity": 1,
+        "time": "15:14:05"
+      }
+    ]
+  },
+  "actual_telegram_strategy_replies": [
+    {
+      "time": "2026-10-26T06:11:03+00:00",
+      "text": "gdcrs · 005930 · 종료봉 15:10\n모의투자 매수 주문 접수 · KRX\n종목 005930 · 1주 · 지정가 213,000원\n주문번호 0172508\n접수 결과이며 실제 체결 여부는 확인하지 않았습니다.\n예산 225,225원 · 조회가 213,250원 · 실제 지정가 213,000원\n수량 1주 · 최대 매수대금 213,000원\n미사용 예산 12,225원\n원래 조회 현재가로 수량을 계산하고, 현재가 이하의 표시된 KRX 호가를 지정가로 제출했습니다. 미체결될 수 있습니다.\n수수료는 예산·매수대금 계산에서 제외되며, 총 출금액은 수수료만큼 늘어날 수 있습니다."
+    },
+    {
+      "time": "2026-10-26T06:14:06+00:00",
+      "text": "ddcrs · 005930 · 종료봉 15:13\n모의투자 매도 주문 접수 · KRX\n종목 005930 · 1주 · 시장가\n주문번호 0173387\n접수 결과이며 실제 체결 여부는 확인하지 않았습니다."
+    }
+  ]
+}

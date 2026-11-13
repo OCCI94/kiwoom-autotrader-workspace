@@ -1,0 +1,301 @@
+{
+  "reviewed_at": "2026-10-26T07:08:45.231152+00:00",
+  "documents": [
+    {
+      "name": "00_사용안내.txt",
+      "bytes": 2448,
+      "sha256": "9c3a5edd4d2c791561423f6bd0b2d320a0d1d098c963316cc6d4f2f2d3e2f5de",
+      "handling": "read_and_compared"
+    },
+    {
+      "name": "01_통합_마스터프롬프트.txt",
+      "bytes": 15886,
+      "sha256": "880fc01b8292ac60adad29c09df3c2bf4036abacd236f3b584b4135ed51564a5",
+      "handling": "read_and_compared"
+    },
+    {
+      "name": "02_전략_복기_연구_근거집.txt",
+      "bytes": 22169,
+      "sha256": "b77d4fd3b17dbe95ed7cd72dec76821adec0f5e225db4f04b43b5aa073efd230",
+      "handling": "read_and_compared"
+    },
+    {
+      "name": "03_개별_격리작업_프롬프트.txt",
+      "bytes": 11926,
+      "sha256": "8ffea52d7581eb2bc2d0160b18b3c512c7292786341de31be3cc815ab0e33e20",
+      "handling": "read_and_compared"
+    },
+    {
+      "name": "04_근거목록_및_검증상태.json",
+      "bytes": 43779,
+      "sha256": "83b8c1187ea7ba0ae4797c0db1de7aed647abbc69292e798bb0f87177237177d",
+      "handling": "read_and_compared"
+    },
+    {
+      "name": "05_초기화후_신규구축_프롬프트.txt",
+      "bytes": 18695,
+      "sha256": "ed678552344e57dd48119e6f73cf5d5a9c458cf78f59a2513e8adc787039959d",
+      "handling": "read_and_compared"
+    },
+    {
+      "name": "06_매매이력_가져오기_추가프롬프트.txt",
+      "bytes": 7128,
+      "sha256": "e3600733257e64861c026c5f7f8cacc39e5b4c23a89765abc7538454e475aec3",
+      "handling": "read_and_compared"
+    },
+    {
+      "name": "07_매매이력_암호화_20261025.dmg",
+      "bytes": 165376,
+      "sha256": "c7162fda5ade97685cbef078fa6860aed305432a81b5033b481c5ccca0ab6b32",
+      "handling": "deferred_by_user_encrypted"
+    },
+    {
+      "name": "제목 없는 문서.gdoc",
+      "bytes": 198,
+      "sha256": "31a7326b6d501f22fecc2a4b1e72451282c1d862549b5bdc64cfbc4454deda16",
+      "handling": "native_credentials_document_read_not_copied"
+    }
+  ],
+  "bundle_document_integrity": [
+    {
+      "name": "00_사용안내.txt",
+      "bytes_match": true,
+      "sha256_match": true
+    },
+    {
+      "name": "01_통합_마스터프롬프트.txt",
+      "bytes_match": true,
+      "sha256_match": true
+    },
+    {
+      "name": "02_전략_복기_연구_근거집.txt",
+      "bytes_match": true,
+      "sha256_match": true
+    },
+    {
+      "name": "03_개별_격리작업_프롬프트.txt",
+      "bytes_match": true,
+      "sha256_match": true
+    }
+  ],
+  "historical_references": [
+    {
+      "path": "/Users/oh/.codex/skills/execution-realistic-simulation/SKILL.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/.codex/skills/market-news-analyst/SKILL.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/.codex/skills/trading-backtest-audit/SKILL.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/.codex/skills/trading-engine-audit/SKILL.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/.codex/skills/trading-research/SKILL.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/.codex/skills/walk-forward-optimization-window-management/SKILL.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/Library/Application Support/gemini-isolated-sequence-20261024/codex-task1-20261024-eKkxTB/measurement-plan-addendum-r1.json",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/Library/Application Support/gemini-isolated-sequence-20261024/codex-task1-20261024-eKkxTB/measurement-plan-r1.json",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/Library/Application Support/gemini-isolated-sequence-20261024/codex-task1-20261024-eKkxTB/results/REVIEW-r1-notes.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/Library/Application Support/gemini-isolated-sequence-20261024/codex-task1-20261024-eKkxTB/results/REVIEW-r1.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/Library/Application Support/gemini-isolated-sequence-20261024/codex-task1-20261024-eKkxTB/results/independent-review-r1.json",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/Library/Application Support/gemini-isolated-sequence-20261024/codex-task1-20261024-eKkxTB/results/task1-handoff-r1.json",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/LocalProjects/db-final-consistency-review-20261025-zpe3demb/FINAL-SNAPSHOT-REVIEW.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/LocalProjects/db-final-consistency-review-20261025-zpe3demb/RESULT.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/LocalProjects/stock-auto-trading-staging-20261024-iT74QQ/validation/app-migration-20261024-pIpIWc/RESULT.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/LocalProjects/stock-auto-trading-staging-20261024-iT74QQ/validation/resolution-20261024-d1Jlxh/project-candidate/AGENTS.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/LocalProjects/stock-auto-trading-staging-20261024-iT74QQ/validation/resolution-20261024-d1Jlxh/project-candidate/config.json",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/LocalProjects/stock-auto-trading-staging-20261024-iT74QQ/validation/resolution-20261024-d1Jlxh/project-candidate/docs/AI-EFFICIENCY.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/LocalProjects/stock-auto-trading-staging-20261024-iT74QQ/validation/resolution-20261024-d1Jlxh/project-candidate/docs/AUTOTRADING-ONLY-PLAN.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/LocalProjects/stock-auto-trading-staging-20261024-iT74QQ/validation/resolution-20261024-d1Jlxh/project-candidate/docs/CURRENT_STATE.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/LocalProjects/stock-auto-trading-staging-20261024-iT74QQ/validation/resolution-20261024-d1Jlxh/project-candidate/docs/INVESTMENT-RESEARCH-SKILLS.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/LocalProjects/stock-auto-trading-staging-20261024-iT74QQ/validation/resolution-20261024-d1Jlxh/project-candidate/docs/KIWOOM-MOCK-SERVICE.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/LocalProjects/stock-auto-trading-staging-20261024-iT74QQ/validation/resolution-20261024-d1Jlxh/project-candidate/docs/KIWOOM-STRATEGY-EXECUTION.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/LocalProjects/stock-auto-trading-staging-20261024-iT74QQ/validation/resolution-20261024-d1Jlxh/project-candidate/docs/KR-SURGE-NIGHT-REVIEW.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/LocalProjects/stock-auto-trading-staging-20261024-iT74QQ/validation/resolution-20261024-d1Jlxh/project-candidate/docs/RESEARCH-TOOLS.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/LocalProjects/stock-auto-trading-staging-20261024-iT74QQ/validation/resolution-20261024-d1Jlxh/project-candidate/docs/STRATEGY-PERFORMANCE-SPREADSHEET.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/LocalProjects/stock-auto-trading-staging-20261024-iT74QQ/validation/resolution-20261024-d1Jlxh/project-candidate/docs/TRADE-JOURNAL.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/LocalProjects/stock-auto-trading-staging-20261024-iT74QQ/validation/resolution-20261024-d1Jlxh/project-candidate/docs/USER-RULES-INTEGRATION.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/LocalProjects/stock-auto-trading-staging-20261024-iT74QQ/validation/resolution-20261024-d1Jlxh/project-candidate/docs/automation-2/README.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/LocalProjects/stock-auto-trading-staging-20261024-iT74QQ/validation/resolution-20261024-d1Jlxh/project-candidate/docs/automation-2/candidates.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/LocalProjects/stock-auto-trading-staging-20261024-iT74QQ/validation/resolution-20261024-d1Jlxh/project-candidate/docs/automation-2/engine-audit.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/LocalProjects/stock-auto-trading-staging-20261024-iT74QQ/validation/resolution-20261024-d1Jlxh/project-candidate/docs/automation-2/intraday-review.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/LocalProjects/stock-auto-trading-staging-20261024-iT74QQ/validation/resolution-20261024-d1Jlxh/project-candidate/docs/automation-2/intraday.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/LocalProjects/stock-auto-trading-staging-20261024-iT74QQ/validation/resolution-20261024-d1Jlxh/project-candidate/docs/automation-2/krx-daily.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/LocalProjects/stock-auto-trading-staging-20261024-iT74QQ/validation/resolution-20261024-d1Jlxh/project-candidate/docs/automation-2/missing-input.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/LocalProjects/stock-auto-trading-staging-20261024-iT74QQ/validation/resolution-20261024-d1Jlxh/project-candidate/docs/automation-2/night-watchdog.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/LocalProjects/stock-auto-trading-staging-20261024-iT74QQ/validation/resolution-20261024-d1Jlxh/project-candidate/docs/automation-2/phase-followup.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/LocalProjects/stock-auto-trading-staging-20261024-iT74QQ/validation/resolution-20261024-d1Jlxh/project-candidate/docs/automation-2/reconcile-followup.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/LocalProjects/stock-auto-trading-staging-20261024-iT74QQ/validation/resolution-20261024-d1Jlxh/project-candidate/docs/automation-2/trade-journal.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/LocalProjects/stock-auto-trading-staging-20261024-iT74QQ/validation/resolution-20261024-d1Jlxh/project-candidate/docs/automation-2/trade-review.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/LocalProjects/stock-auto-trading-staging-20261024-iT74QQ/validation/resolution-20261024-d1Jlxh/project-candidate/docs/incidents/2026-10-23-anrobotics-or-input-unknown.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/LocalProjects/stock-auto-trading-staging-20261024-iT74QQ/validation/resolution-20261024-d1Jlxh/project-candidate/docs/incidents/2026-10-23-clock-proof-failure-and-latency.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/LocalProjects/stock-auto-trading-staging-20261024-iT74QQ/validation/resolution-20261024-d1Jlxh/project-candidate/docs/incidents/2026-10-23-kencoa-flow90-daesung-minute-gap.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/LocalProjects/stock-auto-trading-staging-20261024-iT74QQ/validation/resolution-20261024-d1Jlxh/project-candidate/docs/incidents/2026-10-23-sandslab-1412-kencoa-stale.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/LocalProjects/stock-auto-trading-staging-20261024-iT74QQ/validation/resolution-20261024-d1Jlxh/project-candidate/docs/research/2026-09-09-surge-review.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/LocalProjects/stock-auto-trading-staging-20261024-iT74QQ/validation/resolution-20261024-d1Jlxh/project-candidate/docs/research/2026-09-18-surge-backtest.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/LocalProjects/stock-auto-trading-staging-20261024-iT74QQ/validation/resolution-20261024-d1Jlxh/project-candidate/docs/research/2026-09-19-us-surge-backtest.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/LocalProjects/stock-auto-trading-staging-20261024-iT74QQ/validation/resolution-20261024-d1Jlxh/project-candidate/docs/research/2026-09-21-mock-improvement-input.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/LocalProjects/stock-auto-trading-staging-20261024-iT74QQ/validation/resolution-20261024-d1Jlxh/project-candidate/docs/research/KRX-ENTRY-FILTER-VALIDATION.md",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/LocalProjects/stock-auto-trading-staging-20261024-iT74QQ/validation/resolution-20261024-d1Jlxh/project-candidate/kiwoom_entry_trial.json",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/LocalProjects/stock-auto-trading-staging-20261024-iT74QQ/validation/resolution-20261024-d1Jlxh/project-candidate/kiwoom_monthly_volume.json",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/LocalProjects/stock-auto-trading-staging-20261024-iT74QQ/validation/resolution-20261024-d1Jlxh/project-candidate/kiwoom_user_rules.json",
+      "currently_exists": false
+    },
+    {
+      "path": "/Users/oh/LocalProjects/stock-auto-trading-staging-20261024-iT74QQ/validation/resolution-20261024-d1Jlxh/project-candidate/kiwoom_volume_spike.json",
+      "currently_exists": false
+    }
+  ],
+  "historical_reference_count": 53,
+  "historical_references_available": 0,
+  "encrypted_history_imported": false,
+  "authoritative_history_complete": false,
+  "credential_contents_copied": false,
+  "old_research_raw_results_reverified": false
+}

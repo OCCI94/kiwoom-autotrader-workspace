@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "audit_kind": "offline_local_records",
+  "generated_at": "2026-10-26T07:01:51.813868+00:00",
+  "inspection_completed": true,
+  "readiness_state": "UNKNOWN",
+  "readiness_reason": "CURRENT_ACCOUNT_AND_RUNTIME_NOT_VERIFIED",
+  "account_reconciled": false,
+  "checks": [
+    {
+      "name": "ledger_records",
+      "verdict": "PASS",
+      "reason_code": "LEDGER_RECORDS_PARSED",
+      "statistics": {
+        "accepted_orders": 4,
+        "accepted_without_recorded_fills": 0,
+        "cancelled_intents": 2,
+        "fill_rows": 4,
+        "fully_filled_orders": 4,
+        "intents": 6,
+        "orders_with_fills": 4,
+        "partially_filled_orders": 0
+      }
+    },
+    {
+      "name": "ledger_attribution",
+      "verdict": "PASS",
+      "reason_code": "ORDER_FILL_ATTRIBUTION_MATCH",
+      "statistics": {
+        "mismatches": 0
+      }
+    },
+    {
+      "name": "ledger_fill_quantity",
+      "verdict": "PASS",
+      "reason_code": "RECORDED_FILLS_WITHIN_ORDER_QUANTITY",
+      "statistics": {
+        "overfilled_orders": 0
+      }
+    },
+    {
+      "name": "ledger_ambiguous_intents",
+      "verdict": "PASS",
+      "reason_code": "NO_UNRESOLVED_RECORDED_INTENTS",
+      "statistics": {
+        "unresolved_intents": 0
+      }
+    },
+    {
+      "name": "ledger_cost_coverage",
+      "verdict": "PASS",
+      "reason_code": "RECORDED_COST_COVERAGE_COMPLETE",
+      "statistics": {
+        "cost_confirmed_groups": 1,
+        "cost_unknown_groups": 0,
+        "sell_groups": 1
+      }
+    },
+    {
+      "name": "decision_evidence",
+      "verdict": "UNKNOWN",
+      "reason_code": "HISTORICAL_DECISION_EVIDENCE_UNAVAILABLE",
+      "statistics": {
+        "intents": 6
+      }
+    },
+    {
+      "name": "cost_evidence",
+      "verdict": "UNKNOWN",
+      "reason_code": "HISTORICAL_COST_EVIDENCE_UNAVAILABLE",
+      "statistics": {
+        "profit_groups": 1
+      }
+    },
+    {
+      "name": "csv_records",
+      "verdict": "PASS",
+      "reason_code": "CSV_RECORDS_PARSED",
+      "statistics": {
+        "duplicate_fill_ids": 0,
+        "fill_rows": 4,
+        "summary_rows": 1
+      }
+    },
+    {
+      "name": "csv_summaries",
+      "verdict": "PASS",
+      "reason_code": "CSV_SUMS_MATCH_RECORDED_FILLS",
+      "statistics": {
+        "mismatches": 0
+      }
+    },
+    {
+      "name": "csv_ledger",
+      "verdict": "PASS",
+      "reason_code": "CSV_MATCHES_RECORDED_LEDGER",
+      "statistics": {
+        "extra_or_changed_rows": 0,
+        "missing_rows": 0
+      }
+    },
+    {
+      "name": "runtime_records",
+      "verdict": "OBSERVE",
+      "reason_code": "PERSISTED_RUNNING_IS_NOT_LIVE_PROOF",
+      "statistics": {
+        "poll_count": 2055,
+        "received_count": 47,
+        "replied_count": 72
+      }
+    },
+    {
+      "name": "runtime_readiness",
+      "verdict": "UNKNOWN",
+      "reason_code": "CURRENT_ACCOUNT_AND_RUNTIME_NOT_VERIFIED",
+      "statistics": {}
+    },
+    {
+      "name": "ledger_snapshot",
+      "verdict": "PASS",
+      "reason_code": "SOURCE_BYTES_UNCHANGED",
+      "statistics": {}
+    },
+    {
+      "name": "csv_snapshot",
+      "verdict": "PASS",
+      "reason_code": "SOURCE_BYTES_UNCHANGED",
+      "statistics": {}
+    },
+    {
+      "name": "state_snapshot",
+      "verdict": "PASS",
+      "reason_code": "SOURCE_BYTES_UNCHANGED",
+      "statistics": {}
+    }
+  ],
+  "sources": [
+    {
+      "kind": "ledger",
+      "sha256": "583001afa0783570b61333103a804169461cfd1af89a48af77911e0249f51540",
+      "bytes": 53248
+    },
+    {
+      "kind": "csv",
+      "sha256": "a7dc9294764811cf2fbc40bcac1ed587c58cd2d66ddc5506424f01a77a12eaa3",
+      "bytes": 1199
+    },
+    {
+      "kind": "state",
+      "sha256": "10820974128354b7000d4dfa11b31aae83583dd430e790d7509b99ec6531b3d7",
+      "bytes": 284
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+원장 대조 20261104 scope=default mode=paper  (db=/private/tmp/claude-501/-Users-tr-oh-Documents-Codex/0f64e712-f34f-415d-a95a-9ce4130d39e2/scratchpad/1543/ledger/ledger.sqlite3)
+intents={"buy/accepted": 9, "buy/cancelled": 4, "sell/accepted": 2} orders={"buy": {"count": 9, "quantity": 211}, "sell": {"count": 2, "quantity": 61}}
+fills={"buy": {"count": 7, "quantity": 152, "amount_krw": 1367557}, "sell": {"count": 2, "quantity": 61, "amount_krw": 405660}}
+ttl={"attempts": 3, "outcomes_by_status": {"cancel_broker_rejected": 3}, "retry_attempts": 0, "retry_outcomes_by_status": {}, "expired_order_certificates": 0}
+
+== 왕복 ({"completed": 2, "gross_pnl_krw": 5868, "commission_est_krw": 2817, "tax_est_krw": 416, "net_pnl_krw": 2635})
+symbol  strategy   qty  buy->sell        gross   comm   tax    net
+150900  EXP_A        44   4660.0->4730        3080   1445   416    1219
+229200  EXP_ETF_B    17  11456.0->11620       2788   1372     0    1416
+open   068270  EXP_D         1 @200000
+open   388050  EXP_D        26 @7840
+open   456010  EXP_D        10 @17670
+open   293490  EXP_D        17 @11950
+open   042940  EXP_D        37 @4975
+거래세 면제(ETF/ETN): 229200(name_prefix:KODEX)
+
+== 손익: ledger={"buy_turnover_krw": 1367557, "sell_turnover_krw": 405660, "commission_est_all_fills_krw": 6203, "tax_est_krw": 416, "round_trip_gross_krw": 5868, "round_trip_commission_est_krw": 2817, "round_trip_tax_est_krw": 416, "round_trip_net_krw": 2635, "open_position_cost_krw": 967765, "tax_exempt_symbols": {"229200": "name_prefix:KODEX"}}
+   ka10074={"observed_at": "2026-11-04T15:30:37.277519+09:00", "observation_id": 87872, "buy_amt": 1367565, "sell_amt": 405660, "commission": 6200, "tax": 415, "realized": 2645}
+   delta={"buy_amt": -8, "sell_amt": 0, "commission": 3, "tax": 1, "realized": -10}
+   params={"commission_bps": 35.0, "tax_bps": 20.0, "tolerance_krw": 100, "commission_tolerance_krw": 50, "turnover_tolerance_krw_per_share": 1, "etf_heuristic": true, "etf_symbols_option": []}
+   note: turnover_rounding_buy_amt: 차이 -8원은 152주의 체결가 소수점 절사 범위(±152원) 이내
+   note: 150900: 증권사 보고 간 불일치 {"realized": {"ka10072": 1235, "ka10073": 1225, "diff": 10}, "commission": {"ka10072": 1430, "ka10073": 1440, "diff": -10}} (모의서버 절사 차이로 알려짐)
+
+== TTL 취소: attempts=3 by_settlement={"rejected": 3}
+  218972 002790 cancel_broker_rejected -> rejected (cancel None, rest cnfm 0, principal_released=False)
+  219563 010660 cancel_broker_rejected -> rejected (cancel None, rest cnfm 0, principal_released=False)
+  220013 042940 cancel_broker_rejected -> rejected (cancel None, rest cnfm 0, principal_released=False)
+
+== 불일치 4건
+  [UNRECONCILED] position_not_in_ledger 326030 -: 증권사 잔고 2주가 당일 원장 왕복에 없음(전일 이월이면 정상, 아니면 누락)
+  [UNRECONCILED] ttl_cancel_rejected 002790 218972: 취소 거부(cancel_broker_rejected)이나 체결도 확인되지 않음
+  [UNRECONCILED] ttl_cancel_rejected 010660 219563: 취소 거부(cancel_broker_rejected)이나 체결도 확인되지 않음
+  [UNRECONCILED] ttl_cancel_rejected_order_filled 042940 220013: 취소 거부(cancel_broker_rejected); 원주문 체결 원장 37주 / 증권사 37주 → 포지션으로 남음

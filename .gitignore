@@ -1,0 +1,86 @@
+# OS & Editor
+.DS_Store
+*.swp
+*~
+
+# Python / Node / Build / Virtualenvs / Model Caches
+__pycache__/
+*.py[cod]
+*.so
+*.dylib
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+*venv*/
+node_modules/
+hf-cache/
+install-store/
+sandbox-tmp/
+
+# Secrets, Credentials, Tokens & Private Session Artifacts
+.env
+.env.*
+!.env.example
+.secrets/
+**/.secrets/
+*credentials*.json
+!*credentials*.template.json
+*secret*.json
+*token*.json
+settings.json
+*keychain*
+*cookie*
+*.pem
+*.key
+*.p12
+*.pfx
+**/data/telegram/
+**/runs/
+**/session-probe*
+**/session-attestation*
+**/protected-baseline*
+**/workflow-state*.json
+2026-10-26/new-chat/outputs/paper-trading-journal-deployment.json
+2026-10-26/new-chat/outputs/paper-journal-today.html
+2026-10-26/new-chat/outputs/paper-trading-journal-preview.png
+
+# Ledgers, Databases, Runtime Backups & Archives
+*.sqlite3
+*.sqlite3-*
+*.sqlite
+*.db
+*.wal
+*.shm
+*.tar.gz
+*.tgz
+*.tar
+*.zip
+**/snapshots/
+**/backups/
+
+# Copyrighted Documents & Heavy Binary Weights
+*.pdf
+archive/2026-11-06-퀀트투자기초/
+*키움 REST API 문서.xlsx
+*.pt
+*.pth
+*.safetensors
+*.bin
+*.parquet
+*.feather
+*.npy
+*.npz
+
+# Bulky Research Data Dumps & Historical Duplicate Work Staging Directories
+2026-10-26/new-chat/outputs/ai-stock-research/*
+!2026-10-26/new-chat/outputs/ai-stock-research/reports/
+2026-10-26/new-chat/outputs/ai-stock-research/reports/*
+!2026-10-26/new-chat/outputs/ai-stock-research/reports/2026-11-13/
+
+2026-10-26/new-chat/work/*
+!2026-10-26/new-chat/work/maintenance-autotrading-fix-20261113/

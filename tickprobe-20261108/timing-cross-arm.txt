@@ -1,0 +1,18 @@
+== 소유 종목을 다른 arm으로 조회할 때(= _owned_assignment가 과거 배정 arm마다 반복하는 조회) ==
+  1267.3 ms hydrate=11425 position 042940 EXP_D -> owned
+  1132.5 ms hydrate=10567 position 042940 EXP_A -> unsupported
+  1065.4 ms hydrate=10567 position 042940 EXP_B -> unsupported
+  1021.8 ms hydrate=10567 position 042940 S5_steady_uptrend_vwap -> unsupported
+     0.5 ms hydrate=    0 paper_exit_only_position 042940 S5 -> unsupported
+   435.6 ms hydrate= 5419 position 388050 EXP_D -> owned
+   431.7 ms hydrate= 5419 position 388050 EXP_A -> unsupported
+   439.6 ms hydrate= 5419 position 388050 EXP_B -> unsupported
+   447.9 ms hydrate= 5419 position 388050 S5_steady_uptrend_vwap -> unsupported
+     0.5 ms hydrate=    0 paper_exit_only_position 388050 S5 -> unsupported
+== 미체결(pending) 종목 ==
+   130.5 ms hydrate= 1439 position 002790 EXP_D -> pending
+   126.3 ms hydrate= 1439 position 010660 EXP_D -> pending
+== 과거 미체결이 있던 11-03 종목(인증서로 종결) ==
+  1562.3 ms hydrate=24172 position 003220 EXP_A -> unsupported
+   450.8 ms hydrate= 4676 position 042510 EXP_A -> flat_candidate
+  2311.7 ms hydrate=24778 multi_strategy_open_symbols -> available

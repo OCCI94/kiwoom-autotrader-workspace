@@ -1,0 +1,1237 @@
+<title>주도주 계산기</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
+<style>
+/* 배치: 책의 순서를 따라 내려가는 계산지 세 장. 장마다 왼쪽에 입력, 오른쪽에 판정.
+   좁은 화면에서는 판정이 입력 아래로 내려간다. 신호 색은 한국 시세판 관례(긍정 빨강, 부정 파랑). */
+:root {
+  --bg: #edf0f3;
+  --surface: #fafbfc;
+  --sunken: #e2e7ec;
+  --ink: #15202b;
+  --muted: #55626f;
+  --line: #cbd3db;
+  --accent: #0a6a61;
+  --on-accent: #ffffff;
+  --up: #c92a35;
+  --down: #1d5cc0;
+  --flat: #6c7885;
+  --hold: #9a5b00;
+  --display: 'Hahmlet', 'AppleMyungjo', 'Nanum Myeongjo', 'Batang', serif;
+  --body: 'IBM Plex Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', system-ui, sans-serif;
+  --data: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #10151b; --surface: #182028; --sunken: #0b1015; --ink: #e4e9ee; --muted: #98a5b2;
+    --line: #2c3743; --accent: #56c7b8; --on-accent: #06211e;
+    --up: #ff6f73; --down: #73a9ff; --flat: #8d99a6; --hold: #e2a64a;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #10151b; --surface: #182028; --sunken: #0b1015; --ink: #e4e9ee; --muted: #98a5b2;
+  --line: #2c3743; --accent: #56c7b8; --on-accent: #06211e;
+  --up: #ff6f73; --down: #73a9ff; --flat: #8d99a6; --hold: #e2a64a;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--body); font-size: 15px; line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+}
+.wrap {
+  max-width: 1120px; margin: 0 auto;
+  padding-block: 28px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: flex; flex-direction: column; gap: 36px;
+}
+h1, h2, h3, p { margin: 0; }
+h1 { font-family: var(--display); font-weight: 700; font-size: clamp(28px, 5vw, 38px); line-height: 1.2; letter-spacing: -0.01em; text-wrap: balance; }
+h2 { font-family: var(--display); font-weight: 700; font-size: 22px; line-height: 1.3; text-wrap: balance; }
+h3 { font-size: 15px; font-weight: 600; }
+a { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* 머리 */
+.top { display: flex; flex-direction: column; gap: 12px; }
+.eyebrow { font-size: 12.5px; letter-spacing: 0.08em; color: var(--muted); font-weight: 500; }
+.lead { max-width: 62ch; color: var(--muted); }
+.jump { display: flex; flex-wrap: wrap; gap: 8px; }
+.jump a {
+  text-decoration: none; color: var(--ink); font-size: 13.5px; font-weight: 500;
+  border: 1px solid var(--line); background: var(--surface); padding: 5px 12px; border-radius: 3px;
+}
+.jump a:hover { border-color: var(--accent); color: var(--accent); }
+.banner {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px;
+  border: 1px dashed var(--hold); color: var(--ink);
+  background: color-mix(in srgb, var(--hold) 9%, var(--surface));
+  padding: 10px 14px; border-radius: 4px; font-size: 13.5px;
+}
+.banner span { flex: 1 1 260px; min-width: 0; }
+
+/* 계산지 */
+.sheet { display: flex; flex-direction: column; gap: 18px; border-top: 2px solid var(--ink); padding-top: 18px; scroll-margin-top: 12px; }
+.sheet-head { display: flex; flex-direction: column; gap: 4px; }
+.step { font-family: var(--data); font-size: 12px; color: var(--muted); letter-spacing: 0.06em; }
+.sheet-head p { color: var(--muted); max-width: 66ch; }
+.cols { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 28px; align-items: start; }
+.inputs { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+.group { display: flex; flex-direction: column; gap: 10px; }
+.group > h3 { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.group > h3 small { font-weight: 400; color: var(--muted); font-size: 12.5px; }
+.fields { display: grid; grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: 10px 12px; }
+.fields.wide { grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); }
+.field { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.field > span { font-size: 12.5px; color: var(--muted); line-height: 1.35; }
+input, select, button { font: inherit; color: inherit; }
+input[type="text"], input[type="number"], select {
+  width: 100%; min-width: 0;
+  border: 1px solid var(--line); background: var(--surface);
+  padding: 7px 9px; border-radius: 3px; line-height: 1.3;
+}
+input[type="number"], input.num { font-family: var(--data); font-variant-numeric: tabular-nums; font-size: 14px; }
+input[type="number"] { -moz-appearance: textfield; appearance: textfield; }
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+input::placeholder { color: color-mix(in srgb, var(--muted) 60%, var(--surface)); }
+input[aria-invalid="true"] { border-color: var(--up); }
+input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--accent); }
+button {
+  border: 1px solid var(--line); background: var(--surface); padding: 6px 12px; border-radius: 3px;
+  cursor: pointer; font-size: 13.5px; font-weight: 500;
+}
+button:hover { border-color: var(--accent); color: var(--accent); }
+button.primary { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+button.primary:hover { color: var(--on-accent); filter: brightness(1.08); }
+
+/* 판정 */
+.verdict {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 5px;
+  padding: 16px; display: flex; flex-direction: column; gap: 14px; min-width: 0;
+}
+.verdict > h3 { font-size: 12.5px; letter-spacing: 0.06em; color: var(--muted); font-weight: 500; }
+.signals { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.signals li { display: grid; grid-template-columns: 14px minmax(0, 1fr); gap: 4px 10px; align-items: start; }
+.lamp { width: 12px; height: 12px; border-radius: 50%; margin-top: 6px; border: 2px solid var(--flat); background: var(--flat); }
+.lamp.pos { background: var(--up); border-color: var(--up); }
+.lamp.neg { background: var(--down); border-color: var(--down); }
+.lamp.neu { background: var(--flat); border-color: var(--flat); }
+.lamp.unk { background: transparent; border-style: dashed; border-color: var(--flat); }
+.sig-line { display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+.sig-name { font-weight: 600; }
+.tag { font-size: 12.5px; font-weight: 600; padding: 1px 7px; border-radius: 3px; border: 1px solid currentColor; white-space: nowrap; }
+.tag.pos { color: var(--up); }
+.tag.neg { color: var(--down); }
+.tag.neu { color: var(--flat); }
+.tag.unk { color: var(--flat); border-style: dashed; }
+.tag.hold { color: var(--hold); }
+.sig-why { grid-column: 2; font-size: 13px; color: var(--muted); }
+.outcome { border-top: 1px solid var(--line); padding-top: 14px; display: flex; flex-direction: column; gap: 8px; }
+.stamp {
+  align-self: flex-start; font-family: var(--display); font-weight: 700; font-size: 22px; line-height: 1.2;
+  border: 2px solid currentColor; padding: 6px 14px; border-radius: 3px;
+}
+.v-go { color: var(--up); }
+.v-small { color: color-mix(in srgb, var(--up) 62%, var(--ink)); }
+.v-watch { color: var(--ink); }
+.v-out { color: var(--down); }
+.v-hold { color: var(--hold); }
+.outcome p { font-size: 13.5px; color: var(--muted); }
+.figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px 16px; margin: 0; }
+.figures div { display: flex; flex-direction: column; gap: 1px; }
+.figures dt { font-size: 12.5px; color: var(--muted); }
+.figures dd { margin: 0; font-family: var(--data); font-variant-numeric: tabular-nums; font-size: 18px; font-weight: 500; }
+
+/* 종목 표 */
+.toolbar { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: flex-end; }
+.toolbar .field { flex: 0 1 190px; }
+.toolbar .spacer { flex: 1 1 0; }
+.scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 5px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+th, td { padding: 6px 8px; text-align: right; border-bottom: 1px solid var(--line); white-space: nowrap; }
+tbody tr:last-child th, tbody tr:last-child td { border-bottom: 0; }
+thead th { font-weight: 500; color: var(--muted); font-size: 12.5px; background: var(--sunken); vertical-align: bottom; }
+thead tr.groups th { text-align: left; color: var(--ink); font-weight: 600; border-left: 1px solid var(--line); }
+thead tr.groups th:first-child { border-left: 0; }
+thead tr.groups th b { font-family: var(--data); font-weight: 500; color: var(--accent); margin-left: 4px; }
+#stockTable td, #stockTable tbody th { padding: 4px; }
+#stockTable input[type="number"] { width: 76px; padding: 5px 6px; text-align: right; }
+#stockTable select { width: 132px; padding: 5px 6px; font-size: 13px; }
+#stockTable td.chk { text-align: center; }
+#stockTable .namecell { position: sticky; left: 0; background: var(--surface); z-index: 1; text-align: left; border-right: 1px solid var(--line); }
+#stockTable thead .namecell { background: var(--sunken); }
+#stockTable .namecell input { width: 112px; font-weight: 500; }
+#stockTable .gstart { border-left: 1px solid var(--line); }
+button.del { padding: 2px 8px; line-height: 1.4; color: var(--muted); }.table-note { font-size: 13px; color: var(--muted); max-width: 72ch; }
+
+#resultTable th[scope="row"], #resultTable thead th:first-child { text-align: left; }
+#resultTable td { font-family: var(--data); font-variant-numeric: tabular-nums; }
+#resultTable td .sub { display: block; font-family: var(--body); font-size: 12px; color: var(--muted); white-space: normal; max-width: 150px; margin-left: auto; }
+#resultTable td.big { font-size: 15px; font-weight: 500; }
+#resultTable td.txt { font-family: var(--body); text-align: left; white-space: normal; min-width: 150px; }
+.chip { display: inline-block; font-family: var(--body); font-size: 12px; font-weight: 600; padding: 0 6px; border-radius: 3px; border: 1px solid currentColor; margin-left: 6px; vertical-align: 1px; }
+.chip.c-strong { color: var(--up); }
+.chip.c-buy { color: color-mix(in srgb, var(--up) 62%, var(--ink)); }
+.chip.c-mid { color: var(--flat); }
+.chip.c-low { color: var(--down); }
+.chip.c-hold { color: var(--hold); }
+
+.results { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 24px; align-items: start; }
+.results > div { min-width: 0; display: flex; flex-direction: column; gap: 10px; }
+.quad { display: grid; grid-template-columns: auto minmax(0, 1fr) minmax(0, 1fr); gap: 6px; font-size: 13px; }
+.quad .axis { color: var(--muted); font-size: 12px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 2px 4px; }
+.quad .cell { border: 1px solid var(--line); background: var(--surface); border-radius: 4px; padding: 10px; min-height: 84px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.quad .cell b { font-size: 13px; }
+.quad .cell.core { border-color: var(--up); }
+.quad .cell.core b { color: var(--up); }
+.quad .cell.out b { color: var(--down); }
+.quad .names { display: flex; flex-wrap: wrap; gap: 4px; }
+.quad .names span { background: var(--sunken); padding: 1px 7px; border-radius: 3px; font-weight: 500; overflow-wrap: anywhere; }
+.quad .cell small { color: var(--muted); font-size: 12px; }
+.unplaced { font-size: 13px; color: var(--muted); }
+
+details.helper { border: 1px solid var(--line); border-radius: 5px; background: var(--surface); }
+details.helper > summary { cursor: pointer; padding: 11px 14px; font-weight: 600; }
+details.helper > summary small { font-weight: 400; color: var(--muted); margin-left: 6px; }
+.helper-body { padding: 4px 14px 16px; display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 24px; align-items: start; }
+.helper-body > div { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.checkline { display: flex; align-items: center; gap: 8px; font-size: 13.5px; }
+.items { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: 13.5px; }
+.items li { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 6px; }
+.items .mark { font-family: var(--data); font-weight: 500; }
+.items .mark.y { color: var(--up); }
+.items .mark.n { color: var(--down); }
+.items .mark.q { color: var(--flat); }
+.items small { color: var(--muted); display: block; }
+.applyline { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.applyline select { flex: 1 1 140px; width: auto; }
+
+/* 규칙 */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px 28px; }
+.rules div { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.rules p { font-size: 13.5px; color: var(--muted); }
+.fine { font-size: 13px; color: var(--muted); max-width: 72ch; }
+
+@media (max-width: 860px) {
+  .cols, .results, .helper-body { grid-template-columns: minmax(0, 1fr); }
+}
+</style>
+
+<div class="wrap">
+
+<header class="top">
+  <p class="eyebrow">『주도주 투자』 수식 · 직접 입력</p>
+  <h1>주도주 계산기</h1>
+  <p class="lead">섹터가 강한지, 그 안에서 어느 종목이 강한지, 들어갈 만한 손익비인지를 책의 순서대로 계산합니다. 숫자는 직접 넣습니다. 빈칸은 0이 아니라 모름으로 남고, 모르는 항목이 있으면 점수를 내지 않습니다.</p>
+  <nav class="jump" aria-label="바로가기">
+    <a href="#sector">1 섹터 신호</a>
+    <a href="#stocks">2 종목 점수</a>
+    <a href="#gate">3 손익비</a>
+    <a href="#rules">계산 규칙</a>
+  </nav>
+  <p class="banner" id="exampleBanner">
+    <span>지금 들어 있는 숫자는 사용법을 보여 주는 <b>예시</b>입니다. 실제 종목이나 시세가 아닙니다.</span>
+    <button type="button" id="clearAll">전부 비우고 시작</button>
+  </p>
+</header>
+
+<!-- 1 섹터 -->
+<section class="sheet" id="sector" aria-labelledby="h-sector">
+  <div class="sheet-head">
+    <span class="step">1 / 3</span>
+    <h2 id="h-sector">섹터 ETF 세 가지 신호</h2>
+    <p>섹터 ETF를 모멘텀, 펀더멘털, 유동성·수급 세 눈으로 봅니다. 세 신호가 얼마나 일치하는지로 다음 행동을 정합니다.</p>
+  </div>
+  <div class="cols">
+    <div class="inputs">
+      <div class="group">
+        <h3>모멘텀 <small>ETF와 기준지수의 같은 기간 수익률</small></h3>
+        <div class="fields">
+          <label class="field"><span>섹터 이름</span><input type="text" id="sec-name" data-k="sector.name" placeholder="예: 반도체"></label>
+          <label class="field"><span>수익률 기준</span>
+            <select id="sec-basis" data-k="sector.basis"><option value="adjusted">수정주가</option><option value="unadjusted">비수정주가</option></select></label>
+        </div>
+        <div class="fields">
+          <label class="field"><span>ETF 1개월 %</span><input type="number" step="any" id="sec-e1" data-k="sector.e1"></label>
+          <label class="field"><span>ETF 3개월 %</span><input type="number" step="any" id="sec-e3" data-k="sector.e3"></label>
+          <label class="field"><span>ETF 6개월 %</span><input type="number" step="any" id="sec-e6" data-k="sector.e6"></label>
+          <label class="field"><span>지수 1개월 %</span><input type="number" step="any" id="sec-b1" data-k="sector.b1"></label>
+          <label class="field"><span>지수 3개월 %</span><input type="number" step="any" id="sec-b3" data-k="sector.b3"></label>
+          <label class="field"><span>지수 6개월 %</span><input type="number" step="any" id="sec-b6" data-k="sector.b6"></label>
+          <label class="field"><span>최근 1개월 추세</span>
+            <select id="sec-trend" data-k="sector.trend"><option value="">모름</option><option value="yes">유지</option><option value="no">꺾임</option></select></label>
+        </div>
+      </div>
+      <div class="group">
+        <h3>펀더멘털 <small>주가 상승이 이익 개선과 이어지는가</small></h3>
+        <div class="fields wide">
+          <label class="field"><span>섹터 EPS 추정치 변화 %</span><input type="number" step="any" id="sec-eps" data-k="sector.eps" placeholder="모르면 비움"></label>
+          <label class="field"><span>적자기업 비율 변화 %p</span><input type="number" step="any" id="sec-loss" data-k="sector.loss" placeholder="모르면 비움"></label>
+        </div>
+      </div>
+      <div class="group">
+        <h3>유동성·수급 <small>거래대금 증가와 큰 자금의 지속</small></h3>
+        <div class="fields wide">
+          <label class="field"><span>관찰 기간</span>
+            <select id="sec-weeks" data-k="sector.weeks"><option value="2">최근 2주 (10거래일)</option><option value="1">최근 1주 (5거래일)</option></select></label>
+          <label class="field"><span>관찰 기간 하루 평균 거래대금</span><input type="number" step="any" id="sec-tRecent" data-k="sector.tRecent"></label>
+          <label class="field"><span>그 직전 4주 하루 평균 거래대금</span><input type="number" step="any" id="sec-tOld" data-k="sector.tOld"></label>
+          <label class="field"><span>외국인 (관찰 기간, 금액)</span>
+            <select id="sec-foreign" data-k="sector.foreign"><option value="">모름</option><option value="buy">매일 순매수</option><option value="zero">순매도 없음, 0인 날 있음</option><option value="sell">순매도한 날 있음</option></select></label>
+          <label class="field"><span>기관 (관찰 기간, 금액)</span>
+            <select id="sec-inst" data-k="sector.inst"><option value="">모름</option><option value="buy">매일 순매수</option><option value="zero">순매도 없음, 0인 날 있음</option><option value="sell">순매도한 날 있음</option></select></label>
+        </div>
+        <div class="fields wide">
+          <label class="field"><span>순자산(AUM) 변화 (선택)</span><input type="number" step="any" id="sec-dAum" data-k="sector.dAum"></label>
+          <label class="field"><span>그중 가격 상승분 (선택)</span><input type="number" step="any" id="sec-pEff" data-k="sector.pEff"></label>
+        </div>
+      </div>
+    </div>
+    <div class="verdict" aria-live="polite">
+      <h3 id="sec-title">섹터 판정</h3>
+      <ul class="signals" id="sec-signals"></ul>
+      <div class="outcome" id="sec-outcome"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 종목 -->
+<section class="sheet" id="stocks" aria-labelledby="h-stocks">
+  <div class="sheet-head">
+    <span class="step">2 / 3</span>
+    <h2 id="h-stocks">종목 점수와 교차검증</h2>
+    <p>가격과 수급으로 강한 종목을 찾는 COMP, 재무 개선을 보는 F 점수를 따로 계산한 뒤 둘을 겹쳐 봅니다. 점수는 아래 표에 넣은 종목끼리 비교한 순위입니다.</p>
+  </div>
+
+  <div class="toolbar">
+    <label class="field"><span>COMP 시장 국면</span>
+      <select id="compRegime" data-k="compRegime"><option value="neutral">중립</option><option value="growth_bull">성장주 강세</option><option value="high_rate_value">고금리·가치</option><option value="post_crash">급락 후</option></select></label>
+    <label class="field"><span>F 시장 국면</span>
+      <select id="fRegime" data-k="fRegime"><option value="neutral">중립</option><option value="bear_market">약세장</option><option value="bull_market">강세장</option><option value="cost_pressure">비용 압박</option></select></label>
+    <label class="field"><span>주가 기준</span>
+      <select id="priceBasis" data-k="priceBasis"><option value="adjusted">수정주가</option><option value="unadjusted">비수정주가</option></select></label>
+    <span class="spacer"></span>
+    <button type="button" id="addStock" class="primary">종목 추가</button>
+  </div>
+
+  <div class="scroll">
+    <table id="stockTable">
+      <thead>
+        <tr class="groups">
+          <th class="namecell" rowspan="2">종목</th>
+          <th colspan="4">순위 모멘텀 <b id="gw-0"></b></th>
+          <th colspan="2">스마트머니 <b id="gw-1"></b></th>
+          <th colspan="4">가격 모멘텀 <b id="gw-2"></b></th>
+          <th colspan="4">밸류·실적 <b id="gw-3"></b></th>
+          <th colspan="3">재무 F</th>
+          <th rowspan="2" aria-label="줄 지우기"></th>
+        </tr>
+        <tr>
+          <th class="gstart">4주 %</th><th>12주 %</th><th>25주 %</th><th>52주 %</th>
+          <th class="gstart">20일 순매수<br>÷ 시총 %</th><th>외국인<br>보유 %</th>
+          <th class="gstart">5일 %</th><th>20일 %</th><th>60일 %</th><th>52주 고가<br>대비 %</th>
+          <th class="gstart">ROE %</th><th>자본<br>잠식</th><th>이익<br>수익률 %</th><th>영업이익<br>증가 %</th>
+          <th class="gstart">F 원점수<br>0~4</th><th>ΔGPM %p</th><th>업종</th>
+        </tr>
+      </thead>
+      <tbody id="stockBody"></tbody>
+    </table>
+  </div>
+  <p class="table-note">수익률은 모두 %로 넣습니다. 순매수는 수량이 아니라 금액이어야 합니다. 이익수익률은 주당순이익을 주가로 나눈 값입니다. 모르는 칸은 비워 둡니다.</p>
+
+  <details class="helper" id="fHelper">
+    <summary>F 원점수 계산 도우미 <small>재무 숫자 여덟 개로 0~4점을 냅니다</small></summary>
+    <div class="helper-body">
+      <div>
+        <div class="group">
+          <h3>최근 4개 분기 합계 <small>TTM</small></h3>
+          <div class="fields">
+            <label class="field"><span>매출</span><input type="number" step="any" id="fh-cs" data-k="fh.cs"></label>
+            <label class="field"><span>매출원가</span><input type="number" step="any" id="fh-cc" data-k="fh.cc"></label>
+            <label class="field"><span>판매관리비</span><input type="number" step="any" id="fh-cg" data-k="fh.cg"></label>
+            <label class="field"><span>총자산 (기말)</span><input type="number" step="any" id="fh-ca" data-k="fh.ca"></label>
+          </div>
+        </div>
+        <div class="group">
+          <h3>1년 전 같은 4개 분기 합계</h3>
+          <div class="fields">
+            <label class="field"><span>매출</span><input type="number" step="any" id="fh-ps" data-k="fh.ps"></label>
+            <label class="field"><span>매출원가</span><input type="number" step="any" id="fh-pc" data-k="fh.pc"></label>
+            <label class="field"><span>판매관리비</span><input type="number" step="any" id="fh-pg" data-k="fh.pg"></label>
+            <label class="field"><span>총자산 (기말)</span><input type="number" step="any" id="fh-pa" data-k="fh.pa"></label>
+          </div>
+        </div>
+        <div class="group">
+          <label class="checkline"><input type="checkbox" id="fh-fin" data-k="fh.fin"> 금융업 (F 점수 대상에서 뺌)</label>
+          <label class="checkline"><input type="checkbox" id="fh-mat" data-k="fh.mat"> 소재 기업 (현금 조건을 따로 확인)</label>
+          <div class="fields" id="fh-matFields" hidden>
+            <label class="field"><span>영업이익 (최근 TTM)</span><input type="number" step="any" id="fh-op" data-k="fh.op"></label>
+            <label class="field"><span>영업현금흐름 (최근 TTM)</span><input type="number" step="any" id="fh-ocf" data-k="fh.ocf"></label>
+          </div>
+        </div>
+      </div>
+      <div class="verdict" aria-live="polite">
+        <h3>F 원점수</h3>
+        <div id="fh-out"></div>
+        <div class="applyline">
+          <select id="fh-target" aria-label="넣을 종목"></select>
+          <button type="button" id="fh-apply">이 종목에 넣기</button>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <div class="results">
+    <div>
+      <h3>점수표 <span id="basisTag"></span></h3>
+      <div class="scroll">
+        <table id="resultTable">
+          <thead><tr>
+            <th>종목</th><th>순위<br>모멘텀</th><th>스마트<br>머니</th><th>가격<br>모멘텀</th><th>밸류·<br>실적</th><th>COMP</th><th>F 원점수</th><th>F 복합</th>
+          </tr></thead>
+          <tbody id="resultBody"></tbody>
+        </table>
+      </div>
+      <p class="table-note" id="resultNote"></p>
+    </div>
+    <div>
+      <h3>교차검증</h3>
+      <div class="quad" id="quad"></div>
+      <p class="unplaced" id="unplaced"></p>
+    </div>
+  </div>
+</section>
+
+<!-- 3 손익비 -->
+<section class="sheet" id="gate" aria-labelledby="h-gate">
+  <div class="sheet-head">
+    <span class="step">3 / 3</span>
+    <h2 id="h-gate">들어갈 만한 손익비인가</h2>
+    <p>목표가까지 남은 상승 여력을 손절폭과 견줍니다. 책의 기준은 손익비 3 대 1 이상입니다. 목표가는 직접 정해서 넣습니다.</p>
+  </div>
+  <div class="cols">
+    <div class="inputs">
+      <div class="fields wide">
+        <label class="field"><span>현재가 (원)</span><input type="text" class="num" inputmode="decimal" autocomplete="off" id="gate-price" data-k="gate.price"></label>
+        <label class="field"><span>목표가 (원)</span><input type="text" class="num" inputmode="decimal" autocomplete="off" id="gate-target" data-k="gate.target"></label>
+        <label class="field"><span>손절폭 %</span><input type="text" class="num" inputmode="decimal" autocomplete="off" id="gate-stop" data-k="gate.stop"></label>
+      </div>
+    </div>
+    <div class="verdict" aria-live="polite">
+      <h3>손익비 판정</h3>
+      <div id="gate-out"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 규칙 -->
+<section class="sheet" id="rules" aria-labelledby="h-rules">
+  <div class="sheet-head">
+    <h2 id="h-rules">계산 규칙</h2>
+    <p>책에 적힌 숫자와, 책이 정하지 않아 연구용으로 정한 숫자를 구분해 적습니다.</p>
+  </div>
+  <div class="rules">
+    <div><h3>백분위 점수</h3><p>표에 넣은 종목 안에서 순위를 매겨 0~100점으로 바꿉니다. (종목 수 − 순위) ÷ (종목 수 − 1) × 100이며 1위가 100점입니다. 책의 설명식은 종목 수로 나누므로 1위가 100점이 되지 않아, 끝값을 맞춘 연구용 정의를 씁니다. 같은 값은 평균 순위를 줍니다. 값이 있는 종목이 둘보다 적으면 점수를 내지 않습니다.</p></div>
+    <div><h3>COMP</h3><p>순위 모멘텀, 스마트머니, 가격 모멘텀, 밸류·실적 네 축을 국면별 가중치로 더합니다. 중립 국면은 40·30·20·10이고 등급 경계 90·80·65와 함께 책의 숫자입니다. 스마트머니 안에서 순매수 70, 외국인 보유 30으로 나눈 것은 연구용 가정입니다. 책은 선행 PER을 쓰지만 여기서는 지난 실적의 이익수익률로 대신합니다. 네 축 가운데 하나라도 비면 COMP를 내지 않고, 남은 축으로 가중치를 다시 나누지 않습니다.</p></div>
+    <div><h3>F 점수</h3><p>매출 증가, 매출총이익률 개선, 판관비율 하락, 총자산회전율 상승을 각 1점으로 셉니다. F 복합점수는 F 원점수 40, 20일 수익률 30, 60일 수익률 20, ΔGPM 10의 백분위 합입니다. F 4점에 복합 70 이상은 강력매수, 50 이상은 매수, F 3점에 복합 60 이상은 관찰, F 2점 이하는 제외입니다. 이 경계는 책의 표입니다. 그 밖의 조합은 책에 판단이 없습니다.</p></div>
+    <div><h3>교차검증</h3><p>COMP가 강하고 F가 개선이면 핵심 후보, COMP만 강하면 기대 선반영인지 점검, F만 좋으면 진입 시점 확인, 둘 다 약하면 제외입니다. 네 칸의 해석은 책의 표입니다. 강함의 경계를 COMP 80점, F 3점으로 둔 것은 연구용 가정입니다.</p></div>
+    <div><h3>섹터 신호</h3><p>거래대금 20% 이상 증가와 수급 1~2주 지속은 책의 기준입니다. 비교 구간을 직전 4주로 둔 것, 지수보다 낮은 기간이 하나라도 있으면 부정으로 보는 것, 거래대금이 줄거나 순매도한 날이 있으면 부정으로 보는 것은 연구용 정의입니다. 긍정 둘에 부정 하나처럼 책의 표에 없는 조합은 통과시키지 않고 보류합니다.</p></div>
+    <div><h3>손익비</h3><p>손익비 3 대 1은 책의 기준입니다. 필요한 상승 여력을 21%와 손절폭의 3배 가운데 큰 값으로 둔 것은 손절 7%에 3을 곱한 예시에서 나온 가정입니다. 목표가를 구하는 식은 책에 없습니다.</p></div>
+    <div><h3>넣지 않은 것</h3><p>매도 규칙, 생애주기 구분, 포트폴리오 비중 배분은 넣지 않았습니다. 생애주기는 책이 숫자 경계를 주지 않습니다.</p></div>
+  </div>
+  <p class="fine">이 계산기는 주문과 연결되어 있지 않습니다. 책의 분류를 계산해 보여 줄 뿐이며 매수나 매도를 권하는 것이 아닙니다. 입력한 값은 이 브라우저에만 저장됩니다.</p>
+</section>
+
+</div>
+
+<script id="calc-core">
+/* 계산 로직. 화면과 분리된 순수 함수이며 연구 엔진 leader_core.py의 같은 이름 함수를 옮긴 것이다. */
+var LeaderCalc = (function () {
+  'use strict';
+
+  var RULES = {
+    compWeights: {
+      neutral: [0.40, 0.30, 0.20, 0.10],
+      growth_bull: [0.45, 0.30, 0.20, 0.05],
+      high_rate_value: [0.35, 0.25, 0.15, 0.25],
+      post_crash: [0.30, 0.35, 0.15, 0.20]
+    },
+    smartMoneyWeights: [0.7, 0.3],
+    rankDispersionPenalty: 0,
+    compGradeThresholds: [90, 80, 65],
+    fWeights: {
+      neutral: [0.40, 0.30, 0.20, 0.10],
+      bear_market: [0.55, 0.20, 0.15, 0.10],
+      bull_market: [0.30, 0.40, 0.20, 0.10],
+      cost_pressure: [0.40, 0.25, 0.15, 0.20]
+    },
+    fGrade: { strongScore: 70, buyScore: 50, watchScore: 60, strongCore: 4, watchCore: 3, excludeCore: 2 },
+    compStrong: 80,
+    fStrong: 3,
+    minUpsidePct: 21,
+    rewardRiskMultiple: 3,
+    sectorTurnoverRatio: 1.20,
+    sectorComparisonWeeks: 4,
+    sectorFlowWeeks: 2,
+    sectorFlowWeekRange: [1, 2],
+    tradingDaysPerWeek: 5
+  };
+
+  var RANK_KEYS = ['4w', '12w', '25w', '52w'];
+  var PRICE_KEYS = ['5d', '20d', '60d'];
+  var COMP_KEYS = RANK_KEYS.concat(PRICE_KEYS, ['high_ratio', 'flow_ratio', 'foreign_level', 'roe', 'earnings_yield', 'op_growth']);
+  var F_KEYS = ['F_core', 'ret_1m', 'ret_3m', 'delta_gpm_pp'];
+
+  function fin(v) { return (typeof v === 'number' && isFinite(v)) ? v : null; }
+
+  /* 반올림 오차를 모으지 않는 합계 (Shewchuk). 파이썬 fmean과 같은 결과를 내기 위한 것. */
+  function fsum(xs) {
+    var partials = [], n, i, j, x, y, hi, lo, t, total = 0;
+    for (n = 0; n < xs.length; n++) {
+      x = xs[n]; i = 0;
+      for (j = 0; j < partials.length; j++) {
+        y = partials[j];
+        if (Math.abs(x) < Math.abs(y)) { t = x; x = y; y = t; }
+        hi = x + y; lo = y - (hi - x);
+        if (lo) { partials[i++] = lo; }
+        x = hi;
+      }
+      partials.length = i; partials.push(x);
+    }
+    for (j = 0; j < partials.length; j++) { total += partials[j]; }
+    return total;
+  }
+
+  function mean(xs) {
+    var i;
+    if (!xs.length) { return null; }
+    for (i = 0; i < xs.length; i++) { if (xs[i] === null || xs[i] === undefined) { return null; } }
+    return fin(fsum(xs) / xs.length);
+  }
+
+  function pstdev(xs) {
+    var m = fsum(xs) / xs.length, i, sq = [];
+    for (i = 0; i < xs.length; i++) { sq.push((xs[i] - m) * (xs[i] - m)); }
+    return Math.sqrt(fsum(sq) / xs.length);
+  }
+
+  function ratio(a, b) {
+    a = fin(a); b = fin(b);
+    return (a !== null && b !== null && b > 0) ? fin(a / b) : null;
+  }
+
+  function weighted(parts, weights) {
+    var i, total = 0;
+    for (i = 0; i < parts.length; i++) { if (parts[i] === null || parts[i] === undefined) { return null; } }
+    for (i = 0; i < parts.length; i++) { total += parts[i] * weights[i]; }
+    return fin(total);
+  }
+
+  /* 1위가 가장 좋은 내림차순 순위. 결측은 유효 개수에서 뺀다. */
+  function percentRank(values, opts) {
+    opts = opts || {};
+    var mode = opts.mode || 'endpoint_adjusted';
+    var ties = opts.ties || 'average';
+    var higher = opts.higherIsBetter === undefined ? true : opts.higherIsBetter;
+    if ((mode !== 'book_formula' && mode !== 'endpoint_adjusted') || (ties !== 'average' && ties !== 'min')) {
+      throw new Error('unknown percentile/tie mode');
+    }
+    var clean = values.map(fin);
+    var valid = clean.filter(function (v) { return v !== null; });
+    valid.sort(function (a, b) { return higher ? b - a : a - b; });
+    var count = valid.length;
+    var out = clean.map(function () { return null; });
+    if (count >= 2) {
+      clean.forEach(function (v, idx) {
+        if (v === null) { return; }
+        var first = valid.indexOf(v) + 1, same = 0, k;
+        for (k = 0; k < valid.length; k++) { if (valid[k] === v) { same++; } }
+        var rank = ties === 'average' ? first + (same - 1) / 2 : first;
+        var denom = mode === 'book_formula' ? count : count - 1;
+        out[idx] = (count - rank) / denom * 100;
+      });
+    }
+    return out;
+  }
+
+  function compGrade(score) {
+    score = fin(score);
+    if (score === null || score < 0 || score > 100) { return null; }
+    var t = RULES.compGradeThresholds;
+    return score >= t[0] ? 'STRONG_BUY' : score >= t[1] ? 'BUY' : score >= t[2] ? 'HOLD' : 'REVIEW_SELL';
+  }
+
+  /* raws: 종목별 원자료. 키는 COMP_KEYS와 equity_nonpositive. */
+  function computeComp(raws, opts) {
+    opts = opts || {};
+    var regime = opts.regime || 'neutral';
+    var weights = RULES.compWeights[regime];
+    if (!weights) { throw new Error('unknown COMP regime'); }
+    var penalty = opts.penalty === undefined || opts.penalty === null ? RULES.rankDispersionPenalty : fin(opts.penalty);
+    if (penalty === null || penalty < 0) { throw new Error('nonnegative rank dispersion penalty required'); }
+    var ranks = {};
+    COMP_KEYS.forEach(function (key) {
+      ranks[key] = percentRank(raws.map(function (r) {
+        if (key === 'roe' && r.equity_nonpositive === true) { return null; }
+        return r[key];
+      }));
+    });
+    raws.forEach(function (r, i) { if (r.equity_nonpositive === true) { ranks.roe[i] = 0; } });
+    var momentum = [], penalized = [];
+    raws.forEach(function (r, i) {
+      var vals = RANK_KEYS.map(function (k) { return ranks[k][i]; });
+      var m = mean(vals);
+      momentum.push(m);
+      penalized.push(m === null ? null : m - penalty * pstdev(vals));
+    });
+    var momentumRanks = percentRank(momentum), penalizedRanks = percentRank(penalized);
+    var results = raws.map(function (r, i) {
+      var smart = weighted([ranks.flow_ratio[i], ranks.foreign_level[i]], RULES.smartMoneyWeights);
+      var price = mean(PRICE_KEYS.concat(['high_ratio']).map(function (k) { return ranks[k][i]; }));
+      var valuation = mean(['roe', 'earnings_yield', 'op_growth'].map(function (k) { return ranks[k][i]; }));
+      var off = weighted([momentumRanks[i], smart, price, valuation], weights);
+      var on = weighted([penalizedRanks[i], smart, price, valuation], weights);
+      var components = { rank_mom: penalizedRanks[i], rank_mom_without_penalty: momentumRanks[i],
+        smart_money: smart, price_mom: price, valuation: valuation };
+      var pct = {};
+      COMP_KEYS.forEach(function (k) { pct[k] = ranks[k][i]; });
+      var missing = ['rank_mom', 'smart_money', 'price_mom', 'valuation'].filter(function (k) { return components[k] === null; });
+      return { COMP: on, COMP_penalty_off: off, COMP_penalty_on: on, components: components,
+        input_percentiles: pct, grade: compGrade(on), missing_components: missing };
+    });
+    return { regime: regime, weights: weights, rank_dispersion_penalty: penalty, results: results };
+  }
+
+  /* 최근 TTM과 1년 전 TTM 비교. 발생액 조건은 F_core 점수를 바꾸지 않는다. */
+  function fScore(current, previous, opts) {
+    opts = opts || {};
+    var excluded = opts.excludedFinancial === true, material = opts.material === true;
+    var result = { F_core: null, items: { sales: null, gpm: null, sga: null, ato: null },
+      accrual_ok: null, f_raw_book: null, material: material };
+    if (excluded) { result.reason = 'financials_excluded'; return result; }
+    if (!current || !previous) { result.reason = 'TTM_unavailable'; return result; }
+    var metrics = [current, previous].map(function (row) {
+      var sales = fin(row.sales), cogs = fin(row.cogs);
+      return { sales: sales,
+        gpm: (sales !== null && cogs !== null) ? ratio(sales - cogs, sales) : null,
+        sga: ratio(row.sga, sales),
+        ato: ratio(sales, row.assets) };
+    });
+    var now = metrics[0], prior = metrics[1];
+    result.metrics = { current: now, previous: prior };
+    result.delta_gpm_pp = (now.gpm !== null && prior.gpm !== null) ? fin(now.gpm - prior.gpm) : null;
+    var anyMissing = false;
+    ['sales', 'gpm', 'sga', 'ato'].forEach(function (key) {
+      var a = now[key], b = prior[key];
+      if (a === null || b === null) { result.items[key] = null; anyMissing = true; }
+      else { result.items[key] = key === 'sga' ? a < b : a > b; }
+    });
+    if (anyMissing) { result.reason = 'cogs_or_required_financial_input_unavailable'; return result; }
+    result.F_core = ['sales', 'gpm', 'sga', 'ato'].reduce(function (s, k) { return s + (result.items[k] ? 1 : 0); }, 0);
+    var op = fin(current.operating_profit), ocf = fin(current.operating_cashflow);
+    if (material) { result.accrual_ok = (op !== null && ocf !== null) ? (op - ocf < 0) : null; }
+    result.f_raw_book = material
+      ? (result.accrual_ok !== null ? result.F_core + (result.accrual_ok ? 1 : 0) : null)
+      : result.F_core;
+    result.reason = 'evaluated';
+    return result;
+  }
+
+  function validFCore(v) { return typeof v === 'number' && Math.floor(v) === v && v >= 0 && v <= RULES.fGrade.strongCore; }
+
+  function fGrade(fCore, fComp, opts) {
+    opts = opts || {};
+    var material = opts.material === true;
+    var accrual = opts.accrualOk === undefined ? null : opts.accrualOk;
+    var L = RULES.fGrade, score = fin(fComp);
+    if (!validFCore(fCore)) { return null; }
+    if (fCore <= L.excludeCore) { return 'EXCLUDE_REPLACE'; }
+    if (score === null) { return null; }
+    if (score < 0 || score > 100) { throw new Error('F_comp outside 0..100'); }
+    if (fCore === L.strongCore && score >= L.buyScore) {
+      if (material && accrual !== true) { return accrual === false ? 'ACCRUAL_CHECK' : null; }
+      return score >= L.strongScore ? 'STRONG_BUY' : 'BUY';
+    }
+    if (fCore === L.watchCore && score >= L.watchScore) { return 'WATCH'; }
+    return null;
+  }
+
+  /* rows: {F_core, ret_1m, ret_3m, delta_gpm_pp, material, accrual_ok} */
+  function computeFComposite(rows, opts) {
+    opts = opts || {};
+    var regime = opts.regime || 'neutral';
+    var weights = RULES.fWeights[regime];
+    if (!weights) { throw new Error('unknown F regime'); }
+    rows.forEach(function (r) {
+      if (r.F_core !== null && r.F_core !== undefined && !validFCore(r.F_core)) {
+        throw new Error('F_core is the unnormalized discrete 0..4 score');
+      }
+    });
+    var ranks = {};
+    F_KEYS.forEach(function (key) {
+      ranks[key] = percentRank(rows.map(function (r) { return r[key] === undefined ? null : r[key]; }));
+    });
+    var results = rows.map(function (r, i) {
+      var score = weighted(F_KEYS.map(function (k) { return ranks[k][i]; }), weights);
+      var pct = {};
+      F_KEYS.forEach(function (k) { pct[k] = ranks[k][i]; });
+      var core = r.F_core === undefined ? null : r.F_core;
+      return { F_core: core, F_comp: score, percentiles: pct,
+        grade: fGrade(core, score, { material: r.material === true, accrualOk: r.accrual_ok === undefined ? null : r.accrual_ok }) };
+    });
+    return { regime: regime, weights: weights, results: results };
+  }
+
+  function crossValidate(comp, fCore) {
+    comp = fin(comp);
+    if (comp === null || fCore === null || fCore === undefined) { return null; }
+    if (comp < 0 || comp > 100 || !validFCore(fCore)) { throw new Error('COMP 0..100 and discrete F_core 0..4 required'); }
+    if (comp >= RULES.compStrong) { return fCore >= RULES.fStrong ? 'CORE_CANDIDATE' : 'CHECK_OVEREXPECTATION_OR_DECAY'; }
+    return fCore >= RULES.fStrong ? 'WAIT_TIMING' : 'EXCLUDE';
+  }
+
+  /* 십진수 문자열을 10^digits 배의 정수로 바꾼다. 소수 경계를 정확히 비교하기 위한 것. */
+  function parseDecimal(str, digits) {
+    if (typeof str !== 'string') { return null; }
+    var m = /^([+-]?)(\d*)(?:\.(\d*))?$/.exec(str.replace(/,/g, '').trim());
+    if (!m) { return null; }
+    var whole = m[2] || '', frac = m[3] || '';
+    if (whole === '' && frac === '') { return null; }
+    if (frac.length > digits) { return null; }
+    while (frac.length < digits) { frac += '0'; }
+    var v = BigInt((whole || '0') + frac);
+    return m[1] === '-' ? -v : v;
+  }
+
+  /* 상승 여력이 max(21%, 3 × 손절폭) 이상인지. 입력은 문자열, 손절폭은 % 단위. */
+  function riskRewardGate(priceStr, targetStr, stopPctStr) {
+    var D = 12, S = BigInt('1000000000000');
+    var P = parseDecimal(priceStr, D), T = parseDecimal(targetStr, D), L = parseDecimal(stopPctStr, D);
+    if (P === null || T === null || L === null) { return null; }
+    if (P <= BigInt(0)) { return null; }
+    if (!(L > BigInt(0) && L < BigInt(100) * S)) { return { error: 'stop' }; }
+    var need = BigInt(RULES.rewardRiskMultiple) * L, floor = BigInt(RULES.minUpsidePct) * S;
+    var threshold = need > floor ? need : floor;
+    var pass = BigInt(100) * (T - P) * S >= P * threshold;
+    var price = Number(P) / 1e12, target = Number(T) / 1e12, stop = Number(L) / 1e12 / 100;
+    var upside = (target - price) / price;
+    return { pass: pass, upside: upside, reward_to_risk: upside / stop,
+      minimum_upside: Number(threshold) / 1e12 / 100, fixed_stop_loss_pct: stop,
+      target_for_pass: price * (1 + Number(threshold) / 1e12 / 100) };
+  }
+
+  function signalStatus(positive, negative, complete) {
+    return !complete ? 'UNKNOWN' : positive ? 'POSITIVE' : negative ? 'NEGATIVE' : 'NEUTRAL';
+  }
+
+  /* 세 신호. 모름은 중립과 다르고, 빈칸은 0으로 치지 않는다. 거래대금 배열은 오래된 날이 앞. */
+  function evaluateSectorEtf(a) {
+    var recentWeeks = a.recent_weeks === undefined || a.recent_weeks === null ? RULES.sectorFlowWeeks : a.recent_weeks;
+    var comparisonWeeks = a.comparison_weeks === undefined || a.comparison_weeks === null ? RULES.sectorComparisonWeeks : a.comparison_weeks;
+    var lo = RULES.sectorFlowWeekRange[0], hi = RULES.sectorFlowWeekRange[1];
+    var isInt = function (v) { return typeof v === 'number' && Math.floor(v) === v; };
+    if (!isInt(recentWeeks) || recentWeeks < lo || recentWeeks > hi || !isInt(comparisonWeeks) || comparisonWeeks <= 0) {
+      throw new Error('invalid observation/comparison windows');
+    }
+    var days = recentWeeks * RULES.tradingDaysPerWeek, previousDays = comparisonWeeks * RULES.tradingDaysPerWeek;
+    var etf = a.etf_returns || {}, bench = a.benchmark_returns || {};
+    var relative = ['1m', '3m', '6m'].map(function (k) {
+      var e = fin(etf[k]), b = fin(bench[k]);
+      return (e !== null && b !== null) ? fin(e - b) : null;
+    });
+    var priceBasis = a.price_basis === undefined ? 'adjusted' : a.price_basis;
+    var priceOk = priceBasis === 'adjusted' || a.allow_unadjusted === true;
+    var trend = a.trend_1m_unbroken;
+    var allRel = relative.every(function (v) { return v !== null; });
+    var momComplete = priceOk && allRel && typeof trend === 'boolean';
+    var momentum = signalStatus(
+      momComplete && relative.every(function (v) { return v > 0; }) && trend,
+      momComplete && (relative.some(function (v) { return v < 0; }) || trend === false),
+      momComplete);
+    var eps = fin(a.sector_eps_revision), losses = fin(a.loss_company_ratio_change);
+    var fundComplete = eps !== null && losses !== null;
+    var fundamentals = signalStatus(fundComplete && eps > 0 && losses < 0, fundComplete && (eps < 0 || losses > 0), fundComplete);
+    var turnover = (a.turnover_history || []).map(fin);
+    var foreign = (a.foreign_net_buys || []).map(fin);
+    var institution = (a.institutional_net_buys || []).map(fin);
+    var flows = foreign.slice(-days).concat(institution.slice(-days));
+    var complete = turnover.length >= days + previousDays && foreign.length >= days && institution.length >= days &&
+      turnover.slice(-(days + previousDays)).every(function (v) { return v !== null && v >= 0; }) &&
+      flows.every(function (v) { return v !== null; });
+    var turnoverRatio = null;
+    if (complete) {
+      var old = mean(turnover.slice(-(days + previousDays), -days)), recent = mean(turnover.slice(-days));
+      turnoverRatio = ratio(recent, old);
+      complete = turnoverRatio !== null;
+    }
+    var liquidity = signalStatus(
+      complete && turnoverRatio >= RULES.sectorTurnoverRatio && flows.every(function (v) { return v > 0; }),
+      complete && (turnoverRatio < 1 || flows.some(function (v) { return v < 0; })),
+      complete);
+    var signals = { momentum: momentum, fundamentals: fundamentals, liquidity: liquidity };
+    var counts = { POSITIVE: 0, NEGATIVE: 0, NEUTRAL: 0, UNKNOWN: 0 };
+    ['momentum', 'fundamentals', 'liquidity'].forEach(function (k) { counts[signals[k]]++; });
+    var positive = counts.POSITIVE;
+    var action = positive === 3 ? 'ACTIVE_BUY'
+      : (positive === 2 && counts.NEUTRAL === 1) ? 'SMALL_START'
+      : (positive === 1 && !counts.UNKNOWN) ? 'WATCH'
+      : counts.NEGATIVE === 3 ? 'EXCLUDE' : 'UNEVALUATED';
+    var da = fin(a.delta_aum), pe = fin(a.price_effect);
+    return { signals: signals, counts: counts, action: action, turnover_ratio: turnoverRatio,
+      relative_returns: { '1m': relative[0], '3m': relative[1], '6m': relative[2] },
+      recent_weeks: recentWeeks, comparison_weeks: comparisonWeeks,
+      net_inflow: (da !== null && pe !== null) ? fin(da - pe) : null,
+      structure_only: priceBasis !== 'adjusted' };
+  }
+
+  return { RULES: RULES, COMP_KEYS: COMP_KEYS, fin: fin, mean: mean, percentRank: percentRank,
+    compGrade: compGrade, computeComp: computeComp, fScore: fScore, fGrade: fGrade,
+    computeFComposite: computeFComposite, crossValidate: crossValidate,
+    riskRewardGate: riskRewardGate, evaluateSectorEtf: evaluateSectorEtf };
+})();
+</script>
+
+<script id="calc-ui">
+(function () {
+  'use strict';
+  var C = window.LeaderCalc;
+  var STORE = 'leader-calc-v1';
+  var $ = function (id) { return document.getElementById(id); };
+
+  var STOCK_FIELDS = [
+    { k: 'r4w', label: '4주 수익률', g: 1 }, { k: 'r12w', label: '12주 수익률' }, { k: 'r25w', label: '25주 수익률' }, { k: 'r52w', label: '52주 수익률' },
+    { k: 'flow', label: '20일 순매수금액 나누기 시가총액', g: 1 }, { k: 'frgn', label: '외국인 보유비율' },
+    { k: 'r5d', label: '5일 수익률', g: 1 }, { k: 'r20d', label: '20일 수익률' }, { k: 'r60d', label: '60일 수익률' }, { k: 'high', label: '52주 고가 대비' },
+    { k: 'roe', label: 'ROE', g: 1 }, { k: 'imp', label: '자본잠식', t: 'chk' }, { k: 'ey', label: '이익수익률' }, { k: 'opg', label: '영업이익 증가율' },
+    { k: 'fcore', label: 'F 원점수', g: 1, t: 'fcore' }, { k: 'dgpm', label: 'ΔGPM' }, { k: 'acc', label: '업종', t: 'acc' }
+  ];
+  var ACC_OPTIONS = [['general', '일반 기업'], ['ok', '소재 · 현금 충족'], ['bad', '소재 · 현금 미달'], ['unknown', '소재 · 모름']];
+
+  function blankStock(id, name) {
+    var f = {};
+    STOCK_FIELDS.forEach(function (c) { f[c.k] = c.t === 'chk' ? false : c.t === 'acc' ? 'general' : ''; });
+    return { id: id, name: name || '', f: f };
+  }
+  function exampleStock(id, name, v) {
+    var s = blankStock(id, name), keys = ['r4w', 'r12w', 'r25w', 'r52w', 'flow', 'frgn', 'r5d', 'r20d', 'r60d', 'high', 'roe', 'ey', 'opg', 'fcore', 'dgpm'];
+    keys.forEach(function (k, i) { s.f[k] = v[i] === null ? '' : String(v[i]); });
+    return s;
+  }
+  function exampleState() {
+    return {
+      isExample: true, nextId: 6,
+      sector: { name: '예시 섹터', basis: 'adjusted', e1: '6.2', e3: '14.5', e6: '22.0', b1: '2.1', b3: '5.0', b6: '9.3', trend: 'yes',
+        eps: '3.1', loss: '-1.5', weeks: '2', tRecent: '1240', tOld: '950', foreign: 'buy', inst: 'zero', dAum: '', pEff: '' },
+      compRegime: 'neutral', fRegime: 'neutral', priceBasis: 'adjusted',
+      stocks: [
+        exampleStock(1, '예시 가', [18.2, 41.0, 66.5, 120.3, 1.9, 31.5, 6.1, 17.4, 38.9, 98.2, 21.4, 5.2, 48.0, 4, 2.1]),
+        exampleStock(2, '예시 나', [22.5, 35.2, 52.3, 88.0, 2.4, 33.0, 9.3, 21.0, 30.5, 99.1, 14.0, 2.1, 30.0, 2, -0.8]),
+        exampleStock(3, '예시 다', [7.4, 15.8, 28.9, 61.2, 0.6, 24.8, 1.2, 6.8, 14.1, 91.0, 15.2, 6.9, 22.0, 3, 0.9]),
+        exampleStock(4, '예시 라', [-2.1, 3.5, 9.8, 12.4, -0.4, 40.2, -1.5, -0.9, 2.2, 78.5, 12.9, 9.4, 8.1, 2, 1.4]),
+        exampleStock(5, '예시 마', [-6.3, -4.0, -11.2, -20.5, null, 8.9, -3.8, -7.2, -9.9, 61.3, 3.1, 1.0, -15.2, 1, -2.6])
+      ],
+      fh: { cs: '12480', cc: '8610', cg: '1930', ca: '15200', ps: '10950', pc: '7780', pg: '1790', pa: '14100', fin: false, mat: false, op: '', ocf: '' },
+      gate: { price: '52,300', target: '64,000', stop: '7' }
+    };
+  }
+  function emptyState() {
+    return {
+      isExample: false, nextId: 3,
+      sector: { name: '', basis: 'adjusted', e1: '', e3: '', e6: '', b1: '', b3: '', b6: '', trend: '', eps: '', loss: '', weeks: '2', tRecent: '', tOld: '', foreign: '', inst: '', dAum: '', pEff: '' },
+      compRegime: 'neutral', fRegime: 'neutral', priceBasis: 'adjusted',
+      stocks: [blankStock(1, ''), blankStock(2, '')],
+      fh: { cs: '', cc: '', cg: '', ca: '', ps: '', pc: '', pg: '', pa: '', fin: false, mat: false, op: '', ocf: '' },
+      gate: { price: '', target: '', stop: '7' }
+    };
+  }
+  function load() {
+    try {
+      var raw = window.localStorage.getItem(STORE);
+      if (!raw) { return null; }
+      var s = JSON.parse(raw), base = emptyState();
+      if (!s || typeof s !== 'object' || !Array.isArray(s.stocks)) { return null; }
+      ['sector', 'fh', 'gate'].forEach(function (k) {
+        var merged = base[k], src = s[k] || {};
+        Object.keys(merged).forEach(function (f) { if (src[f] !== undefined) { merged[f] = src[f]; } });
+        s[k] = merged;
+      });
+      s.stocks = s.stocks.map(function (r, i) {
+        var b = blankStock(typeof r.id === 'number' ? r.id : i + 1, typeof r.name === 'string' ? r.name : '');
+        Object.keys(b.f).forEach(function (f) { if (r.f && r.f[f] !== undefined) { b.f[f] = r.f[f]; } });
+        return b;
+      });
+      s.nextId = s.stocks.reduce(function (m, r) { return Math.max(m, r.id); }, 0) + 1;
+      ['compRegime', 'fRegime', 'priceBasis'].forEach(function (k) { if (typeof s[k] !== 'string') { s[k] = base[k]; } });
+      s.isExample = s.isExample === true;
+      return s;
+    } catch (e) { return null; }
+  }
+  function save() { try { window.localStorage.setItem(STORE, JSON.stringify(state)); } catch (e) { /* 저장 못 해도 계산은 된다 */ } }
+
+  var state = load() || exampleState();
+
+  function num(s) {
+    if (s === null || s === undefined) { return null; }
+    s = String(s).replace(/,/g, '').trim();
+    if (s === '') { return null; }
+    var v = Number(s);
+    return isFinite(v) ? v : null;
+  }
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; });
+  }
+  function fx(v, d) {
+    if (v === null || v === undefined) { return '–'; }
+    var s = v.toFixed(d === undefined ? 1 : d);
+    return Number(s) === 0 ? s.replace('-', '') : s;
+  }
+  function sg(v, d) { var s = fx(v, d); return (v > 0 && Number(s) !== 0 ? '+' : '') + s; }
+  function won(v) { return Math.round(v).toLocaleString('ko-KR'); }
+  function stockName(r, i) { return r.name.trim() || ('종목 ' + (i + 1)); }
+
+  /* ---------- 섹터 ---------- */
+  var SIG = { POSITIVE: ['긍정', 'pos'], NEGATIVE: ['부정', 'neg'], NEUTRAL: ['중립', 'neu'], UNKNOWN: ['모름', 'unk'] };
+  var ACTION = {
+    ACTIVE_BUY: ['적극 편입 검토', 'v-go', '세 신호가 모두 긍정입니다.'],
+    SMALL_START: ['작게 시작해 확인', 'v-small', '두 신호가 긍정이고 하나가 중립입니다.'],
+    WATCH: ['관찰', 'v-watch', '긍정 신호가 하나입니다.'],
+    EXCLUDE: ['제외', 'v-out', '세 신호가 모두 부정입니다.'],
+    UNEVALUATED: ['판정 보류', 'v-hold', '']
+  };
+  function fill(n, v) { var a = [], i; for (i = 0; i < n; i++) { a.push(v); } return a; }
+  function flowArray(st, days) {
+    if (st === 'buy') { return fill(days, 1); }
+    if (st === 'zero') { var z = fill(days, 1); z[0] = 0; return z; }
+    if (st === 'sell') { var n = fill(days, 1); n[0] = -1; return n; }
+    return [];
+  }
+  function sectorResult() {
+    var s = state.sector, weeks = s.weeks === '1' ? 1 : 2, days = weeks * 5;
+    var tr = num(s.tRecent), to = num(s.tOld);
+    return C.evaluateSectorEtf({
+      etf_returns: { '1m': num(s.e1), '3m': num(s.e3), '6m': num(s.e6) },
+      benchmark_returns: { '1m': num(s.b1), '3m': num(s.b3), '6m': num(s.b6) },
+      trend_1m_unbroken: s.trend === 'yes' ? true : s.trend === 'no' ? false : null,
+      sector_eps_revision: num(s.eps), loss_company_ratio_change: num(s.loss),
+      turnover_history: (tr !== null && to !== null) ? fill(20, to).concat(fill(days, tr)) : [],
+      foreign_net_buys: flowArray(s.foreign, days), institutional_net_buys: flowArray(s.inst, days),
+      recent_weeks: weeks, comparison_weeks: 4,
+      delta_aum: num(s.dAum), price_effect: num(s.pEff),
+      price_basis: s.basis === 'unadjusted' ? 'unadjusted' : 'adjusted', allow_unadjusted: true
+    });
+  }
+  function renderSector() {
+    var s = state.sector, r = sectorResult(), sig = r.signals, rel = r.relative_returns, why = {};
+    var weeksLabel = r.recent_weeks === 1 ? '1주' : '2주';
+
+    if (sig.momentum === 'UNKNOWN') {
+      why.momentum = 'ETF와 지수의 1·3·6개월 수익률 여섯 칸과 최근 1개월 추세를 모두 넣어야 판정합니다.';
+    } else {
+      var gap = '지수 대비 1개월 ' + sg(rel['1m'], 1) + '%p, 3개월 ' + sg(rel['3m'], 1) + '%p, 6개월 ' + sg(rel['6m'], 1) + '%p. ';
+      why.momentum = gap + (sig.momentum === 'POSITIVE' ? '세 기간 모두 지수를 앞서고 최근 1개월도 꺾이지 않았습니다.'
+        : sig.momentum === 'NEGATIVE' ? (s.trend === 'no' ? '최근 1개월 추세가 꺾였습니다.' : '지수보다 뒤진 기간이 있습니다.')
+        : '지수와 같은 기간이 있어 앞선다고 보지 않습니다.');
+    }
+    if (sig.fundamentals === 'UNKNOWN') {
+      why.fundamentals = 'EPS 추정치 변화와 적자기업 비율 변화를 둘 다 넣어야 판정합니다.';
+    } else {
+      why.fundamentals = 'EPS 추정치 ' + sg(num(s.eps), 1) + '%, 적자기업 비율 ' + sg(num(s.loss), 1) + '%p. ' +
+        (sig.fundamentals === 'POSITIVE' ? '추정치가 오르고 적자기업이 줄었습니다.'
+          : sig.fundamentals === 'NEGATIVE' ? '추정치가 내렸거나 적자기업이 늘었습니다.' : '변화가 없는 항목이 있습니다.');
+    }
+    if (sig.liquidity === 'UNKNOWN') {
+      why.liquidity = '거래대금 두 칸과 외국인·기관 수급을 모두 넣어야 판정합니다. 직전 4주 평균은 0보다 커야 합니다.';
+    } else {
+      why.liquidity = '최근 ' + weeksLabel + ' 거래대금이 직전 4주 평균의 ' + fx(r.turnover_ratio, 2) + '배. ' +
+        (sig.liquidity === 'POSITIVE' ? '1.2배 이상이고 외국인과 기관이 매일 순매수했습니다.'
+          : sig.liquidity === 'NEGATIVE' ? (r.turnover_ratio < 1 ? '거래대금이 직전보다 줄었습니다.' : '순매도한 날이 있습니다.')
+          : (r.turnover_ratio < C.RULES.sectorTurnoverRatio ? '1.2배에 못 미칩니다.' : '순매수가 0인 날이 있어 지속으로 보지 않습니다.'));
+    }
+    var names = { momentum: '모멘텀', fundamentals: '펀더멘털', liquidity: '유동성·수급' };
+    $('sec-signals').innerHTML = ['momentum', 'fundamentals', 'liquidity'].map(function (k) {
+      var m = SIG[sig[k]];
+      return '<li><span class="lamp ' + m[1] + '" aria-hidden="true"></span><div class="sig-line"><span class="sig-name">' + names[k] +
+        '</span><span class="tag ' + m[1] + '">' + m[0] + '</span></div><p class="sig-why">' + esc(why[k]) + '</p></li>';
+    }).join('');
+
+    var a = ACTION[r.action], c = r.counts, text = a[2];
+    if (r.action === 'UNEVALUATED') {
+      text = c.UNKNOWN > 0
+        ? '모르는 신호가 ' + c.UNKNOWN + '개 있습니다. 빈칸을 0이나 중립으로 치지 않으므로 판정을 미룹니다.'
+        : '긍정 ' + c.POSITIVE + ', 중립 ' + c.NEUTRAL + ', 부정 ' + c.NEGATIVE + '. 책의 표에 없는 조합이라 통과시키지 않습니다.';
+    }
+    var extra = '';
+    if (r.net_inflow !== null) {
+      extra += '<p>순유입 추정 ' + sg(r.net_inflow, 1) + '. 순자산 변화에서 가격 상승분을 뺀 값입니다.</p>';
+    }
+    if (r.structure_only) {
+      extra += '<p><span class="tag hold">비수정주가</span> 배당이나 분할이 반영되지 않은 수익률입니다. 참고용으로만 봅니다.</p>';
+    }
+    $('sec-title').textContent = (s.name.trim() ? s.name.trim() + ' ' : '') + '섹터 판정';
+    $('sec-outcome').innerHTML = '<span class="stamp ' + a[1] + '">' + a[0] + '</span><p>' + esc(text) + '</p>' + extra;
+  }
+
+  /* ---------- 종목 ---------- */
+  var COMP_GRADE = { STRONG_BUY: ['강력매수 구간', 'c-strong'], BUY: ['매수 구간', 'c-buy'], HOLD: ['보유 구간', 'c-mid'], REVIEW_SELL: ['매도 검토', 'c-low'] };
+  var F_GRADE = { STRONG_BUY: ['강력매수', 'c-strong'], BUY: ['매수', 'c-buy'], WATCH: ['관찰', 'c-mid'], EXCLUDE_REPLACE: ['제외', 'c-low'], ACCRUAL_CHECK: ['현금 확인', 'c-hold'] };
+  var PART_NAME = { rank_mom: '순위 모멘텀', smart_money: '스마트머니', price_mom: '가격 모멘텀', valuation: '밸류·실적' };
+
+  function parseFcore(s) {
+    var v = num(s);
+    if (v === null) { return { value: null, bad: String(s || '').trim() !== '' }; }
+    if (Math.floor(v) !== v || v < 0 || v > 4) { return { value: null, bad: true }; }
+    return { value: v, bad: false };
+  }
+  function rowEmpty(r) {
+    return STOCK_FIELDS.every(function (c) { return c.t === 'chk' || c.t === 'acc' || String(r.f[c.k] || '').trim() === ''; });
+  }
+  function rowEl(r) {
+    var tr = document.createElement('tr');
+    tr.setAttribute('data-id', r.id);
+    var h = '<th scope="row" class="namecell"><input type="text" id="st-' + r.id + '-name" data-row="' + r.id + '" data-f="name" value="' + esc(r.name) + '" placeholder="종목명" aria-label="종목명"></th>';
+    STOCK_FIELDS.forEach(function (c) {
+      var id = 'st-' + r.id + '-' + c.k, cls = c.g ? ' class="gstart' + (c.t === 'chk' ? ' chk' : '') + '"' : (c.t === 'chk' ? ' class="chk"' : '');
+      var common = ' id="' + id + '" data-row="' + r.id + '" data-f="' + c.k + '" aria-label="' + esc(c.label) + '"';
+      if (c.t === 'chk') {
+        h += '<td' + cls + '><input type="checkbox"' + common + (r.f[c.k] ? ' checked' : '') + '></td>';
+      } else if (c.t === 'acc') {
+        h += '<td' + cls + '><select' + common + '>' + ACC_OPTIONS.map(function (o) {
+          return '<option value="' + o[0] + '"' + (r.f[c.k] === o[0] ? ' selected' : '') + '>' + o[1] + '</option>';
+        }).join('') + '</select></td>';
+      } else if (c.t === 'fcore') {
+        h += '<td' + cls + '><input type="number" step="1" min="0" max="4"' + common + ' value="' + esc(r.f[c.k]) + '"></td>';
+      } else {
+        h += '<td' + cls + '><input type="number" step="any"' + common + ' value="' + esc(r.f[c.k]) + '"></td>';
+      }
+    });
+    h += '<td><button type="button" class="del" data-del="' + r.id + '" aria-label="이 줄 지우기">×</button></td>';
+    tr.innerHTML = h;
+    return tr;
+  }
+  function buildRows() {
+    var tb = $('stockBody');
+    tb.innerHTML = '';
+    state.stocks.forEach(function (r) { tb.appendChild(rowEl(r)); });
+  }
+  function fillTargets() {
+    var sel = $('fh-target'), keep = sel.value;
+    sel.innerHTML = state.stocks.map(function (r, i) { return '<option value="' + r.id + '">' + esc(stockName(r, i)) + '</option>'; }).join('');
+    if (keep && state.stocks.some(function (r) { return String(r.id) === keep; })) { sel.value = keep; }
+  }
+  function renderStocks() {
+    var rows = state.stocks;
+    var raws = rows.map(function (r) {
+      var f = r.f;
+      return { '4w': num(f.r4w), '12w': num(f.r12w), '25w': num(f.r25w), '52w': num(f.r52w),
+        '5d': num(f.r5d), '20d': num(f.r20d), '60d': num(f.r60d), high_ratio: num(f.high),
+        flow_ratio: num(f.flow), foreign_level: num(f.frgn),
+        roe: num(f.roe), equity_nonpositive: f.imp === true, earnings_yield: num(f.ey), op_growth: num(f.opg) };
+    });
+    var fcores = rows.map(function (r) { return parseFcore(r.f.fcore); });
+    var frows = rows.map(function (r, i) {
+      return { F_core: fcores[i].value, ret_1m: num(r.f.r20d), ret_3m: num(r.f.r60d), delta_gpm_pp: num(r.f.dgpm),
+        material: r.f.acc !== 'general', accrual_ok: r.f.acc === 'ok' ? true : r.f.acc === 'bad' ? false : null };
+    });
+    var comp = C.computeComp(raws, { regime: state.compRegime });
+    var fc = C.computeFComposite(frows, { regime: state.fRegime });
+
+    comp.weights.forEach(function (w, i) { $('gw-' + i).textContent = Math.round(w * 100); });
+    rows.forEach(function (r, i) {
+      var el = $('st-' + r.id + '-fcore');
+      if (el) { if (fcores[i].bad) { el.setAttribute('aria-invalid', 'true'); } else { el.removeAttribute('aria-invalid'); } }
+    });
+
+    var cells = { CORE_CANDIDATE: [], CHECK_OVEREXPECTATION_OR_DECAY: [], WAIT_TIMING: [], EXCLUDE: [] }, unplaced = [];
+    var allEmpty = rows.every(rowEmpty);
+    var body = rows.map(function (r, i) {
+      var c = comp.results[i], f = fc.results[i], p = c.components, name = stockName(r, i), empty = rowEmpty(r);
+      var compCell;
+      if (c.COMP === null) {
+        compCell = '–<span class="sub">' + (empty ? '입력 전' : c.missing_components.length
+          ? esc(c.missing_components.map(function (k) { return PART_NAME[k]; }).join(', ')) + ' 없음' : '') + '</span>';
+      } else {
+        var g = COMP_GRADE[c.grade];
+        compCell = fx(c.COMP, 1) + '<span class="chip ' + g[1] + '">' + g[0] + '</span>';
+      }
+      var fcompCell;
+      if (f.grade) {
+        var fg = F_GRADE[f.grade];
+        fcompCell = fx(f.F_comp, 1) + '<span class="chip ' + fg[1] + '">' + fg[0] + '</span>';
+      } else if (f.F_comp !== null) {
+        fcompCell = fx(f.F_comp, 1) + '<span class="sub">' + (f.F_core === 4 && frows[i].material ? '소재 현금 조건 모름' : '책에 판단 없음') + '</span>';
+      } else {
+        fcompCell = '–';
+      }
+      var x = C.crossValidate(c.COMP, f.F_core);
+      if (x) { cells[x].push(name); } else if (!empty) { unplaced.push(name + (c.COMP === null ? ' (COMP 없음)' : ' (F 원점수 없음)')); }
+      return '<tr><th scope="row">' + esc(name) + '</th><td>' + fx(p.rank_mom, 1) + '</td><td>' + fx(p.smart_money, 1) + '</td><td>' +
+        fx(p.price_mom, 1) + '</td><td>' + fx(p.valuation, 1) + '</td><td class="big">' + compCell + '</td><td>' +
+        (f.F_core === null ? '–' : f.F_core) + '</td><td class="big">' + fcompCell + '</td></tr>';
+    }).join('');
+    $('resultBody').innerHTML = body || '<tr><td class="txt" colspan="8">종목을 추가하면 점수가 여기에 나옵니다.</td></tr>';
+
+    var note = rows.length < 2
+      ? '종목이 둘 이상이어야 순위를 매길 수 있습니다.'
+      : allEmpty ? '위 표에 숫자를 넣으면 점수가 나옵니다. 종목이 둘 이상이어야 순위를 매길 수 있습니다.'
+      : '점수는 위에 넣은 ' + rows.length + '종목 안에서의 순위입니다. 시장 전체에서의 순위가 아니므로 종목을 더하거나 빼면 점수가 달라집니다.';
+    if (fcores.some(function (x) { return x.bad; })) { note += ' F 원점수는 0부터 4까지의 정수만 받습니다.'; }
+    $('resultNote').textContent = note;
+    $('basisTag').innerHTML = state.priceBasis === 'unadjusted' ? '<span class="tag hold">비수정주가 · 참고용</span>' : '';
+
+    function cell(key, cls, title, hint) {
+      var list = cells[key];
+      return '<div class="cell ' + cls + '"><b>' + title + '</b><div class="names">' +
+        list.map(function (n) { return '<span>' + esc(n) + '</span>'; }).join('') + '</div><small>' + hint + '</small></div>';
+    }
+    $('quad').innerHTML =
+      '<span class="axis"></span><span class="axis">COMP 80 미만</span><span class="axis">COMP 80 이상</span>' +
+      '<span class="axis">F 3점<br>이상</span>' +
+      cell('WAIT_TIMING', '', '진입 시점 확인', '기업은 좋아지는데 가격과 수급이 아직 약함') +
+      cell('CORE_CANDIDATE', 'core', '핵심 후보', '가격과 재무가 함께 강함') +
+      '<span class="axis">F 2점<br>이하</span>' +
+      cell('EXCLUDE', 'out', '제외', '가격도 재무도 근거가 약함') +
+      cell('CHECK_OVEREXPECTATION_OR_DECAY', '', '기대 선반영 점검', '가격은 강한데 재무 개선이 약함');
+    $('unplaced').textContent = unplaced.length ? '자리를 정하지 못한 종목: ' + unplaced.join(', ') : '';
+  }
+
+  /* ---------- F 도우미 ---------- */
+  var fhLast = null;
+  function renderFHelper() {
+    var h = state.fh;
+    $('fh-matFields').hidden = !h.mat;
+    var out = C.fScore(
+      { sales: num(h.cs), cogs: num(h.cc), sga: num(h.cg), assets: num(h.ca), operating_profit: num(h.op), operating_cashflow: num(h.ocf) },
+      { sales: num(h.ps), cogs: num(h.pc), sga: num(h.pg), assets: num(h.pa) },
+      { excludedFinancial: h.fin === true, material: h.mat === true });
+    fhLast = out;
+    var html;
+    if (out.reason === 'financials_excluded') {
+      html = '<span class="stamp v-hold">대상 아님</span><p class="sig-why">금융업은 F 점수를 매기지 않습니다.</p>';
+    } else {
+      var m = out.metrics, pc = function (v) { return v === null ? '모름' : fx(v * 100, 1) + '%'; };
+      var lines = [
+        ['sales', '매출 증가', m.current.sales === null || m.previous.sales === null ? '' : won(m.previous.sales) + ' → ' + won(m.current.sales)],
+        ['gpm', '매출총이익률 개선', pc(m.previous.gpm) + ' → ' + pc(m.current.gpm)],
+        ['sga', '판관비율 하락', pc(m.previous.sga) + ' → ' + pc(m.current.sga)],
+        ['ato', '총자산회전율 상승', (m.previous.ato === null ? '모름' : fx(m.previous.ato, 2)) + ' → ' + (m.current.ato === null ? '모름' : fx(m.current.ato, 2))]
+      ];
+      var list = '<ul class="items">' + lines.map(function (l) {
+        var v = out.items[l[0]];
+        var mark = v === null ? '<span class="mark q">?</span>' : v ? '<span class="mark y">1</span>' : '<span class="mark n">0</span>';
+        return '<li>' + mark + '<div>' + l[1] + '<small>' + esc(l[2]) + '</small></div></li>';
+      }).join('') + '</ul>';
+      var head = out.F_core === null
+        ? '<span class="stamp v-hold">점수 없음</span><p class="sig-why">빈칸이 있어 점수를 내지 않습니다. 물음표가 붙은 항목의 숫자를 채워야 합니다.</p>'
+        : '<dl class="figures"><div><dt>F 원점수</dt><dd>' + out.F_core + ' / 4</dd></div><div><dt>ΔGPM</dt><dd>' + sg(out.delta_gpm_pp * 100, 2) + '%p</dd></div></dl>';
+      var acc = '';
+      if (h.mat && out.F_core !== null) {
+        acc = '<p class="sig-why">소재 현금 조건: ' + (out.accrual_ok === null ? '영업이익과 영업현금흐름을 넣어야 확인합니다.'
+          : out.accrual_ok ? '충족. 영업현금흐름이 영업이익보다 큽니다.' : '미달. 영업현금흐름이 영업이익보다 크지 않습니다.') + '</p>';
+      }
+      html = head + list + acc;
+    }
+    $('fh-out').innerHTML = html;
+    $('fh-apply').disabled = !(out.F_core !== null && state.stocks.length > 0);
+  }
+  function applyFHelper() {
+    if (!fhLast || fhLast.F_core === null) { return; }
+    var id = Number($('fh-target').value), row = null;
+    state.stocks.forEach(function (r) { if (r.id === id) { row = r; } });
+    if (!row) { return; }
+    row.f.fcore = String(fhLast.F_core);
+    row.f.dgpm = String(Math.round(fhLast.delta_gpm_pp * 1e6) / 1e4);
+    row.f.acc = !state.fh.mat ? 'general' : fhLast.accrual_ok === true ? 'ok' : fhLast.accrual_ok === false ? 'bad' : 'unknown';
+    ['fcore', 'dgpm', 'acc'].forEach(function (k) { var el = $('st-' + row.id + '-' + k); if (el) { el.value = row.f[k]; } });
+    renderStocks(); save();
+  }
+
+  /* ---------- 손익비 ---------- */
+  function renderGate() {
+    var g = state.gate, r = C.riskRewardGate(String(g.price), String(g.target), String(g.stop)), html;
+    if (r === null) {
+      html = '<span class="stamp v-hold">계산 전</span><p class="sig-why">현재가, 목표가, 손절폭을 넣으면 계산합니다. 현재가는 0보다 커야 합니다.</p>';
+    } else if (r.error) {
+      html = '<span class="stamp v-hold">손절폭 확인</span><p class="sig-why">손절폭은 0보다 크고 100보다 작은 %여야 합니다.</p>';
+    } else {
+      html = '<span class="stamp ' + (r.pass ? 'v-go' : 'v-out') + '">' + (r.pass ? '기준 충족' : '기준 미달') + '</span>' +
+        '<dl class="figures"><div><dt>상승 여력</dt><dd>' + sg(r.upside * 100, 2) + '%</dd></div>' +
+        '<div><dt>손익비</dt><dd>' + fx(r.reward_to_risk, 2) + ' : 1</dd></div>' +
+        '<div><dt>필요한 상승 여력</dt><dd>' + fx(r.minimum_upside * 100, 2) + '%</dd></div></dl>' +
+        '<p class="sig-why">손절폭 ' + fx(r.fixed_stop_loss_pct * 100, 2) + '%에서 기준을 채우는 목표가는 ' + won(r.target_for_pass) + '원 이상입니다. ' +
+        (r.pass ? '' : '목표가가 여기에 못 미칩니다.') + '</p>';
+    }
+    $('gate-out').innerHTML = html;
+  }
+
+  /* ---------- 묶기 ---------- */
+  function getPath(path) { var p = path.split('.'), o = state; while (p.length > 1) { o = o[p.shift()]; } return [o, p[0]]; }
+  function bindValues() {
+    Array.prototype.forEach.call(document.querySelectorAll('[data-k]'), function (el) {
+      var t = getPath(el.getAttribute('data-k')), v = t[0][t[1]];
+      if (el.type === 'checkbox') { el.checked = v === true; } else { el.value = v === undefined || v === null ? '' : v; }
+    });
+  }
+  function renderAll() {
+    $('exampleBanner').hidden = !state.isExample;
+    renderSector(); renderStocks(); fillTargets(); renderFHelper(); renderGate();
+  }
+
+  document.addEventListener('input', function (e) {
+    var el = e.target, k = el.getAttribute && el.getAttribute('data-k');
+    if (k) {
+      var t = getPath(k);
+      t[0][t[1]] = el.type === 'checkbox' ? el.checked : el.value;
+      if (k.indexOf('sector.') === 0) { renderSector(); }
+      else if (k.indexOf('fh.') === 0) { renderFHelper(); }
+      else if (k.indexOf('gate.') === 0) { renderGate(); }
+      else { renderStocks(); }
+      save(); return;
+    }
+    var rid = el.getAttribute && el.getAttribute('data-row');
+    if (rid) {
+      var f = el.getAttribute('data-f');
+      state.stocks.forEach(function (r) {
+        if (String(r.id) !== rid) { return; }
+        if (f === 'name') { r.name = el.value; } else { r.f[f] = el.type === 'checkbox' ? el.checked : el.value; }
+      });
+      renderStocks();
+      if (f === 'name') { fillTargets(); }
+      save();
+    }
+  });
+  document.addEventListener('change', function (e) {
+    var el = e.target;
+    if (el.tagName === 'SELECT' || el.type === 'checkbox') { el.dispatchEvent(new Event('input', { bubbles: true })); }
+  });
+  document.addEventListener('click', function (e) {
+    var el = e.target, del = el.getAttribute && el.getAttribute('data-del');
+    if (del) {
+      state.stocks = state.stocks.filter(function (r) { return String(r.id) !== del; });
+      buildRows(); renderStocks(); fillTargets(); renderFHelper(); save();
+    }
+  });
+  $('addStock').addEventListener('click', function () {
+    var r = blankStock(state.nextId++, '');
+    state.stocks.push(r);
+    $('stockBody').appendChild(rowEl(r));
+    renderStocks(); fillTargets(); renderFHelper(); save();
+    var first = $('st-' + r.id + '-name');
+    if (first) { first.focus(); }
+  });
+  $('clearAll').addEventListener('click', function () {
+    state = emptyState();
+    bindValues(); buildRows(); renderAll(); save();
+  });
+  $('fh-apply').addEventListener('click', applyFHelper);
+  document.addEventListener('wheel', function () {
+    var a = document.activeElement;
+    if (a && a.type === 'number') { a.blur(); }
+  }, { passive: true });
+
+  bindValues(); buildRows(); renderAll();
+})();
+</script>

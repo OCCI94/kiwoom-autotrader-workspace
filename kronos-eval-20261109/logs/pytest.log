@@ -1,0 +1,23 @@
+Abs diff: 0.25, Rel diff: 7.02944873864908e-07
+.Abs diff: 0.4375, Rel diff: 1.1007954299202538e-06
+.  0%|          | 0/4 [00:00<?, ?it/s] 25%|██▌       | 1/4 [00:00<00:02,  1.03it/s] 50%|█████     | 2/4 [00:01<00:01,  1.04it/s] 75%|███████▌  | 3/4 [00:02<00:00,  1.04it/s]100%|██████████| 4/4 [00:03<00:00,  1.04it/s]100%|██████████| 4/4 [00:03<00:00,  1.04it/s]
+Average MSE: 0.008979011843621265 (Diff vs expected: +1.1843621266008353e-08)
+.  0%|          | 0/4 [00:00<?, ?it/s] 25%|██▌       | 1/4 [00:00<00:01,  1.75it/s] 50%|█████     | 2/4 [00:01<00:01,  1.78it/s] 75%|███████▌  | 3/4 [00:01<00:00,  1.79it/s]100%|██████████| 4/4 [00:02<00:00,  1.79it/s]100%|██████████| 4/4 [00:02<00:00,  1.79it/s]
+Average MSE: 0.0037415073456941172 (Diff vs expected: +5.073456941172803e-07)
+.
+=============================== warnings summary ===============================
+kronos-eval-20261109/venv/lib/python3.12/site-packages/_pytest/python.py:144
+  /Users/tr-oh/Documents/Codex/kronos-eval-20261109/venv/lib/python3.12/site-packages/_pytest/python.py:144: PytestRemovedIn10Warning: Passing a non-Collection iterable to parametrize is deprecated.
+  Test: kronos-eval-20261109/kronos_pkg/tests/test_kronos_regression.py::test_kronos_predictor_mse, argvalues type: zip
+  Please convert to a list or tuple.
+  See https://docs.pytest.org/en/stable/deprecations.html#parametrize-iterators
+    metafunc.parametrize(*marker.args, **marker.kwargs, _param_mark=marker)
+
+kronos-eval-20261109/kronos_pkg/tests/test_kronos_regression.py::test_kronos_predictor_regression[512]
+kronos-eval-20261109/kronos_pkg/tests/test_kronos_regression.py::test_kronos_predictor_regression[512]
+  /Users/tr-oh/Documents/Codex/kronos-eval-20261109/venv/lib/python3.12/site-packages/huggingface_hub/file_download.py:1710: DeprecationWarning: hf_xet.download_files() is deprecated. Use XetSession().new_file_download_group().start_download_file() instead.
+    xet_get(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+4 passed, 3 warnings in 14.76s
+pytest exit=0

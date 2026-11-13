@@ -1,0 +1,2065 @@
+{
+  "schema_version": 1,
+  "tr_id": "kt10001",
+  "source": {
+    "workbook_filename": "키움 REST API 문서.xlsx",
+    "workbook_path": "/Users/tr-oh/Downloads/키움 REST API 문서.xlsx",
+    "sha256": "e0f222561db21f3f033ea2e21fdf1a30bb09f709069d8d311b697e384b8bc3eb",
+    "sheet": "kt10001",
+    "range": "A1:G38",
+    "source_rule": "사용자 제공 Excel 원문을 기준으로 작성. 원문 문자열·필수 여부·형식·길이·설명을 임의 수정하지 않음.",
+    "blank_rule": "명세 본문의 빈 값은 null 및 문서 미기재로 표시. source_cells/source_values에는 원문의 빈 문자열과 null을 구분해 보존.",
+    "merged_ranges": [
+      "A10:B10",
+      "A11:B11",
+      "A12:B12",
+      "A13:B13",
+      "A14:G14",
+      "A15:G15",
+      "A16:G16",
+      "A18:A21",
+      "A1:B1",
+      "A22:A27",
+      "A28:G28",
+      "A2:G2",
+      "A30:A32",
+      "A33:A34",
+      "A35:G35",
+      "A36:G36",
+      "A37:G37",
+      "A38:G38",
+      "A3:G3",
+      "A4:B4",
+      "A5:B5",
+      "A6:B6",
+      "A7:G7",
+      "A8:B8",
+      "A9:B9",
+      "C10:G10",
+      "C11:G11",
+      "C12:G12",
+      "C13:G13",
+      "C4:G4",
+      "C5:G5",
+      "C6:G6",
+      "C8:G8",
+      "C9:G9"
+    ]
+  },
+  "api_info": {
+    "menu_path": {
+      "value": "국내주식 > 주문 > 주식 매도주문(kt10001)",
+      "status": "원문 기재",
+      "source_cell": "C4"
+    },
+    "name": {
+      "value": "주식 매도주문",
+      "status": "원문 기재",
+      "source_cell": "C5"
+    },
+    "id": {
+      "value": "kt10001",
+      "status": "원문 기재",
+      "source_cell": "C6"
+    }
+  },
+  "basic_info": {
+    "method": {
+      "value": "POST",
+      "status": "원문 기재",
+      "source_cell": "C8"
+    },
+    "production_domain": {
+      "value": "https://api.kiwoom.com",
+      "status": "원문 기재",
+      "source_cell": "C9"
+    },
+    "paper_domain": {
+      "value": "https://mockapi.kiwoom.com",
+      "status": "원문 기재",
+      "source_cell": "C10"
+    },
+    "path": {
+      "value": "/api/dostk/ordr",
+      "status": "원문 기재",
+      "source_cell": "C11"
+    },
+    "format": {
+      "value": "JSON",
+      "status": "원문 기재",
+      "source_cell": "C12"
+    },
+    "content_type": {
+      "value": "application/json;charset=UTF-8",
+      "status": "원문 기재",
+      "source_cell": "C13"
+    }
+  },
+  "overview": {
+    "value": "주식 매도 주문을 요청합니다.",
+    "status": "원문 기재",
+    "source_cell": "A15"
+  },
+  "request": {
+    "headers": [
+      {
+        "section": "Header",
+        "source_row": 18,
+        "element": "api-id",
+        "korean_name": "TR명",
+        "type": "String",
+        "required": "Y",
+        "length": "10",
+        "description": "8자리 TR코드, ex) ka00001, usa10099",
+        "not_documented": {},
+        "source_values": {
+          "B18": "api-id",
+          "C18": "TR명",
+          "D18": "String",
+          "E18": "Y",
+          "F18": "10",
+          "G18": "8자리 TR코드, ex) ka00001, usa10099"
+        },
+        "example_value": null,
+        "example_value_status": "문서 미기재"
+      },
+      {
+        "section": "Header",
+        "source_row": 19,
+        "element": "authorization",
+        "korean_name": "접근토큰",
+        "type": "String",
+        "required": "Y",
+        "length": "1000",
+        "description": "토큰 지정시 토큰타입(\"Bearer\") 붙혀서 호출 \n 예) Bearer Egicyx...",
+        "not_documented": {},
+        "source_values": {
+          "B19": "authorization",
+          "C19": "접근토큰",
+          "D19": "String",
+          "E19": "Y",
+          "F19": "1000",
+          "G19": "토큰 지정시 토큰타입(\"Bearer\") 붙혀서 호출 \n 예) Bearer Egicyx..."
+        },
+        "example_value": null,
+        "example_value_status": "문서 미기재"
+      },
+      {
+        "section": "Header",
+        "source_row": 20,
+        "element": "cont-yn",
+        "korean_name": "연속조회여부",
+        "type": "String",
+        "required": "N",
+        "length": "1",
+        "description": "응답 Header의 연속조회여부값이 Y일 경우 다음데이터 요청시 응답 Header의 cont-yn값 세팅",
+        "not_documented": {},
+        "source_values": {
+          "B20": "cont-yn",
+          "C20": "연속조회여부",
+          "D20": "String",
+          "E20": "N",
+          "F20": "1",
+          "G20": "응답 Header의 연속조회여부값이 Y일 경우 다음데이터 요청시 응답 Header의 cont-yn값 세팅"
+        },
+        "example_value": null,
+        "example_value_status": "문서 미기재"
+      },
+      {
+        "section": "Header",
+        "source_row": 21,
+        "element": "next-key",
+        "korean_name": "연속조회키",
+        "type": "String",
+        "required": "N",
+        "length": "50",
+        "description": "응답 Header의 연속조회여부값이 Y일 경우 다음데이터 요청시 응답 Header의 next-key값 세팅",
+        "not_documented": {},
+        "source_values": {
+          "B21": "next-key",
+          "C21": "연속조회키",
+          "D21": "String",
+          "E21": "N",
+          "F21": "50",
+          "G21": "응답 Header의 연속조회여부값이 Y일 경우 다음데이터 요청시 응답 Header의 next-key값 세팅"
+        },
+        "example_value": null,
+        "example_value_status": "문서 미기재"
+      }
+    ],
+    "headers_status": "Header 표의 모든 필드 수록",
+    "body": [
+      {
+        "section": "Body",
+        "source_row": 22,
+        "element": "dmst_stex_tp",
+        "korean_name": "국내거래소구분",
+        "type": "String",
+        "required": "Y",
+        "length": "3",
+        "description": "KRX,NXT,SOR",
+        "not_documented": {},
+        "source_values": {
+          "B22": "dmst_stex_tp",
+          "C22": "국내거래소구분",
+          "D22": "String",
+          "E22": "Y",
+          "F22": "3",
+          "G22": "KRX,NXT,SOR"
+        },
+        "example_value": "KRX",
+        "example_value_status": "원문 예시 기재",
+        "allowed_values": [
+          {
+            "value": "KRX",
+            "source_cell": "G22"
+          },
+          {
+            "value": "NXT",
+            "source_cell": "G22"
+          },
+          {
+            "value": "SOR",
+            "source_cell": "G22"
+          }
+        ]
+      },
+      {
+        "section": "Body",
+        "source_row": 23,
+        "element": "stk_cd",
+        "korean_name": "종목코드",
+        "type": "String",
+        "required": "Y",
+        "length": "12",
+        "description": "종목코드 6자리",
+        "not_documented": {},
+        "source_values": {
+          "B23": "stk_cd",
+          "C23": "종목코드",
+          "D23": "String",
+          "E23": "Y",
+          "F23": "12",
+          "G23": "종목코드 6자리"
+        },
+        "example_value": "005930",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 24,
+        "element": "ord_qty",
+        "korean_name": "주문수량",
+        "type": "String",
+        "required": "Y",
+        "length": "12",
+        "description": "단위: 1주",
+        "not_documented": {},
+        "source_values": {
+          "B24": "ord_qty",
+          "C24": "주문수량",
+          "D24": "String",
+          "E24": "Y",
+          "F24": "12",
+          "G24": "단위: 1주"
+        },
+        "example_value": "1",
+        "example_value_status": "원문 예시 기재",
+        "unit": "1주",
+        "unit_source_cell": "G24"
+      },
+      {
+        "section": "Body",
+        "source_row": 25,
+        "element": "ord_uv",
+        "korean_name": "주문단가",
+        "type": "String",
+        "required": "N",
+        "length": "12",
+        "description": "단위: 원",
+        "not_documented": {},
+        "source_values": {
+          "B25": "ord_uv",
+          "C25": "주문단가",
+          "D25": "String",
+          "E25": "N",
+          "F25": "12",
+          "G25": "단위: 원"
+        },
+        "example_value": "",
+        "example_value_status": "원문 예시 기재",
+        "unit": "원",
+        "unit_source_cell": "G25"
+      },
+      {
+        "section": "Body",
+        "source_row": 26,
+        "element": "trde_tp",
+        "korean_name": "매매구분",
+        "type": "String",
+        "required": "Y",
+        "length": "2",
+        "description": "0:보통, 3:시장가, 5:조건부지정가, 81:장마감후시간외, 61:장시작전시간외, 6:최유리지정가, 7:최우선지정가, 10:보통(IOC), 13:시장가(IOC), 16:최유리(IOC), 20:보통(FOK), 23:시장가(FOK), 26:최유리(FOK), 28:스톱지정가, 29:중간가, 30:중간가(IOC), 31:중간가(FOK), 40:보통(GTP), 46:최유리(GTP), 47:최우선(GTP)",
+        "not_documented": {},
+        "source_values": {
+          "B26": "trde_tp",
+          "C26": "매매구분",
+          "D26": "String",
+          "E26": "Y",
+          "F26": "2",
+          "G26": "0:보통, 3:시장가, 5:조건부지정가, 81:장마감후시간외, 61:장시작전시간외, 6:최유리지정가, 7:최우선지정가, 10:보통(IOC), 13:시장가(IOC), 16:최유리(IOC), 20:보통(FOK), 23:시장가(FOK), 26:최유리(FOK), 28:스톱지정가, 29:중간가, 30:중간가(IOC), 31:중간가(FOK), 40:보통(GTP), 46:최유리(GTP), 47:최우선(GTP)"
+        },
+        "example_value": "3",
+        "example_value_status": "원문 예시 기재",
+        "allowed_values": [
+          {
+            "value": "0",
+            "label": "보통",
+            "source_cell": "G26"
+          },
+          {
+            "value": "3",
+            "label": "시장가",
+            "source_cell": "G26"
+          },
+          {
+            "value": "5",
+            "label": "조건부지정가",
+            "source_cell": "G26"
+          },
+          {
+            "value": "81",
+            "label": "장마감후시간외",
+            "source_cell": "G26"
+          },
+          {
+            "value": "61",
+            "label": "장시작전시간외",
+            "source_cell": "G26"
+          },
+          {
+            "value": "6",
+            "label": "최유리지정가",
+            "source_cell": "G26"
+          },
+          {
+            "value": "7",
+            "label": "최우선지정가",
+            "source_cell": "G26"
+          },
+          {
+            "value": "10",
+            "label": "보통(IOC)",
+            "source_cell": "G26"
+          },
+          {
+            "value": "13",
+            "label": "시장가(IOC)",
+            "source_cell": "G26"
+          },
+          {
+            "value": "16",
+            "label": "최유리(IOC)",
+            "source_cell": "G26"
+          },
+          {
+            "value": "20",
+            "label": "보통(FOK)",
+            "source_cell": "G26"
+          },
+          {
+            "value": "23",
+            "label": "시장가(FOK)",
+            "source_cell": "G26"
+          },
+          {
+            "value": "26",
+            "label": "최유리(FOK)",
+            "source_cell": "G26"
+          },
+          {
+            "value": "28",
+            "label": "스톱지정가",
+            "source_cell": "G26"
+          },
+          {
+            "value": "29",
+            "label": "중간가",
+            "source_cell": "G26"
+          },
+          {
+            "value": "30",
+            "label": "중간가(IOC)",
+            "source_cell": "G26"
+          },
+          {
+            "value": "31",
+            "label": "중간가(FOK)",
+            "source_cell": "G26"
+          },
+          {
+            "value": "40",
+            "label": "보통(GTP)",
+            "source_cell": "G26"
+          },
+          {
+            "value": "46",
+            "label": "최유리(GTP)",
+            "source_cell": "G26"
+          },
+          {
+            "value": "47",
+            "label": "최우선(GTP)",
+            "source_cell": "G26"
+          }
+        ]
+      },
+      {
+        "section": "Body",
+        "source_row": 27,
+        "element": "cond_uv",
+        "korean_name": "조건단가",
+        "type": "String",
+        "required": "N",
+        "length": "12",
+        "description": "단위: 원",
+        "not_documented": {},
+        "source_values": {
+          "B27": "cond_uv",
+          "C27": "조건단가",
+          "D27": "String",
+          "E27": "N",
+          "F27": "12",
+          "G27": "단위: 원"
+        },
+        "example_value": "",
+        "example_value_status": "원문 예시 기재",
+        "unit": "원",
+        "unit_source_cell": "G27"
+      }
+    ],
+    "header_example": null,
+    "header_example_status": "문서 미기재: Request Example은 Body JSON만 포함",
+    "body_example": {
+      "source_cell": "A36",
+      "original_text": "{\n    \"dmst_stex_tp\": \"KRX\",\n    \"stk_cd\": \"005930\",\n    \"ord_qty\": \"1\",\n    \"ord_uv\": \"\",\n    \"trde_tp\": \"3\",\n    \"cond_uv\": \"\"\n}",
+      "original_json_valid": true,
+      "original_parse_error": null,
+      "parsed_original": {
+        "dmst_stex_tp": "KRX",
+        "stk_cd": "005930",
+        "ord_qty": "1",
+        "ord_uv": "",
+        "trde_tp": "3",
+        "cond_uv": ""
+      }
+    }
+  },
+  "response": {
+    "headers": [
+      {
+        "section": "Header",
+        "source_row": 30,
+        "element": "api-id",
+        "korean_name": "TR명",
+        "type": "String",
+        "required": "Y",
+        "length": "10",
+        "description": "8자리 TR코드, ex) ka00001, usa10099",
+        "not_documented": {},
+        "source_values": {
+          "B30": "api-id",
+          "C30": "TR명",
+          "D30": "String",
+          "E30": "Y",
+          "F30": "10",
+          "G30": "8자리 TR코드, ex) ka00001, usa10099"
+        },
+        "example_value": null,
+        "example_value_status": "문서 미기재"
+      },
+      {
+        "section": "Header",
+        "source_row": 31,
+        "element": "cont-yn",
+        "korean_name": "연속조회여부",
+        "type": "String",
+        "required": "N",
+        "length": "1",
+        "description": "다음 데이터가 있을시 Y값 전달",
+        "not_documented": {},
+        "source_values": {
+          "B31": "cont-yn",
+          "C31": "연속조회여부",
+          "D31": "String",
+          "E31": "N",
+          "F31": "1",
+          "G31": "다음 데이터가 있을시 Y값 전달"
+        },
+        "example_value": null,
+        "example_value_status": "문서 미기재"
+      },
+      {
+        "section": "Header",
+        "source_row": 32,
+        "element": "next-key",
+        "korean_name": "연속조회키",
+        "type": "String",
+        "required": "N",
+        "length": "50",
+        "description": "다음 데이터가 있을시 다음 키값 전달",
+        "not_documented": {},
+        "source_values": {
+          "B32": "next-key",
+          "C32": "연속조회키",
+          "D32": "String",
+          "E32": "N",
+          "F32": "50",
+          "G32": "다음 데이터가 있을시 다음 키값 전달"
+        },
+        "example_value": null,
+        "example_value_status": "문서 미기재"
+      }
+    ],
+    "headers_status": "Header 표의 모든 필드 수록",
+    "body": [
+      {
+        "section": "Body",
+        "source_row": 33,
+        "element": "ord_no",
+        "korean_name": "주문번호",
+        "type": "String",
+        "required": "N",
+        "length": "7",
+        "description": "7자리 주문번호",
+        "not_documented": {},
+        "source_values": {
+          "B33": "ord_no",
+          "C33": "주문번호",
+          "D33": "String",
+          "E33": "N",
+          "F33": "7",
+          "G33": "7자리 주문번호"
+        },
+        "example_value": "0000138",
+        "example_value_status": "원문 예시 기재"
+      },
+      {
+        "section": "Body",
+        "source_row": 34,
+        "element": "dmst_stex_tp",
+        "korean_name": "국내거래소구분",
+        "type": "String",
+        "required": "N",
+        "length": "6",
+        "description": "KRX, NXT, SOR",
+        "not_documented": {},
+        "source_values": {
+          "B34": "dmst_stex_tp",
+          "C34": "국내거래소구분",
+          "D34": "String",
+          "E34": "N",
+          "F34": "6",
+          "G34": "KRX, NXT, SOR"
+        },
+        "example_value": "KRX",
+        "example_value_status": "원문 예시 기재",
+        "allowed_values": [
+          {
+            "value": "KRX",
+            "source_cell": "G34"
+          },
+          {
+            "value": "NXT",
+            "source_cell": "G34"
+          },
+          {
+            "value": "SOR",
+            "source_cell": "G34"
+          }
+        ]
+      }
+    ],
+    "fields_in_example_only": [
+      {
+        "element": "return_code",
+        "example_value": 0,
+        "observed_json_type": "number",
+        "type": null,
+        "required": null,
+        "length": null,
+        "description": null,
+        "specification_status": "문서 미기재: 응답 예시에만 있고 응답 필드 표에는 없음",
+        "source_cell": "A38"
+      },
+      {
+        "element": "return_msg",
+        "example_value": "매도주문이 완료되었습니다.",
+        "observed_json_type": "string",
+        "type": null,
+        "required": null,
+        "length": null,
+        "description": null,
+        "specification_status": "문서 미기재: 응답 예시에만 있고 응답 필드 표에는 없음",
+        "source_cell": "A38"
+      }
+    ],
+    "header_example": null,
+    "header_example_status": "문서 미기재: Response Example은 Body JSON만 포함",
+    "body_example": {
+      "source_cell": "A38",
+      "original_text": "{\n    \"ord_no\": \"0000138\",\n    \"dmst_stex_tp\": \"KRX\",\n    \"return_code\": 0,\n    \"return_msg\": \"매도주문이 완료되었습니다.\"\n}",
+      "original_json_valid": true,
+      "original_parse_error": null,
+      "parsed_original": {
+        "ord_no": "0000138",
+        "dmst_stex_tp": "KRX",
+        "return_code": 0,
+        "return_msg": "매도주문이 완료되었습니다."
+      }
+    }
+  },
+  "usage": {
+    "basis": "아래 순서는 원문 기본정보·필드 설명·예시를 조합한 사용 안내이며 원문에 없는 서버 동작을 추가하지 않음.",
+    "urls": {
+      "production": "https://api.kiwoom.com/api/dostk/ordr",
+      "paper": "https://mockapi.kiwoom.com/api/dostk/ordr",
+      "derivation": "C9/C10 도메인과 C11 URL을 결합"
+    },
+    "steps": [
+      {
+        "step": 1,
+        "text": "사용할 환경의 도메인과 /api/dostk/ordr를 결합합니다. POST와 application/json;charset=UTF-8을 사용합니다.",
+        "source_cells": [
+          "C8",
+          "C9",
+          "C10",
+          "C11",
+          "C12",
+          "C13"
+        ]
+      },
+      {
+        "step": 2,
+        "text": "필수 Header api-id에는 이 TR의 ID kt10001를, authorization에는 Bearer 접두사를 붙인 접근토큰을 넣습니다.",
+        "source_cells": [
+          "C6",
+          "B18",
+          "E18",
+          "B19",
+          "E19",
+          "G19"
+        ]
+      },
+      {
+        "step": 3,
+        "text": "필수 String Body 필드 dmst_stex_tp, stk_cd, ord_qty, trde_tp를 입력합니다. 거래소 열거값은 KRX, NXT, SOR이며 주문수량 단위는 1주입니다.",
+        "source_cells": [
+          "B22:G24",
+          "B26:G26"
+        ]
+      },
+      {
+        "step": 4,
+        "text": "주문단가 ord_uv와 조건단가 cond_uv는 표에서 Required N이며 단위는 원입니다. 주문 종류별 필수 전환·생략·빈 문자열 규칙은 이 시트에 정의되지 않았습니다.",
+        "source_cells": [
+          "B25:G25",
+          "B27:G27"
+        ]
+      },
+      {
+        "step": 5,
+        "text": "trde_tp는 매매구분 표의 20개 코드 중 해당 값을 사용합니다. 원본 요청 예시는 KRX, 종목 005930, 수량 1, 시장가 코드 3이며 ord_uv와 cond_uv는 빈 문자열입니다.",
+        "source_cells": [
+          "G26",
+          "A36"
+        ]
+      },
+      {
+        "step": 6,
+        "text": "응답의 주문번호 ord_no와 국내거래소구분 dmst_stex_tp를 확인합니다. 응답 예시의 반환 코드·메시지와 주문번호가 실제 체결 완료를 뜻하는지는 이 시트에 정의되지 않았습니다.",
+        "source_cells": [
+          "B33:G34",
+          "A38"
+        ]
+      }
+    ]
+  },
+  "order_options": {
+    "field": "trde_tp",
+    "source_cell": "G26",
+    "original_description": "0:보통, 3:시장가, 5:조건부지정가, 81:장마감후시간외, 61:장시작전시간외, 6:최유리지정가, 7:최우선지정가, 10:보통(IOC), 13:시장가(IOC), 16:최유리(IOC), 20:보통(FOK), 23:시장가(FOK), 26:최유리(FOK), 28:스톱지정가, 29:중간가, 30:중간가(IOC), 31:중간가(FOK), 40:보통(GTP), 46:최유리(GTP), 47:최우선(GTP)",
+    "count": 20,
+    "allowed_values": [
+      {
+        "value": "0",
+        "label": "보통",
+        "source_cell": "G26"
+      },
+      {
+        "value": "3",
+        "label": "시장가",
+        "source_cell": "G26"
+      },
+      {
+        "value": "5",
+        "label": "조건부지정가",
+        "source_cell": "G26"
+      },
+      {
+        "value": "81",
+        "label": "장마감후시간외",
+        "source_cell": "G26"
+      },
+      {
+        "value": "61",
+        "label": "장시작전시간외",
+        "source_cell": "G26"
+      },
+      {
+        "value": "6",
+        "label": "최유리지정가",
+        "source_cell": "G26"
+      },
+      {
+        "value": "7",
+        "label": "최우선지정가",
+        "source_cell": "G26"
+      },
+      {
+        "value": "10",
+        "label": "보통(IOC)",
+        "source_cell": "G26"
+      },
+      {
+        "value": "13",
+        "label": "시장가(IOC)",
+        "source_cell": "G26"
+      },
+      {
+        "value": "16",
+        "label": "최유리(IOC)",
+        "source_cell": "G26"
+      },
+      {
+        "value": "20",
+        "label": "보통(FOK)",
+        "source_cell": "G26"
+      },
+      {
+        "value": "23",
+        "label": "시장가(FOK)",
+        "source_cell": "G26"
+      },
+      {
+        "value": "26",
+        "label": "최유리(FOK)",
+        "source_cell": "G26"
+      },
+      {
+        "value": "28",
+        "label": "스톱지정가",
+        "source_cell": "G26"
+      },
+      {
+        "value": "29",
+        "label": "중간가",
+        "source_cell": "G26"
+      },
+      {
+        "value": "30",
+        "label": "중간가(IOC)",
+        "source_cell": "G26"
+      },
+      {
+        "value": "31",
+        "label": "중간가(FOK)",
+        "source_cell": "G26"
+      },
+      {
+        "value": "40",
+        "label": "보통(GTP)",
+        "source_cell": "G26"
+      },
+      {
+        "value": "46",
+        "label": "최유리(GTP)",
+        "source_cell": "G26"
+      },
+      {
+        "value": "47",
+        "label": "최우선(GTP)",
+        "source_cell": "G26"
+      }
+    ],
+    "term_definitions": {
+      "IOC": {
+        "value": null,
+        "status": "이 시트에는 약어의 정의·체결/취소 동작 미기재",
+        "source_cell": "G26"
+      },
+      "FOK": {
+        "value": null,
+        "status": "이 시트에는 약어의 정의·체결/취소 동작 미기재",
+        "source_cell": "G26"
+      },
+      "GTP": {
+        "value": null,
+        "status": "이 시트에는 약어의 정의·체결/취소 동작 미기재",
+        "source_cell": "G26"
+      }
+    },
+    "availability_by_exchange": null,
+    "availability_by_environment": null,
+    "availability_by_session": null,
+    "conditional_price_rules": null,
+    "availability_status": "거래소·실전/모의·장 시간별 옵션 사용 가능 여부와 cond_uv 연계 규칙은 이 시트에 미기재"
+  },
+  "pagination": {
+    "documented": true,
+    "status": "Header 설명에 일반적인 연속조회 방법 기재",
+    "request_cont_yn": {
+      "description": "응답 Header의 연속조회여부값이 Y일 경우 다음데이터 요청시 응답 Header의 cont-yn값 세팅",
+      "source_cell": "G20"
+    },
+    "request_next_key": {
+      "description": "응답 Header의 연속조회여부값이 Y일 경우 다음데이터 요청시 응답 Header의 next-key값 세팅",
+      "source_cell": "G21"
+    },
+    "response_cont_yn": {
+      "description": "다음 데이터가 있을시 Y값 전달",
+      "source_cell": "G31"
+    },
+    "response_next_key": {
+      "description": "다음 데이터가 있을시 다음 키값 전달",
+      "source_cell": "G32"
+    },
+    "first_request_defaults": null,
+    "page_size": null,
+    "maximum_pages": null,
+    "missing_rules_status": "최초 요청 기본값·페이지 크기·최대 페이지 수·주문 응답에서의 실제 적용 조건은 문서 미기재. 연속조회 표기만으로 주문 재전송 안전성을 추론하지 않음."
+  },
+  "success_and_errors": {
+    "success_example": {
+      "return_code": 0,
+      "return_msg": "매도주문이 완료되었습니다.",
+      "source_cell": "A38",
+      "status": "응답 예시에서 확인한 값. 모든 성공 조건을 정의한 규칙은 문서 미기재."
+    },
+    "http_success_status": null,
+    "http_success_status_status": "문서 미기재",
+    "error_example": null,
+    "error_codes": null,
+    "error_conditions": null,
+    "error_status": "이 TR 시트에는 오류 예시·오류 조건·오류 코드 명세 미기재. 다른 시트의 규칙을 이 파일에 추가하지 않음."
+  },
+  "document_notes": [
+    {
+      "text": "토큰 지정시 토큰타입(\"Bearer\") 붙혀서 호출 \n 예) Bearer Egicyx...",
+      "source_cell": "G19"
+    },
+    {
+      "text": "KRX,NXT,SOR",
+      "source_cell": "G22"
+    },
+    {
+      "text": "단위: 1주",
+      "source_cell": "G24"
+    },
+    {
+      "text": "단위: 원",
+      "source_cell": "G25"
+    },
+    {
+      "text": "0:보통, 3:시장가, 5:조건부지정가, 81:장마감후시간외, 61:장시작전시간외, 6:최유리지정가, 7:최우선지정가, 10:보통(IOC), 13:시장가(IOC), 16:최유리(IOC), 20:보통(FOK), 23:시장가(FOK), 26:최유리(FOK), 28:스톱지정가, 29:중간가, 30:중간가(IOC), 31:중간가(FOK), 40:보통(GTP), 46:최유리(GTP), 47:최우선(GTP)",
+      "source_cell": "G26"
+    },
+    {
+      "text": "단위: 원",
+      "source_cell": "G27"
+    },
+    {
+      "text": "7자리 주문번호",
+      "source_cell": "G33"
+    },
+    {
+      "text": "KRX, NXT, SOR",
+      "source_cell": "G34"
+    }
+  ],
+  "ambiguities_and_example_limits": [
+    {
+      "topic": "주문번호 예시 길이",
+      "source_cells": [
+        "F33",
+        "G33",
+        "A38"
+      ],
+      "detail": "kt10001의 예시 0000138은 7자리로 표 설명과 일치합니다. 응답 예시는 유효한 JSON이어서 별도 교정본을 만들지 않았습니다."
+    },
+    {
+      "topic": "api-id 자릿수 설명",
+      "source_cells": [
+        "C6",
+        "G18",
+        "G30"
+      ],
+      "detail": "표 설명은 8자리 TR코드라고 적혀 있으나 이 시트 ID kt10001는 7자입니다. 원문 설명과 ID를 모두 유지했습니다."
+    },
+    {
+      "topic": "주문가격·조건가격",
+      "source_cells": [
+        "E25",
+        "G25",
+        "E27",
+        "G27",
+        "G26",
+        "A36"
+      ],
+      "detail": "ord_uv와 cond_uv는 선택 항목이며 요청 예시는 시장가의 빈 문자열입니다. 다른 매매구분에 대한 가격 필수 조건, 호가 단위, 허용 범위와 조건단가의 의미는 미기재입니다."
+    },
+    {
+      "topic": "옵션의 이름과 동작",
+      "source_cell": "G26",
+      "detail": "열거 이름만 보존합니다. IOC·FOK·GTP의 동작, 스톱지정가·중간가의 구체 조건, 거래소·환경별 지원 범위를 임의로 추가하지 않습니다."
+    },
+    {
+      "topic": "반환 코드와 체결 여부",
+      "source_cell": "A38",
+      "detail": "return_code와 return_msg는 예시에만 있으며 표에서 타입·필수 여부·길이·성공 판정 규칙을 정의하지 않습니다. 주문 접수와 체결의 구분, 체결 조회 방법도 이 시트에는 없습니다."
+    }
+  ],
+  "not_documented": {
+    "rate_limit": null,
+    "rate_limit_status": "문서 미기재",
+    "timeout": null,
+    "timeout_status": "문서 미기재",
+    "retry_policy": null,
+    "retry_policy_status": "문서 미기재",
+    "length_unit": null,
+    "length_unit_status": "Length 수치의 단위가 byte인지 문자 수인지는 문서 미기재",
+    "field_type_semantics": null,
+    "field_type_semantics_status": "String의 구체적 인코딩·null/빈 문자열 처리 규칙은 문서 미기재",
+    "order_trading_hours": null,
+    "order_trading_hours_status": "문서 미기재",
+    "price_tick_size": null,
+    "price_tick_size_status": "문서 미기재",
+    "quantity_limits": null,
+    "quantity_limits_status": "문서 미기재",
+    "order_idempotency": null,
+    "order_idempotency_status": "중복 주문 방지·타임아웃 이후 재시도 규칙 문서 미기재"
+  },
+  "implementation_choices": {
+    "status": "프로젝트 구현 규칙은 문서 명세와 별개이며 이 파일에서는 강제하지 않음",
+    "environment_policy": null,
+    "order_confirmation_policy": null,
+    "supported_command_options": null,
+    "numeric_parsing": null,
+    "retry_policy": null,
+    "notes": "프로젝트가 허용할 주문 옵션·환경·입력 검증·확인 절차는 별도 구현 사항입니다. 이 문서는 코드의 활성화 상태나 실제 주문 실행을 뜻하지 않습니다."
+  },
+  "references": {
+    "links": [
+      {
+        "cell": "A1",
+        "value": "◀ API 리스트 이동",
+        "hyperlink": {
+          "target": "#'API 리스트'!A1",
+          "location": null,
+          "display": null,
+          "tooltip": null
+        }
+      }
+    ],
+    "referenced_sheets_checked": [],
+    "referenced_sheets_status": "이번 작성 범위는 kt10000·kt10001 전체 시트입니다. 목록 이동 링크는 보존하되 다른 시트는 이 작업에서 읽지 않았습니다.",
+    "formulas": [],
+    "comments": []
+  },
+  "coverage": {
+    "source_cell_count": 266,
+    "source_nonempty_cell_count": 138,
+    "source_empty_string_cell_count": 0,
+    "request_field_count": 10,
+    "response_field_count": 5,
+    "request_header_count": 4,
+    "request_body_count": 6,
+    "response_header_count": 3,
+    "response_body_count": 2,
+    "response_example_only_field_count": 2,
+    "trade_option_count": 20,
+    "policy": "표 필드는 빠짐없이 포함. source_cells는 시트 사용 범위의 빈 셀과 병합 셀까지 모두 포함."
+  },
+  "source_cells": [
+    {
+      "cell": "A1",
+      "value": "◀ API 리스트 이동",
+      "hyperlink": {
+        "target": "#'API 리스트'!A1",
+        "location": null,
+        "display": null,
+        "tooltip": null
+      }
+    },
+    {
+      "cell": "B1",
+      "value": null
+    },
+    {
+      "cell": "C1",
+      "value": null
+    },
+    {
+      "cell": "D1",
+      "value": null
+    },
+    {
+      "cell": "E1",
+      "value": null
+    },
+    {
+      "cell": "F1",
+      "value": null
+    },
+    {
+      "cell": "G1",
+      "value": null
+    },
+    {
+      "cell": "A2",
+      "value": "키움 REST API"
+    },
+    {
+      "cell": "B2",
+      "value": null
+    },
+    {
+      "cell": "C2",
+      "value": null
+    },
+    {
+      "cell": "D2",
+      "value": null
+    },
+    {
+      "cell": "E2",
+      "value": null
+    },
+    {
+      "cell": "F2",
+      "value": null
+    },
+    {
+      "cell": "G2",
+      "value": null
+    },
+    {
+      "cell": "A3",
+      "value": "API 정보"
+    },
+    {
+      "cell": "B3",
+      "value": null
+    },
+    {
+      "cell": "C3",
+      "value": null
+    },
+    {
+      "cell": "D3",
+      "value": null
+    },
+    {
+      "cell": "E3",
+      "value": null
+    },
+    {
+      "cell": "F3",
+      "value": null
+    },
+    {
+      "cell": "G3",
+      "value": null
+    },
+    {
+      "cell": "A4",
+      "value": "메뉴 위치"
+    },
+    {
+      "cell": "B4",
+      "value": null
+    },
+    {
+      "cell": "C4",
+      "value": "국내주식 > 주문 > 주식 매도주문(kt10001)"
+    },
+    {
+      "cell": "D4",
+      "value": null
+    },
+    {
+      "cell": "E4",
+      "value": null
+    },
+    {
+      "cell": "F4",
+      "value": null
+    },
+    {
+      "cell": "G4",
+      "value": null
+    },
+    {
+      "cell": "A5",
+      "value": "API 명"
+    },
+    {
+      "cell": "B5",
+      "value": null
+    },
+    {
+      "cell": "C5",
+      "value": "주식 매도주문"
+    },
+    {
+      "cell": "D5",
+      "value": null
+    },
+    {
+      "cell": "E5",
+      "value": null
+    },
+    {
+      "cell": "F5",
+      "value": null
+    },
+    {
+      "cell": "G5",
+      "value": null
+    },
+    {
+      "cell": "A6",
+      "value": "API ID"
+    },
+    {
+      "cell": "B6",
+      "value": null
+    },
+    {
+      "cell": "C6",
+      "value": "kt10001"
+    },
+    {
+      "cell": "D6",
+      "value": null
+    },
+    {
+      "cell": "E6",
+      "value": null
+    },
+    {
+      "cell": "F6",
+      "value": null
+    },
+    {
+      "cell": "G6",
+      "value": null
+    },
+    {
+      "cell": "A7",
+      "value": "기본정보"
+    },
+    {
+      "cell": "B7",
+      "value": null
+    },
+    {
+      "cell": "C7",
+      "value": null
+    },
+    {
+      "cell": "D7",
+      "value": null
+    },
+    {
+      "cell": "E7",
+      "value": null
+    },
+    {
+      "cell": "F7",
+      "value": null
+    },
+    {
+      "cell": "G7",
+      "value": null
+    },
+    {
+      "cell": "A8",
+      "value": "Method"
+    },
+    {
+      "cell": "B8",
+      "value": null
+    },
+    {
+      "cell": "C8",
+      "value": "POST"
+    },
+    {
+      "cell": "D8",
+      "value": null
+    },
+    {
+      "cell": "E8",
+      "value": null
+    },
+    {
+      "cell": "F8",
+      "value": null
+    },
+    {
+      "cell": "G8",
+      "value": null
+    },
+    {
+      "cell": "A9",
+      "value": "운영 도메인"
+    },
+    {
+      "cell": "B9",
+      "value": null
+    },
+    {
+      "cell": "C9",
+      "value": "https://api.kiwoom.com"
+    },
+    {
+      "cell": "D9",
+      "value": null
+    },
+    {
+      "cell": "E9",
+      "value": null
+    },
+    {
+      "cell": "F9",
+      "value": null
+    },
+    {
+      "cell": "G9",
+      "value": null
+    },
+    {
+      "cell": "A10",
+      "value": "모의투자 도메인"
+    },
+    {
+      "cell": "B10",
+      "value": null
+    },
+    {
+      "cell": "C10",
+      "value": "https://mockapi.kiwoom.com"
+    },
+    {
+      "cell": "D10",
+      "value": null
+    },
+    {
+      "cell": "E10",
+      "value": null
+    },
+    {
+      "cell": "F10",
+      "value": null
+    },
+    {
+      "cell": "G10",
+      "value": null
+    },
+    {
+      "cell": "A11",
+      "value": "URL"
+    },
+    {
+      "cell": "B11",
+      "value": null
+    },
+    {
+      "cell": "C11",
+      "value": "/api/dostk/ordr"
+    },
+    {
+      "cell": "D11",
+      "value": null
+    },
+    {
+      "cell": "E11",
+      "value": null
+    },
+    {
+      "cell": "F11",
+      "value": null
+    },
+    {
+      "cell": "G11",
+      "value": null
+    },
+    {
+      "cell": "A12",
+      "value": "Format"
+    },
+    {
+      "cell": "B12",
+      "value": null
+    },
+    {
+      "cell": "C12",
+      "value": "JSON"
+    },
+    {
+      "cell": "D12",
+      "value": null
+    },
+    {
+      "cell": "E12",
+      "value": null
+    },
+    {
+      "cell": "F12",
+      "value": null
+    },
+    {
+      "cell": "G12",
+      "value": null
+    },
+    {
+      "cell": "A13",
+      "value": "Content-Type"
+    },
+    {
+      "cell": "B13",
+      "value": null
+    },
+    {
+      "cell": "C13",
+      "value": "application/json;charset=UTF-8"
+    },
+    {
+      "cell": "D13",
+      "value": null
+    },
+    {
+      "cell": "E13",
+      "value": null
+    },
+    {
+      "cell": "F13",
+      "value": null
+    },
+    {
+      "cell": "G13",
+      "value": null
+    },
+    {
+      "cell": "A14",
+      "value": "개요"
+    },
+    {
+      "cell": "B14",
+      "value": null
+    },
+    {
+      "cell": "C14",
+      "value": null
+    },
+    {
+      "cell": "D14",
+      "value": null
+    },
+    {
+      "cell": "E14",
+      "value": null
+    },
+    {
+      "cell": "F14",
+      "value": null
+    },
+    {
+      "cell": "G14",
+      "value": null
+    },
+    {
+      "cell": "A15",
+      "value": "주식 매도 주문을 요청합니다."
+    },
+    {
+      "cell": "B15",
+      "value": null
+    },
+    {
+      "cell": "C15",
+      "value": null
+    },
+    {
+      "cell": "D15",
+      "value": null
+    },
+    {
+      "cell": "E15",
+      "value": null
+    },
+    {
+      "cell": "F15",
+      "value": null
+    },
+    {
+      "cell": "G15",
+      "value": null
+    },
+    {
+      "cell": "A16",
+      "value": "Request"
+    },
+    {
+      "cell": "B16",
+      "value": null
+    },
+    {
+      "cell": "C16",
+      "value": null
+    },
+    {
+      "cell": "D16",
+      "value": null
+    },
+    {
+      "cell": "E16",
+      "value": null
+    },
+    {
+      "cell": "F16",
+      "value": null
+    },
+    {
+      "cell": "G16",
+      "value": null
+    },
+    {
+      "cell": "A17",
+      "value": "구분"
+    },
+    {
+      "cell": "B17",
+      "value": "Element"
+    },
+    {
+      "cell": "C17",
+      "value": "한글명"
+    },
+    {
+      "cell": "D17",
+      "value": "Type"
+    },
+    {
+      "cell": "E17",
+      "value": "Required"
+    },
+    {
+      "cell": "F17",
+      "value": "Length"
+    },
+    {
+      "cell": "G17",
+      "value": "Description"
+    },
+    {
+      "cell": "A18",
+      "value": "Header"
+    },
+    {
+      "cell": "B18",
+      "value": "api-id"
+    },
+    {
+      "cell": "C18",
+      "value": "TR명"
+    },
+    {
+      "cell": "D18",
+      "value": "String"
+    },
+    {
+      "cell": "E18",
+      "value": "Y"
+    },
+    {
+      "cell": "F18",
+      "value": "10"
+    },
+    {
+      "cell": "G18",
+      "value": "8자리 TR코드, ex) ka00001, usa10099"
+    },
+    {
+      "cell": "A19",
+      "value": null
+    },
+    {
+      "cell": "B19",
+      "value": "authorization"
+    },
+    {
+      "cell": "C19",
+      "value": "접근토큰"
+    },
+    {
+      "cell": "D19",
+      "value": "String"
+    },
+    {
+      "cell": "E19",
+      "value": "Y"
+    },
+    {
+      "cell": "F19",
+      "value": "1000"
+    },
+    {
+      "cell": "G19",
+      "value": "토큰 지정시 토큰타입(\"Bearer\") 붙혀서 호출 \n 예) Bearer Egicyx..."
+    },
+    {
+      "cell": "A20",
+      "value": null
+    },
+    {
+      "cell": "B20",
+      "value": "cont-yn"
+    },
+    {
+      "cell": "C20",
+      "value": "연속조회여부"
+    },
+    {
+      "cell": "D20",
+      "value": "String"
+    },
+    {
+      "cell": "E20",
+      "value": "N"
+    },
+    {
+      "cell": "F20",
+      "value": "1"
+    },
+    {
+      "cell": "G20",
+      "value": "응답 Header의 연속조회여부값이 Y일 경우 다음데이터 요청시 응답 Header의 cont-yn값 세팅"
+    },
+    {
+      "cell": "A21",
+      "value": null
+    },
+    {
+      "cell": "B21",
+      "value": "next-key"
+    },
+    {
+      "cell": "C21",
+      "value": "연속조회키"
+    },
+    {
+      "cell": "D21",
+      "value": "String"
+    },
+    {
+      "cell": "E21",
+      "value": "N"
+    },
+    {
+      "cell": "F21",
+      "value": "50"
+    },
+    {
+      "cell": "G21",
+      "value": "응답 Header의 연속조회여부값이 Y일 경우 다음데이터 요청시 응답 Header의 next-key값 세팅"
+    },
+    {
+      "cell": "A22",
+      "value": "Body"
+    },
+    {
+      "cell": "B22",
+      "value": "dmst_stex_tp"
+    },
+    {
+      "cell": "C22",
+      "value": "국내거래소구분"
+    },
+    {
+      "cell": "D22",
+      "value": "String"
+    },
+    {
+      "cell": "E22",
+      "value": "Y"
+    },
+    {
+      "cell": "F22",
+      "value": "3"
+    },
+    {
+      "cell": "G22",
+      "value": "KRX,NXT,SOR"
+    },
+    {
+      "cell": "A23",
+      "value": null
+    },
+    {
+      "cell": "B23",
+      "value": "stk_cd"
+    },
+    {
+      "cell": "C23",
+      "value": "종목코드"
+    },
+    {
+      "cell": "D23",
+      "value": "String"
+    },
+    {
+      "cell": "E23",
+      "value": "Y"
+    },
+    {
+      "cell": "F23",
+      "value": "12"
+    },
+    {
+      "cell": "G23",
+      "value": "종목코드 6자리"
+    },
+    {
+      "cell": "A24",
+      "value": null
+    },
+    {
+      "cell": "B24",
+      "value": "ord_qty"
+    },
+    {
+      "cell": "C24",
+      "value": "주문수량"
+    },
+    {
+      "cell": "D24",
+      "value": "String"
+    },
+    {
+      "cell": "E24",
+      "value": "Y"
+    },
+    {
+      "cell": "F24",
+      "value": "12"
+    },
+    {
+      "cell": "G24",
+      "value": "단위: 1주"
+    },
+    {
+      "cell": "A25",
+      "value": null
+    },
+    {
+      "cell": "B25",
+      "value": "ord_uv"
+    },
+    {
+      "cell": "C25",
+      "value": "주문단가"
+    },
+    {
+      "cell": "D25",
+      "value": "String"
+    },
+    {
+      "cell": "E25",
+      "value": "N"
+    },
+    {
+      "cell": "F25",
+      "value": "12"
+    },
+    {
+      "cell": "G25",
+      "value": "단위: 원"
+    },
+    {
+      "cell": "A26",
+      "value": null
+    },
+    {
+      "cell": "B26",
+      "value": "trde_tp"
+    },
+    {
+      "cell": "C26",
+      "value": "매매구분"
+    },
+    {
+      "cell": "D26",
+      "value": "String"
+    },
+    {
+      "cell": "E26",
+      "value": "Y"
+    },
+    {
+      "cell": "F26",
+      "value": "2"
+    },
+    {
+      "cell": "G26",
+      "value": "0:보통, 3:시장가, 5:조건부지정가, 81:장마감후시간외, 61:장시작전시간외, 6:최유리지정가, 7:최우선지정가, 10:보통(IOC), 13:시장가(IOC), 16:최유리(IOC), 20:보통(FOK), 23:시장가(FOK), 26:최유리(FOK), 28:스톱지정가, 29:중간가, 30:중간가(IOC), 31:중간가(FOK), 40:보통(GTP), 46:최유리(GTP), 47:최우선(GTP)"
+    },
+    {
+      "cell": "A27",
+      "value": null
+    },
+    {
+      "cell": "B27",
+      "value": "cond_uv"
+    },
+    {
+      "cell": "C27",
+      "value": "조건단가"
+    },
+    {
+      "cell": "D27",
+      "value": "String"
+    },
+    {
+      "cell": "E27",
+      "value": "N"
+    },
+    {
+      "cell": "F27",
+      "value": "12"
+    },
+    {
+      "cell": "G27",
+      "value": "단위: 원"
+    },
+    {
+      "cell": "A28",
+      "value": "Response"
+    },
+    {
+      "cell": "B28",
+      "value": null
+    },
+    {
+      "cell": "C28",
+      "value": null
+    },
+    {
+      "cell": "D28",
+      "value": null
+    },
+    {
+      "cell": "E28",
+      "value": null
+    },
+    {
+      "cell": "F28",
+      "value": null
+    },
+    {
+      "cell": "G28",
+      "value": null
+    },
+    {
+      "cell": "A29",
+      "value": "구분"
+    },
+    {
+      "cell": "B29",
+      "value": "Element"
+    },
+    {
+      "cell": "C29",
+      "value": "한글명"
+    },
+    {
+      "cell": "D29",
+      "value": "Type"
+    },
+    {
+      "cell": "E29",
+      "value": "Required"
+    },
+    {
+      "cell": "F29",
+      "value": "Length"
+    },
+    {
+      "cell": "G29",
+      "value": "Description"
+    },
+    {
+      "cell": "A30",
+      "value": "Header"
+    },
+    {
+      "cell": "B30",
+      "value": "api-id"
+    },
+    {
+      "cell": "C30",
+      "value": "TR명"
+    },
+    {
+      "cell": "D30",
+      "value": "String"
+    },
+    {
+      "cell": "E30",
+      "value": "Y"
+    },
+    {
+      "cell": "F30",
+      "value": "10"
+    },
+    {
+      "cell": "G30",
+      "value": "8자리 TR코드, ex) ka00001, usa10099"
+    },
+    {
+      "cell": "A31",
+      "value": null
+    },
+    {
+      "cell": "B31",
+      "value": "cont-yn"
+    },
+    {
+      "cell": "C31",
+      "value": "연속조회여부"
+    },
+    {
+      "cell": "D31",
+      "value": "String"
+    },
+    {
+      "cell": "E31",
+      "value": "N"
+    },
+    {
+      "cell": "F31",
+      "value": "1"
+    },
+    {
+      "cell": "G31",
+      "value": "다음 데이터가 있을시 Y값 전달"
+    },
+    {
+      "cell": "A32",
+      "value": null
+    },
+    {
+      "cell": "B32",
+      "value": "next-key"
+    },
+    {
+      "cell": "C32",
+      "value": "연속조회키"
+    },
+    {
+      "cell": "D32",
+      "value": "String"
+    },
+    {
+      "cell": "E32",
+      "value": "N"
+    },
+    {
+      "cell": "F32",
+      "value": "50"
+    },
+    {
+      "cell": "G32",
+      "value": "다음 데이터가 있을시 다음 키값 전달"
+    },
+    {
+      "cell": "A33",
+      "value": "Body"
+    },
+    {
+      "cell": "B33",
+      "value": "ord_no"
+    },
+    {
+      "cell": "C33",
+      "value": "주문번호"
+    },
+    {
+      "cell": "D33",
+      "value": "String"
+    },
+    {
+      "cell": "E33",
+      "value": "N"
+    },
+    {
+      "cell": "F33",
+      "value": "7"
+    },
+    {
+      "cell": "G33",
+      "value": "7자리 주문번호"
+    },
+    {
+      "cell": "A34",
+      "value": null
+    },
+    {
+      "cell": "B34",
+      "value": "dmst_stex_tp"
+    },
+    {
+      "cell": "C34",
+      "value": "국내거래소구분"
+    },
+    {
+      "cell": "D34",
+      "value": "String"
+    },
+    {
+      "cell": "E34",
+      "value": "N"
+    },
+    {
+      "cell": "F34",
+      "value": "6"
+    },
+    {
+      "cell": "G34",
+      "value": "KRX, NXT, SOR"
+    },
+    {
+      "cell": "A35",
+      "value": "Request Example"
+    },
+    {
+      "cell": "B35",
+      "value": null
+    },
+    {
+      "cell": "C35",
+      "value": null
+    },
+    {
+      "cell": "D35",
+      "value": null
+    },
+    {
+      "cell": "E35",
+      "value": null
+    },
+    {
+      "cell": "F35",
+      "value": null
+    },
+    {
+      "cell": "G35",
+      "value": null
+    },
+    {
+      "cell": "A36",
+      "value": "{\n    \"dmst_stex_tp\": \"KRX\",\n    \"stk_cd\": \"005930\",\n    \"ord_qty\": \"1\",\n    \"ord_uv\": \"\",\n    \"trde_tp\": \"3\",\n    \"cond_uv\": \"\"\n}"
+    },
+    {
+      "cell": "B36",
+      "value": null
+    },
+    {
+      "cell": "C36",
+      "value": null
+    },
+    {
+      "cell": "D36",
+      "value": null
+    },
+    {
+      "cell": "E36",
+      "value": null
+    },
+    {
+      "cell": "F36",
+      "value": null
+    },
+    {
+      "cell": "G36",
+      "value": null
+    },
+    {
+      "cell": "A37",
+      "value": "Response Example"
+    },
+    {
+      "cell": "B37",
+      "value": null
+    },
+    {
+      "cell": "C37",
+      "value": null
+    },
+    {
+      "cell": "D37",
+      "value": null
+    },
+    {
+      "cell": "E37",
+      "value": null
+    },
+    {
+      "cell": "F37",
+      "value": null
+    },
+    {
+      "cell": "G37",
+      "value": null
+    },
+    {
+      "cell": "A38",
+      "value": "{\n    \"ord_no\": \"0000138\",\n    \"dmst_stex_tp\": \"KRX\",\n    \"return_code\": 0,\n    \"return_msg\": \"매도주문이 완료되었습니다.\"\n}"
+    },
+    {
+      "cell": "B38",
+      "value": null
+    },
+    {
+      "cell": "C38",
+      "value": null
+    },
+    {
+      "cell": "D38",
+      "value": null
+    },
+    {
+      "cell": "E38",
+      "value": null
+    },
+    {
+      "cell": "F38",
+      "value": null
+    },
+    {
+      "cell": "G38",
+      "value": null
+    }
+  ]
+}

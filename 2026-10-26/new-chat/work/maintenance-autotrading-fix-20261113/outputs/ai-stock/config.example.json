@@ -1,0 +1,14 @@
+{
+  "strategy": {
+    "fast_window": 3,
+    "slow_window": 5,
+    "volume_window": 3,
+    "volume_ratio": "1.2",
+    "quantity": 1
+  },
+  "initial_cash": {"KRW": "1000000", "USD": "10000"},
+  "max_order_notional": {"KRW": "100000", "USD": "500"},
+  "max_position_notional": {"KRW": "200000", "USD": "1000"},
+  "fee_bps": "5",
+  "slippage_bps": "10"
+}

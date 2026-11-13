@@ -1,0 +1,50 @@
+{
+  "schema": "ai-stock-simulation-evidence-v1",
+  "created_at": "2026-10-26T07:02:31.860500+00:00",
+  "runtime": {
+    "python": "3.12.14",
+    "implementation": "CPython"
+  },
+  "files": [
+    {
+      "path": "bars.csv",
+      "bytes": 3927,
+      "sha256": "c83cdc0c2312ead01d4c7c2e7e0f6308811205c7bcf067f41dc59f3aaba006df"
+    },
+    {
+      "path": "config.json",
+      "bytes": 387,
+      "sha256": "be6851843e46c511f0d7b733bc8add302a3ed74868512c9423a421a431b25ff1"
+    },
+    {
+      "path": "fills.csv",
+      "bytes": 1328,
+      "sha256": "f8ceb53eadb0217f2af667ccc439e07a276d924200303198cce74652645a9edb"
+    },
+    {
+      "path": "rejections.csv",
+      "bytes": 42,
+      "sha256": "a814a3bff089d5fef39cee2f71e8c0a78cb1081ecf43fcf980ee2b66e0e52b68"
+    },
+    {
+      "path": "result.json",
+      "bytes": 9075,
+      "sha256": "7c5842c14103dfd7d38d55a81009b9e413f308352fb8de9bc71a4bca73158e1a"
+    },
+    {
+      "path": "signals.csv",
+      "bytes": 1003,
+      "sha256": "9e2f0017f861c128fd22fa93395e938bc8400c8820ddb299f76bce45550064a3"
+    }
+  ],
+  "source": {
+    "module": "kiwoom_autotrader.trading.simulation",
+    "sha256": "2009bf4167f8c547e1c91bb62c1935e4392537e01cc24f109a6f9017ab2a3918"
+  },
+  "preregistered": false,
+  "data_source": "synthetic_demo",
+  "point_in_time_verified": false,
+  "broker_fills_verified": false,
+  "profitability_verified": false,
+  "deployed": false
+}

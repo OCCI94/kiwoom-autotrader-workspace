@@ -1,0 +1,25 @@
+   2573.4 ms conns= 1 hydrate_rows=24778 fetch={'account': 0, 'exec': 0, 'profit': 0} multi_strategy_open_symbols -> available
+    126.3 ms conns= 1 hydrate_rows= 1439 fetch={'account': 0, 'exec': 0, 'profit': 0}   position 002790 EXP_D -> pending
+   1585.4 ms conns= 1 hydrate_rows=24172 fetch={'account': 0, 'exec': 0, 'profit': 0}   position 003220 EXP_D -> unsupported
+    127.9 ms conns= 1 hydrate_rows= 1439 fetch={'account': 0, 'exec': 0, 'profit': 0}   position 010660 EXP_D -> pending
+    430.0 ms conns= 1 hydrate_rows= 4676 fetch={'account': 0, 'exec': 0, 'profit': 0}   position 011200 EXP_D -> flat_candidate
+   1005.4 ms conns= 1 hydrate_rows=11296 fetch={'account': 0, 'exec': 0, 'profit': 0}   position 030530 EXP_D -> flat
+    436.2 ms conns= 1 hydrate_rows= 4676 fetch={'account': 0, 'exec': 0, 'profit': 0}   position 042510 EXP_D -> flat_candidate
+   1091.8 ms conns= 1 hydrate_rows=11425 fetch={'account': 0, 'exec': 0, 'profit': 0}   position 042940 EXP_D -> owned
+    991.4 ms conns= 1 hydrate_rows=11296 fetch={'account': 0, 'exec': 0, 'profit': 0}   position 053800 EXP_D -> flat
+    425.3 ms conns= 1 hydrate_rows= 5419 fetch={'account': 0, 'exec': 0, 'profit': 0}   position 068270 EXP_D -> owned
+      0.8 ms conns= 1 hydrate_rows=    0 fetch={'account': 0, 'exec': 0, 'profit': 0}   position 069500 EXP_D -> flat
+    436.0 ms conns= 1 hydrate_rows= 4676 fetch={'account': 0, 'exec': 0, 'profit': 0}   position 128940 EXP_D -> flat_candidate
+    812.3 ms conns= 1 hydrate_rows= 9736 fetch={'account': 0, 'exec': 0, 'profit': 0}   position 150900 EXP_D -> flat
+    439.0 ms conns= 1 hydrate_rows= 4676 fetch={'account': 0, 'exec': 0, 'profit': 0}   position 158430 EXP_D -> flat_candidate
+    808.6 ms conns= 1 hydrate_rows= 9736 fetch={'account': 0, 'exec': 0, 'profit': 0}   position 229200 EXP_D -> flat
+    437.7 ms conns= 1 hydrate_rows= 4676 fetch={'account': 0, 'exec': 0, 'profit': 0}   position 232680 EXP_D -> flat_candidate
+    434.9 ms conns= 1 hydrate_rows= 4676 fetch={'account': 0, 'exec': 0, 'profit': 0}   position 263860 EXP_D -> flat_candidate
+    429.0 ms conns= 1 hydrate_rows= 5419 fetch={'account': 0, 'exec': 0, 'profit': 0}   position 293490 EXP_D -> owned
+    313.5 ms conns= 1 hydrate_rows= 4271 fetch={'account': 0, 'exec': 0, 'profit': 0}   position 326030 EXP_D -> owned
+    433.9 ms conns= 1 hydrate_rows= 4676 fetch={'account': 0, 'exec': 0, 'profit': 0}   position 340450 EXP_D -> flat_candidate
+    432.3 ms conns= 1 hydrate_rows= 5419 fetch={'account': 0, 'exec': 0, 'profit': 0}   position 388050 EXP_D -> owned
+    436.7 ms conns= 1 hydrate_rows= 4676 fetch={'account': 0, 'exec': 0, 'profit': 0}   position 419050 EXP_D -> flat_candidate
+      0.9 ms conns= 1 hydrate_rows=    0 fetch={'account': 0, 'exec': 0, 'profit': 0}   position 434480 EXP_D -> flat
+    428.0 ms conns= 1 hydrate_rows= 5419 fetch={'account': 0, 'exec': 0, 'profit': 0}   position 456010 EXP_D -> owned
+TOTAL 23 symbols: 12.1 s

@@ -1,0 +1,12 @@
+{
+ "symbols": 244,
+ "dates": 600,
+ "first_date": "20240513",
+ "last_date": "20261030",
+ "symbols_with_jumps": 58,
+ "rows": 144727,
+ "jumps": 79,
+ "invalid_rows": 969,
+ "zero_vol_or_price": 201,
+ "missing_rows": 1673
+}

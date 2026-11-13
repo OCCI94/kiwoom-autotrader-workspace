@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ai-stock"
+version = "0.1.0"
+description = "Offline strategy simulation and Kiwoom mock quote connection for KR/US stocks"
+requires-python = ">=3.11"
+dependencies = ["websockets==15.0.1", "keyring>=25,<26; sys_platform == 'win32'", "tzdata>=2024.1; sys_platform == 'win32'"]
+
+[project.optional-dependencies]
+telegram-account = ["Telethon==1.45.0", "qrcode==8.2"]
+
+[project.scripts]
+kiwoom-autotrader = "kiwoom_autotrader.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["kiwoom_autotrader*"]
+
+[tool.setuptools.package-data]
+"kiwoom_autotrader.config" = ["data/settings-default.json", "data/settings.json"]

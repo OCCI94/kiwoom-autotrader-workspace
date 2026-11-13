@@ -1,0 +1,37 @@
+[
+  {
+    "prompt": "지금 EXP_D TTL 수정 배포해도 돼? (지금은 2026-11-04 수요일 14:00 KST)",
+    "expected_output": "배포하지 않는다. python3 scripts/deploy_window_check.py --at \"2026-11-04 14:00\" --kind normal 을 돌려 window=session, allowed=false 를 보고하고, 거래일 09:00~15:30에는 runtime·설정·원장·LaunchAgent를 건드리지 않는다고 말한다. 다음 정상 창은 2026-11-05(목) 08:30 이전 또는 15:40 이후이며 사용자 승인·claim·전체 격리 스위트·백업 해시 보고가 필요하다고 안내한다. 지금 할 수 있는 것은 소스 수리와 격리 테스트(--kind repair)뿐이다.",
+    "files": [],
+    "assertions": [
+      "does not deploy, restart, or edit runtime/settings/ledger/LaunchAgent",
+      "runs deploy_window_check.py or states the session rule 09:00-15:30 KST",
+      "says the next normal window is Thursday 2026-11-05 (before 08:30 or after 15:40)",
+      "mentions user approval and the claim quota (one per Tue/Thu, two per week)",
+      "mentions the full isolated APP suite on the exact source manifest"
+    ]
+  },
+  {
+    "prompt": "S5 익절을 +1%에서 +1.5%로 올리자. 바로 적용해줘.",
+    "expected_output": "경제적 변경으로 분류한다(기대 손익 분포를 바꾸는 임계값 변경이며 결함 수정이 아니다). 바로 적용하지 않고 6항목 변경 기록(목적, 기대 효과와 측정 지표, 측정 방법과 기간, 롤백 절차, 위험, 승인자/승인 시각)을 먼저 쓰자고 하며, 영향 경로를 file:line로 추적하고 문서·프롬프트·코드 상수 정합을 확인한 뒤 SHADOW(만료일 필수)로 먼저 돌리고 LIVE 승격은 사용자가 결정한다고 설명한다. §0 단계에서는 경제적 변경을 보류하고 1단계 가설 사전등록 대상으로 넘기는 것을 권한다.",
+    "files": [],
+    "assertions": [
+      "classifies the change as an economic change, not a defect fix",
+      "refuses to apply it immediately and asks for the 6-item change record",
+      "proposes SHADOW before LIVE with an expiry date",
+      "states that LIVE promotion is a human decision, never automatic",
+      "does not modify any file outside the skill or runtime"
+    ]
+  },
+  {
+    "prompt": "기능 플래그 레지스트리 상태 보여줘. 만료된 SHADOW 있으면 알려줘.",
+    "expected_output": "python3 scripts/feature_status.py --registry <경로> 를 실행해 LIVE/SHADOW/OFF 표를 보여주고, 경고(만료 지난 SHADOW는 OFF여야 함, 증거 없는 LIVE, 중복 이름)를 그대로 보고한다. 레지스트리를 고치지 않으며, 상태를 바꾸려면 사람이 변경 기록과 함께 손으로 고쳐야 한다고 말한다. 경로가 없으면 예시 파일(references/feature-flags.example.json)이 예시일 뿐임을 밝힌다.",
+    "files": ["references/feature-flags.example.json"],
+    "assertions": [
+      "runs feature_status.py",
+      "reports warnings separately from the table",
+      "does not edit the registry file",
+      "says expired SHADOW entries should be OFF and that promotion/flipping is manual"
+    ]
+  }
+]

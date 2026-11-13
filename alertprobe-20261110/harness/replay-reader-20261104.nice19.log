@@ -1,0 +1,32 @@
+[   0.007] [MainThread] latest original id 103484 heads pointing at it (epoch prefix,count): [('9c4f4bf2', 1)]
+[   0.008] [recovery] recovery step _prior_days start (read-only connection, BEGIN, pending-order scan)
+[   0.413] [MainThread] === PHASE 1 (recovery read step running): tracker tick start
+[   0.414] [MainThread] fake kt00009 response; notifying observer
+[   0.414] [MainThread] >> record_broker_observation
+[   0.442] [MainThread] >> persist_observation
+[   0.444] [MainThread] << persist_observation 0.001 s -> 'repeat'
+[   0.463] [watch] journal file size -> 8720
+[   2.206] [recovery] recovery step _prior_days done 2.198 s days= ['20261104']
+[   2.312] [MainThread] >> _materialize_history
+[   2.322] [watch] journal file size -> None
+[   2.474] [MainThread] << _materialize_history 0.162 s 
+[   2.474] [MainThread] << record_broker_observation 2.06 s 
+[   2.474] [MainThread] >> _ingest
+[   2.478] [MainThread] >> _materialize_history
+[   2.481] [MainThread] << _materialize_history 0.004 s 
+[   3.221] [MainThread] << _ingest 0.746 s 
+[   3.221] [MainThread] === PHASE 1 (recovery read step running): tracker tick end 2.808 s; last_error set: False
+[   3.221] [MainThread] === PHASE 2 (no other thread): tracker tick start
+[   3.221] [MainThread] fake kt00009 response; notifying observer
+[   3.221] [MainThread] >> record_broker_observation
+[   3.222] [MainThread] >> persist_observation
+[   3.222] [MainThread] << persist_observation 0.0 s -> 'repeat'
+[   3.223] [MainThread] >> _materialize_history
+[   3.226] [MainThread] << _materialize_history 0.003 s 
+[   3.226] [MainThread] << record_broker_observation 0.005 s 
+[   3.226] [MainThread] >> _ingest
+[   3.228] [MainThread] >> _materialize_history
+[   3.231] [MainThread] << _materialize_history 0.003 s 
+[   3.351] [MainThread] << _ingest 0.125 s 
+[   3.351] [MainThread] === PHASE 2 (no other thread): tracker tick end 0.13 s; last_error set: False
+[   3.412] [MainThread] kt00009 repeats for 20261104 stored after both phases: 2 ; alerts: 0

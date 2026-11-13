@@ -1,0 +1,30 @@
+{
+  "schema": "arm-change-review/feature-flags/v0.1",
+  "note": "2026-11-13 장전 maintenance 결함 수리 패키지 및 EXP_QLS SHADOW 관측 게이트 레지스트리. 상태 변경은 인간 승인 및 변경 기록 갱신을 통해서만 수행한다.",
+  "entries": [
+    {
+      "name": "maintenance/sqlite_contention_and_reason_code_repair",
+      "state": "LIVE",
+      "owner": "tr-oh",
+      "since": "2026-11-13",
+      "expires": "",
+      "evidence": "reports/2026-11-13/arm-change-maintenance-autotrading-fix-2026-11-13.md; reports/2026-11-13/app-tests-isolated-provenance-081709962471.json (245 modules, 3218 tests, 0 failures)",
+      "scope": [
+        "EXP_A", "EXP_B", "EXP_B2", "EXP_B3", "EXP_C", "EXP_D",
+        "EXP_S1", "EXP_S2", "EXP_S3", "EXP_S4", "EXP_S6",
+        "EXP_VSS", "EXP_GDR", "EXP_LDR", "S5_steady_uptrend_vwap"
+      ],
+      "notes": "원장 읽기 전용 커넥션(_ro_db)·만료 증서 증분 인덱스·반복 관측 사이드카 분리, OrderError 사전 거절 reason_code 보존, EXP_D 15:18 selection_window_expired 폴백 누락 결함 수정. 전략 경제 파라미터 변경 없음."
+    },
+    {
+      "name": "EXP_QLS",
+      "state": "SHADOW",
+      "owner": "tr-oh",
+      "since": "2026-11-13",
+      "expires": "2026-11-27",
+      "evidence": "reports/2026-11-13/arm-change-maintenance-autotrading-fix-2026-11-13.md; kiwoom_autotrader/trading/paper_experiment_qls_shadow.py",
+      "scope": ["EXP_QLS"],
+      "notes": "퀀트 리더 포트폴리오(Quant Leader Stock) 읽기 전용 SHADOW 관측기. ORDER_PERMISSION=False 고정, active_arms(14개)에 편입하지 않으며 봉인된 QLS 체크포인트만 읽어 shadow_observation 이벤트를 기록한다."
+    }
+  ]
+}

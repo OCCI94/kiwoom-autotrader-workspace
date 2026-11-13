@@ -1,0 +1,171 @@
+{
+  "environment": "mock",
+  "market": "001",
+  "exchange": "3",
+  "queried_at_kst": "2026-10-26T10:23:10.758558+09:00",
+  "include_managed": true,
+  "count": 20,
+  "trde_prica_unit": "백만원",
+  "rows": [
+    {
+      "stk_cd": "000660_AL",
+      "now_rank": "1",
+      "stk_nm": "SK하이닉스",
+      "cur_prc": "+1294000",
+      "flu_rt": "+1.33",
+      "trde_prica": "2094879"
+    },
+    {
+      "stk_cd": "005930_AL",
+      "now_rank": "2",
+      "stk_nm": "삼성전자",
+      "cur_prc": "-214000",
+      "flu_rt": "-0.70",
+      "trde_prica": "1547656"
+    },
+    {
+      "stk_cd": "069500_AL",
+      "now_rank": "3",
+      "stk_nm": "KODEX 200",
+      "cur_prc": "-86590",
+      "flu_rt": "-0.56",
+      "trde_prica": "820221"
+    },
+    {
+      "stk_cd": "252670_AL",
+      "now_rank": "4",
+      "stk_nm": "KODEX 200선물인버스2X",
+      "cur_prc": "+111",
+      "flu_rt": "+2.78",
+      "trde_prica": "480049"
+    },
+    {
+      "stk_cd": "122630_AL",
+      "now_rank": "5",
+      "stk_nm": "KODEX 레버리지",
+      "cur_prc": "-66475",
+      "flu_rt": "-1.39",
+      "trde_prica": "472040"
+    },
+    {
+      "stk_cd": "114800_AL",
+      "now_rank": "6",
+      "stk_nm": "KODEX 인버스",
+      "cur_prc": "+1246",
+      "flu_rt": "+0.89",
+      "trde_prica": "430864"
+    },
+    {
+      "stk_cd": "459580_AL",
+      "now_rank": "7",
+      "stk_nm": "KODEX CD금리액티브(합성)",
+      "cur_prc": "+1075762",
+      "flu_rt": "+0.01",
+      "trde_prica": "423663"
+    },
+    {
+      "stk_cd": "102110_AL",
+      "now_rank": "8",
+      "stk_nm": "TIGER 200",
+      "cur_prc": "-86930",
+      "flu_rt": "-0.61",
+      "trde_prica": "374292"
+    },
+    {
+      "stk_cd": "009150_AL",
+      "now_rank": "9",
+      "stk_nm": "삼성전기",
+      "cur_prc": "-1121000",
+      "flu_rt": "-0.09",
+      "trde_prica": "348710"
+    },
+    {
+      "stk_cd": "133690_AL",
+      "now_rank": "10",
+      "stk_nm": "TIGER 미국나스닥100",
+      "cur_prc": "-169515",
+      "flu_rt": "-0.50",
+      "trde_prica": "310191"
+    },
+    {
+      "stk_cd": "360750_AL",
+      "now_rank": "11",
+      "stk_nm": "TIGER 미국S&P500",
+      "cur_prc": "-25055",
+      "flu_rt": "-0.60",
+      "trde_prica": "254945"
+    },
+    {
+      "stk_cd": "379810_AL",
+      "now_rank": "12",
+      "stk_nm": "KODEX 미국나스닥100",
+      "cur_prc": "-25360",
+      "flu_rt": "-0.45",
+      "trde_prica": "247678"
+    },
+    {
+      "stk_cd": "379800_AL",
+      "now_rank": "13",
+      "stk_nm": "KODEX 미국S&P500",
+      "cur_prc": "-22775",
+      "flu_rt": "-0.61",
+      "trde_prica": "212374"
+    },
+    {
+      "stk_cd": "402340_AL",
+      "now_rank": "14",
+      "stk_nm": "SK스퀘어",
+      "cur_prc": "-772000",
+      "flu_rt": "-0.39",
+      "trde_prica": "178032"
+    },
+    {
+      "stk_cd": "006400_AL",
+      "now_rank": "15",
+      "stk_nm": "삼성SDI",
+      "cur_prc": "-480000",
+      "flu_rt": "-2.14",
+      "trde_prica": "172790"
+    },
+    {
+      "stk_cd": "229200_AL",
+      "now_rank": "16",
+      "stk_nm": "KODEX 코스닥150",
+      "cur_prc": "-12120",
+      "flu_rt": "-2.57",
+      "trde_prica": "150642"
+    },
+    {
+      "stk_cd": "233740_AL",
+      "now_rank": "17",
+      "stk_nm": "KODEX 코스닥150레버리지",
+      "cur_prc": "-4990",
+      "flu_rt": "-5.04",
+      "trde_prica": "140253"
+    },
+    {
+      "stk_cd": "028050_AL",
+      "now_rank": "18",
+      "stk_nm": "삼성E&A",
+      "cur_prc": "-58700",
+      "flu_rt": "-1.84",
+      "trde_prica": "125050"
+    },
+    {
+      "stk_cd": "005935_AL",
+      "now_rank": "19",
+      "stk_nm": "삼성전자우",
+      "cur_prc": "-165800",
+      "flu_rt": "-1.25",
+      "trde_prica": "96804"
+    },
+    {
+      "stk_cd": "396500_AL",
+      "now_rank": "20",
+      "stk_nm": "TIGER 반도체TOP10",
+      "cur_prc": "-28620",
+      "flu_rt": "-0.68",
+      "trde_prica": "88005"
+    }
+  ]
+}

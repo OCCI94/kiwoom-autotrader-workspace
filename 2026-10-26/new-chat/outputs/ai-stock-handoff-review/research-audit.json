@@ -1,0 +1,23 @@
+{
+  "schema": "ai-stock-research-v1",
+  "inspection_completed": true,
+  "source_integrity": true,
+  "checks": {
+    "metadata_hash_matches": true,
+    "protocol_hash_matches": true,
+    "input_set_hash_matches": true,
+    "file_hashes_match": true
+  },
+  "file_count": 3,
+  "retrospective_protocol": true,
+  "point_in_time_verified": false,
+  "profitability_verified": false,
+  "performance_verified": false,
+  "deployed": false,
+  "readiness_state": "UNKNOWN",
+  "limitations": [
+    "Hashes are not authenticated provenance or historical availability.",
+    "Costs, full evaluation denominators and actual fills require independent evidence.",
+    "A passing integrity check never enables a strategy."
+  ]
+}

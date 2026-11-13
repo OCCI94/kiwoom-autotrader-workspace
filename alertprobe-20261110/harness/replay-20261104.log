@@ -1,0 +1,39 @@
+[   0.003] stored original id 103484 status success page 1 rows 9 cont {'next_key_present': False, 'request_cont_yn': 'N', 'response_cont_yn': 'N'}
+[   0.004] === pass 1: tick start, observe calls so far 0
+[   0.005] fake fetch done; notifying observer
+[   0.005] >> record_broker_observation
+[   0.035] >> persist_observation
+[   0.036] << persist_observation 0.001 s -> 'original'
+[   0.063] >> _materialize_history
+[   0.447] << _materialize_history 0.384 s 
+[   0.447] << record_broker_observation 0.442 s 
+[   0.448] >> _ingest
+[   0.450]    _observe_execution call 1 kind repeated_snapshot 0.0 s
+[   0.451]    _observe_execution call 2 kind repeated_snapshot 0.0 s
+[   0.451]    _observe_execution call 3 kind repeated_snapshot 0.0 s
+[   0.452] >> _materialize
+[   0.452] >> _materialize_history
+[   0.456] << _materialize_history 0.004 s 
+[   0.456] >> _materialize_accounting
+[   1.223] << _materialize_accounting 0.767 s 
+[   1.225] << _materialize 0.772 s 
+[   1.225] << _ingest 0.776 s 
+[   1.225] === pass 1: tick end 1.221 s; last_error= None tasks left [] next_at 2026-11-10 08:45:27.003929+09:00
+[   1.225] === pass 2: tick start, observe calls so far 9
+[   1.225] fake fetch done; notifying observer
+[   1.225] >> record_broker_observation
+[   1.226] >> persist_observation
+[   1.226] << persist_observation 0.0 s -> 'repeat'
+[   1.226] >> _materialize_history
+[   1.230] << _materialize_history 0.004 s 
+[   1.230] << record_broker_observation 0.005 s 
+[   1.230] >> _ingest
+[   1.232] >> _materialize
+[   1.232] >> _materialize_history
+[   1.236] << _materialize_history 0.004 s 
+[   1.236] >> _materialize_accounting
+[   1.354] << _materialize_accounting 0.119 s 
+[   1.356] << _materialize 0.124 s 
+[   1.356] << _ingest 0.126 s 
+[   1.356] === pass 2: tick end 0.131 s; last_error= None tasks left [] next_at 2026-11-10 08:45:28.224698+09:00
+[   1.356] DONE alerts 0

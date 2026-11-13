@@ -1,0 +1,40 @@
+{
+  "baseline_archive_sha256": "085ba4e8340995085428afe93e1889e318083f2d21fa6b2c04e2d9a0f2683257",
+  "modified": [
+    "README.md",
+    "kiwoom_autotrader/api/orders.py",
+    "kiwoom_autotrader/main.py",
+    "kiwoom_autotrader/trading/cross_monitor.py",
+    "kiwoom_autotrader/trading/execution_log.py",
+    "kiwoom_autotrader/trading/golden_cross.py",
+    "kiwoom_autotrader/trading/order_context.py",
+    "kiwoom_autotrader/trading/simulation.py",
+    "tests/test_golden_budget_guard.py",
+    "tests/test_listener_stop_orders.py"
+  ],
+  "added": [
+    "docs/DECISION_EVIDENCE.md",
+    "docs/HANDOFF_APPLICATION.md",
+    "docs/HISTORY_IMPORT.md",
+    "docs/OFFLINE_AUDIT.md",
+    "docs/RESEARCH_CONTRACTS.md",
+    "kiwoom_autotrader/diagnostics/__init__.py",
+    "kiwoom_autotrader/diagnostics/__main__.py",
+    "kiwoom_autotrader/diagnostics/audit.py",
+    "kiwoom_autotrader/diagnostics/models.py",
+    "kiwoom_autotrader/diagnostics/render.py",
+    "kiwoom_autotrader/history/__init__.py",
+    "kiwoom_autotrader/history/__main__.py",
+    "kiwoom_autotrader/history/adapters.py",
+    "kiwoom_autotrader/history/core.py",
+    "kiwoom_autotrader/research/__init__.py",
+    "kiwoom_autotrader/research/__main__.py",
+    "kiwoom_autotrader/research/contracts.py",
+    "kiwoom_autotrader/trading/decision_evidence.py",
+    "tests/test_decision_evidence.py",
+    "tests/test_history_import.py",
+    "tests/test_offline_audit.py",
+    "tests/test_offline_cli_routing.py",
+    "tests/test_research_contracts.py"
+  ]
+}

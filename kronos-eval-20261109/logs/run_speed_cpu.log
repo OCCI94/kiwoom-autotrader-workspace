@@ -1,0 +1,4 @@
+11-09 00:37:21 tag=speed_cpu model=NeoQuasar/Kronos-small@901c26c1 tok@0e011738 anchors=1 (20240923..20240923) done=0 S=10 T=0.6 top_p=0.9 L=90 H=10 device=cpu threads=4 chunk=24 torch=2.15.0
+11-09 00:37:22 params model=24.7M tokenizer=4.0M
+11-09 00:37:44 anchor 20240923 (1/1) elig=47 22.6s maxrss=2.67GB eta=0.0min
+11-09 00:37:44 done anchors=1 in 0.4 min -> /Users/tr-oh/Documents/Codex/kronos-eval-20261109/results/preds_speed_cpu.csv

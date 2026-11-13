@@ -1,0 +1,45 @@
+# 순회 지연 조사 근거 메모 (2026-11-08 저녁, 읽기 전용)
+# 모든 수치는 아래 자료에서 계산. 운영 원장은 열지 않았고 11-05 15:40 스냅샷 복사본(approved-postclose-20261105/162306001169/snapshots/ledger.sqlite3)을
+# scratchpad에 복사해 썼다. 실험 store는 11-06 15:40 복사본(store-1540.sqlite3).
+
+[틱 길이 — observability/watchdog/<day>-HHMM.sample.json tick_health.last_tick_started_at/completed_at, 09:10~15:10]
+11-04  n=95   dur med 23.1 s   pre-batch 12.1 (p90 17.1)   batch span 7.1   post 2.6
+11-05  n=277  dur med 72.3 s   pre-batch 63.9 (p90 74.7)   batch span 6.5   post 0.0
+11-06  n=185  dur med 115.2 s  pre-batch 103.9 (p90 112.2) batch span 9.9   post 0.0
+  pre-batch = 틱 시작 → 그 틱의 첫 평가 영수증(selections evaluated*/s5_evaluated payload.observed_at)
+  batch span = 첫 영수증 → 마지막 영수증, post = 마지막 영수증 → 틱 완료
+시간대별 pre-batch 중앙값: 11-05 09h 57.5 → 15h 73.5 / 11-06 09h 89.6 → 14h 109.6 (장중 단조 증가)
+11-05 09:46:44 수신기 재시작 직후 틱: 09:49:50 pre 57.7, 09:51:01 52.9, 09:52:03 63.4 → 새 프로세스에서도 즉시 55~63 s (프로세스 노후화는 주원인이 아님)
+
+[영수증 — store selections kind evaluated_exit:*]
+11-06 792건 전부 reason=await_verified_next_session, evaluation_stage=technical, checks={} (EXP_D 보유 6종목 × 132틱)
+11-06 'evaluated'(진입 평가) 0건, 11-04 563건, 's5_evaluated' 11-04 94건 / 11-06 0건
+http-rate.json.paper-ka10001 mtime 11-06 09:04:15, paper-ka10054 09:04:15, paper-ka10080 11-05 16:29 → 11-06 09:04 이후 시세/VI/분봉 호출 0회
+  → 배치의 종목당 1.6~2.5 s(11-05 6.5 s/3간격, 11-06 9.9 s/3간격)는 HTTP가 아니라 원장 조회(_position)+규칙+영수증 기록
+
+[복구 스레드 — runtime/logs/<day>.broker-observation-repeats.jsonl payload.envelope]
+11-06 하루 repeats 1,833건(kt00009 715, kt00007 568, ka10075 544); 장중 565건; 호출 지연(request_started→observed) 중앙 0.05 s
+kt00007 호출 간격 중앙: 11-04 73.1 s, 11-06 121.4 s (= 틱 주기; 복구는 메인 루프가 틱마다 띄움)
+
+[원장 복사본에서 실제 코드로 잰 비용 — timing-ledger-copy.txt, timing-cross-arm.txt (봇 파이썬 3.12, now=11-05 16:30)]
+multi_strategy_open_symbols            2.5 s   hydrate 24,778행
+multi_strategy_position 보유 EXP_D     0.35~1.3 s  hydrate 4,271~11,425행 (042940 11,425 / 388050 5,419)
+  같은 종목 다른 arm(EXP_A/EXP_B/S5)   동일 비용(1.0~1.1 s, 10,567행) → 파생은 arm 독립인데 arm마다 재계산
+multi_strategy_position 미체결(pending) 0.13 s  hydrate 1,439행 (002790, 010660)
+23종목(11-03 이후 의도 있는 전부) EXP_D 1회씩 12.4 s; Candidate C 소스로 동일 측정 12.1 s(차이 없음)
+cProfile(1회 조회): SQL 41회, broker_observation_repeats._hydrate 1,439회(json.loads 4,339, sha256 7,217) — 수화가 지배
+hydrate 행 = broker_observation_evidence 뷰(원본 ∪ repeats를 파이썬 UDF로 복원)에서 (day=주문일 kt00007) ∪ (day=오늘 ka10075) 전부 읽은 뒤 최신 query만 사용
+repeats 복사본 누계 8,958행; day=20261104 kt00007 956 + 11-05 중 573(= 11-04 미체결 2건이 pending인 한 복구 주기마다 +1)
+
+[잠금 경합 재현] 복사본에 20 ms 간격 fsync 커밋 스레드를 돌리며 조회: 0.47→0.51 s 수준(무시 가능)
+[알림] monitor._notify는 (날짜,종목,사유) 1회 dedup; client.send_message 재시도 없음 → 틱 시간과 무관
+
+[프로세스 — ps/top, 11-08 22:45]
+pid 26954(11-05 09:46 시작) CPU time 71.7 h / 85 h 경과 ≈ 0.84코어 상시; 주 스레드 sys 683 min + user 2,563 min(전체의 75 %)
+RSS 2.5~3.0 GB, 압축 935 MB, 스왑 사용 1.8/3.0 GB, 페이지 폴트 카운터 포화(2147483647), CSW 4.8억
+→ 복사본 대비 라이브 조회 2~3배 느림의 배율 요인. 단 재시작 직후에도 55 s였으므로 1차 원인은 아님.
+
+[09:00 창]
+11-05 08:59:15 틱 109.3 s(GDR 선정 _records: 풀 전 종목 multi_strategy_position + 시세) → 다음 틱 09:01:25 → 09:00분 평가 0건
+11-06 08:58:44 이후 다음 틱 시작 09:02:10(121 s) → 첫 청산 영수증 09:04:02
+rules.evaluate_exit EXP_D: now.strftime('%H:%M')=='09:00'일 때만 signal → 그 분에 평가가 없으면 영구 await (Candidate C는 late_recovery_exit로 세션 내 아무 때나 허용)

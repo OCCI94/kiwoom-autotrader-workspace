@@ -1,0 +1,41 @@
+ai-stock 재구성 자료 적용 결과 · 2026-10-26
+
+결과: 적용 가능한 개선을 현재 프로젝트 코드에 반영했습니다.
+기존 파일 10개 수정 / 새 파일 23개 추가.
+
+반영한 내용
+1. 주문 근거: 당시 완료봉·기간·예산·설정/자료/모듈 SHA·관측/평가시각과 실제 주문가격을 의도와 함께 원자적으로 저장합니다. 기록 실패 시 전송하지 않습니다. 과거 주문 근거를 소급하지 않습니다.
+2. 비용 근거: 비용 원자료 관측을 별도 보존하고, 새 자료가 잘못되면 순손익을 미확정으로 유지합니다.
+3. 오프라인 감사: 저장된 원장·CSV·상태와 근거 SHA를 읽기전용 점검하고 JSON/HTML로 확인합니다. 누락·변경 중인 자료·현재 계좌 미검증은 UNKNOWN입니다.
+4. 과거 이력: 국내 MOCK / 국내 shadow / 미국 shadow를 별도 계보·통화로 보존하는 독립 가져오기 도구를 구현했습니다. 재포장·재입력 중복, 같은 스냅샷 참조 변조, 충돌, 동시 수입, 롤백을 검사합니다.
+5. 연구: 고정 가설과 입력 SHA, 봉 START/END·관측/정정 시점, 시간순 분할·purge/embargo, 시뮬레이션 가정·분모·증거 manifest를 추가했습니다.
+
+검증
+- 전체 969개 통과, 실패 0, 오류 0, 건너뜀 0.
+- Python 3.12.14. 외부 소켓을 차단하고 합성/가짜 transport로 실행. 로컬 loopback 시험만 허용했습니다.
+- 기존 fake HTTP 시험의 공통 대기 시간만 제거했고, 초당 제한 전용 시험은 실제 자체 limiter를 사용했습니다.
+- 테스트 전후 소스 SHA 일치. 전체 지연 성능·Python3.9/3.13·Windows 실기 검증은 하지 않았습니다.
+- 기존 저장 체결 4건과 CSV 일일 합계를 대조해 일치했습니다. 중복·초과체결·미해결 기록 의도는 발견되지 않았습니다. 증권사에 새로 조회한 결과가 아닙니다.
+- 합성 이력 최초 6주문/3왕복거래/6연결, 같은 묶음 두 번째 수입은 추가0. 세 코호트를 분리했습니다. 실제 과거 이력 건수와 다릅니다.
+- HTML은 정적·이스케이프·외부 자원 없음 검사를 통과했습니다. 앱 브라우저의 file URL 보안 제한으로 렌더링 확인은 하지 않았으며 우회하지 않았습니다.
+
+읽은 자료와 보류
+00~06 및 근거 JSON과 Google 문서를 확인했습니다. 00~03의 크기/SHA는 근거 목록과 일치했습니다. Google 문서의 인증정보는 코드·보고서에 복제하지 않았습니다.
+옛 /Users/oh 경로의 원본53개는 현재 모두 없습니다. 옛 연구·시계·8패턴·OF 규칙·자본/손절 숫자를 현재 전략에 덮어쓰지 않았습니다.
+07 암호화 이력은 사용자 요청대로 보류했습니다. 실제 원본용 adapter·과거 이력 복원·권위 원본 완전성은 미완료입니다.
+자료05의 운영 전환 지침에 따라 현재 실행 중인 설치본·서비스·설정은 배포/재시작하지 않았습니다. 새 기록은 새 코드를 설치해 실행한 시점부터 생성됩니다.
+
+상태
+local_change_verified=true / functional_pass=true
+performance_verified=false / real_historical_import_verified=false
+current_account_verified=false / deployed=false / readiness_state=UNKNOWN
+
+실행법(프로젝트 폴더에서)
+python main.py offline-audit --ledger logs/.execution-ledger.sqlite3 --csv logs/20261026.csv --output audit.json --html audit.html
+python main.py history --help
+python main.py research --help
+
+상세 적용표: ai-stock/docs/HANDOFF_APPLICATION.md
+실행·데이터 계약: ai-stock/docs/DECISION_EVIDENCE.md, OFFLINE_AUDIT.md, HISTORY_IMPORT.md, RESEARCH_CONTRACTS.md
+검증 근거: tests.json, source-manifest.json, source-review.json, changes.json, stored-records-audit.json/html
+합성 검증 자료: synthetic-history/, synthetic-simulation/

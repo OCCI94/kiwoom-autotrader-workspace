@@ -1,0 +1,6 @@
+{"lineage_id":"SYNTHETIC-FIXTURE-kr_mock","cohort":"kr_mock","record_ref":"link-buy-1","order_ref":"buy-1","roundtrip_ref":"trip-1","allocated_quantity":"2.00"}
+{"lineage_id":"SYNTHETIC-FIXTURE-kr_mock","cohort":"kr_mock","record_ref":"link-sell-1","order_ref":"sell-1","roundtrip_ref":"trip-1","allocated_quantity":"2.00"}
+{"lineage_id":"SYNTHETIC-FIXTURE-kr_shadow","cohort":"kr_shadow","record_ref":"link-buy-1","order_ref":"buy-1","roundtrip_ref":"trip-1","allocated_quantity":"2.00"}
+{"lineage_id":"SYNTHETIC-FIXTURE-kr_shadow","cohort":"kr_shadow","record_ref":"link-sell-1","order_ref":"sell-1","roundtrip_ref":"trip-1","allocated_quantity":"2.00"}
+{"lineage_id":"SYNTHETIC-FIXTURE-us_shadow","cohort":"us_shadow","record_ref":"link-buy-1","order_ref":"buy-1","roundtrip_ref":"trip-1","allocated_quantity":"2.00"}
+{"lineage_id":"SYNTHETIC-FIXTURE-us_shadow","cohort":"us_shadow","record_ref":"link-sell-1","order_ref":"sell-1","roundtrip_ref":"trip-1","allocated_quantity":"2.00"}

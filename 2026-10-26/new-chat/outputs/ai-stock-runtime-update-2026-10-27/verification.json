@@ -1,0 +1,149 @@
+{
+  "verified_at": "2026-10-27T01:07:42.792997+09:00",
+  "reference": "https://share.gemini.google/XB9957JTBWNv",
+  "source_of_changes": "visible shared description independently checked against local source; no downloaded script executed",
+  "tests": {
+    "total": 985,
+    "passed": 985,
+    "failures": 0,
+    "errors": 0,
+    "python": "3.12.14",
+    "host": "macOS",
+    "scope": "offline/fake transports and temporary database/service fixtures",
+    "python311_executed": false,
+    "native_windows_executed": false,
+    "platform_mock_regression": "2 failures reproduced before correction; 9 account-service tests passed after correction",
+    "new_deployment_tests": 16
+  },
+  "deployment": {
+    "backup": "/Users/tr-oh/Library/Application Support/KiwoomAutotrader/backups/handoff-20261026T160327596465Z",
+    "blockers": [],
+    "ledger_validation": "preserved_and_no_unresolved_orders",
+    "mode": "deploy",
+    "modified_files_to_deploy": [
+      "api/orders.py",
+      "main.py",
+      "trading/cross_monitor.py",
+      "trading/execution_log.py",
+      "trading/golden_cross.py",
+      "trading/order_context.py",
+      "trading/simulation.py",
+      "utils/http_queue.py"
+    ],
+    "new_files_to_deploy": [
+      "diagnostics/__init__.py",
+      "diagnostics/__main__.py",
+      "diagnostics/audit.py",
+      "diagnostics/models.py",
+      "diagnostics/render.py",
+      "history/__init__.py",
+      "history/__main__.py",
+      "history/adapters.py",
+      "history/core.py",
+      "research/__init__.py",
+      "research/__main__.py",
+      "research/contracts.py",
+      "trading/decision_evidence.py"
+    ],
+    "runtime_file_count": 94,
+    "services": {
+      "bot": {
+        "installed": true,
+        "loaded": true,
+        "pid": 21061,
+        "running": true
+      },
+      "collector": {
+        "installed": true,
+        "loaded": true,
+        "pid": 21065,
+        "running": true
+      }
+    },
+    "settings_safe_for_deploy": true,
+    "settings_sha256": "39df7d5e12b2d25d827ba6cf1ff3553fc3ec8e5c039311fc15354eb814aeca63",
+    "source_file_count": 107,
+    "source_runtime_match": true,
+    "status": "deployed"
+  },
+  "runtime_health": {
+    "all_runtime_files_match": true,
+    "startup_paper_login_success": true,
+    "settings_preserved": true,
+    "old_orders_intents_fills_preserved": true,
+    "bot_restarted": true,
+    "collector_restarted": true,
+    "polling_advanced": true,
+    "startup_messages_sent": true,
+    "collector_new_cycle_completed": true,
+    "settings_safe": true,
+    "new_traceback": false,
+    "startup_notification_failures": false,
+    "bot_state": {
+      "status": "running",
+      "pid": 21061,
+      "started_at": 1793030619,
+      "poll_count": 6500,
+      "replied_count": 80,
+      "received_count": 50,
+      "last_reply_at": 1793030624
+    },
+    "collector_state": {
+      "status": "running",
+      "pid": 21065,
+      "started_at": 1793030619,
+      "cycle_count": 1,
+      "fetched_count": 700,
+      "last_success_at": 1793030727,
+      "retry_after": 0
+    },
+    "gdcrs_enabled": false,
+    "ddcrs_enabled": false,
+    "reservation_count": 0
+  },
+  "ledger_counts_before": {
+    "intents": 6,
+    "orders": 4,
+    "fills": 4,
+    "profits": 1,
+    "summaries": 1,
+    "holdings": 1
+  },
+  "ledger_counts_after": {
+    "intents": 6,
+    "orders": 4,
+    "fills": 4,
+    "profits": 1,
+    "summaries": 1,
+    "holdings": 1,
+    "order_decisions": 0,
+    "profit_observations": 1
+  },
+  "ledger_preservation_scope": "original intents, orders, fill facts; later holdings metadata and cost observations may be updated",
+  "source_runtime_package_files": 107,
+  "runtime_cli_smoke_tests": {
+    "kiwoom_autotrader.diagnostics --help": 0,
+    "kiwoom_autotrader.history --help": 0,
+    "kiwoom_autotrader.research --help": 0
+  },
+  "archive": {
+    "path": "/Users/tr-oh/Documents/Codex/2026-10-26/new-chat/outputs/ai-stock-windows.zip",
+    "files": 580,
+    "sha256": "170bbc7f00855db3b3650645750d7e0514bf5001b43cfc70142d807befababbc",
+    "integrity": "ok",
+    "contains_runtime_credentials_or_databases": false
+  },
+  "initial_deployment_attempt": {
+    "outcome": "stopped before backup/source replacement; original services restored",
+    "reason": "WORKERS_NOT_STOPPED",
+    "correction": "bounded stop-state recheck plus four regression tests"
+  },
+  "actual_order_submitted_by_this_task": false,
+  "changed_project_files": [
+    "kiwoom_autotrader/utils/http_queue.py",
+    "tests/test_telegram_account_service.py",
+    "STRUCTURE.md",
+    "deploy_handoff_runtime.py",
+    "tests/test_deploy_handoff_runtime.py"
+  ]
+}

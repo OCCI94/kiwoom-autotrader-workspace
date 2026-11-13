@@ -1,0 +1,113 @@
+{
+  "audit": {
+    "after": "5937d88232c404b67cb3cd3776f7f9ece0fdc4bca1187caf74e85b550d9cae65",
+    "after_sequence": 12,
+    "before": "91474a27ce0fb6e8d6c2f1f1fe4724f1f6b4f5cfc6cf3ad56b1f0a8cc7f836af",
+    "before_sequence": 0
+  },
+  "backup": "/Users/tr-oh/Library/Application Support/KiwoomAutotrader/backups/20261113-093420-intraday-maintenance-autotrading-fix",
+  "backup_assets": {
+    "ledger_sha256": "62811d3934f0e635ed78fdf813e01f26b9856e11cf2d47477222be666ad156ed",
+    "package_sha256": "a32a4a7c18a9bf9adc03eec367eb2ddcb05749aed47c709e17dbc4d47dd502bf",
+    "plist_sha256": "12ff223b3bbc3ac104489c78fcf7878822df368c420e016126926e45d61cea0d",
+    "settings_sha256": "70ada618b8d661345eac4d5be6da6232b831667392ab5de240e5fc14fbacc66b"
+  },
+  "candidate_package_sha256": "5e13d15d0449cf9d99952ed583ac324c4929e73fa1e983cff0c9c3ad3b64bf5c",
+  "claim": {
+    "attempt_id": "a7f28da571f645b4b6817fb970a993e6",
+    "path": "/Users/tr-oh/Library/Application Support/KiwoomAutotrader/code-deployment-claims/20261113-exception-bee684e07107d6e846959a3c0e53b4ebd8f9c75b07f707fcf658256ca250ad3b.claim.json",
+    "permission": {
+      "approval_sha256": "bee684e07107d6e846959a3c0e53b4ebd8f9c75b07f707fcf658256ca250ad3b",
+      "calendar_file_sha256": "41c1a4d7b780ea4f1ec0ba448e8b4d594d3d4f47e0e7b0b25bbbc29507581b09",
+      "calendar_source_sha256": "241c5d481f3537f6c1383db41b0c643aa667c91f7398cb3eb48b26a1b8eda0f1",
+      "claim_sha256": "3f5ca2d99288a2ca56342eb2dd8cdb931f1de056d329533d49d6cda88637f0b3",
+      "kind": "intraday-code-token",
+      "receiver_pid": 2130,
+      "scope": "receiver_only",
+      "source_manifest_sha256": "5e13d15d0449cf9d99952ed583ac324c4929e73fa1e983cff0c9c3ad3b64bf5c"
+    },
+    "sha256": "2a31125613a755dff10d8cea91ea1cf7e375d6c96b4273e9faa96aee7c432790"
+  },
+  "held_order_pause": {
+    "device_inode": [
+      16777230,
+      30260754
+    ],
+    "expires_at": "2026-11-13T09:44:15.195649+09:00",
+    "held_for_watchdog": false,
+    "path": "/Users/tr-oh/Library/Application Support/KiwoomAutotrader/telegram/maintenance-quiet.lock",
+    "released": true,
+    "sha256": "95b72037350dd90bb2f829b8a871d991a7e0bccd0554962c7c4e1a739cb3e21b",
+    "st_dev": 16777230,
+    "st_ino": 30260754,
+    "st_mtime_ns": 1794530065195772884
+  },
+  "new_pid": 30100,
+  "new_receiver_pid": 30100,
+  "new_state_published_at": "2026-11-13T09:35:29.045650+09:00",
+  "old_pid": 2130,
+  "order_pause": {
+    "device_inode": [
+      16777230,
+      30260754
+    ],
+    "expires_at": "2026-11-13T09:44:15.195649+09:00",
+    "held_for_watchdog": false,
+    "path": "/Users/tr-oh/Library/Application Support/KiwoomAutotrader/telegram/maintenance-quiet.lock",
+    "released": true,
+    "sha256": "95b72037350dd90bb2f829b8a871d991a7e0bccd0554962c7c4e1a739cb3e21b",
+    "st_dev": 16777230,
+    "st_ino": 30260754,
+    "st_mtime_ns": 1794530065195772884
+  },
+  "orders_after": {
+    "rows": 157,
+    "sha256": "d17495b87ce095042cf9fccef27760b72b941314f7d8a4afff21a5bda4035e04"
+  },
+  "orders_before": {
+    "rows": 157,
+    "sha256": "d17495b87ce095042cf9fccef27760b72b941314f7d8a4afff21a5bda4035e04"
+  },
+  "pending_intents": 0,
+  "permission_rechecks_after_stop": 4,
+  "protected_processes": {
+    "2217": {
+      "lstart": "Thu Nov 12 17:26:44 2026",
+      "pid": 2217,
+      "ppid": 1
+    },
+    "6543": {
+      "lstart": "Tue Nov 10 17:33:32 2026",
+      "pid": 6543,
+      "ppid": 1
+    },
+    "6544": {
+      "lstart": "Tue Nov 10 17:33:32 2026",
+      "pid": 6544,
+      "ppid": 1
+    },
+    "6557": {
+      "lstart": "Tue Nov 10 17:33:34 2026",
+      "pid": 6557,
+      "ppid": 6544
+    },
+    "36535": {
+      "lstart": "Wed Nov 11 15:37:12 2026",
+      "pid": 36535,
+      "ppid": 36529
+    }
+  },
+  "protected_processes_before": [
+    "2217 1 Thu Nov 12 17:26:44 2026",
+    "6543 1 Tue Nov 10 17:33:32 2026",
+    "6544 1 Tue Nov 10 17:33:32 2026",
+    "6557 6544 Tue Nov 10 17:33:34 2026",
+    "36535 36529 Wed Nov 11 15:37:12 2026"
+  ],
+  "runtime_before_package_sha256": "a32a4a7c18a9bf9adc03eec367eb2ddcb05749aed47c709e17dbc4d47dd502bf",
+  "scope": "receiver_only",
+  "settings_sha256": "70ada618b8d661345eac4d5be6da6232b831667392ab5de240e5fc14fbacc66b",
+  "source_runtime_match": true,
+  "status": "deployed",
+  "unfilled_orders": 0
+}

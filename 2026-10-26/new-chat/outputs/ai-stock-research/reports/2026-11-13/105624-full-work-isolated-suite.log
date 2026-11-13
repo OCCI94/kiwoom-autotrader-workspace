@@ -1,0 +1,42 @@
+STDOUT
+{"prepared": true, "files": 10, "secret_matches": 0}
+
+STDERR
+..AI Stock data unavailable: missing
+..Usage: ai_stock_ssd_mount.py [-- COMMAND [ARG ...]]
+....................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................E.......E....................................................................................................................................................................................................................................s.....s...................s...............s.........ss.[2026-11-13 10:59:35 KST] pid=33970 telegram_collector_launcher phase=monitor_storage code=storage_unavailable
+.[2026-11-13 10:59:35 KST] pid=33970 telegram_collector_launcher phase=preflight_storage code=storage_unavailable exit_code=75
+...............................................
+======================================================================
+ERROR: test_known_static_sources_keep_actual_data_separate (test_quant_leader_shadow_compare.ShadowComparisonTest.test_known_static_sources_keep_actual_data_separate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/wk-xqck6saj/work/test_quant_leader_shadow_compare.py", line 121, in test_known_static_sources_keep_actual_data_separate
+    report = shadow.saved_comparison(as_of=AS_OF, nav_krw=100_000_000, sector_cap=0.25)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/wk-xqck6saj/work/quant_leader_shadow_compare.py", line 314, in saved_comparison
+    dart, dart_proof = _read_json(day_5 / '112549577286-leader-candidates-real-dart-financial-calculation.json')
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/wk-xqck6saj/work/quant_leader_shadow_compare.py", line 295, in _read_json
+    child = os.open(directory, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW, dir_fd=parent)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'reports'
+
+======================================================================
+ERROR: test_supplemental_unexpected_filename_denied_before_read (test_quant_leader_shadow_compare.ShadowComparisonTest.test_supplemental_unexpected_filename_denied_before_read)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/wk-xqck6saj/work/test_quant_leader_shadow_compare.py", line 135, in test_supplemental_unexpected_filename_denied_before_read
+    shadow.saved_comparison(as_of=AS_OF, nav_krw=100_000_000, sector_cap=0.25,
+  File "/private/tmp/wk-xqck6saj/work/quant_leader_shadow_compare.py", line 314, in saved_comparison
+    dart, dart_proof = _read_json(day_5 / '112549577286-leader-candidates-real-dart-financial-calculation.json')
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/wk-xqck6saj/work/quant_leader_shadow_compare.py", line 295, in _read_json
+    child = os.open(directory, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW, dir_fd=parent)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'reports'
+
+----------------------------------------------------------------------
+Ran 1036 tests in 190.043s
+
+FAILED (errors=2, skipped=6)

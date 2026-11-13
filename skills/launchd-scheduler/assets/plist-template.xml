@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  kiwoom-autotrader LaunchAgent 템플릿
+
+  두 가지 용도:
+  1. 사람이 읽는 주석 달린 예시.
+  2. scripts/render_plist.py 가 plistlib 로 읽어 기본값으로 쓴다. 주석은 무시되고
+     Label, ProgramArguments, StandardOutPath, StandardErrorPath, 트리거 키
+     (StartInterval / StartCalendarInterval / KeepAlive / RunAtLoad)는 인자로 덮어쓴다.
+
+  규칙:
+  - Label == 파일명 stem. 접두사 com.local.kiwoom-autotrader.
+  - 비밀값(앱키, 토큰, DART 키)은 절대 넣지 않는다. 프로그램이 환경변수 이름으로 직접 읽는다.
+  - 로그는 상태 디렉터리 아래(~/Library/Application Support/KiwoomAutotrader/<워커>/ 또는 observability/<워커>/).
+  - 이 파일을 ~/Library/LaunchAgents 에 직접 복사하지 않는다. 렌더 -> 검증 -> 사람이 cp -> bootstrap.
+-->
+<plist version="1.0">
+<dict>
+  <!-- 파일명과 같아야 한다: com.local.kiwoom-autotrader.<워커>.plist -->
+  <key>Label</key>
+  <string>com.local.kiwoom-autotrader.CHANGE-ME</string>
+
+  <!-- 프로그램. 첫 항목은 절대 경로의 실행 파일. 이 프로젝트의 python:
+       /Users/tr-oh/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 (3.12)
+       -u: 출력 버퍼링 없음(로그가 바로 보임), -B: .pyc 쓰지 않음.
+       패키지 실행은 -m kiwoom_autotrader <서브커맨드>, 단일 스크립트는 경로를 바로 적는다.
+       상태 디렉터리는 state-dir 옵션(아래 배열 참고)으로 넘긴다.
+       (XML 주석 안에는 하이픈 둘을 이어 쓸 수 없어 옵션명을 풀어 적었다.) -->
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/tr-oh/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3</string>
+    <string>-u</string>
+    <string>-m</string>
+    <string>kiwoom_autotrader</string>
+    <string>CHANGE-ME-subcommand</string>
+    <string>--state-dir</string>
+    <string>/Users/tr-oh/Library/Application Support/KiwoomAutotrader/CHANGE-ME</string>
+  </array>
+
+  <!-- -m kiwoom_autotrader 를 쓰는 워커는 패키지가 보이는 runtime 디렉터리에서 돈다.
+       배포된 단일 스크립트 워커는 그 배포 디렉터리(research-readonly/<배포명>)를 쓴다. -->
+  <key>WorkingDirectory</key>
+  <string>/Users/tr-oh/Library/Application Support/KiwoomAutotrader/runtime</string>
+
+  <!-- 로그. 디렉터리가 미리 있어야 launchd 가 열 수 있다. 같은 파일을 둘 다에 써도 된다. -->
+  <key>StandardOutPath</key>
+  <string>/Users/tr-oh/Library/Application Support/KiwoomAutotrader/CHANGE-ME/worker.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/tr-oh/Library/Application Support/KiwoomAutotrader/CHANGE-ME/worker.error.log</string>
+
+  <!-- 트리거: 아래 셋 중 하나만 남긴다.
+
+       (a) 상주 워커(수신기, 수집기, 감시기):
+           KeepAlive SuccessfulExit=false  : 0이 아닌 종료만 재시작
+           RunAtLoad true                  : bootstrap 즉시 1회 실행
+       (b) 주기 워커:   <key>StartInterval</key><integer>600</integer>
+       (c) 정시 워커:   <key>StartCalendarInterval</key>
+                        <dict><key>Hour</key><integer>2</integer><key>Minute</key><integer>30</integer></dict>
+                        주간이면 Weekday(0=일요일 ... 6=토요일) 추가.
+       StartInterval 60 + "때가 아니면 0으로 종료" 조합은 runs 가 하루 1,440 쌓인다. 야간 1회는 (c). -->
+  <key>KeepAlive</key>
+  <dict>
+    <key>SuccessfulExit</key>
+    <false/>
+  </dict>
+  <key>RunAtLoad</key>
+  <true/>
+
+  <!-- 재시작 간 최소 간격(초). launchd 최소 10. 이 프로젝트는 30~60. -->
+  <key>ThrottleInterval</key>
+  <integer>60</integer>
+
+  <!-- 백그라운드 우선순위. 장중 수신기도 Background 로 두고 있다. -->
+  <key>ProcessType</key>
+  <string>Background</string>
+
+  <!-- 0o077 = 63. 로그와 상태 파일을 소유자만 읽게 만든다. -->
+  <key>Umask</key>
+  <integer>63</integer>
+
+  <!-- GUI 로그인 세션에서만 적재. SSH 만 붙은 상태에서는 뜨지 않는다.
+       수신기(telegram, telegram-account)가 이 키를 쓴다. 필요 없으면 지운다. -->
+  <key>LimitLoadToSessionType</key>
+  <string>Aqua</string>
+
+  <!-- 환경변수: 비밀값 금지. 이름만 적는 것은 의미가 없으므로(launchd 는 $NAME 을 치환하지 않음)
+       앱키/토큰은 프로그램이 자기 환경이나 키체인에서 읽게 한다.
+       render_plist.py 의 env 옵션에 KEY='$NAME' 을 주면 plist 에 쓰지 않고 안내문만 낸다. -->
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PYTHONDONTWRITEBYTECODE</key>
+    <string>1</string>
+    <key>PYTHONUNBUFFERED</key>
+    <string>1</string>
+    <key>TZ</key>
+    <string>Asia/Seoul</string>
+  </dict>
+</dict>
+</plist>

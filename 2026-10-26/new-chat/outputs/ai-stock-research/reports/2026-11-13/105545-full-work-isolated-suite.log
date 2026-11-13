@@ -1,0 +1,30 @@
+STDOUT
+{"prepared": true, "files": 10, "secret_matches": 0}
+
+STDERR
+..AI Stock data unavailable: missing
+..Usage: ai_stock_ssd_mount.py [-- COMMAND [ARG ...]]
+..................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................E....................................................................................................................................................................................................................................s.....s...................s...............s.........ss.[2026-11-13 10:58:59 KST] pid=33929 telegram_collector_launcher phase=monitor_storage code=storage_unavailable
+.[2026-11-13 10:58:59 KST] pid=33929 telegram_collector_launcher phase=preflight_storage code=storage_unavailable exit_code=75
+...............................................
+======================================================================
+ERROR: test_quant_leader_shadow_compare (unittest.loader._FailedTest.test_quant_leader_shadow_compare)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_quant_leader_shadow_compare
+Traceback (most recent call last):
+  File "/Users/tr-oh/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tr-oh/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/private/tmp/wk-b3b22ntd/work/test_quant_leader_shadow_compare.py", line 7, in <module>
+    import quant_leader_shadow_compare as shadow
+  File "/private/tmp/wk-b3b22ntd/work/quant_leader_shadow_compare.py", line 30, in <module>
+    from leader_autotrading_formulas import (
+ModuleNotFoundError: No module named 'leader_autotrading_formulas'
+
+
+----------------------------------------------------------------------
+Ran 1026 tests in 192.620s
+
+FAILED (errors=1, skipped=6)

@@ -1,0 +1,621 @@
+{
+  "schema": "pid30100-tick-recovery-readonly-check-v1",
+  "verdict": "PASS",
+  "generated_at": "2026-11-13T10:09:53.579758+09:00",
+  "cutoff_kst": "2026-11-13T09:35:29+09:00",
+  "state_json_check": {
+    "checked_at": "2026-11-13T10:09:53.570695+09:00",
+    "pid": 30100,
+    "pid_is_30100": true,
+    "status": "running",
+    "status_is_running": true,
+    "mode": "paper",
+    "mode_source": "automation_status.mode",
+    "mode_is_paper": true,
+    "state_publication": {
+      "published_at": "2026-11-13T10:09:50.697280+09:00",
+      "age_seconds": 2.873,
+      "fresh_within_90s": true,
+      "reason": "before_strategy_tick"
+    },
+    "maintenance_status": {
+      "paused": false,
+      "paused_is_false": true,
+      "reason": "maintenance_absent"
+    },
+    "execution_recording": {
+      "ready": true,
+      "error": null,
+      "gap_count": 0,
+      "passes": true
+    },
+    "paper_experiment": {
+      "enabled": true,
+      "halted": false,
+      "halted_outer": null,
+      "halted_monitor": null,
+      "failed_ticks": 0,
+      "failure_outer": null,
+      "quarantined_count": 0,
+      "active_arms_count": 14,
+      "active_arms": [
+        "EXP_R",
+        "EXP_A",
+        "EXP_B",
+        "EXP_B_TP",
+        "EXP_E",
+        "EXP_C",
+        "EXP_D",
+        "EXP_ETF_B",
+        "EXP_GDR",
+        "EXP_LDR",
+        "EXP_ORB_A",
+        "EXP_ORB_B",
+        "EXP_VSS",
+        "S5_steady_uptrend_vwap"
+      ],
+      "active_arms_14_match": true,
+      "qls_shadow": {
+        "gate": "EXP_QLS",
+        "state": "SHADOW",
+        "expired": false,
+        "expires_on": "2026-11-27",
+        "order_permission": false,
+        "submitted_orders": 0,
+        "status": "awaiting_daily_checkpoint",
+        "day": "20261113",
+        "would_have_ordered": []
+      },
+      "qls_shadow_passes": true,
+      "passes": true
+    },
+    "tick_health": {
+      "raw": {
+        "schema": "paper-monitor-tick-health-v1",
+        "coverage": "current_process_only",
+        "first_tick_started_at": "2026-11-13T09:35:40.364292+09:00",
+        "last_tick_started_at": "2026-11-13T10:09:12.424800+09:00",
+        "last_tick_completed_at": "2026-11-13T10:09:48.722105+09:00",
+        "completed_ticks": 45,
+        "failed_ticks": 0,
+        "maximum_start_gap_seconds": 56.21387162501924,
+        "maximum_tick_duration_seconds": 53.988825750071555,
+        "day": "20261113",
+        "maximum_start_gap_seconds_day": 56.21387162501924,
+        "failed_ticks_day": 0,
+        "day_clock_unverified": false,
+        "clock_unverified": false
+      },
+      "completed_ticks": 45,
+      "failed_ticks": 0,
+      "failed_ticks_day": 0,
+      "clock_unverified": false,
+      "day_clock_unverified": false,
+      "maximum_tick_duration_seconds": 53.988826,
+      "maximum_start_gap_seconds": 56.213872,
+      "maximum_start_gap_seconds_day": 56.213872,
+      "max_duration_under_120s": true,
+      "max_start_gap_under_120s": true,
+      "last_tick_completed_at": "2026-11-13T10:09:48.722105+09:00",
+      "last_tick_completed_age_seconds": 4.849,
+      "last_completed_within_120s": true
+    }
+  },
+  "stability_audit_check": {
+    "total_lines": 545,
+    "hash_chain_verified": true,
+    "chain_error_count": 0,
+    "chain_errors": [],
+    "epochs": [
+      {
+        "run_id": "d8cc64b62cc540c996ccafcdafbcf243",
+        "pid": 2130,
+        "start_line": 1,
+        "end_line": 521,
+        "first_observed_at": "2026-11-13T00:00:07.725203+09:00",
+        "last_observed_at": "2026-11-13T09:34:20.014285+09:00",
+        "first_sha256": "cbe678cabb979bd66d2e2050ffad927069f5bc45106d51cb407fcb1ad138388d",
+        "last_sha256": "a1fef5f5089cdd5688206c2a536a4afea5f71fcf2b15d2ac57a4f692a5b5d1fa",
+        "last_seq": 520,
+        "count": 521
+      },
+      {
+        "run_id": "2aaec95143a749149a8d7f572097c356",
+        "pid": 30100,
+        "start_line": 522,
+        "end_line": 545,
+        "first_observed_at": "2026-11-13T09:35:28.502466+09:00",
+        "last_observed_at": "2026-11-13T10:09:48.898300+09:00",
+        "first_sha256": "5ad00e9d9d7233cdd2eeda9c5c65dbb3fb319a00eb643656622a35fcdf72c8e2",
+        "last_sha256": "6a6b3d23dd29b8d9d843d6c53dbdfa88fa1a9a4e5c188de12e2a918a15a546c7",
+        "last_seq": 23,
+        "count": 24
+      }
+    ],
+    "pid30100_records_before_cutoff": 1,
+    "other_pid_records": 0,
+    "pre_replacement_pid2130_all_day": {
+      "record_count": 521,
+      "pids": [
+        2130
+      ],
+      "run_ids": [
+        "d8cc64b62cc540c996ccafcdafbcf243"
+      ],
+      "single_run_id_maintained": true,
+      "first_observed_at": "2026-11-13T00:00:07.725203+09:00",
+      "last_observed_at": "2026-11-13T09:34:20.014285+09:00",
+      "ready_continuous_true": true,
+      "ready_true_count": 521,
+      "stream_error_any": false,
+      "stream_gap_counts": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "process_max_tick_duration_seconds": 383.746346,
+      "process_max_start_gap_seconds": 387.291487,
+      "warmup_tick": {
+        "first_tick_started_at": "2026-11-12T17:28:48.690101+09:00",
+        "first_completed_pulse_observed_at": "2026-11-13T00:00:07.725203+09:00",
+        "completed_ticks_at_first_nonzero_pulse": 2828,
+        "max_duration_at_first_nonzero_pulse_seconds": 0.328882,
+        "max_start_gap_at_first_nonzero_pulse_seconds": 52.967112
+      },
+      "steady_state_sampled_tick_durations_seconds": {
+        "count": 521,
+        "min": 0.00132,
+        "median": 0.002713,
+        "max": 383.745466,
+        "mean": 4.023639
+      },
+      "steady_state_exact_1tick_start_gaps_seconds": {
+        "count": 7,
+        "min": 2.356665,
+        "median": 297.131778,
+        "max": 387.290597,
+        "mean": 260.653485
+      },
+      "steady_state_exact_1tick_completion_gaps_seconds": {
+        "count": 7,
+        "min": 216.961244,
+        "median": 295.972858,
+        "max": 385.923468,
+        "mean": 301.914064
+      },
+      "steady_state_window_mean_intervals_seconds": {
+        "count": 520,
+        "min": 3.373807,
+        "median": 5.195414,
+        "max": 385.923468,
+        "mean": 9.228467
+      },
+      "all_sampled_completed_tick_durations_seconds": {
+        "count": 521,
+        "min": 0.00132,
+        "median": 0.002713,
+        "max": 383.745466,
+        "mean": 4.023639
+      }
+    },
+    "pre_replacement_pid2130_regular_session_0900_to_0935": {
+      "record_count": 7,
+      "pids": [
+        2130
+      ],
+      "run_ids": [
+        "d8cc64b62cc540c996ccafcdafbcf243"
+      ],
+      "single_run_id_maintained": true,
+      "first_observed_at": "2026-11-13T09:05:25.984934+09:00",
+      "last_observed_at": "2026-11-13T09:34:20.014285+09:00",
+      "ready_continuous_true": true,
+      "ready_true_count": 7,
+      "stream_error_any": false,
+      "stream_gap_counts": [
+        11
+      ],
+      "process_max_tick_duration_seconds": 383.746346,
+      "process_max_start_gap_seconds": 387.291487,
+      "warmup_tick": {
+        "first_tick_started_at": "2026-11-12T17:28:48.690101+09:00",
+        "first_completed_pulse_observed_at": "2026-11-13T09:05:25.984934+09:00",
+        "completed_ticks_at_first_nonzero_pulse": 9038,
+        "max_duration_at_first_nonzero_pulse_seconds": 383.746346,
+        "max_start_gap_at_first_nonzero_pulse_seconds": 52.967112
+      },
+      "steady_state_sampled_tick_durations_seconds": {
+        "count": 7,
+        "min": 213.982261,
+        "median": 293.70536,
+        "max": 383.745466,
+        "mean": 299.072978
+      },
+      "steady_state_exact_1tick_start_gaps_seconds": {
+        "count": 6,
+        "min": 216.49159,
+        "median": 303.87065,
+        "max": 387.290597,
+        "mean": 303.702955
+      },
+      "steady_state_exact_1tick_completion_gaps_seconds": {
+        "count": 6,
+        "min": 216.961244,
+        "median": 294.41071,
+        "max": 319.126575,
+        "mean": 287.912497
+      },
+      "steady_state_window_mean_intervals_seconds": {
+        "count": 6,
+        "min": 216.961244,
+        "median": 294.41071,
+        "max": 319.126575,
+        "mean": 287.912497
+      },
+      "all_sampled_completed_tick_durations_seconds": {
+        "count": 7,
+        "min": 213.982261,
+        "median": 293.70536,
+        "max": 383.745466,
+        "mean": 299.072978
+      }
+    },
+    "post_replacement_pid30100_from_093529": {
+      "record_count": 23,
+      "pids": [
+        30100
+      ],
+      "run_ids": [
+        "2aaec95143a749149a8d7f572097c356"
+      ],
+      "single_run_id_maintained": true,
+      "first_observed_at": "2026-11-13T09:36:31.349526+09:00",
+      "last_observed_at": "2026-11-13T10:09:48.898300+09:00",
+      "ready_continuous_true": true,
+      "ready_true_count": 23,
+      "stream_error_any": false,
+      "stream_gap_counts": [
+        0
+      ],
+      "process_max_tick_duration_seconds": 53.988826,
+      "process_max_start_gap_seconds": 56.213872,
+      "warmup_tick": {
+        "first_tick_started_at": "2026-11-13T09:35:40.364292+09:00",
+        "first_completed_pulse_observed_at": "2026-11-13T09:36:31.349526+09:00",
+        "completed_ticks_at_first_nonzero_pulse": 1,
+        "max_duration_at_first_nonzero_pulse_seconds": 50.780081,
+        "max_start_gap_at_first_nonzero_pulse_seconds": 0.0,
+        "warmup_tick_wall_duration_seconds": 50.77989
+      },
+      "steady_state_sampled_tick_durations_seconds": {
+        "count": 22,
+        "min": 36.297305,
+        "median": 47.924146,
+        "max": 53.988833,
+        "mean": 46.131725
+      },
+      "steady_state_exact_1tick_start_gaps_seconds": null,
+      "steady_state_exact_1tick_completion_gaps_seconds": null,
+      "steady_state_window_mean_intervals_seconds": {
+        "count": 22,
+        "min": 36.083874,
+        "median": 45.542984,
+        "max": 54.093018,
+        "mean": 45.399498
+      },
+      "all_sampled_completed_tick_durations_seconds": {
+        "count": 23,
+        "min": 36.297305,
+        "median": 48.308899,
+        "max": 53.988833,
+        "mean": 46.333819
+      },
+      "pulses": [
+        {
+          "sequence": 1,
+          "observed_at": "2026-11-13T09:36:31.349526+09:00",
+          "ready": true,
+          "completed_ticks": 1,
+          "first_tick_started_at": "2026-11-13T09:35:40.364292+09:00",
+          "last_tick_started_at": "2026-11-13T09:35:40.364292+09:00",
+          "last_tick_completed_at": "2026-11-13T09:36:31.144182+09:00",
+          "maximum_tick_duration_seconds": 50.780080541968346,
+          "maximum_start_gap_seconds": 0.0
+        },
+        {
+          "sequence": 2,
+          "observed_at": "2026-11-13T09:38:19.531180+09:00",
+          "ready": true,
+          "completed_ticks": 3,
+          "first_tick_started_at": "2026-11-13T09:35:40.364292+09:00",
+          "last_tick_started_at": "2026-11-13T09:37:26.593750+09:00",
+          "last_tick_completed_at": "2026-11-13T09:38:19.330217+09:00",
+          "maximum_tick_duration_seconds": 52.73666399996728,
+          "maximum_start_gap_seconds": 53.25144629087299
+        },
+        {
+          "sequence": 3,
+          "observed_at": "2026-11-13T09:40:00.514590+09:00",
+          "ready": true,
+          "completed_ticks": 5,
+          "first_tick_started_at": "2026-11-13T09:35:40.364292+09:00",
+          "last_tick_started_at": "2026-11-13T09:39:10.788646+09:00",
+          "last_tick_completed_at": "2026-11-13T09:40:00.306005+09:00",
+          "maximum_tick_duration_seconds": 52.73666399996728,
+          "maximum_start_gap_seconds": 54.88840691698715
+        },
+        {
+          "sequence": 4,
+          "observed_at": "2026-11-13T09:41:40.894242+09:00",
+          "ready": true,
+          "completed_ticks": 7,
+          "first_tick_started_at": "2026-11-13T09:35:40.364292+09:00",
+          "last_tick_started_at": "2026-11-13T09:40:46.697365+09:00",
+          "last_tick_completed_at": "2026-11-13T09:41:40.686198+09:00",
+          "maximum_tick_duration_seconds": 53.988825750071555,
+          "maximum_start_gap_seconds": 54.88840691698715
+        },
+        {
+          "sequence": 5,
+          "observed_at": "2026-11-13T09:43:24.426131+09:00",
+          "ready": true,
+          "completed_ticks": 9,
+          "first_tick_started_at": "2026-11-13T09:35:40.364292+09:00",
+          "last_tick_started_at": "2026-11-13T09:42:32.079698+09:00",
+          "last_tick_completed_at": "2026-11-13T09:43:24.238072+09:00",
+          "maximum_tick_duration_seconds": 53.988825750071555,
+          "maximum_start_gap_seconds": 56.21387162501924
+        },
+        {
+          "sequence": 6,
+          "observed_at": "2026-11-13T09:45:08.659526+09:00",
+          "ready": true,
+          "completed_ticks": 11,
+          "first_tick_started_at": "2026-11-13T09:35:40.364292+09:00",
+          "last_tick_started_at": "2026-11-13T09:44:20.094430+09:00",
+          "last_tick_completed_at": "2026-11-13T09:45:08.403329+09:00",
+          "maximum_tick_duration_seconds": 53.988825750071555,
+          "maximum_start_gap_seconds": 56.21387162501924
+        },
+        {
+          "sequence": 7,
+          "observed_at": "2026-11-13T09:46:44.687555+09:00",
+          "ready": true,
+          "completed_ticks": 13,
+          "first_tick_started_at": "2026-11-13T09:35:40.364292+09:00",
+          "last_tick_started_at": "2026-11-13T09:45:52.032953+09:00",
+          "last_tick_completed_at": "2026-11-13T09:46:44.498463+09:00",
+          "maximum_tick_duration_seconds": 53.988825750071555,
+          "maximum_start_gap_seconds": 56.21387162501924
+        },
+        {
+          "sequence": 8,
+          "observed_at": "2026-11-13T09:48:26.305200+09:00",
+          "ready": true,
+          "completed_ticks": 15,
+          "first_tick_started_at": "2026-11-13T09:35:40.364292+09:00",
+          "last_tick_started_at": "2026-11-13T09:47:34.911394+09:00",
+          "last_tick_completed_at": "2026-11-13T09:48:26.093068+09:00",
+          "maximum_tick_duration_seconds": 53.988825750071555,
+          "maximum_start_gap_seconds": 56.21387162501924
+        },
+        {
+          "sequence": 9,
+          "observed_at": "2026-11-13T09:49:56.289762+09:00",
+          "ready": true,
+          "completed_ticks": 17,
+          "first_tick_started_at": "2026-11-13T09:35:40.364292+09:00",
+          "last_tick_started_at": "2026-11-13T09:49:07.636277+09:00",
+          "last_tick_completed_at": "2026-11-13T09:49:56.094210+09:00",
+          "maximum_tick_duration_seconds": 53.988825750071555,
+          "maximum_start_gap_seconds": 56.21387162501924
+        },
+        {
+          "sequence": 10,
+          "observed_at": "2026-11-13T09:51:31.309185+09:00",
+          "ready": true,
+          "completed_ticks": 19,
+          "first_tick_started_at": "2026-11-13T09:35:40.364292+09:00",
+          "last_tick_started_at": "2026-11-13T09:50:44.508014+09:00",
+          "last_tick_completed_at": "2026-11-13T09:51:31.139060+09:00",
+          "maximum_tick_duration_seconds": 53.988825750071555,
+          "maximum_start_gap_seconds": 56.21387162501924
+        },
+        {
+          "sequence": 11,
+          "observed_at": "2026-11-13T09:53:01.230042+09:00",
+          "ready": true,
+          "completed_ticks": 21,
+          "first_tick_started_at": "2026-11-13T09:35:40.364292+09:00",
+          "last_tick_started_at": "2026-11-13T09:52:12.028998+09:00",
+          "last_tick_completed_at": "2026-11-13T09:53:01.041810+09:00",
+          "maximum_tick_duration_seconds": 53.988825750071555,
+          "maximum_start_gap_seconds": 56.21387162501924
+        },
+        {
+          "sequence": 12,
+          "observed_at": "2026-11-13T09:54:33.430758+09:00",
+          "ready": true,
+          "completed_ticks": 23,
+          "first_tick_started_at": "2026-11-13T09:35:40.364292+09:00",
+          "last_tick_started_at": "2026-11-13T09:53:45.673210+09:00",
+          "last_tick_completed_at": "2026-11-13T09:54:33.212603+09:00",
+          "maximum_tick_duration_seconds": 53.988825750071555,
+          "maximum_start_gap_seconds": 56.21387162501924
+        },
+        {
+          "sequence": 13,
+          "observed_at": "2026-11-13T09:56:06.773216+09:00",
+          "ready": true,
+          "completed_ticks": 25,
+          "first_tick_started_at": "2026-11-13T09:35:40.364292+09:00",
+          "last_tick_started_at": "2026-11-13T09:55:17.600122+09:00",
+          "last_tick_completed_at": "2026-11-13T09:56:06.585555+09:00",
+          "maximum_tick_duration_seconds": 53.988825750071555,
+          "maximum_start_gap_seconds": 56.21387162501924
+        },
+        {
+          "sequence": 14,
+          "observed_at": "2026-11-13T09:57:34.428872+09:00",
+          "ready": true,
+          "completed_ticks": 27,
+          "first_tick_started_at": "2026-11-13T09:35:40.364292+09:00",
+          "last_tick_started_at": "2026-11-13T09:56:53.958989+09:00",
+          "last_tick_completed_at": "2026-11-13T09:57:34.271290+09:00",
+          "maximum_tick_duration_seconds": 53.988825750071555,
+          "maximum_start_gap_seconds": 56.21387162501924
+        },
+        {
+          "sequence": 15,
+          "observed_at": "2026-11-13T09:59:03.735929+09:00",
+          "ready": true,
+          "completed_ticks": 29,
+          "first_tick_started_at": "2026-11-13T09:35:40.364292+09:00",
+          "last_tick_started_at": "2026-11-13T09:58:17.756649+09:00",
+          "last_tick_completed_at": "2026-11-13T09:59:03.566276+09:00",
+          "maximum_tick_duration_seconds": 53.988825750071555,
+          "maximum_start_gap_seconds": 56.21387162501924
+        },
+        {
+          "sequence": 16,
+          "observed_at": "2026-11-13T10:00:25.831056+09:00",
+          "ready": true,
+          "completed_ticks": 31,
+          "first_tick_started_at": "2026-11-13T09:35:40.364292+09:00",
+          "last_tick_started_at": "2026-11-13T09:59:42.309526+09:00",
+          "last_tick_completed_at": "2026-11-13T10:00:25.596202+09:00",
+          "maximum_tick_duration_seconds": 53.988825750071555,
+          "maximum_start_gap_seconds": 56.21387162501924
+        },
+        {
+          "sequence": 17,
+          "observed_at": "2026-11-13T10:01:50.328223+09:00",
+          "ready": true,
+          "completed_ticks": 33,
+          "first_tick_started_at": "2026-11-13T09:35:40.364292+09:00",
+          "last_tick_started_at": "2026-11-13T10:01:05.816847+09:00",
+          "last_tick_completed_at": "2026-11-13T10:01:50.140666+09:00",
+          "maximum_tick_duration_seconds": 53.988825750071555,
+          "maximum_start_gap_seconds": 56.21387162501924
+        },
+        {
+          "sequence": 18,
+          "observed_at": "2026-11-13T10:03:29.500775+09:00",
+          "ready": true,
+          "completed_ticks": 35,
+          "first_tick_started_at": "2026-11-13T09:35:40.364292+09:00",
+          "last_tick_started_at": "2026-11-13T10:02:40.281258+09:00",
+          "last_tick_completed_at": "2026-11-13T10:03:29.343269+09:00",
+          "maximum_tick_duration_seconds": 53.988825750071555,
+          "maximum_start_gap_seconds": 56.21387162501924
+        },
+        {
+          "sequence": 19,
+          "observed_at": "2026-11-13T10:04:41.657878+09:00",
+          "ready": true,
+          "completed_ticks": 37,
+          "first_tick_started_at": "2026-11-13T09:35:40.364292+09:00",
+          "last_tick_started_at": "2026-11-13T10:04:05.126425+09:00",
+          "last_tick_completed_at": "2026-11-13T10:04:41.511016+09:00",
+          "maximum_tick_duration_seconds": 53.988825750071555,
+          "maximum_start_gap_seconds": 56.21387162501924
+        },
+        {
+          "sequence": 20,
+          "observed_at": "2026-11-13T10:05:57.591764+09:00",
+          "ready": true,
+          "completed_ticks": 39,
+          "first_tick_started_at": "2026-11-13T09:35:40.364292+09:00",
+          "last_tick_started_at": "2026-11-13T10:05:13.497346+09:00",
+          "last_tick_completed_at": "2026-11-13T10:05:57.397389+09:00",
+          "maximum_tick_duration_seconds": 53.988825750071555,
+          "maximum_start_gap_seconds": 56.21387162501924
+        },
+        {
+          "sequence": 21,
+          "observed_at": "2026-11-13T10:07:17.549989+09:00",
+          "ready": true,
+          "completed_ticks": 41,
+          "first_tick_started_at": "2026-11-13T09:35:40.364292+09:00",
+          "last_tick_started_at": "2026-11-13T10:06:39.551730+09:00",
+          "last_tick_completed_at": "2026-11-13T10:07:17.348442+09:00",
+          "maximum_tick_duration_seconds": 53.988825750071555,
+          "maximum_start_gap_seconds": 56.21387162501924
+        },
+        {
+          "sequence": 22,
+          "observed_at": "2026-11-13T10:08:36.310440+09:00",
+          "ready": true,
+          "completed_ticks": 43,
+          "first_tick_started_at": "2026-11-13T09:35:40.364292+09:00",
+          "last_tick_started_at": "2026-11-13T10:07:59.376074+09:00",
+          "last_tick_completed_at": "2026-11-13T10:08:36.117212+09:00",
+          "maximum_tick_duration_seconds": 53.988825750071555,
+          "maximum_start_gap_seconds": 56.21387162501924
+        },
+        {
+          "sequence": 23,
+          "observed_at": "2026-11-13T10:09:48.898300+09:00",
+          "ready": true,
+          "completed_ticks": 45,
+          "first_tick_started_at": "2026-11-13T09:35:40.364292+09:00",
+          "last_tick_started_at": "2026-11-13T10:09:12.424800+09:00",
+          "last_tick_completed_at": "2026-11-13T10:09:48.722105+09:00",
+          "maximum_tick_duration_seconds": 53.988825750071555,
+          "maximum_start_gap_seconds": 56.21387162501924
+        }
+      ]
+    }
+  },
+  "file_stat_and_isolation": {
+    "open_flags_used": "os.O_RDONLY | os.O_NOFOLLOW",
+    "state_json": {
+      "path": "/Users/tr-oh/Library/Application Support/KiwoomAutotrader/telegram/state.json",
+      "read_retries": 0,
+      "before": {
+        "st_dev": 16777230,
+        "st_ino": 30301053,
+        "st_size": 50594,
+        "st_mtime_ns": 1794532190698775641
+      },
+      "after": {
+        "st_dev": 16777230,
+        "st_ino": 30301053,
+        "st_size": 50594,
+        "st_mtime_ns": 1794532190698775641
+      },
+      "dev_unchanged": true,
+      "inode_unchanged": true,
+      "atomic_republish_observed_during_check": false,
+      "size_non_decreasing": true,
+      "size_delta_bytes": 0
+    },
+    "receiver_stability_jsonl": {
+      "path": "/Users/tr-oh/Library/Application Support/KiwoomAutotrader/telegram/stability-audit/receiver-stability-20261113.jsonl",
+      "before": {
+        "st_dev": 16777230,
+        "st_ino": 29951784,
+        "st_size": 662668,
+        "st_mtime_ns": 1794532188899027650
+      },
+      "after": {
+        "st_dev": 16777230,
+        "st_ino": 29951784,
+        "st_size": 662668,
+        "st_mtime_ns": 1794532188899027650
+      },
+      "dev_unchanged": true,
+      "inode_unchanged": true,
+      "size_non_decreasing": true,
+      "size_delta_bytes": 0
+    },
+    "zero_touch_attestation": {
+      "sqlite_opens": 0,
+      "external_network_calls": 0,
+      "process_or_launchctl_calls": 0,
+      "operational_writes": 0,
+      "allowed_read_open_count": 4
+    }
+  }
+}

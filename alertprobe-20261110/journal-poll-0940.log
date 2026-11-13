@@ -1,0 +1,75 @@
+09:42:10.359 seen | kt00009 mtime 09:42:10.331 size 19
+09:42:10.383 seen | ledger mtime 09:42:10.373 size 1052270592
+09:42:10.542 seen | state mtime 09:42:10.531 size 8733
+09:42:12.792 seen | journal mtime 09:42:12.781 size 21032
+09:42:12.792 seen | kt00009 mtime 09:42:12.772 size 19
+09:42:24.912 seen | journal GONE
+09:42:33.718 seen | kt00007 mtime 09:42:33.718 size 0
+09:42:33.748 seen | kt00007 mtime 09:42:33.718 size 19
+09:42:33.779 seen | journal mtime 09:42:33.755 size 8720
+09:42:34.116 seen | journal GONE
+09:42:34.116 seen | ledger mtime 09:42:34.086 size 1052270592
+09:42:34.918 seen | kt00007 mtime 09:42:34.909 size 19
+09:42:34.948 seen | journal mtime 09:42:34.922 size 8720
+09:42:35.268 seen | journal GONE
+09:42:35.268 seen | ledger mtime 09:42:35.254 size 1052270592
+09:42:35.349 seen | kt00009 mtime 09:42:35.332 size 19
+09:42:35.379 seen | journal mtime 09:42:35.351 size 8720
+09:42:35.868 seen | journal GONE
+09:42:35.868 seen | ledger mtime 09:42:35.851 size 1052270592
+09:42:37.338 seen | journal mtime 09:42:37.330 size 8720
+09:42:37.391 seen | journal GONE
+09:42:37.392 seen | ledger mtime 09:42:37.385 size 1052270592
+09:42:37.436 seen | ledger mtime 09:42:37.423 size 1052270592
+09:42:37.531 seen | ka10075 mtime 09:42:37.521 size 19
+09:42:37.556 seen | ledger mtime 09:42:37.547 size 1052274688
+09:43:39.720 seen | state mtime 09:43:39.719 size 8733
+09:43:39.740 seen | state mtime 09:43:39.727 size 8733
+09:43:41.851 seen | state mtime 09:43:41.830 size 8732
+09:43:56.212 seen | kt00007 mtime 09:43:56.204 size 19
+09:43:56.272 seen | journal mtime 09:43:56.243 size 8720
+09:44:07.307 seen | journal GONE
+09:44:07.308 seen | ledger mtime 09:44:07.285 size 1052274688
+09:44:07.582 seen | journal mtime 09:44:07.565 size 8720
+09:44:07.582 seen | kt00007 mtime 09:44:07.558 size 17
+09:44:08.065 seen | journal GONE
+09:44:08.065 seen | ledger mtime 09:44:08.040 size 1052274688
+09:44:08.199 seen | journal mtime 09:44:08.193 size 8720
+09:44:08.199 seen | kt00009 mtime 09:44:08.180 size 19
+09:44:08.312 seen | journal GONE
+09:44:08.312 seen | ledger mtime 09:44:08.285 size 1052274688
+09:44:09.699 seen | journal mtime 09:44:09.692 size 8720
+09:44:09.755 seen | journal GONE
+09:44:09.755 seen | ledger mtime 09:44:09.735 size 1052274688
+09:44:09.782 seen | ledger mtime 09:44:09.767 size 1052274688
+09:44:09.884 seen | ka10075 mtime 09:44:09.879 size 18
+09:44:09.907 seen | journal mtime 09:44:09.884 size 25136
+09:44:10.389 seen | journal GONE
+09:44:10.389 seen | ledger mtime 09:44:10.387 size 1052282880
+09:46:24.879 seen | kt00009 mtime 09:46:24.872 size 19
+09:46:24.906 seen | ledger mtime 09:46:24.900 size 1052282880
+09:46:25.033 seen | state mtime 09:46:25.007 size 8733
+09:46:26.907 seen | kt00009 mtime 09:46:26.896 size 19
+09:46:26.933 seen | journal mtime 09:46:26.919 size 25136
+09:46:40.071 seen | journal GONE
+09:46:45.893 seen | kt00007 mtime 09:46:45.874 size 19
+09:46:45.943 seen | journal mtime 09:46:45.919 size 8720
+09:46:57.436 seen | journal GONE
+09:46:57.436 seen | ledger mtime 09:46:57.434 size 1052282880
+09:46:57.726 seen | kt00007 mtime 09:46:57.722 size 19
+09:46:57.757 seen | journal mtime 09:46:57.731 size 8720
+09:46:58.314 seen | journal GONE
+09:46:58.315 seen | ledger mtime 09:46:58.290 size 1052282880
+09:46:58.463 seen | journal mtime 09:46:58.449 size 12824
+09:46:58.463 seen | kt00009 mtime 09:46:58.438 size 18
+09:46:58.998 seen | journal GONE
+09:46:58.998 seen | ledger mtime 09:46:58.969 size 1052286976
+09:47:00.436 seen | journal mtime 09:47:00.409 size 8720
+09:47:00.546 seen | journal GONE
+09:47:00.546 seen | ledger mtime 09:47:00.524 size 1052286976
+09:47:00.603 seen | ka10075 mtime 09:47:00.591 size 19
+09:47:00.633 seen | journal mtime 09:47:00.616 size 8720
+09:47:01.012 seen | journal GONE
+09:47:01.012 seen | ledger mtime 09:47:00.987 size 1052286976
+09:48:09.129 seen | state mtime 09:48:09.120 size 8733
+09:48:10.965 seen | state mtime 09:48:10.957 size 8732

@@ -1,0 +1,13 @@
+﻿market,exchange,symbol,timestamp,side,quantity,currency,reason
+KR,KRX,DEMO_KR,2026-01-14T07:00:00+00:00,BUY,1,KRW,bullish_sma_cross_with_volume
+US,NASDAQ,DEMO_US,2026-01-14T21:00:00+00:00,BUY,1,USD,bullish_sma_cross_with_volume
+KR,KRX,DEMO_KR,2026-01-21T07:00:00+00:00,SELL,1,KRW,bearish_sma_cross
+US,NASDAQ,DEMO_US,2026-01-21T21:00:00+00:00,SELL,1,USD,bearish_sma_cross
+KR,KRX,DEMO_KR,2026-01-28T07:00:00+00:00,BUY,1,KRW,bullish_sma_cross_with_volume
+US,NASDAQ,DEMO_US,2026-01-28T21:00:00+00:00,BUY,1,USD,bullish_sma_cross_with_volume
+KR,KRX,DEMO_KR,2026-02-04T07:00:00+00:00,SELL,1,KRW,bearish_sma_cross
+US,NASDAQ,DEMO_US,2026-02-04T21:00:00+00:00,SELL,1,USD,bearish_sma_cross
+KR,KRX,DEMO_KR,2026-02-12T07:00:00+00:00,BUY,1,KRW,bullish_sma_cross_with_volume
+US,NASDAQ,DEMO_US,2026-02-12T21:00:00+00:00,BUY,1,USD,bullish_sma_cross_with_volume
+KR,KRX,DEMO_KR,2026-02-19T07:00:00+00:00,SELL,1,KRW,bearish_sma_cross
+US,NASDAQ,DEMO_US,2026-02-19T21:00:00+00:00,SELL,1,USD,bearish_sma_cross

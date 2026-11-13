@@ -1,0 +1,367 @@
+{
+  "schema": "ai-stock-history-v1",
+  "store_uuid": "e366e81e-de42-4df7-8bc8-0ca1d6e9ff76",
+  "store_created_at": "2026-10-26T07:04:59.130084+00:00",
+  "historical_import_verified": true,
+  "evidence_scope": "canonical_payload_integrity_and_declared_references_only_not_accounting_or_broker_verification",
+  "stored_payloads_revalidated": true,
+  "authoritative_history_complete": false,
+  "current_account_verified": false,
+  "deployed": false,
+  "imports": 1,
+  "quarantined_conflicts": 0,
+  "sources": [
+    {
+      "lineage_id": "SYNTHETIC-FIXTURE-kr_mock",
+      "cohort": "kr_mock",
+      "currency": "KRW",
+      "snapshot_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "snapshot_recorded_at": {
+        "meaning": "snapshot_saved_at",
+        "raw": "2026-10-25T11:00:00",
+        "timezone": "Asia/Seoul"
+      },
+      "counts": {
+        "orders": 2,
+        "roundtrips": 1,
+        "links": 2
+      },
+      "totals": {
+        "orders": {
+          "requested_quantity": {
+            "sum_of_known": "5.00",
+            "known_count": 2,
+            "null_count": 0
+          },
+          "filled_quantity": {
+            "sum_of_known": "4.00",
+            "known_count": 2,
+            "null_count": 0
+          },
+          "requested_price": {
+            "sum_of_known": "200.24691357802469135780246913578",
+            "known_count": 2,
+            "null_count": 0
+          },
+          "filled_amount": {
+            "sum_of_known": "410.0000000000000000003",
+            "known_count": 2,
+            "null_count": 0
+          },
+          "commission": {
+            "sum_of_known": "0",
+            "known_count": 0,
+            "null_count": 2
+          },
+          "tax": {
+            "sum_of_known": "0",
+            "known_count": 0,
+            "null_count": 2
+          }
+        },
+        "roundtrips": {
+          "quantity": {
+            "sum_of_known": "2.00",
+            "known_count": 1,
+            "null_count": 0
+          },
+          "buy_amount": {
+            "sum_of_known": "200.0000000000000000001",
+            "known_count": 1,
+            "null_count": 0
+          },
+          "sell_amount": {
+            "sum_of_known": "210.0000000000000000002",
+            "known_count": 1,
+            "null_count": 0
+          },
+          "gross_pnl": {
+            "sum_of_known": "10.0000000000000000001",
+            "known_count": 1,
+            "null_count": 0
+          },
+          "commission": {
+            "sum_of_known": "0",
+            "known_count": 0,
+            "null_count": 1
+          },
+          "tax": {
+            "sum_of_known": "0",
+            "known_count": 0,
+            "null_count": 1
+          },
+          "net_pnl": {
+            "sum_of_known": "0",
+            "known_count": 0,
+            "null_count": 1
+          }
+        },
+        "links": {
+          "allocated_quantity": {
+            "sum_of_known": "4.00",
+            "known_count": 2,
+            "null_count": 0
+          }
+        }
+      },
+      "cost_unknown_roundtrips": 1,
+      "cost_assumed_roundtrips": 0,
+      "cost_confirmed_roundtrips": 0,
+      "partial_cancelled_orders": 1,
+      "order_status_counts": {
+        "CANCELLED": 1,
+        "FILLED": 1
+      },
+      "arithmetic_residuals": [],
+      "evidence_scope": "canonical_payload_integrity_and_declared_references_only_not_accounting_or_broker_verification",
+      "confirmed_net_pnl": null,
+      "confirmed_win_rate": null,
+      "account_return": null,
+      "mdd": null,
+      "historical_only": true,
+      "current_account_verified": false,
+      "source_completeness": "partial_or_unknown",
+      "pit_eligible": false,
+      "known_at": "2026-10-26T07:04:59.127629+00:00",
+      "known_at_meaning": "local_import_observation_not_historical_fill_or_decision_time",
+      "bundle_kind": "synthetic_fixture"
+    },
+    {
+      "lineage_id": "SYNTHETIC-FIXTURE-kr_shadow",
+      "cohort": "kr_shadow",
+      "currency": "KRW",
+      "snapshot_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+      "snapshot_recorded_at": {
+        "meaning": "snapshot_saved_at",
+        "raw": "2026-10-25T11:00:00",
+        "timezone": "Asia/Seoul"
+      },
+      "counts": {
+        "orders": 2,
+        "roundtrips": 1,
+        "links": 2
+      },
+      "totals": {
+        "orders": {
+          "requested_quantity": {
+            "sum_of_known": "5.00",
+            "known_count": 2,
+            "null_count": 0
+          },
+          "filled_quantity": {
+            "sum_of_known": "4.00",
+            "known_count": 2,
+            "null_count": 0
+          },
+          "requested_price": {
+            "sum_of_known": "200.24691357802469135780246913578",
+            "known_count": 2,
+            "null_count": 0
+          },
+          "filled_amount": {
+            "sum_of_known": "410.0000000000000000003",
+            "known_count": 2,
+            "null_count": 0
+          },
+          "commission": {
+            "sum_of_known": "0.20",
+            "known_count": 2,
+            "null_count": 0
+          },
+          "tax": {
+            "sum_of_known": "0.00",
+            "known_count": 2,
+            "null_count": 0
+          }
+        },
+        "roundtrips": {
+          "quantity": {
+            "sum_of_known": "2.00",
+            "known_count": 1,
+            "null_count": 0
+          },
+          "buy_amount": {
+            "sum_of_known": "200.0000000000000000001",
+            "known_count": 1,
+            "null_count": 0
+          },
+          "sell_amount": {
+            "sum_of_known": "210.0000000000000000002",
+            "known_count": 1,
+            "null_count": 0
+          },
+          "gross_pnl": {
+            "sum_of_known": "10.0000000000000000001",
+            "known_count": 1,
+            "null_count": 0
+          },
+          "commission": {
+            "sum_of_known": "0.10",
+            "known_count": 1,
+            "null_count": 0
+          },
+          "tax": {
+            "sum_of_known": "0.00",
+            "known_count": 1,
+            "null_count": 0
+          },
+          "net_pnl": {
+            "sum_of_known": "9.9000000000000000001",
+            "known_count": 1,
+            "null_count": 0
+          }
+        },
+        "links": {
+          "allocated_quantity": {
+            "sum_of_known": "4.00",
+            "known_count": 2,
+            "null_count": 0
+          }
+        }
+      },
+      "cost_unknown_roundtrips": 0,
+      "cost_assumed_roundtrips": 1,
+      "cost_confirmed_roundtrips": 0,
+      "partial_cancelled_orders": 1,
+      "order_status_counts": {
+        "CANCELLED": 1,
+        "FILLED": 1
+      },
+      "arithmetic_residuals": [],
+      "evidence_scope": "canonical_payload_integrity_and_declared_references_only_not_accounting_or_broker_verification",
+      "confirmed_net_pnl": null,
+      "confirmed_win_rate": null,
+      "account_return": null,
+      "mdd": null,
+      "historical_only": true,
+      "current_account_verified": false,
+      "source_completeness": "partial_or_unknown",
+      "pit_eligible": false,
+      "known_at": "2026-10-26T07:04:59.127629+00:00",
+      "known_at_meaning": "local_import_observation_not_historical_fill_or_decision_time",
+      "bundle_kind": "synthetic_fixture"
+    },
+    {
+      "lineage_id": "SYNTHETIC-FIXTURE-us_shadow",
+      "cohort": "us_shadow",
+      "currency": "USD",
+      "snapshot_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+      "snapshot_recorded_at": {
+        "meaning": "snapshot_saved_at",
+        "raw": "2026-10-25T11:00:00",
+        "timezone": "Asia/Seoul"
+      },
+      "counts": {
+        "orders": 2,
+        "roundtrips": 1,
+        "links": 2
+      },
+      "totals": {
+        "orders": {
+          "requested_quantity": {
+            "sum_of_known": "5.00",
+            "known_count": 2,
+            "null_count": 0
+          },
+          "filled_quantity": {
+            "sum_of_known": "4.00",
+            "known_count": 2,
+            "null_count": 0
+          },
+          "requested_price": {
+            "sum_of_known": "200.24691357802469135780246913578",
+            "known_count": 2,
+            "null_count": 0
+          },
+          "filled_amount": {
+            "sum_of_known": "410.0000000000000000003",
+            "known_count": 2,
+            "null_count": 0
+          },
+          "commission": {
+            "sum_of_known": "0.20",
+            "known_count": 2,
+            "null_count": 0
+          },
+          "tax": {
+            "sum_of_known": "0.00",
+            "known_count": 2,
+            "null_count": 0
+          }
+        },
+        "roundtrips": {
+          "quantity": {
+            "sum_of_known": "2.00",
+            "known_count": 1,
+            "null_count": 0
+          },
+          "buy_amount": {
+            "sum_of_known": "200.0000000000000000001",
+            "known_count": 1,
+            "null_count": 0
+          },
+          "sell_amount": {
+            "sum_of_known": "210.0000000000000000002",
+            "known_count": 1,
+            "null_count": 0
+          },
+          "gross_pnl": {
+            "sum_of_known": "10.0000000000000000001",
+            "known_count": 1,
+            "null_count": 0
+          },
+          "commission": {
+            "sum_of_known": "0.10",
+            "known_count": 1,
+            "null_count": 0
+          },
+          "tax": {
+            "sum_of_known": "0.00",
+            "known_count": 1,
+            "null_count": 0
+          },
+          "net_pnl": {
+            "sum_of_known": "9.9000000000000000001",
+            "known_count": 1,
+            "null_count": 0
+          }
+        },
+        "links": {
+          "allocated_quantity": {
+            "sum_of_known": "4.00",
+            "known_count": 2,
+            "null_count": 0
+          }
+        }
+      },
+      "cost_unknown_roundtrips": 0,
+      "cost_assumed_roundtrips": 1,
+      "cost_confirmed_roundtrips": 0,
+      "partial_cancelled_orders": 1,
+      "order_status_counts": {
+        "CANCELLED": 1,
+        "FILLED": 1
+      },
+      "arithmetic_residuals": [],
+      "evidence_scope": "canonical_payload_integrity_and_declared_references_only_not_accounting_or_broker_verification",
+      "confirmed_net_pnl": null,
+      "confirmed_win_rate": null,
+      "account_return": null,
+      "mdd": null,
+      "historical_only": true,
+      "current_account_verified": false,
+      "source_completeness": "partial_or_unknown",
+      "pit_eligible": false,
+      "known_at": "2026-10-26T07:04:59.127629+00:00",
+      "known_at_meaning": "local_import_observation_not_historical_fill_or_decision_time",
+      "bundle_kind": "synthetic_fixture"
+    }
+  ],
+  "cross_lineage_or_currency_aggregation": "not_performed",
+  "limitations": [
+    "Checksums verify this supplied bundle, not authoritative source completeness.",
+    "Order and ledger timestamps are not independently proven broker fill timestamps.",
+    "Shadow assumed costs and MOCK unknown costs are never combined into confirmed performance.",
+    "No operational orders, positions, cash, holds, latches, reservations or account state are imported."
+  ]
+}

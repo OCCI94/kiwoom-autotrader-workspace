@@ -1,0 +1,37 @@
+{
+  "schema": "arm-change-review/feature-flags/v0.1",
+  "note": "예시 레지스트리(example). 실제 운영 상태가 아니다. 실제 레지스트리는 봇 소스 밖(예: reports/<날짜>/feature-flags.json)에 두고 feature_status.py --registry 로 지정한다. 상태 변경은 사람이 변경 기록과 함께 손으로 고친다. SHADOW 항목의 expires(2026-11-20)가 지나면 이 예시는 의도적으로 경고를 낸다.",
+  "entries": [
+    {
+      "name": "EXP_D/auction_window_ttl",
+      "state": "SHADOW",
+      "owner": "tr-oh",
+      "since": "2026-11-03",
+      "expires": "2026-11-20",
+      "evidence": "",
+      "scope": ["EXP_D", "EXP_VSS", "EXP_LDR"],
+      "example": true,
+      "notes": "예시. D·VSS·LDR 단일가 매수의 미체결 TTL을 180초 대신 검증된 15:30 종가 단일가 창 종료로 바꾸는 결함 수정. 격리 스위트는 통과했으나 2026-11-03 야간 배포 3회가 배포 도구 결함으로 실패해 미배포. SHADOW 동안 'TTL로 취소됐을 주문' 건수와 실제 체결 건수를 기록한다."
+    },
+    {
+      "name": "EXP_VSS",
+      "state": "LIVE",
+      "owner": "tr-oh",
+      "since": "2026-11-03",
+      "expires": "",
+      "evidence": "docs/PAPER_EXPERIMENT.md arm 표; paper_experiment_v1 프로필 승인(AGENTS.md 배포 검증 계약, 14개 활성 arm)",
+      "example": true,
+      "notes": "예시. 15:15 거래량 급증 이월 arm. 14개 활성 arm 중 하나이며 별도 승인 없이 해제하지 않는다."
+    },
+    {
+      "name": "S5_steady_uptrend_vwap",
+      "state": "LIVE",
+      "owner": "tr-oh",
+      "since": "2026-11-02",
+      "expires": "",
+      "evidence": "docs/S5_STEADY_UPTREND_VWAP.md; 프로필 s5_enabled=true; state.json s5_integration.status=ACTIVE",
+      "example": true,
+      "notes": "예시. 네이티브 전략. 프로필 키 s5_enabled 로 켜지며 끄면 paused_arms 에 native_s5_disabled 로 기록된다."
+    }
+  ]
+}

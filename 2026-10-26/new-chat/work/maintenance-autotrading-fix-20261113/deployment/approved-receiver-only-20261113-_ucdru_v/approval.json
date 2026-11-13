@@ -1,0 +1,25 @@
+{
+  "action": "code_deploy",
+  "change_class": "maintenance",
+  "exception_code_change_explicit": true,
+  "expires_at": "2026-11-13T08:59:00+09:00",
+  "issued_at": "2026-11-13T08:50:10.020265+09:00",
+  "kind": "exception-code-token",
+  "mode": "paper",
+  "official_session": {
+    "calendar_file_sha256": "ac2c182385bce7b22bec8ef675180cc4f3114c598a8272d5978296de58b86cab",
+    "calendar_path": "/Volumes/AIStockData/ai-stock-research-data/s5-full-eligibility/20261113-085009031106/toss/0001-calendar-current.json",
+    "calendar_source_sha256": "241c5d481f3537f6c1383db41b0c643aa667c91f7398cb3eb48b26a1b8eda0f1",
+    "claim_path": "/Users/tr-oh/Library/Application Support/KiwoomAutotrader/research-readonly/toss-evidence-refresh-claims/20261113-0850.claim.json",
+    "claim_sha256": "ce47037baf4efe406fbe401830a90582aabf84c9664e698f69161e17b641461f"
+  },
+  "receiver_pid": 2130,
+  "schema": "runtime-code-deployment-approval-v1",
+  "scope": "receiver_only",
+  "source_manifest_sha256": "5e13d15d0449cf9d99952ed583ac324c4929e73fa1e983cff0c9c3ad3b64bf5c",
+  "user_approval": {
+    "kind": "explicit_code_deployment",
+    "reference": "2026-11-13-preopen-maintenance-autotrading-fix-receiver-only",
+    "text": "사용자 명시 승인: 2026-11-13 금요일 장전(08:50) 예외 코드 배포(exception code deployment, scope=receiver_only, change_class=maintenance, package_sha256=5e13d15d0449cf9d99952ed583ac324c4929e73fa1e983cff0c9c3ad3b64bf5c)를 승인합니다."
+  }
+}

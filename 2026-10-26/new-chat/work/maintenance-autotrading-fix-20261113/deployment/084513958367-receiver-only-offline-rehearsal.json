@@ -1,0 +1,44 @@
+{
+  "approval_kind": "exception-code-token",
+  "baseline_sha256": "a32a4a7c18a9bf9adc03eec367eb2ddcb05749aed47c709e17dbc4d47dd502bf",
+  "candidate_sha256": "5e13d15d0449cf9d99952ed583ac324c4929e73fa1e983cff0c9c3ad3b64bf5c",
+  "change_class": "maintenance",
+  "deployer_sha256": "3b2329216054a5009e7433bcd53d5b62b5e1ec37d09bed24277aaf19f3b80275",
+  "fixture_new_pid": 41002,
+  "fixture_orders_after": 1,
+  "fixture_orders_before": 1,
+  "mock_launchctl_calls": [
+    "bootout",
+    "enable",
+    "bootstrap"
+  ],
+  "network_calls": 0,
+  "order_pause_released_before_open": true,
+  "pre_replace_gate": {
+    "altered_stopped_pid_rejected": true,
+    "old_pid": 2130,
+    "package_unchanged_at_gate": true,
+    "receiver_stopped": true
+  },
+  "process_control_calls": 0,
+  "production_access": false,
+  "registered_control_audit": {
+    "automatic_recoveries": 0,
+    "coverage_complete": true,
+    "limitations": [
+      "registered_paths_and_periodic_drift_witness_only;not_omniscient_OS_audit"
+    ],
+    "manual_interventions": 6,
+    "receiver_restarts": 1,
+    "scope": "registered_software_controls_with_drift_witness",
+    "source_inventory": {
+      "protected_control_witnesses": "0f8f1c2bdfcd78704e7f199690ca6462ecb79ee2ca34e0c1bf5c1dcb5d67d67b",
+      "registered_control_events": "8061a0829743e82da2c67f0cedcd1f9ed8f028fbed48389d346454c01c35ec97"
+    },
+    "status": "verified"
+  },
+  "schema": "receiver-only-offline-handoff-rehearsal-v1",
+  "simulated_at": "2026-11-13T08:50:15+09:00",
+  "status": "passed",
+  "observed_at": "2026-11-13T08:45:13.958367+09:00"
+}
